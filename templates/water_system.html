@@ -1,0 +1,385 @@
+<html>
+<head>
+<link rel="stylesheet" href="../static/styles.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='system_styles.css') }}">
+
+<style>
+</style>
+</head>
+<script>
+$("#logo").css('opacity','0');
+
+    $("#select_logo").click(function(e){
+       e.preventDefault();
+       $("#logo").trigger('click');
+    });
+
+
+$("#reset_btn").click(function(){
+     $("#PropertyForm")[0].reset();
+});
+
+
+var FormData = [
+{   
+    WTField1: "xx",
+    WTField2: "xx",
+    WTFiled3: "xx"
+},  
+{   
+    WDField1: "xx",
+    WDField2: "xx",
+    WDField3: "xx"
+},  
+{   
+    PSField1: "xx",
+    PSField2: "xx",
+    PSField3: "xx"
+},
+];
+
+function convertArrayOfObjectsToCSV(args) {
+var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+data = args.data || null;
+if (data == null || !data.length) {
+    return null;
+}
+
+columnDelimiter = args.columnDelimiter || ',';
+lineDelimiter = args.lineDelimiter || '\n';
+
+keys = Object.keys(data[0]);
+
+result = '';
+result += keys.join(columnDelimiter);
+result += lineDelimiter;
+
+data.forEach(function(item) {
+    ctr = 0;
+    keys.forEach(function(key) {
+        if (ctr > 0) result += columnDelimiter;
+
+        result += item[key];
+        ctr++;
+    });
+    result += lineDelimiter;
+});
+
+return result;
+}
+
+function downloadCSV(args) {
+  var data, filename, link;
+  var csv = convertArrayOfObjectsToCSV({
+     data: FormData
+  });
+  if (csv == null) return;
+
+  filename = args.filename || 'export.csv';
+
+  if (!csv.match(/^data:text\/csv/i)) {
+      csv = 'data:text/csv;charset=utf-8,' + csv;
+ }
+  data = encodeURI(csv);
+
+  link = document.createElement('a');
+  link.setAttribute('href', data);
+  link.setAttribute('download', filename);
+  link.click();
+}
+
+</script>
+<body>
+
+<table>
+
+<tr class="top" >
+<td class="banner1" ><h4>INTEGRATED WATER RESOURCES EVALUATION TOOL</h4></td>
+<td id="welcome" >WELCOME</td>
+
+<td rowspan="3">
+<div id="logobox">
+<img height=60px src="../static/images/waterfront.png">
+<img height=60px src="../static/images/ryerson.png">
+<img height=1px width=100px src="../static/images/spacer.gif">
+</div>
+</td>
+<tr>
+<td colspan="2" class="banner2"><h5>assessing metabolic performance of hybrid water systems</h5></td>
+</tr>
+<tr class="banner3" >
+<td colspan=2 class="banner3"><a href='#' id="select_logo">&nbsp <img src="../static/images/folder.png" height=20px;> Load Project </a> &nbsp&nbsp&nbsp <a  href='#' onclick='downloadCSV({ filename: "form-data.csv" });'>&nbsp<img src="../static/images/save.png" height=20p>&nbsp Save Project</a>&nbsp&nbsp&nbsp<a href='#'>&nbsp<img src="../static/images/information.png" height=20px>Documentation</a>  <a href='#'><img src="../static/images/about.png" height=20px>About </a> </span></td>
+</tr>
+
+<tr>
+<td colspan=2 >
+<div id="mainpic"> 
+<img src="../static/images/iwret_9_background.png" width=90%></img>
+</div>
+</td>
+<td id="mainmenu">
+<br>
+<center>MAIN MENU
+</center>
+<br>
+<br>
+<font size=2>SYSTEM COMPONENTS</font>
+<Br><br>
+<a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
+<br>
+<a class="popup-trigger" rel="nofollow">Water Distribution Network </a>
+<br>
+<a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
+<br>
+
+<a class="popup-trigger" rel="nofollow">Sewer Collection Network </a>
+<br>
+<a class="popup-trigger" rel="nofollow">Water Demand</a>
+<br>
+<div class="popup"><h3 id="myModalLabel">Water Demand</h3>
+<div class="formcontainer">
+<form action="." method="POST">
+
+<div class="formsection">
+  <h3>Single Family Unit</h3>
+  <label>Faucet Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" name="text" value="0" size="30" name="SF Faucet Demand" >
+  <br><label>Shower Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="50" size="30" name="SF Shower Demand" >
+  <br><label>Bathtub Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="SF Bathtub Demand" >
+  <br><label>Dishwasher Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" width="230" name="SF Dishwasher Demand" >
+  <br><label>Clothes Washerr Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="10" name="SF Clothes Washer Demand" >
+  <br><label>Leaks[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="10" name="SF Leaks" >
+  <br> <label>Toilet Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="10" name="SF Toilet Demand" >
+  <br><label">Other Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="10" name="SF Other" >
+</div>
+<div class="formsection">
+  <h3>Multi Family Unit</h3>
+  <label>Faucet Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="50" size="30" name="MF Faucet Demand" >
+  <br><label>Shower Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="MF Shower Demand" >
+  <br><label>Bathtub Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="MF Bathtub Demand" >
+  <br><label>Dishwasher Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" width="230" name="MF Dishwasher Demand" >
+  <br><label>Clothes Washerr Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="10" name="MF Clothes Washer Demand" >
+  <br><label>Leaks[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="10" name="MF Leaks" >
+  <br> <label>Toilet Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="10" name="MF Toilet Demand" >
+  <br><label">Other Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="10" name="MF Other" >
+</div>
+<div class="slider">
+   <h3> SF Water efficient appliances adoption rate</h3>
+  <label>Single-family Units [%] </label><br>
+  <input type="range" min="1" max="100" value="50" class="slider-width" id="SF Rate of Adoption"><br>
+  <label>Multi-family Units[%]</label><br>
+  <input type="range" min="1" max="100" value="50" class="slider-width" id="MF Rate of Adoption">
+</div>
+<div class="formsection">
+  <h3>Water Efficiency Reduction Coeff</h3>
+  <label>Faucet [%]</label>
+  <input type="number" min="0" max="100" step="1" value="50" size="30" name="SF WEC Faucet" >
+  <br><label>Shower [%]</label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="SF WEC Shower" >
+  <br><label>Dishwasher [%] </label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="SF WEC Dishwasher" >
+  <br><label>Bathtub [%]</label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="SF WEC Bathtub" >
+  <br><label>Clothes Washer [%]</label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="SF WEC Clothes Washer" >
+  <br><label>Toilet [%]</label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="SF WEC Toilet" >
+</div>
+
+<div class="formsection">
+  <h3>Water Efficiency Reduction Coeff</h3>
+  <label>Faucet [%]</label>
+  <input type="number" min="0" max="100" step="1" value="50" name="MF WEC Faucet" >
+  <br><label>Shower [%]</label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="MF WEC Shower" >
+  <br><label>Dishwasher [%] </label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="MF WEC Dishwasher" >
+  <br><label>Bathtub [%]</label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="MF WEC Bathtub" >
+  <br><label>Clothes Washer [%]</label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="MF WEC Clothes Washer" >
+  <br><label>Toilet [%]</label>
+  <input type="number" min="0" max="100" step="1" value="0"  name="MF WEC Toilet" >
+</div>
+
+<div class="formsection">
+  <h3>Community Centers</h3>
+  <label>Total Area [m2]</label>
+  <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="CC Area" >
+  <br><label>Unit Demand [l/m2/day</label>
+  <input type="number" min="0" max="100" step="1" value="0" name="CC Unit Demand" >
+</div>
+<div class="formsection">
+  <h3>Office Buidlings</h3>
+  <label>Office Building Area[m2]</label>
+  <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Footprint Office Buildings" >
+  <br><label>Shower Demand[l/capita/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="OB Unit Demand per m2" >
+</div>
+<div class="formsection">
+  <h3>Daycares</h3>
+  <label>Number of Children [#]</label>
+  <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Number of Children" >
+  <br><label>Demand per Child [l/child/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Demand per Child" >
+</div>
+<div class="formsection">
+  <h3>Hotels</h3>
+  <label>Hotel Area [m/2]</label>
+  <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Footprint Hotels" >
+  <br><label>Unit Demand[l/m2/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Demand per m2" >
+</div>
+<div class="formsection">
+  <h3>Retail</h3>
+  <label>Retail area/label>
+  <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Retail floor area" >
+  <br><label>Retail unit demand/label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Demand of Retail Space" >
+</div>
+<div class="formsection">
+  <h3>Hospitals</h3>
+  <label>Number of Beds [#]</label>
+  <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Number of Beds" >
+  <br><label>Demand per Bed [l/bed/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit demand per bed" >
+</div>
+<div class="formsection">
+  <h3>Irrigation Demand</h3>
+  <label>Public Spaces for Irrigation [m2]</label>
+  <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Public spaces for Irrigation" >
+  <br><label>Unit Demand for Public Spaces [l/m2/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Irrigation Demand" >
+   <br><label>Unit Demand for Lawn Irrigation [l/m2/day]/label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="SF Lawn Area" >
+</div>
+<div class="formsection">
+  <h3>Industrial Deamnd</h3>
+  <label>Industrial Area [m2]</label>
+  <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Industrial Floor Area" >
+  <br><label>Unit Demand [l/m2/day]</label>
+  <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Industrial Demand" >
+</div>
+<p>
+<input type="submit" name="my-form" class="create" value="Create Model">
+<!--
+<button type='submit' class="create">Update Values</button>
+-->
+</p>
+</form>
+</div>
+<span class="popup-btn-close">close</span>
+</div>
+<a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
+<br>
+<a class="popup-trigger" rel="nofollow">Pumping Stations</a>
+<br>
+<a class="popup-trigger" rel="nofollow">Neighborhood Hydrology</a>
+<br>
+<a class="popup-trigger" rel="nofollow">Reuse/Recylce Systems</a>
+</td>
+</tr>
+
+</table>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+
+var DataList = [];
+window.onload = function() {
+        // setup the button click
+        document.getElementById("SubmitModel").onclick = function() {
+                doWork()
+        };
+}
+function doWork() {
+$.ajax({
+        type: 'POST',
+        url: "cgi-bin/test.cgi",
+        data: DataList, //passing some input here
+        dataType: "text",
+        success: function(response){
+           output = response;
+           alert(output);
+        }
+}).done(function(data){
+    console.log(data);
+    alert(data);
+});
+
+}
+$("#logo").css('opacity','0');
+
+    $("#select_logo").click(function(e){
+       e.preventDefault();
+       $("#logo").trigger('click');
+    });
+
+
+$("#reset_btn").click(function(){
+     $("#PropertyForm")[0].reset();
+});
+
+var scrollTop = '';
+var newHeight = '100';
+$(window).bind('scroll', function() {
+   scrollTop = $( window ).scrollTop();
+           newHeight = scrollTop + 100;
+        });
+
+        $('.popup-trigger').click(function(e) {
+         e.stopPropagation();
+         if(jQuery(window).width() < 767) {
+           $(this).after( $(this).nextAll('.popup:first') );
+           $(this).nextAll('.popup:first').show().addClass('popup-mobile').css('top', 0);
+           $('html, body').animate({
+                        scrollTop: $(this).nextAll('.popup:first').offset().top
+                }, 500);
+         } else {
+         $('.popup').hide();
+         $(this).nextAll('.popup:first').removeClass('popup-mobile').css('top', newHeight).toggle();
+         };
+        });
+
+        $('html').click(function() {
+         $('.popup').hide();
+        });
+
+        $('.popup-btn-close').click(function(e){
+          $(this).parent().hide();
+        });
+
+        $('.popup').click(function(e){
+          e.stopPropagation();
+        });
+
+function onSubmit(form){
+   var data = JSON.stringify( $(form).serializeArray() );
+   console.log(DataList);
+   /*document.getElementById("demo" ).innerHTML= DataList+ " <BR> <BR>Data has been submitted.";
+   */
+   DataList.push(data);
+   return false;
+}
+</script>
+
+</html>

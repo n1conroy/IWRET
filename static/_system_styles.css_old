@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+*, *:before, *:after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #033875; color: #B9B5C7; font: 14px 'Open Sans', sans-serif; }
+top {padding-right: 20px; background: #2DAE13; text-align: right; }
+a { text-transform: uppercase; text-decoration: none; line-height: 42px; }
+p { margin: 0 0 20px; line-height: 1.5; }
+
+h3 {font-size: 16px; font-weight:bold;text-align:left;}
+
+label {font-size:10px;}
+
+.main { float:left; display: in-line;margin: 0 auto; padding: 40px 20px; max-width: 960px; font-size: 19px; line-height: 30px;}
+.main a { color:#FFFFFF; text-transform: none; }
+.menu {position:absolute; top:190px; left:200px;}
+.popup-trigger { float:top; top: 20px; display:block; left:50px;  margin: 0 auto; padding: 5px;  max-width: 300px; background: grey; color: #fff;
+ font-size: 18px; font-weight: 700; text-align: center; text-transform: uppercase; line-height: 24px; cursor: pointer; }
+.popup {display: none; position:absolute; top:0px; left:220%; width: 800px; margin-left: -350px; padding: 10px; background: #fff; color:black; font-size: 14px; line-height: 30px; border: 10px solid #150E2D; z-index: 9999;}
+.popup-mobile {position: relative; top: 0; left: 0; margin: 30px 0 0; width: 100%;}
+.popup-btn-close {position: absolute; top: 8px; right: 14px; color: #4EBD79; font-size: 14px; font-weight: bold; text-transform: uppercase; cursor: pointer;}
+div.inline { display:inline-block; font-color:"#FFFFFF";left:'500%';
+float:left; top:40px; }
+
+
+.slider-width {
+  width:80%;
+}
+.slider{
+    width:90%;
+    line-spacing:2px;
+    margin:10px;
+    text-align:left;
+    border:1px solid black;
+    font-size: 11px;
+    float:left;
+    line-height:15px;
+    padding-left:7px;
+    padding-top:4px;
+}
+ 
+.results {
+    position: absolute;
+    left:200px;
+    display: inline-block; 
+    background:#FFFFFF;
+    width:100%
+    border:10px solid black;
+;} 
+
+.formcontainer{
+    margin:-7px;
+}
+.formsection {
+    margin:7px;
+    line-height:14px;
+    padding-left:7px;
+    padding-top:4px;
+    right:0px;
+    text-align:right;
+    border:1px solid black;
+    font-size: 11px;
+    width:44%;
+    float:left;
+}
+
+
+
+input[type=number]{
+    width: 100px;
+    height: 10px;
+}
+ </style>
