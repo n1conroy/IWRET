@@ -16,15 +16,16 @@ app = Flask (__name__, template_folder=templateDir);
 def water_system():
     return render_template("water_system.html")
 
-@app.route('/', methods=['POST'])
+@app.route('/result', methods=['POST'])
 
-def well_data():
-    #text = request.form['SF Initial Stock of Units','MF Initial Stock of Units']
+def result():
     model = pysd.read_vensim ('teacup.mdl') 
     data = model.run(params={'final_time':11.23,'heat_loss_to_room':67.98,'saveper':87.9,'time_step':2,'initial_time': 23.238},return_columns=['characteristic_time', 'room_temperature','teacup_temperature'])
-    print (data)
-    return render_template('well.html', data=data)
+    
+    result = request.form
+    #return render_template('well.html', data=data)
+    return render_template('well.html', result=result)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 

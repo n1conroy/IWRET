@@ -8,14 +8,15 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+      /* 
+       var data = google.visualization.arrayToDataTable([
           ['Director (Year)',  'Gauge1', 'Gauge2', 'Gauge3'],
           ['Output1', 8.4,         7.9, 4.2],
           ['Output2',     6.9,         6.5, 3.9],
           ['Output3',        6.5,         6.4,  12.4],
-          ['Output4',      4.4,         6.2, 7.6]
-        ]);
-
+          ['Output4',      4.4,         6.2, 7.6] ]);
+	*/
+        
         var options = {
           title: 'Water Treatment Resources',
           vAxis: {title: 'Accumulated Rating'},
@@ -26,7 +27,7 @@
 
        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
 
-       chart.draw(data, options);
+     //  chart.draw(data, options);
       } 
 
     </script>
@@ -35,7 +36,19 @@
 
 <body>
 <div>
-<h3>Final Well Reading on {{ data.final_reading }}</h3>
+<h3>Final Well Reading on </h3>
+ <table border = 1>
+         {% for key, value in result.items() %}
+         
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+            
+         {% endfor %}
+      </table>
+
+
 </div>
 
  <div class="main">
