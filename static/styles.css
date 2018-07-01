@@ -1,5 +1,5 @@
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -85,11 +85,10 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-
 }
 
 .results {
-    position: absolute;
-    left:200px;
+    float:right;
     display: inline-block;
     background:#FFFFFF;
-    width:100%
+    width:
     border:10px solid black;
 ;}
 
@@ -111,7 +110,16 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-
     float:left;
 }
 
-input[type=number]{
+.input[type=number]{
     width: 120px;
     height: 16px;
+
+.formoutput {
+  border:1px; 
+  cellpadding:5px;
+} 
+
+
+
+
 }
