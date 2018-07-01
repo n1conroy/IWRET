@@ -1,41 +1,52 @@
 <html>
-<head>
+ <head>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
   <script type="text/javascript">
-    google.load('visualization', '1.1', {packages: ['line']});
-    google.setOnLoadCallback(drawChart);
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Director (Year)',  'Gauge1', 'Gauge2', 'Gauge3'],
+          ['Output1', 8.4,         7.9, 4.2],
+          ['Output2',     6.9,         6.5, 3.9],
+          ['Output3',        6.5,         6.4,  12.4],
+          ['Output4',      4.4,         6.2, 7.6]
+        ]);
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Date/Time');
-      data.addColumn('number', 'Depth');
-      data.addRows({{ data.row_data| safe }});
+        var options = {
+          title: 'Water Treatment Resources',
+          vAxis: {title: 'Accumulated Rating'},
+          isStacked:'relative',
+          height:400,
+          legend: {position: 'top', maxLines: 3},
+        };
 
-      var options = {
-        chart: {
-          title: 'Well Depth',
-          subtitle: 'Well #1'
-        },
-        width: 900,
-        height: 500,
-        hAxis: {slantedText:true, slantedTextAngle:45}
+       var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
 
-      };
+       chart.draw(data, options);
+      } 
 
-      var chart = new google.charts.Line(document.getElementById('linechart_material'));
-
-      chart.draw(data, options);
-    }
-  </script>
+    </script>
 </head>
+
+
 <body>
-
-  <div id="linechart_material"></div>
-
 <div>
 <h3>Final Well Reading on {{ data.final_reading }}</h3>
 </div>
+
+ <div class="main">
+ <div class="results">
+    <div id="chart_div"></div>
+    <div id="barchart_material"></div>
+    <div id="donutchart" style="float:right;"></div>
+     <div id="gaugechart" style="position:'inline'; top: 100px; width: 400px; height: 120px;"></div>
+  </div>
+ </div>
+
 
 </body>
 </html>
