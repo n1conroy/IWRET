@@ -61,7 +61,7 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-
 
 .popup-trigger {display:block; cursor:hand;height:22px; padding: 5px; font-size:17px; text-align:middle; vertical-align:middle; background: white;border: 1px solid #003cb3;  color: #003cb3;}
 
-.popup { display:none; left:0px; padding-left:20px; top:0px; overflow:scroll; margin-left:70px; margin-top:-70px; position:fixed;width: 800px;  padding: 5px; background: #fff; color:black; font-size: 14px; line-height: 13px; border: 8px solid #150E2D; z-index: 100;}
+.popup { display:none; left:0px; padding-left:20px; top:0px; overflow:scroll; margin-left:70px;  margin-top:-100px; position:fixed; width: 890px; padding: 5px; background: #fff; color:black; font-size: 18px; line-height: 19px; border: 8px solid #150E2D; z-index: 100;}
 
 .popup-btn-close {position: absolute; top: 8px; right: 14px; color: #4EBD79; font-size: 14px; font-weight: bold; text-transform: uppercase; cursor: pointer;}
 
@@ -73,11 +73,11 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-
 }
 .slider{
     width:90%;
-    line-spacing:2px;
+    line-spacing:6px;
     margin:10px;
     text-align:left;
     border:1px solid black;
-    font-size: 11px;
+    font-size: 15px;
     float:left;
     line-height:15px;
     padding-left:7px;
@@ -98,18 +98,20 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-
 }
 .formsection {
     margin:7px;
-    line-height:14px;
+    line-height:20px;
     padding-left:7px;
-    padding-top:4px;
-    right:0px;
+    padding-right:25px;
+    padding-top:6px;
+    padding-bottom: 6px; 
+   right:30px;
     text-align:right;
     border:1px solid black;
-    font-size: 11px;
+    font-size: 15px;
     width:44%;
     float:left;
 }
 
 input[type=number]{
-    width: 100px;
-    height: 10px;
+    width: 120px;
+    height: 16px;
 }

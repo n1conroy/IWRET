@@ -1,37 +1,30 @@
 #!/usr/bin/python
 
-from flask import Flask
-from flask import request
-from flask import render_template
+from flask import Flask, flash, redirect, render_template, request, session, abort
+import os
 import sys
 import numpy as np
 import pandas as pd
+import json
 import pysd
-import matplotlib.pyplot as plt
+import urllib2
 
-app = Flask(__name__)
+templateDir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates');
+app = Flask (__name__, template_folder=templateDir);
+
 @app.route('/')
-
 def water_system():
     return render_template("water_system.html")
+
 @app.route('/', methods=['POST'])
 
-
-def water_system_post():
+def well_data():
     #text = request.form['SF Initial Stock of Units','MF Initial Stock of Units']
-    model = pysd.read_vensim ('teacup.mdl') # Reads and converts MDL file into a Python Class
-    x= model.run()
-    values = model.run(params={'final_time':11.23,'heat_loss_to_room':67.98,'saveper':87.9,'time_step':2,'initial_time': 23.238},return_columns=['characteristic_time', 'room_temperature','teacup_temperature']) # Resulting Variables
-    
-    s = 1 + np.sin(2 * np.pi * values)
-    fig, ax = plt.subplots()
-    ax.plot(s, values)
-
-    ax.set (xlabel='time (s)', ylabel='water usage (l/d)',
-       title ='Water System')
-    ax.grid
-    #plt.show()
-    return str(s) 
+    model = pysd.read_vensim ('teacup.mdl') 
+    data = model.run(params={'final_time':11.23,'heat_loss_to_room':67.98,'saveper':87.9,'time_step':2,'initial_time': 23.238},return_columns=['characteristic_time', 'room_temperature','teacup_temperature'])
+    print (data)
+    return render_template('well.html', data=data)
 
 if __name__ == '__main__':
     app.run()
+

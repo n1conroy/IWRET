@@ -1,95 +1,14 @@
 <html>
 <head>
 <link rel="stylesheet" href="../static/styles.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='system_styles.css') }}">
-
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <style>
 </style>
 </head>
-<script>
-$("#logo").css('opacity','0');
 
-    $("#select_logo").click(function(e){
-       e.preventDefault();
-       $("#logo").trigger('click');
-    });
-
-
-$("#reset_btn").click(function(){
-     $("#PropertyForm")[0].reset();
-});
-
-
-var FormData = [
-{   
-    WTField1: "xx",
-    WTField2: "xx",
-    WTFiled3: "xx"
-},  
-{   
-    WDField1: "xx",
-    WDField2: "xx",
-    WDField3: "xx"
-},  
-{   
-    PSField1: "xx",
-    PSField2: "xx",
-    PSField3: "xx"
-},
-];
-
-function convertArrayOfObjectsToCSV(args) {
-var result, ctr, keys, columnDelimiter, lineDelimiter, data;
-
-data = args.data || null;
-if (data == null || !data.length) {
-    return null;
-}
-
-columnDelimiter = args.columnDelimiter || ',';
-lineDelimiter = args.lineDelimiter || '\n';
-
-keys = Object.keys(data[0]);
-
-result = '';
-result += keys.join(columnDelimiter);
-result += lineDelimiter;
-
-data.forEach(function(item) {
-    ctr = 0;
-    keys.forEach(function(key) {
-        if (ctr > 0) result += columnDelimiter;
-
-        result += item[key];
-        ctr++;
-    });
-    result += lineDelimiter;
-});
-
-return result;
-}
-
-function downloadCSV(args) {
-  var data, filename, link;
-  var csv = convertArrayOfObjectsToCSV({
-     data: FormData
-  });
-  if (csv == null) return;
-
-  filename = args.filename || 'export.csv';
-
-  if (!csv.match(/^data:text\/csv/i)) {
-      csv = 'data:text/csv;charset=utf-8,' + csv;
- }
-  data = encodeURI(csv);
-
-  link = document.createElement('a');
-  link.setAttribute('href', data);
-  link.setAttribute('download', filename);
-  link.click();
-}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
 </script>
+
 <body>
 
 <table>
@@ -140,7 +59,9 @@ function downloadCSV(args) {
 <div class="popup"><h3 id="myModalLabel">Water Demand</h3>
 <div class="formcontainer">
 <form action="." method="POST">
-
+<p>
+<input type="submit" name="my-form" class="create" value="Create Model">
+</p>
 <div class="formsection">
   <h3>Single Family Unit</h3>
   <label>Faucet Demand[l/capita/day]</label>
@@ -276,15 +197,14 @@ function downloadCSV(args) {
   <br><label>Unit Demand [l/m2/day]</label>
   <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Industrial Demand" >
 </div>
-<p>
-<input type="submit" name="my-form" class="create" value="Create Model">
-<!--
-<button type='submit' class="create">Update Values</button>
--->
-</p>
 </form>
 </div>
+<p>
+<input type="submit" name="my-form" class="create" value="Create Model">
+</p>
 <span class="popup-btn-close">close</span>
+<br>
+
 </div>
 <a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
 <br>
@@ -298,49 +218,16 @@ function downloadCSV(args) {
 
 </table>
 
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
 <script>
-
 var DataList = [];
-window.onload = function() {
-        // setup the button click
-        document.getElementById("SubmitModel").onclick = function() {
-                doWork()
-        };
-}
-function doWork() {
-$.ajax({
-        type: 'POST',
-        url: "cgi-bin/test.cgi",
-        data: DataList, //passing some input here
-        dataType: "text",
-        success: function(response){
-           output = response;
-           alert(output);
-        }
-}).done(function(data){
-    console.log(data);
-    alert(data);
-});
-
-}
-$("#logo").css('opacity','0');
-
-    $("#select_logo").click(function(e){
-       e.preventDefault();
-       $("#logo").trigger('click');
-    });
-
 
 $("#reset_btn").click(function(){
      $("#PropertyForm")[0].reset();
 });
 
 var scrollTop = '';
-var newHeight = '100';
+var newHeight = '200';
+
 $(window).bind('scroll', function() {
    scrollTop = $( window ).scrollTop();
            newHeight = scrollTop + 100;
@@ -380,6 +267,78 @@ function onSubmit(form){
    DataList.push(data);
    return false;
 }
+
+
+var FormData = [
+{
+    WTField1: "xx",
+    WTField2: "xx",
+    WTFiled3: "xx"
+},
+{
+    WDField1: "xx",
+    WDField2: "xx",
+    WDField3: "xx"
+},
+{
+    PSField1: "xx",
+    PSField2: "xx",
+    PSField3: "xx"
+},
+];
+
+
+function convertArrayOfObjectsToCSV(args) {
+var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+data = args.data || null;
+if (data == null || !data.length) {
+    return null;
+}
+
+columnDelimiter = args.columnDelimiter || ',';
+lineDelimiter = args.lineDelimiter || '\n';
+
+keys = Object.keys(data[0]);
+
+result = '';
+result += keys.join(columnDelimiter);
+result += lineDelimiter;
+
+data.forEach(function(item) {
+    ctr = 0;
+    keys.forEach(function(key) {
+        if (ctr > 0) result += columnDelimiter;
+
+        result += item[key];
+        ctr++;
+    });
+    result += lineDelimiter;
+});
+
+return result;
+}
+
+function downloadCSV(args) {
+  var data, filename, link;
+  var csv = convertArrayOfObjectsToCSV({
+     data: FormData
+  });
+  if (csv == null) return;
+
+  filename = args.filename || 'export.csv';
+
+  if (!csv.match(/^data:text\/csv/i)) {
+      csv = 'data:text/csv;charset=utf-8,' + csv;
+ }
+  data = encodeURI(csv);
+
+  link = document.createElement('a');
+  link.setAttribute('href', data);
+  link.setAttribute('download', filename);
+  link.click();
+}
+
 </script>
 
 </html>
