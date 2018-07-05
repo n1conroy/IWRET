@@ -1,6 +1,6 @@
 html, body, div, span, applet, object, iframe,
  h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
+ abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -43,29 +43,33 @@ table {
 }
 
 
-h4 {font-family:arial; color:white; font-size:30px; text-shadow: 2px 2px 6px #000000; }
-h5 {font-family:arial; color:#d9d9d9; font-size:19px; font-weight:10; }
+h4 {font-family:helvetica; color:white; font-size:30px; font-weight:100; text-shadow: 2px 2px 6px #000000; }
+h5 {font-family:helvetica; color:#d9d9d9; font-size:19px; font-weight:100; }
 
-a {font-family:arial; text-decoration:none; colr:#003cb3;}
+a {font-family:helvetica; text-decoration:none; line-spacing:18px; color:#003cb3;}
+
 
 
 table tr.top {background-image:url("images/upper.jpg");  }
-table td.banner1 {background-size: 10%;  padding-left:20px; height:90px; }
+table td.banner1 {background-size:-20%;  padding-left:20px; height:90px; }
 table td.banner2 {padding-left:20px;height:30px; padding-top:4px; background-color:#003cb3; }
-table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-top:3px solid #c4daea;  padding-top:4px; font-family:arial; text-color:#003cb3; font-size:14px; background-color:#00cbcb; }
+table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-top:3px solid #c4daea;  padding-top:4px; font-family:helvetica; text-color:#003cb3; font-size:14px; background-color:#00cbcb; }
 
 #logobox {height:160px; padding-top:8px; border: 2px solid; color: blue;background-color:white;}
-#mainmenu {font-family:arial; color: #003cb3; font-size:24px; position:absolute; line-height:10px; height:560px;padding:5px; background-size:10%; background-image:url("images/menu.jpg");}
-#mainpic { align-items:top; width:90%;}
-#welcome {  padding-left:44px; font-family:arial; color:white; text-shadow: 2px 2px 6px #000000;display:inline-block;font-size:300%;}
+#mainmenu {font-family:helvetica; color: #003cb3; font-size:24px; position:absolute; line-height:10px; height:600px; padding:5px; background-size:10%; background-image:url("images/menu.jpg");}
+#mainpic {align:center; align-items:top; width:80%;}
+
+#welcome {  color: transparent; text-shadow: 0 0 1px #cccccc; padding-left:44px; font-family:helvetica; display:inline-block;font-size:65px;}
+
+.create {display:block; cursor:hand;height:22px; padding: 5px; font-size:17px; text-align:middle; vertical-align:middle; background: #003cb3; border: 1px solid #003cb3;  color:white;}
 
 .popup-trigger {display:block; cursor:hand;height:22px; padding: 5px; font-size:17px; text-align:middle; vertical-align:middle; background: white;border: 1px solid #003cb3;  color: #003cb3;}
 
-.popup { display:none; left:0px; padding-left:20px; top:0px; overflow:scroll; margin-left:70px;  margin-top:-100px; position:fixed; width: 890px; padding: 5px; background: #fff; color:black; font-size: 18px; line-height: 19px; border: 8px solid #150E2D; z-index: 100;}
+.popup { display:none; left:0px; padding-left:20px;  overflow:scroll;  position:absolute; top:-800%; left:-530%;  width: 910px; padding: 5px; background: #fff; color:black; font-size: 17px; line-height: 19px; border: 8px solid #150E2D; z-index: 100;}
 
 .popup-btn-close {position: absolute; top: 8px; right: 14px; color: #4EBD79; font-size: 14px; font-weight: bold; text-transform: uppercase; cursor: pointer;}
 
-#select_logo={font-family:arial; text-color:007d9; font-size:14px;} 
+#select_logo={font-family:helvetica; text-color:007d9; font-size:14px;} 
 
 
 .slider-width {
@@ -113,13 +117,13 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-
 .input[type=number]{
     width: 120px;
     height: 16px;
-
+}
 .formoutput {
   border:1px; 
+  display:none; !important;
   cellpadding:5px;
 } 
 
 
 
 
-}

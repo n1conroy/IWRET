@@ -15,7 +15,7 @@
 
 <tr class="top" >
 <td class="banner1" ><h4>INTEGRATED WATER RESOURCES EVALUATION TOOL</h4></td>
-<td id="welcome" >WELCOME</td>
+<td  id="welcome">WELCOME</td>
 
 <td rowspan="3">
 <div id="logobox">
@@ -34,17 +34,21 @@
 <tr>
 <td colspan=2 >
 <div id="mainpic"> 
-<img src="../static/images/iwret_9_background.png" width=90%></img>
+<center>
+<img src="../static/images/iwret_9_background.png" width=80%></img>
+</center>
 </div>
 </td>
 <td id="mainmenu">
 <br>
 <center>MAIN MENU
-</center>
-<br>
+<br><br><br>
 <br>
 <font size=2>SYSTEM COMPONENTS</font>
-<Br><br>
+<Br><br><br>
+</center>
+<form action="http://localhost:5000/result" method="POST">
+
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
 <a class="popup-trigger" rel="nofollow">Water Distribution Network </a>
@@ -60,10 +64,6 @@
 <div class="formcontainer">
 
 
-<form action="http://localhost:5000/result" method="POST">
-<p>
-<input type="submit" name="my-form" class="create" value="Create Model">
-</p>
 <div class="formsection">
   <h3>Single Family Unit</h3>
   <label>Faucet Demand[l/capita/day]</label>
@@ -199,11 +199,7 @@
   <br><label>Unit Demand [l/m2/day]</label>
   <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Industrial Demand" >
 </div>
-</form>
 </div>
-<p>
-<input type="submit" name="my-form" class="create" value="Create Model">
-</p>
 <span class="popup-btn-close">close</span>
 <br>
 
@@ -215,9 +211,21 @@
 <a class="popup-trigger" rel="nofollow">Neighborhood Hydrology</a>
 <br>
 <a class="popup-trigger" rel="nofollow">Reuse/Recylce Systems</a>
+<br>
+<br>
+<p>
+
+<a href="" onclick="form.submit();" class="create">Create Model</a>
+<input type="submit" name="my-form" class="create" value="Create Model">
+</p>
+</form>
 </td>
 </tr>
-
+<tr>
+<td colspan="1">
+<img src="../static/images/iwret_logo.png" height=100px>
+</td>
+</tr>
 </table>
 
 <script>
