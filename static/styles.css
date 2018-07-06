@@ -63,7 +63,7 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-
 
 .create {display:block; cursor:hand;height:32px; width:220px; padding: 5px; font-size:17px; text-align:center; vertical-align:middle; background: #003cb3; border: 1px solid #003cb3;  color:white;}
 
-.popup-trigger {display:block; cursor:hand;height:22px; padding: 5px; font-size:17px; text-align:middle; vertical-align:middle; background: white; border: 1px solid #003cb3;  color: #003cb3;}
+.popup-trigger {display:block; cursor:hand; height:22px; padding: 2px; font-size:15px; vertical-align:middle; background: white; border: 1px solid #003cb3;  color: #003cb3;}
 
 .popup-trigger:hover {background:grey;}
 
