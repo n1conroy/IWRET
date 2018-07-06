@@ -56,41 +56,125 @@ table td.banner2 {padding-left:20px;height:30px; padding-top:4px; background-col
 table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-top:3px solid #c4daea;  padding-top:4px; font-family:helvetica; text-color:#003cb3; font-size:14px; background-color:#00cbcb; }
 
 #logobox {height:160px; padding-top:8px; border: 2px solid; color: blue;background-color:white;}
-#mainmenu {font-family:helvetica; color: #003cb3; font-size:24px; position:absolute; line-height:10px; height:500px; padding:5px; background-size:10%; background-image:url("images/menu.jpg");}
+#mainmenu {
+	font-family:helvetica; 
+	color: #003cb3; 
+	font-size:24px;
+ 	position:absolute; 
+	line-height:10px; 
+	height:500px; 
+	width:200px;
+	padding:5px; 
+	background-size:10%; 
+	background-image:url("images/menu.jpg");
+}
+
 #mainpic {align:center;padding-left:20px;  align-items:top; width:80%;}
 
 #welcome {  color: transparent; text-shadow: 0 0 1px #cccccc; padding-left:44px; font-family:helvetica; display:inline-block;font-size:65px;}
 
-.create {display:block; cursor:hand;height:32px; width:220px; padding: 5px; font-size:17px; text-align:center; vertical-align:middle; background: #003cb3; border: 1px solid #003cb3;  color:white;}
+.create {
+	display:block; 
+	position:relative;
+	cursor:hand;
+	height:32px; 
+	width:140px; 
+	marigin-left:15px;
+	padding: 5px; 
+	font-size:17px; 
+	text-align:center; 
+	vertical-align:middle; 
+	background: #003cb3;
+	 border: 1px solid #003cb3; 
+	 color:white;
+}
 
-.popup-trigger {display:block; cursor:hand; height:22px; padding: 2px; font-size:15px; vertical-align:middle; background: white; border: 1px solid #003cb3;  color: #003cb3;}
+a.popup-trigger {
+	display:block; 
+	cursor:hand; 
+	height:22px; 
+	padding: 2px; 
+	font-size:15px; 
+	vertical-align:middle; 
+	background: white; 
+	border: 1px solid #003cb3;  
+	color: #003cb3;}
 
-.popup-trigger:hover {background:grey;}
 
-a:hover{color:white;}
+a.popup-none {
+        display:block; 
+        cursor:arrow;
+        height:22px; 
+        padding: 2px; 
+        font-size:15px; 
+        vertical-align:middle; 
+        background: white; 
+        border: 1px solid #003cb3;  
+        color: #003cb3;}
+
+a:hover{
+     	color:white;
+	}
+
+.popup-none:hover {
+      color: #003cb3;  
+      }
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+a.goback{
+      font-family:helvetica;
+      font-size:20px;
+      font-weight:200px;
+}
+a.goback:hover {
+       color:grey;
+}
+
+.popup-trigger:hover {
+	background:grey;
+	}
+
 
 .popup { 
 	display:none; 
 	padding-left:20px;  
 	overflow:scroll;  
 	position:absolute; 
-	top-margin:20px; 
-	left:-500%;  
-	width: 910px; 
+	left:-500%;
+        width: 910px; 
 	padding: 5px; 
 	background: #fff; 
 	height:500px; 
 	color:black; 
 	font-size: 17px; 
 	line-height: 19px; 
-	border: 8px 
+	text-align:left;
+        border: 8px 
 	solid #150E2D; 
 	z-index: 100;}
 
-.popup-btn-close {position: absolute; top: 8px; right: 14px; color: #4EBD79; font-size: 14px; font-weight: bold; text-transform: uppercase; cursor: pointer;}
+.popup-btn-close {
+	position: fixed; 
+	top: 8px; 
+	right: 14px; 
+	display:none;
+	color: #4EBD79; 
+	font-size: 14px; 
+	font-weight: bold; 
+	text-transform: uppercase; 
+	cursor: pointer;
+}
 
 #select_logo={font-family:helvetica; text-color:007d9; font-size:14px;} 
 
+input[type="number"]::-webkit-inner-spin-button 
+  {
+  text-align:right; 
+  width:300px; 
+}
 
 .slider-width {
   width:80%;
@@ -129,7 +213,7 @@ h3 {
     padding-top:6px;
     padding-bottom: 6px; 
    right:30px;
-    text-align:right;
+    text-align:left;
     border:1px solid black;
     font-size: 15px;
     width:44%;

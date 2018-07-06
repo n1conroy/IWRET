@@ -34,7 +34,61 @@
 
     </script>
 
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Fields', 'Source', 'Demand', 'Litres'],
+          ['Var1', 1000, 400, 200],
+          ['Var2', 1170, 460, 250],
+          ['Var3', 660, 1120, 300],
+          ['Var4', 1030, 540, 350]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Outcome',
+            subtitle: 'Demand, Litres, and Output',
+          },
+         height: 400,
+         legend: {position:'top', maxLines:5},
+         bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+    
+   <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['System1',     11],
+          ['System2',      2],
+          ['System3',  2],
+          ['System4', 2],
+          ['System5',    7]
+        ]);
+
+        var options = {
+          title: 'Water Usage',
+          pieHole: 0.9,
+          height:400,
+          width: 500,
+          legend: {
+             position: 'top', maxLines: 5, textStyle: {color: 'blue', fontSize: 10},
+            }
+      };
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+     }
+  </script>
 
 
 
@@ -68,7 +122,7 @@
 </tr>
 
 <tr>
-<td colspan=2 >
+<td>
 
 <div id="mainpic" >
 <br>
@@ -76,12 +130,23 @@
 
 <div class="results">
     <div id="chart_div"></div>
+    <div id="barchart_material"></div>
+    <div id="donutchart"></div> 
 </div>
 </div>
 <div>
 <img src="../static/images/spacer.gif" width=1px height=20px>
 </div>
 </td>
+<td>
+<br>
+<br>
+<br>
+<br>
+<a href="../" class="goback" ><i class="left"></i><  Back</a>
+</td>
+
+
 <td id="mainmenu">
 <br>
 <center>MAIN MENU
@@ -92,16 +157,16 @@
 </center>
 <form action="http://localhost:5000/result" method="POST">
 
-<a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
+<a class="popup-none" rel="nofollow">Neighborhood Properties</a>
 <br>
-<a class="popup-trigger" rel="nofollow">Water Distribution Network </a>
+<a class="popup-none" rel="nofollow">Water Distribution Network </a>
 <br>
-<a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
+<a class="popup-none" rel="nofollow">Water Treatment Works</a>
 <br>
 
-<a class="popup-trigger" rel="nofollow">Sewer Collection Network </a>
+<a class="popup-none" rel="nofollow">Sewer Collection Network </a>
 <br>
-<a class="popup-trigger" rel="nofollow">Water Demand</a>
+<a class="popup-none" rel="nofollow">Water Demand</a>
 <br>
 <div class="popup"><h3 id="myModalLabel">Water Demand</h3>
 <div class="formcontainer">
@@ -214,9 +279,9 @@
 </div>
 <div class="formsection">
   <h3>Retail</h3>
-  <label>Retail area/label>
+  <label>Retail area</label>
   <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Retail floor area" >
-  <br><label>Retail unit demand/label>
+  <br><label>Retail unit demand</label>
   <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Demand of Retail Space" >
 </div>
 <div class="formsection">
@@ -232,7 +297,7 @@
   <input type="number" min="0" max="100" step="1" width="200" value="50" size="30" name="Public spaces for Irrigation" >
   <br><label>Unit Demand for Public Spaces [l/m2/day]</label>
   <input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Irrigation Demand" >
-   <br><label>Unit Demand for Lawn Irrigation [l/m2/day]/label>
+   <br><label>Unit Demand for Lawn Irrigation [l/m2/day]</label>
   <input type="number" min="0" max="100" step="1" value="0" size="30" name="SF Lawn Area" >
 </div>
 <div class="formsection">
@@ -247,13 +312,13 @@
 <br>
 
 </div>
-<a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
+<a class="popup-none" rel="nofollow">Water Treatment Works</a>
 <br>
-<a class="popup-trigger" rel="nofollow">Pumping Stations</a>
+<a class="popup-none" rel="nofollow">Pumping Stations</a>
 <br>
-<a class="popup-trigger" rel="nofollow">Neighborhood Hydrology</a>
+<a class="popup-none" rel="nofollow">Neighborhood Hydrology</a>
 <br>
-<a class="popup-trigger" rel="nofollow">Reuse/Recylce Systems</a>
+<a class="popup-none" rel="nofollow">Reuse/Recylce Systems</a>
 <br>
 <br>
 <p>
@@ -269,7 +334,8 @@
 </tr>
 <tr>
 <td colspan="1">
-<img src="../static/images/iwret_logo.png" height=100px>
+<!--<img src="../static/images/iwret_logo.png" height=100px>
+-->
 </td>
 </tr>
 </table>
@@ -282,39 +348,6 @@ $("#reset_btn").click(function(){
      $("#PropertyForm")[0].reset();
 });
 
-var scrollTop = '';
-var newHeight = '-120';
-
-$(window).bind('scroll', function() {
-   scrollTop = $( window ).scrollTop();
-           newHeight = scrollTop + 100;
-        });
-
-        $('.popup-trigger').click(function(e) {
-         e.stopPropagation();
-         if(jQuery(window).width() < 67) {
-           $(this).after( $(this).nextAll('.popup:first') );
-           $(this).nextAll('.popup:first').show().addClass('popup-mobile').css('top', 0);
-           $('html, body').animate({
-                        scrollTop: $(this).nextAll('.popup:first').offset().top
-                }, 0);
-         } else {
-         $('.popup').hide();
-         $(this).nextAll('.popup:first').removeClass('popup-mobile').css('top', newHeight).toggle();
-         };
-        });
-
-        $('html').click(function() {
-         $('.popup').hide();
-        });
-
-        $('.popup-btn-close').click(function(e){
-          $(this).parent().hide();
-        });
-
-        $('.popup').click(function(e){
-          e.stopPropagation();
-        });
 
 function onSubmit(form){
    var data = JSON.stringify( $(form).serializeArray() );
