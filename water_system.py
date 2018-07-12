@@ -20,11 +20,22 @@ def water_system():
 
 def result():
     model = pysd.read_vensim ('teacup.mdl') 
-    data = model.run(params={'final_time':11.23,'heat_loss_to_room':67.98,'saveper':87.9,'time_step':2,'initial_time': 23.238},return_columns=['characteristic_time', 'room_temperature','teacup_temperature'])
-    
     result = request.form
-    #return render_template('well.html', data=data)
-    return render_template('well.html', result=result)
+    params= {
+	'final_time':11.23,
+	'heat_loss_to_room':67.98,
+	'saveper':87.9,
+	'time_step':2,
+	'initial_time': 23.238
+	}  
+    return_columns = [
+	'characteristic_time', 
+	'room_temperature',
+	'teacup_temperature'
+	]   
+ 
+    data = model.run(params=params,return_columns=return_columns)
+    return render_template('well.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

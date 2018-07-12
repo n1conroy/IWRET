@@ -7,16 +7,16 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script type="text/javascript">
+      var mydata = [{{ ', '.join(data) }}];
+      console.log(mydata);
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-       var data = google.visualization.arrayToDataTable([
+       var chartData = google.visualization.arrayToDataTable([
           ['Director (Year)',  'Gauge1', 'Gauge2', 'Gauge3'],
-          ['Output1', 8.4,         7.9, 4.2],
-          ['Output2',     6.9,         6.5, 3.9],
-          ['Output3',        6.5,         6.4,  12.4],
-          ['Output4',      4.4,         6.2, 7.6] ]);
+          ['fist',34,53,66],	
+	  ['second',4,5,6,]]);
         
         var options = {
           title: 'Water Treatment Resources',
@@ -28,8 +28,9 @@
         };
 
        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
+       console.log('hello');
 
-       chart.draw(data, options);
+       chart.draw(chartData, options);
       } 
 
     </script>
@@ -127,7 +128,6 @@
 <div id="mainpic" >
 <br>
 <h3>Final Well Reading </h3>
-
 <div class="results">
     <div id="chart_div"></div>
     <div id="barchart_material"></div>
