@@ -3,10 +3,10 @@ html, body, div, span, applet, object, iframe,
  abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+ u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+caption, tbody, tfoot, thead,  th, 
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
@@ -49,25 +49,37 @@ h5 {font-family:helvetica; color:#d9d9d9; font-size:19px; font-weight:100; }
 a {font-family:helvetica; text-decoration:none; line-spacing:18px; color:#003cb3;}
 
 
-
+select { 
+width:200px;
+}
 table tr.top {background-image:url("images/upper.jpg");  }
 table td.banner1 {background-size:-20%;  padding-left:20px; height:90px; }
 table td.banner2 {padding-left:20px;height:30px; padding-top:4px; background-color:#003cb3; }
-table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-top:3px solid #c4daea;  padding-top:4px; font-family:helvetica; text-color:#003cb3; font-size:14px; background-color:#00cbcb; }
+table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-top:3px solid #c4daea;  padding-top:4px; font-family:helvetica; text-color:#003cb3; font-size:14px; background-color:#00cbcb; }
 
-#logobox {height:160px; padding-top:8px; border: 2px solid; color: blue;background-color:white;}
+#logobox {height:175px; padding-top:8px; border: 2px solid; color: blue;background-color:white;}
 #mainmenu {
 	font-family:helvetica; 
 	color: #003cb3; 
 	font-size:24px;
  	position:absolute; 
 	line-height:10px; 
-	height:500px; 
-	width:200px;
+	height:470px; 
+	width:175px;
 	padding:5px; 
 	background-size:10%; 
 	background-image:url("images/menu.jpg");
 }
+
+.menuitem {
+	height: 24px;
+ 	vertical-align:middle;	
+}
+
+.menuitemword {
+	display:inline-block;
+}
+
 
 #mainpic {align:center;padding-left:20px;  align-items:top; width:80%;}
 
@@ -89,12 +101,18 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:30px; border-
 	 color:white;
 }
 
+.create:hover {
+        color:#003cb3;
+	background:white;
+
+}
+
 a.popup-trigger {
 	display:block; 
 	cursor:hand; 
 	height:22px; 
 	padding: 2px; 
-	font-size:15px; 
+	font-size:13px; 
 	vertical-align:middle; 
 	background: white; 
 	border: 1px solid #003cb3;  
@@ -143,14 +161,13 @@ a.goback:hover {
 	padding-left:20px;  
 	overflow:scroll;  
 	position:absolute; 
-	left:-500%;
+	left:-600%;
+        top:-100%;
         width: 910px; 
 	padding: 5px; 
 	background: #fff; 
-	height:500px; 
+	height:400px; 
 	color:black; 
-	font-size: 17px; 
-	line-height: 19px; 
 	text-align:left;
         border: 8px 
 	solid #150E2D; 
@@ -193,6 +210,7 @@ input[type="number"]::-webkit-inner-spin-button
 }
 h3 {
   font-family:helvetica;
+  font-size:16px;
 }
 .results {
     background:#FFFFFF;
@@ -215,10 +233,25 @@ h3 {
    right:30px;
     text-align:left;
     border:1px solid black;
-    font-size: 15px;
+    font-size: 10px;
     width:44%;
     float:left;
 }
+
+.formsection2 {
+    line-height:20px;
+    padding-left:7px;
+    padding-right:25px;
+    padding-top:6px;
+    padding-bottom: 6px;
+    right:30px;
+    text-align:left;
+    border:1px solid black;
+    width:85%;
+    font-size: 10px;
+    float:left;
+}
+
 
 .input[type=number]{
     width: 120px;
@@ -232,4 +265,16 @@ h3 {
 
 
 
+.menuitem{
+  color: blue;
+  cursor: pointer;
+}
 
+.menuitem:hover{
+  text-decoration: none;
+  color:white;
+}
+
+#file_input_id{
+  display:none;
+}
