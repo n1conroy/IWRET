@@ -577,6 +577,153 @@
 <br>
 <a class="popup-trigger" rel="nofollow">Pumping Stations</a>
 <br>
+<div class="popup"><h3 id="myModalLabel">Pumping Stations</h3>
+<div class="formcontainer">
+<table>
+<tr><td valign="top">
+<div class="formsection2">
+<input type="checkbox" value="Drinking Water (WP)"><h3>Drinking Water (WP)</h3>
+<h3>Pumping Station Costs</h3>
+   <br><label>Construction and Installation Costs [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="50" size="30" name="WP Construction and Installation" >
+  <br><label>Annual Maintenance Fee [$]</label>
+  <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="WP Annual Maintenance" >
+</div>
+</td>
+
+<td>
+<div class="formsection2">
+<input type="checkbox" value="Wastewater (WWP)"><h3>Wastewater (WWP)</h3>
+<h3>Pumping Station Costs</h3>
+   <br><label>Construction and Installation Costs [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="50" size="30" name="WWP Construction and Installation" >
+  <br><label>Annual Maintenance Fee [$]</label>
+  <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="WWP Annual Maintenance" >
+</div>
+</td>
+<td>
+<div class="formsection2">
+<input type="checkbox" value="Stormwater (SWP)"><h3>Stormwater  (SWP)</h3>
+<h3>Pumping Station Costs</h3>
+     <br><label>Construction and Installation Costs [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1" value="50" size="30" name="SWP Construction and Installation" >
+  <br><label>Annual Maintenance Fee [$]</label>
+  <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="SWP Annual Maintenance" >
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<div class="formsection2">
+<h3>Regime of Pump Operation</h3></input>
+  <label>Total Dynamic Head of Pump [m]</label>
+  <br><input type="range" min="0" max="500" value="50" class="slider-width" name="WP Total Dynamic Head of Pumpt"><br>
+  <br><label>Duration of Pup Operatoin [hours/day]</label>
+  <br><input type="number" min="1" max="24" step="1" value="1" size="30" name="WP Duration of Pump Operation" >
+  <br><label>Motor Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WP Motor Efficiency" >
+  <br><label>Variable Speed Drive Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WP Variable Speed Drive Efficiency" >
+  <br><label>Pump Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WP Pump Efficiency" >
+</div>
+</td>
+
+<td valign="top">
+<div class="formsection2">
+<h3>Regime of Pump Operation</h3></input>
+  <label>Total Dynamic Head of Pump [m]</label>
+  <br><input type="range" min="0" max="500" value="50" class="slider-width" name="WWP Total Dynamic Head of Pumpt"><br>
+  <br><label>Duration of Pup Operatoin [hours/day]</label>
+  <br><input type="number" min="1" max="24" step="1" value="1" size="30" name="WWP Duration of Pump Operation" >
+  <br><label>Motor Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WWP Motor Efficiency" >
+  <br><label>Variable Speed Drive Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WWP Variable Speed Drive Efficiency" >
+  <br><label>Pump Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WWP Pump Efficiency" >
+</div>
+</td>
+
+<td valign="top">
+<div class="formsection2">
+<h3>Regime of Pump Operation</h3></input>
+  <label>Total Dynamic Head of Pump [m]</label>
+  <br><input type="range" min="0" max="500" value="50" class="slider-width" name="SWP Total Dynamic Head of Pumpt"><br>
+  <br><label>Duration of Pup Operatoin [hours/day]</label>
+  <br><input type="number" min="1" max="24" step="1" value="1" size="30" name="SWP Duration of Pump Operation" >
+  <br><label>Motor Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="SWP Motor Efficiency" >
+  <br><label>Variable Speed Drive Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="SWP Variable Speed Drive Efficiency" >
+  <br><label>Pump Efficiency [%]</label>
+  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="SWP Pump Efficiency" >
+</div>
+</td>
+</tr>
+<tr>
+
+<td>
+<h3>Qualitative Indicators</h3>
+<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="WP Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WP Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WP Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WP Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="WP Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WP Flexibility and Adaptability"><br>
+</div>
+</td>
+<td>
+<h3>Qualitative Indicators</h3>
+<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="WWP Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WWP Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WWP Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WWP Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="WWP Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WWP Flexibility and Adaptability"><br>
+</div>
+</td>
+<td>
+<h3>Qualitative Indicators</h3>
+<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="SWP Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="SWP Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="SWP Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="SWP Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="SWP Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="SWP Flexibility and Adaptability"><br>
+</div>
+</td>
+
+</tr>
+
+
+</table>
+
+</div>
+</div>
+
+
 <a class="popup-trigger" rel="nofollow">Neighborhood Hydrology</a>
 <br>
 <div class="popup"><h3 id="myModalLabel">Neighborhood Hyrdrology</h3>
