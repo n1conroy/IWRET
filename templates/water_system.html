@@ -28,7 +28,7 @@
 <td colspan="2" class="banner2"><h5>assessing metabolic performance of hybrid water systems</h5></td>
 </tr>
 <tr class="banner3" >
-<td colspan=2 class="banner3"><img class="menuitem" src="../static/images/folder.png"><label for="file_input_id">&nbspLoad Project</label><br><input type="file" id="file_input_id">&nbsp  &nbsp&nbsp&nbsp <a  href='#' onclick='downloadCSV({ filename: "form-data.csv" });'>&nbsp<img src="../static/images/save.png" class="menuitem">&nbsp<span class="menuitemword"> Save Project</span></a>&nbsp&nbsp&nbsp<a href='#'>&nbsp<img src="../static/images/information.png" class="menuitem"><span class="menuitmeword">&nbsp&nbspDocumentation</span></a> &nbsp&nbsp&nbsp <a href='#'><img src="../static/images/about.png" class="menuitem"><span="menuitemword">&nbspAbout </span></a> </td>
+<td colspan=2 class="banner3"><img class="menuitem" src="../static/images/folder.png"><label class="menuitemword" for="file_input_id">&nbspLoad Project</label><input type="file" id="file_input_id">&nbsp  &nbsp&nbsp&nbsp <a  href='#' onclick='downloadCSV({ filename: "form-data.csv" });'>&nbsp<img src="../static/images/save.png" class="menuitem">&nbsp<span class="menuitemword"> Save Project</span></a>&nbsp&nbsp&nbsp<a href='#'>&nbsp<img src="../static/images/information.png" class="menuitem"><span class="menuitmeword">&nbsp&nbspDocumentation</span></a> &nbsp&nbsp&nbsp <a href='#'><img src="../static/images/about.png" class="menuitem"><span="menuitemword">&nbspAbout </span></a> </td>
 </tr>
 
 <tr>
@@ -51,6 +51,81 @@
 
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
+<div class="popup">
+<span class="popup-btn-close">close</span>
+
+<h3 id="myModalLabel">Neighborhood Properties</h3>
+
+<div class =formcontainer>
+
+
+<table width=100%>
+<tr>
+<td colspan=2 >
+<div class=formsection2>
+<label>Project Information</label>
+  <br><input type="text"  value="Name of Neighborhood" size="30" name="NP Project Information" >
+<br><label>Simulation Time [years]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="NP Simulation Time" >
+<br><label>Project Title</label>
+  <br><input type="text" value="Scenario" size="30" name="NP Project Title" >
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class=formsection2>
+<h3>Single Family Units</h3>
+ <label>Initial Number of Units [%]</label>
+  <br><input type="number" min="0" max="10000" step="100" value="0" size="30" name="SF Inital Sock of Units" >
+ <br><label>Number of Units Decomissioned per Year [#]</label>
+  <br><input type="number" min="0" max="1000" step="100" value="0" size="30" name="SF Decommissioned Units Annually" >
+ <br><label>Number of Units Built per Year [#]</label>
+  <br><input type="number" min="0" max="1000" step="10" value="0" size="30" name="SF New Units Annually" >
+<br><label>Average Size of a Lot [m2]</label>
+  <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="SF Average Lot Size" >
+ <br><label>Lawn area [%]</label>
+  <br><input type="number" min="0" max="1" step=".1" value="0" size="30" name="SF Lawn Area" >
+ <br><label>Average Occupancy [Persons]</label>
+  <br><input type="number" min="0.5" max="5" step=".5" value="0" size="30" name="SF Average Occupancy per Unit" >
+</div>
+</td>
+<td valign=top>
+<div class="formsection2">
+<h3> Multi Family Units</h3>
+<label>Initial Number of Units [%]</label>
+  <br><input type="number" min="0" max="10000" step="100" value="0" size="30" name="MF Inital Stock of Units" >
+ <br><label>Number of Units Decomissioned per Year [#]</label>
+  <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="MF Units Decommissioned Annually" >
+ <br><label>Number of Units Built per Year [#]</label>
+  <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="MF New Units Annually" >
+ <br><label>Average Occupancy [Persons]</label>
+  <br><input type="number" min="0.5" max="5" step=".5" value="0" size="30" name="MF Average Occupancy per Unit" >
+</div>
+<div class="formsection2">
+<label for="file_input_id">Import Climate Data from File ..</label><input type="file" id="NP Climate Data File">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class=formsection2>
+<h3>Global Variables</h3>
+<br><label>Price of Electricity [Dollars/kWh]</label>
+  <br><input type="number" min="1" max="50" step="1" value="0" size="30" name="Electricity Fee" >
+ <br><label>Electricty Generation Emission Factor per Year [kgCO2/kWh]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWP Price per kWh" >
+</div>
+</td>
+</tr>
+
+
+</table>
+</div>
+</div>
+
+
+
 <a class="popup-trigger" rel="nofollow">Water Distribution Network </a>
 <br>
 <div class="popup"><h3 id="myModalLabel">Water Distribution Network</h3>
@@ -59,32 +134,32 @@
 <div class="formsection">
   <h3>Water Supply Conducts (WSC)</h3>
   <label>Daily Capacity of Water Conduit [in3/day]</label>
-  <br><input type="number" min="0" max="100" step="1" name="text" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" name="text" value="0" size="30" name="WSC Daily Capacity" >
   <br><label>Leakage Percentage [%]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="WSC Leakage" >
   <br><label>Replacement Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WSC Replacement" >
  <br><label>Disposal Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WSC Disposal" >
   <br><label>Construction Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WSC Construction" >
   <br><label>Maintenance[$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WSC Annual Maintenance" >
 </div>
 <div class="formsection">
  <h3>Water Trunk Mains (WTM)</h3>
   <label>Daily Capacity of Water Trunk Main [in3/day]</label>
-  <br><input type="number" min="0" max="100" step="1" name="text" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" name="text" value="0" size="30" name="WTM Daily Capacity" >
   <br><label>Leakage Percentage [%]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="WTM Leakage" >
   <br><label>Replacement Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WTM Replacement" >
  <br><label>Disposal Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WTM Disposal" >
   <br><label>Construction Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Construction" >
   <br><label>Maintenance[$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Annual Maintenace" >
 </div>
  <div>
 <br><br></div> 
@@ -94,61 +169,58 @@
   <label><b>Material 1</b></label><br>
 
   <select width=200px>
-	<option   value="Ductile Iron" name="XX" selected>Ductile Iron</option> 
-        <option  value ="Value2" name="XX">Value 2</option> 
-        <option  value ="Value3" name="XX">Value 3</option> 
+	<option   value="Ductile Iron" name="WDM Material 1" selected>Ductile Iron</option> 
+        <option  value ="Value2" name="WDM Material 1">Value 2</option> 
+        <option  value ="Value3" name="WDM Material 1">Value 3</option> 
   </select>
   
 <br><label>Total Length [in]</label>
-  <br><br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M1" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" name="WDS Unit Construction Energy M1" >
  <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="XX" >
-  <br><label>Embodied Energyr Mainenance [kWh/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="XX" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" width="230" name="WDS Unit Construction GHG M1" >
+  <br><label>Embodied Energy Mainenance [kWh/trip]</label>
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance Energy M1" >
   <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label>    
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="XX" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance GHG M1" >
 </div>
  <div class="formsection">
   <label><b>Material 2</b></label><br>
     <select width=200px>
-        <option   value="Ductile Iron" name="XX" selected>Ductile Iron</option>         
-        <option  value ="Value2" name="XX">Value 2</option>                 
-        <option  value ="Value3" name="XX">Value 3</option>                  
+        <option   value="Ductile Iron" name="WDM Material 2" selected>Ductile Iron</option>         
+        <option  value ="Value2" name="WDM Material 2">Value 2</option>                 
+        <option  value ="Value3" name="WDM Material 2">Value 3</option>                  
   </select>
-
-  <br><label>Total Length [in]</label>
-  <br><br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+<br><label>Total Length [in]</label>
+  <br><br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M2" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" name="WDS Unit Construction Energy M2" >
  <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="XX" >
-  <br><label>Embodied Energyr Mainenance [kWh/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="XX" >
-  <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label> 
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="XX" >
-</div>
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" width="230" name="WDs Unit Construction GHG M2" >
+  <br><label>Embodied Energy Mainenance [kWh/trip]</label>
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance Energy M2" >
+  <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label>
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance GHG M2" >
 
+
+</div>
 
 <div class="formsection">
   <label><b>Life Cycle Costs (LCL)</b></label><br>
-  <br><input type="number" min="0" max="100" step="1" name="50.0" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" name="50.0" value="0" size="30" name="WDN Lifecycle Costs" >
   <br><label>Replacement Costs [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WSC Replacement" >
   <br><label>Disposal Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WSC Disposal" >
  <br><label>Construction Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WSC Construction" >
   <br><label>Maintenance Cost [$/Year]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="XX" >
-
-</div>
-
-
+  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WSC Annual Maintenance" >
 </div>
 </div>
-<span class="popup-btn-close">close</span>
+</div>
+
 
 <a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
 <br>
@@ -159,44 +231,44 @@
 <div class="formsection2">
 <h3> Physical Properties</h3>
   <label>Water Treatment Facilty</label>
-  <br><input type="text"  value="None" size="30" name="XX" >
-  <br><label>Total Daily Treatment Capacity [m/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0.0" size="30" name="XX" >
+  <br><input type="text"  value="None" size="30" name="Water Treatment Facility" >
+  <br><label>Total Daily Treatment Capacity [m3/day]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0.0" size="30" name="WTW Daily Treatment Capacity" >
   <br><label>Capacity Available for New Development</label>
-  <br><input type="number" min="0" max="100" step="1" value="0.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0.0" size="30" name="WTW Available Capacity" >
 </div>
 </tr></td>
 
-<tr><td>
+<tr><td valign=top>
 <div class="formsection2">
 <h3> Life Cycle Costs (LCC)</h3>
 <label>Construction and Installation Costs [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WTW Construction and Installation" >
 <br><label>Capital Investment [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WTW Capital Investment" >
 <br><label>Annual Maintenance Costs [$/year]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="1000000" step="1000" value="50000" size="30" name="WTW Annual Maintenance" >
 <br><label>Number of Staff [persons]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="5" size="30" name="WTW Number of Staff" >
 <br><label>Average Annual Salary [$/person]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
-<br><label>Admission rate [%]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="10000" max="100000" step="1000" value="50.0" size="30" name="WTW Average Staff Salary" >
+<br><label>Administration Rate [%]</label>
+  <br><input type="number" min="0.01" max="2" step=".01" value="0.01" size="30" name="WTW Administration Rate>
 <br><label>Water Resource Fee [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0.01" max="10" step=".01" value="0.01" size="30" name="WTW Water Resource Fee" >
 <br><label>Energy Required for Treatments [$/in3]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0.1" max="100" step=".1" value="50.0" size="30" name="WTW Electricity for treamtment of m3" >
 </div>
 </td>
 <td >
 <div class="formsection2">
 <h3> Chemicals Required for Water Treatment</h3>
 <label>Alum [kg/in3]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0.001" max="0.005" step="0.001" value="0.001" size="30" name="WTW Unit Alum" >
 <br><label>Alum Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WTW Unit Alum GHG" >
 <br><label>Alum Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WTW Unit Alum EmEnergy" >
 <br><label>Number of Staff [persons]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
 <br><label>Average Annual Salary [$/person]</label>
@@ -215,7 +287,6 @@
 
 </div>
 </div>
-<span class="popup-btn-close">close</span>
 
 
 
@@ -234,43 +305,44 @@
 <br><label><b>Material 1</b></label>
 <br>
   <select >
-        <option   value="Ductile Iron" name="XX" selected>Ductile Iron</option>         
-        <option  value ="Value2" name="XX">Value 2</option>                 
-        <option  value ="Value3" name="XX">Value 3</option>                  
+        <option   value="Ductile Iron" name="WSC Material 1" selected>Ductile Iron</option>         
+        <option  value ="Value2" name="WSC Material 1">Value 2</option>                 
+
+        <option  value ="Value3" name="WSC Material 1">Value 3</option>                  
   </select>
-<br><label>Total Length[in]</label>
-<br>  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+<br><label>Total Length[m]</label>
+<br>  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Total Length M1" >
 <br><label>Unit Weight</label>
-<br>  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+<br>  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Total Weight M1" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
-<br><label>Embodied GI IG for Constructcion [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Unit Construction Energy M1" >
+<br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Unit Construction GHG M1" >
 <br><label>Number of Trips for Maintenance [#]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Number of Maintenance Trips" >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
-<br><label>Embodied GI IG Maintenance [Kg Co2-EQ/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Unit Maintenance Energy M1" >
+<br><label>Embodied GHG Maintenance [Kg Co2-EQ/trip]</label>
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Unit Maintenance GHG M1" >
 <br><br><label><b>Material 2</b></label>
 <br>
   <select >
-        <option   value="Ductile Iron" name="XX" selected>Ductile Iron</option>         
-        <option  value ="Value2" name="XX">Value 2</option>                 
-        <option  value ="Value3" name="XX">Value 3</option>                  
+        <option   value="Ductile Iron" name="WSC Material 2" selected>Ductile Iron</option>         
+        <option  value ="Value2" name="WSC Material 2">Value 2</option>                 
+        <option  value ="Value3" name="WSC Material 2">Value 3</option>                  
   </select>
 <br><label>Total Length[in]</label>
- <br> <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+ <br> <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWSC Total Length M2" >
 <br><label>Unit Weight</label>
-<br> <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+<br> <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWSC Total Weight M2" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWSC Unit Construction Energy M2" >
 <br><label>Embodied GMG for Constructcion [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWSC Unit Construction GHG M2" >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWSC Unit Maintenance Energy M2" >
 <br><label>Embodied GMG Maintenance [Kg C02-EQ/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWSC Unit Maintenance GHG M2" >
 </div>
 </td>
 <td >
@@ -355,7 +427,6 @@
 </table>
 </div>
 </div>
-<span class="popup-btn-close">close</span>
 
 <a class="popup-trigger" rel="nofollow">Water Demand</a>
 <br>
@@ -499,7 +570,6 @@
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Unit Industrial Demand" >
 </div>
 </div>
-<span class="popup-btn-close">close</span>
 <br>
 
 </div>
@@ -509,6 +579,274 @@
 <br>
 <a class="popup-trigger" rel="nofollow">Neighborhood Hydrology</a>
 <br>
+<div class="popup"><h3 id="myModalLabel">Neighborhood Hyrdrology</h3>
+<div class="formcontainer">
+<table>
+<tr><td valign="top">
+<div class="formsection2">
+<h3>Type 1</h3>
+   <label>Land Use</label>
+  <br><select width=200px>
+        <option   value="Industrial" name="NH Type 1 Land Use" selected>Industrial</option>
+        <option  value ="Value2" name="NH Type 1 Land Use">B</option>
+        <option  value ="Value3" name="NH Type 1 Land Use">C</option>
+  </select>
+     <br><label>Hyrdologic Soil Group</label>
+  <br><select width=200px>
+        <option   value="A" name="NH Type 1 Soil Group" selected>A</option>
+        <option  value ="B" name="NH Type 1 Soil Group">B</option>
+        <option  value ="C" name="NH Type 1 Soil GRoup">C</option>
+  </select>
+   <br><label>Lot Size [hectres]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse1" >
+  <br><label>Curve Number Value [CN]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN1" >
+</div>
+</td>
+<td>
+
+<div class="formsection2">
+<h3>Type 2</h3>
+   <label>Land Use</label>
+  <br><select width=200px>
+        <option   value="Ductile Iron" name="NH Type 2 Land Use" selected>Industrial</option>
+        <option  value ="Value2" name="NH Type 2 Land Use">B</option>
+        <option  value ="Value3" name="NH Type 2 Land Use">C</option>
+  </select>
+     <br><label>Hyrdologic Soil Group</label>
+  <br><select width=200px>
+        <option   value="A" name="NH Type 2 Soil Group" selected>A</option>
+        <option  value ="B" name="NH Type 2 Soil Group">B</option>
+        <option  value ="C" name="NH Type 2 Soil GRoup">C</option>
+  </select>
+   <br><label>Lot Size [hectres]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse2" >
+  <br><label>Curve Number Value [CN]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN2" >
+
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="formsection2">
+<h3>Type 3</h3>
+   <label>Land Use</label>
+  <br><select width=200px>
+        <option   value="Ductile Iron" name="NH Type 3 Land Use" selected>Industrial</option>
+        <option  value ="Value2" name="NH Type 3 Land Use">B</option>
+        <option  value ="Value3" name="NH Type 3 Land Use">C</option>
+  </select>
+     <br><label>Hyrdologic Soil Group</label>
+  <br><select width=200px>
+        <option   value="A" name="NH Type 3 Soil Group" selected>A</option>
+        <option  value ="B" name="NH Type 3 Soil Group">B</option>
+        <option  value ="C" name="NH Type 3 Soil GRoup">C</option>
+  </select>
+   <br><label>Lot Size [hectres]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse3" >
+  <br><label>Curve Number Value [CN]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN3" >
+</td>
+</td>
+<td>
+<div class="formsection2">
+
+<h3>Type 4</h3>
+   <label>Land Use</label>
+  <br><select width=200px>
+        <option   value="Ductile Iron" name="NH Type 4 Land Use" selected>Industrial</option>
+        <option  value ="Value2" name="NH Type 4 Land Use">B</option>
+        <option  value ="Value3" name="NH Type 4 Land Use">C</option>
+  </select>
+     <br><label>Hyrdologic Soil Group</label>
+  <br><select width=200px>
+        <option   value="A" name="NH Type 4 Soil Group" selected>A</option>
+        <option  value ="B" name="NH Type 4 Soil Group">B</option>
+        <option  value ="C" name="NH Type 4 Soil GRoup">C</option>
+  </select>
+   <br><label>Lot Size [hectres]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse4" >
+  <br><label>Curve Number Value [CN]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<div class="formsection2">
+<input type="checkbox" value="Permeable Pavement"><h3>Permeable Pavement</h3></input>
+  
+<label>Curve Number Value[CN]</label>
+  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+  <br><label>Permeable Pavement Footprint</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Design and Construction Cost [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Annual Maintenance COst [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Construction GHG [kgCO2eg/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+</div>
+</td>
+<td>
+<div class="formsection2">
+<input type="checkbox" value="Green Roofs"><h3>Green Roofs</h3></input>
+  <label>Curve Number Value[CN]</label>
+  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+  <br><label>Permeable Pavement Footprint</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Design and Construction Cost [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Annual Maintenance COst [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Construction GHG [kgCO2eg/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+</div>
+</td>
+<td>
+<div class="formsection2">
+<input type="checkbox" value="Rain Barrels and Cisterns"><h3>Rain Barrels and Cisterns</h3></input>
+  <label>Curve Number Value[CN]</label>
+  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+  <br><label>Permeable Pavement Footprint</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Design and Construction Cost [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Annual Maintenance COst [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Construction GHG [kgCO2eg/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<h3>Qualitative Indicators</h3>
+<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+</div>
+</td>
+<td>
+<h3>Qualitative Indicators</h3>
+<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+</div>
+</td>
+<td>
+<h3>Qualitative Indicators</h3>
+<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+</div>
+</td>
+
+</tr>
+<tr>
+<td valign="top">
+<div class="formsection2">
+<input type="checkbox" value="Bioretention and Rain Gardens"><h3>Bioretention and Rain Gardens</h3></input>
+
+<label>Curve Number Value[CN]</label>
+  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+  <br><label>Permeable Pavement Footprint</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Design and Construction Cost [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Annual Maintenance COst [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Construction GHG [kgCO2eg/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+</div>
+</td>
+<td>
+<div class="formsection2">
+<input type="checkbox" value="Bioswales"><h3>Bioswales</h3></input>
+  <label>Curve Number Value[CN]</label>
+  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+  <br><label>Permeable Pavement Footprint</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Design and Construction Cost [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Annual Maintenance COst [$/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><label>Construction GHG [kgCO2eg/m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<h3>Qualitative Indicators</h3>
+<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+</div>
+</td>
+<td>
+<h3>Qualitative Indicators</h3>
+<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+</div>
+</td>
+</tr>
+</table>
+
+</div>
+</div>
 <a class="popup-trigger" rel="nofollow">Reuse/Recylce Systems</a>
 <br>
 <br>

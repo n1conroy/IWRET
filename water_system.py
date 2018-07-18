@@ -3,6 +3,7 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
 import sys
+import time
 import numpy as np
 import pandas as pd
 import json
@@ -49,6 +50,7 @@ def result():
    
     for key,value in table:
 	print (key,value)
+    time.sleep (10)
     return render_template('well.html', data=data)
     
 '''

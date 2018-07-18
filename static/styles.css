@@ -78,9 +78,12 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-
 
 .menuitemword {
 	display:inline-block;
+
 }
 
-
+.menuitemword:hover {
+        color:white;
+}
 #mainpic {align:center;padding-left:20px;  align-items:top; width:80%;}
 
 #welcome {  color: transparent; text-shadow: 0 0 1px #cccccc; padding-left:44px; font-family:helvetica; display:inline-block;font-size:65px;}
@@ -160,13 +163,13 @@ a.goback:hover {
 	display:none; 
 	padding-left:20px;  
 	overflow:scroll;  
-	position:absolute; 
-	left:-600%;
-        top:-100%;
+	position:fixed; 
+	left:20px;
+        top:40px;
         width: 910px; 
 	padding: 5px; 
 	background: #fff; 
-	height:400px; 
+	height:600px; 
 	color:black; 
 	text-align:left;
         border: 8px 
@@ -174,11 +177,10 @@ a.goback:hover {
 	z-index: 100;}
 
 .popup-btn-close {
-	position: fixed; 
-	top: 8px; 
-	right: 14px; 
-	display:none;
-	color: #4EBD79; 
+	position: relative; 
+	top:5px;
+        left:825px;
+        color: #4EBD79; 
 	font-size: 14px; 
 	font-weight: bold; 
 	text-transform: uppercase; 
@@ -210,7 +212,8 @@ input[type="number"]::-webkit-inner-spin-button
 }
 h3 {
   font-family:helvetica;
-  font-size:16px;
+  font-size:14px;
+  line-height:14px;
 }
 .results {
     background:#FFFFFF;
@@ -247,7 +250,7 @@ h3 {
     right:30px;
     text-align:left;
     border:1px solid black;
-    width:85%;
+    width:90%;
     font-size: 10px;
     float:left;
 }
@@ -277,4 +280,10 @@ h3 {
 
 #file_input_id{
   display:none;
+}
+
+[type=number] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
 }
