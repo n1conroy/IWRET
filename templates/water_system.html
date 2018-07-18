@@ -677,46 +677,48 @@
 <div class="formsection2">
 <input type="checkbox" value="Permeable Pavement"><h3>Permeable Pavement</h3></input>
   
-<label>Curve Number Value[CN]</label>
-  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
-  <br><label>Permeable Pavement Footprint</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+ <label>Curve Number Value[CN]</label>
+  <br><input type="range" min="0" max="100" value="50" class="slider-width" name="PP CN Value"><br>
+  <br><label>Permeable Pavement Footprint [m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Footproint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Design and Capital Costs" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Annual Maintenance Cots" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Construction GHG" >
 </div>
 </td>
 <td>
 <div class="formsection2">
 <input type="checkbox" value="Green Roofs"><h3>Green Roofs</h3></input>
   <label>Curve Number Value[CN]</label>
-  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
-  <br><label>Permeable Pavement Footprint</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="range" min="0" max="100" value="50" class="slider-width" name="Green Roof CN Values"><br>
+  <br><label>Green Roof Footprint [m2]</label>
+  <br><input type="number" min="0" max="100000" step="1" value="0" size="30" name="Green Roof Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Greeen Roof Design and Capital Costs" >
+  <br><label>Runoff Coefficient for Green Roofs [Dmnls]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Greeen Roof C Coefficient" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Green Roof Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Green Roof Construction GHG" >
 </div>
 </td>
 <td>
 <div class="formsection2">
 <input type="checkbox" value="Rain Barrels and Cisterns"><h3>Rain Barrels and Cisterns</h3></input>
   <label>Curve Number Value[CN]</label>
-  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
-  <br><label>Permeable Pavement Footprint</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="range" min="0" max="100" value="85" class="slider-width" name="RB and Cistern CN Value"><br>
+  <br><label>Rain Barrels and Cisterns Footprint [m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RB and Cistern Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RB Design and Capital Costs" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RB and Cistern Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RH System Construction GHG" >
 </div>
 </td>
 </tr>
@@ -725,51 +727,52 @@
 <h3>Qualitative Indicators</h3>
 <div class="formsection2">
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Porous Pavement Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Porous Pavement Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Prous Pavement Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="100" value="5" class="slider-width" name="Porous Pavement Flexibility and Adaptability"><br>
 </div>
 </td>
 <td>
 <h3>Qualitative Indicators</h3>
 <div class="formsection2">
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Green Roof Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Green Roof Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Flexibility and Adaptability"><br>
 </div>
 </td>
 <td>
+<!-- The variable names for this sectin not fout in input variables list -->
 <h3>Qualitative Indicators</h3>
 <div class="formsection2">
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Rain Barrels and Cisterns Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Flexibility and Adaptability"><br>
 </div>
 </td>
 
@@ -780,30 +783,30 @@
 <input type="checkbox" value="Bioretention and Rain Gardens"><h3>Bioretention and Rain Gardens</h3></input>
 
 <label>Curve Number Value[CN]</label>
-  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
-  <br><label>Permeable Pavement Footprint</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="Bioretention CN Value"><br>
+  <br><label>Bioretention and RG Footprint [m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Biortention Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioretenion Design and Capital Costs" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Biortention Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioretention Construction GHG" >
 </div>
 </td>
 <td>
 <div class="formsection2">
 <input type="checkbox" value="Bioswales"><h3>Bioswales</h3></input>
   <label>Curve Number Value[CN]</label>
-  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
-  <br><label>Permeable Pavement Footprint</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="Bioswale CN Value"><br>
+  <br><label>Bioswale Footprint [m2]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioswale Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioswale Design and Capital Costs" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="XX" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioswale Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
+  <br><input type="number" min="0" max="100" step="1" value=".2115" size="30" name="Bioswale Construction GHG" >
 </div>
 </td>
 </tr>
@@ -812,34 +815,34 @@
 <h3>Qualitative Indicators</h3>
 <div class="formsection2">
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Biortetention Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioretention Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioretention Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioretention Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Bioretention Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioretention Flexibility and Adaptability"><br>
 </div>
 </td>
 <td>
 <h3>Qualitative Indicators</h3>
 <div class="formsection2">
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="50" class="slider-width" name="XX"><br>
+<br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Flexibility and Reliability"><br>
 </div>
 </td>
 </tr>
