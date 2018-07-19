@@ -84,7 +84,7 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-
 .menuitemword:hover {
         color:white;
 }
-#mainpic {align:center;padding-left:20px;  align-items:top; width:80%;}
+#mainpic {align:center;padding-left:20px;  align-items:top; }
 
 #welcome {  color: transparent; text-shadow: 0 0 1px #cccccc; padding-left:44px; font-family:helvetica; display:inline-block;font-size:65px;}
 
@@ -215,13 +215,35 @@ h3 {
   font-size:14px;
   line-height:14px;
 }
-.results {
-    background:#FFFFFF;
-    height:370px;
+
+#container {
+	align:center;
+	padding-left:20px; 
+        align-items:top; 
+	background:#FFFFFF;
+	margin:auto;
+	position:static;
+	left:20px;
+	top:20px;
+}
+#results1 {
+    width:400px;
+    float:left;
+    height:400px;
     overflow:scroll; 
     border:0px solid black;
     text-align:center;
 }
+
+#results2 {
+    width:400px;
+    float:left;
+    height:400px;
+    overflow:scroll;
+    border:0px solid black;
+    text-align:center;
+}
+
 
 .formcontainer{
     margin:-7px;

@@ -50,7 +50,7 @@ def result():
    
     for key,value in table:
 	print (key,value)
-    time.sleep (10)
+    time.sleep (3)
     return render_template('well.html', data=data)
     
 '''
