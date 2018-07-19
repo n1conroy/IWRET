@@ -52,19 +52,26 @@ a {font-family:helvetica; text-decoration:none; line-spacing:18px; color:#003cb3
 select { 
 width:200px;
 }
-table tr.top {background-image:url("images/upper.jpg");  }
+table tr.top {background-image:url("images/upper.jpg"); width:90%;  }
 table td.banner1 {background-size:-20%;  padding-left:20px; height:90px; }
 table td.banner2 {padding-left:20px;height:30px; padding-top:4px; background-color:#003cb3; }
 table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-top:3px solid #c4daea;  padding-top:4px; font-family:helvetica; text-color:#003cb3; font-size:14px; background-color:#00cbcb; }
 
-#logobox {height:175px; padding-top:8px; border: 2px solid; color: blue;background-color:white;}
+#logobox {
+    height:180px; 
+	padding-top:2px; 
+	border: 2px solid; 
+	color: blue;
+	background-color:white;
+	width:10%;
+	}
 #mainmenu {
 	font-family:helvetica; 
 	color: #003cb3; 
 	font-size:24px;
  	position:absolute; 
 	line-height:10px; 
-	height:470px; 
+	height:630px; 
 	width:175px;
 	padding:5px; 
 	background-size:10%; 
@@ -84,7 +91,12 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-
 .menuitemword:hover {
         color:white;
 }
-#mainpic {align:center;padding-left:20px;  align-items:top; }
+#mainpic {
+align:left;
+ padding-left:10px; 
+ 
+ align-items:top; 
+ }
 
 #welcome {  color: transparent; text-shadow: 0 0 1px #cccccc; padding-left:44px; font-family:helvetica; display:inline-block;font-size:65px;}
 
@@ -219,7 +231,7 @@ h3 {
 #container {
 	align:center;
 	padding-left:20px; 
-        align-items:top; 
+     align-items:top; 
 	background:#FFFFFF;
 	margin:auto;
 	position:static;
@@ -227,18 +239,18 @@ h3 {
 	top:20px;
 }
 #results1 {
-    width:400px;
+    width:630px;
     float:left;
-    height:400px;
+    height:520px;
     overflow:scroll; 
     border:0px solid black;
     text-align:center;
 }
 
 #results2 {
-    width:400px;
+    width:630px;
     float:left;
-    height:400px;
+    height:520px;
     overflow:scroll;
     border:0px solid black;
     text-align:center;
