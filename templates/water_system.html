@@ -52,7 +52,7 @@
 <td>
 <h3 id="myModalLabel">Neighborhood Properties</h3>
 </td>
-<td class="popup-btn-close">
+<td align=right class="popup-btnn-close">
 close
 </td>
 </tr>
@@ -125,7 +125,7 @@ close
 <td>
 <h3 id="myModalLabel">Water Distribution Network</h3>
 </td>
-<td colspan=2 class="popup-btn-close">
+<td align=right colspan=2 class="popup-btn-close">
 close
 </td>
 <tr>
@@ -222,13 +222,13 @@ close
 
 <a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
 <br>
-<div class="popup">
+<div class="popup" style="height:550px" >
 <table class="formcontainer" >
 <tr>
 <td>
 <h3 id="myModalLabel">Water Treatment Works</h3>
 </td>
-<td class="popup-btn-close">
+<td align=right class="popup-btn-close">
 close
 </td>
 </tr>
@@ -249,7 +249,6 @@ close
 </td>
 </tr>
 <tr>
-
 
 <td class="formsection2">
 <h3> Chemicals Required for Water Treatment</h3>
@@ -345,7 +344,7 @@ EmEnergy" >
 <td>
 <h3 id="myModalLabel">Wastewater Collection System (WSC)</h3>
 </td>
-<td class="popup-btn-close">
+<td align=right colspan=2 class="popup-btn-close">
 close
 </td>
 </tr>
@@ -482,7 +481,7 @@ close
 <tr><td>
 <h3 id="myModalLabel">Water Demand</h3>
 </td>
-<td class="popup-btn-close">
+<td align=right class="popup-btn-close">
 close
 </td>
 </tr>
@@ -587,9 +586,7 @@ close
   <br><label>Unit Demand [l/m2/day]</label>
   <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit Industrial Demand" >
 </td>
-
 </tr>
-
 
 <tr>
 <td class="formsection2">
@@ -648,46 +645,161 @@ close
 </div>
 <a class="popup-trigger" rel="nofollow">Wastewater Treatment Works</a>
 <br>
+<div class="popup" style="height:550px" >
+<table class="formcontainer" >
+<tr>
+<td>
+<h3 id="myModalLabel">Wastewater Treatment Works</h3>
+</td>
+<td align=right class="popup-btn-close">
+close
+</td>
+</tr>
+<tr>
+<td colspan=2 >
+<table cellpadding=10>
+<tr class=formsection2>
+<td>
+<h3>Physical Properties</h3>
+<label>Water Treatment Facility</label>
+  <br><input type="text"  value="Name" size="30" name="WWT Name" >
+</td><td>
+<br><label>Total Daily Treatment Capacity [m3/day]</label>
+ <br><input type="number" min="0" max="100" step="1" value="0" size="15" name="WWTW Daily Treatment Capacity" >
+ </td><td><br> <label>Capacity Available for New Development</label>
+ <br><input type="number" min="0" max="1" step="0.1" value="0" value="WWTW Available Capacity" size="30" name="WTW Available Capacity" >
+</td></tr></table>
+</td>
+</tr>
+<tr>
+
+<td class="formsection2">
+<h3> Chemicals Flux</h3>
+<label>Ferric Choloride [kg/m3]]</label>
+  <br><input type="number" min="0.1" max="2" step="0.001" value="0.1" size="30" name="WWTW Unit Ferric Chloride" >
+<br><label>Ferric Chloride Embodied GHG [kg CO2-EQ/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WWTW Unit Ferric Chloride GHG" >
+<br><label>Ferric Chloride Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WWTW Unit Ferric  EmEnergy" >
+<br><label>Ferric Sulphate [kg/m3]</label>
+  <br><input type="number" min="0.1" max="2" step="0.001" value="0.1" size="30" name="WWTW Unit Ferric Sulphate" >
+<br><label>Ferric Sulphate Embodied GHG [Kg CO2-EQ/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WWTW Unit Ferric Sulphate GHG" >
+<br><label>Ferric Sulphate Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WTW Unit Ferric Sulphate EmEnergy" >
+<br><label>Nictric Acid [kg/m3]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.001" size="30" name="WWTW Unit Nitric Acid" >
+<br><label>Nitric Acid Embodied GHG [Kg CO2-EQ/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.01" size="30" name="WWTW Unit Nitric Acid GHG" >
+<br><label>Nictric Acid Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.01" size="30" name="WWTW Unite Nitric Acid EmEnergy" >
+</td>
+<td class="formsection2">
+<br><label>Calcium Hydroxide [kg/m3]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WWTW Unit Calcium Hydroxide" >
+<br><label>Calcium Hydroxyde Embodied GHG  [kgCO2-EQ/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WWTW Unit Calcium Hydroxide GHG" >
+<br><label>Calcium Hydroxyde Embodied Energy  [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.5" size="30" name="WWTW Unit Calcium Hydroxide EmEnergy" >
+<br><label>Ethanol [kg/m3]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.01" size="30" name="WWTW Unit Ethanol" >
+<br><label>Ethanol Embodied GHG [kg CO2-EQ/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WWTW Unit Ethanol GHG" >
+<br><label>Ethanol Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WWTW Unit Ethanol EmEnergy" >
+<br><label>Methanol [kg/m3]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="Unit Methanol" >
+<br><label>Methanol Embodied GHG [kg CO2-EQ/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="Unit Methanol GHG" >
+<br><label>Methanol Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.01" size="30" name="Unit Methanol EmEnergy" >
+</td>
+</tr>
+<tr>
+<td  class="formsection2">
+<h3> Life Cycle Costs (LCC)</h3>
+<label>Construction and Installation Costs [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WWTW Construction and Installation" >
+<br><label>Capital Investment [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WWTW Capital Investment" >
+<br><label>Annual Maintenance Costs [$/year]</label>
+  <br><input type="number" min="0" max="1000000" step="1000" value="50000" size="30" name="WWTW Annual Maintenance" >
+<br><label>Number of Staff [persons]</label>
+  <br><input type="number" min="0" max="100" step="1" value="5" size="30" name="WWTW Number of Staff" >
+<br><label>Average Annual Salary [$/person]</label>
+  <br><input type="number" min="10000" max="100000" step="1000" value="10000" size="30" name="WWTW Average Staff Salary" >
+<br><label>Administration Rate [%]</label>
+  <br><input type="number" min="0.01" max="2" step=".01" value="0.01" size="30" name="WWTW Administration Rate">
+<br><label>Energy Required for Treatments [$/in3]</label>
+  <br><input type="number" min="0.1" max="10" step=".1" value="0.1" size="30" name="WWTW Electricity for treamtment of m3" >
+<br><label>Slidge Generated [kg/m3]</label>
+  <br><input type="number" min="0.01" max="10" step=".01" value="0.01" size="30" name="WWTW Sludge Generated" >
+<br><label>Slidge Removal and Transport [%/kg]</label>
+  <br><input type="number" min="0.01" max="10" step=".01" value="0.01" size="30" name="WWTW Sludge Transport and Disposal" >
+</td>
+
+<td class="formsection2">
+<h3>Qualitative Indicators</h3>
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="WTW Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WTW Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WTW Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WTW Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="WTW Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WTW Flexibility and Adaptability"><br>
+</td>
+</tr>
+</table>
+
+</div>
+
+
+
 <a class="popup-trigger" rel="nofollow">Pumping Stations</a>
 <br>
-<div class="popup"><h3 id="myModalLabel">Pumping Stations</h3>
-<div class="formcontainer">
-<table>
-<tr><td valign="top">
-<div class="formsection2">
-<input type="checkbox" value="Drinking Water (WP)"><h3>Drinking Water (WP)</h3>
+<div style="height:550" class="popup">
+<table  class="formcontainer">
+<tr>
+<td>
+<h3 id="myModalLabel">Pumping Stations</h3>
+</td>
+<td align=right class="popup-btn-close">
+close
+</td>
+</tr>
+<tr>
+<td valign="top"  class="formsection2">
+<label ><b>Drinking Water (WP</b></label><input type="checkbox"  name="PS Drinking Water ">
 <h3>Pumping Station Costs</h3>
    <br><label>Construction and Installation Costs [$]</label>
   <br><input type="number" min="0" max="10000000" step="1000" value="0" size="30" name="WP Construction and Installation" >
   <br><label>Annual Maintenance Fee [$]</label>
   <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="WP Annual Maintenance" >
-</div>
 </td>
-
-<td>
-<div class="formsection2">
-<input type="checkbox" value="Wastewater (WWP)"><h3>Wastewater (WWP)</h3>
+<td class="formsection2">
+<label><b>Wastewater (WWP)</b></label><input type="checkbox" value="Wastewater (WWP)">
 <h3>Pumping Station Costs</h3>
    <br><label>Construction and Installation Costs [$]</label>
   <br><input type="number" min="0" max="10000000" step="1000" value="0" size="30" name="WWP Construction and Installation" >
   <br><label>Annual Maintenance Fee [$]</label>
   <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="WWP Annual Maintenance" >
-</div>
 </td>
-<td>
-<div class="formsection2">
-<input type="checkbox" value="Stormwater (SWP)"><h3>Stormwater  (SWP)</h3>
+<td class="formsection2">
+<label><b>Stormwater  (SWP) </b></label><input type="checkbox" value="Stormwater (SWP)">
 <h3>Pumping Station Costs</h3>
-     <br><label>Construction and Installation Costs [$]</label>
+  <br><label>Construction and Installation Costs [$]</label>
   <br><input type="number" min="0" max="10000000" step="1" value="50" size="30" name="SWP Construction and Installation" >
   <br><label>Annual Maintenance Fee [$]</label>
   <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="SWP Annual Maintenance" >
-</div>
 </td>
 </tr>
 <tr>
-<td valign="top">
-<div class="formsection2">
+<td valign="top" class="formsection2">
 <h3>Regime of Pump Operation</h3></input>
   <label>Total Dynamic Head of Pump [m]</label>
   <br><input type="range" min="0" max="500" value="50" class="slider-width" name="WP Total Dynamic Head of Pumpt"><br>
@@ -699,11 +811,9 @@ close
   <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WP Variable Speed Drive Efficiency" >
   <br><label>Pump Efficiency [%]</label>
   <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WP Pump Efficiency" >
-</div>
 </td>
 
-<td valign="top">
-<div class="formsection2">
+<td valign="top"  class="formsection2">
 <h3>Regime of Pump Operation</h3></input>
   <label>Total Dynamic Head of Pump [m]</label>
   <br><input type="range" min="0" max="500" value="50" class="slider-width" name="WWP Total Dynamic Head of Pumpt"><br>
@@ -715,11 +825,8 @@ close
   <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WWP Variable Speed Drive Efficiency" >
   <br><label>Pump Efficiency [%]</label>
   <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WWP Pump Efficiency" >
-</div>
 </td>
-
-<td valign="top">
-<div class="formsection2">
+<td valign="top" class="formsection2">
 <h3>Regime of Pump Operation</h3></input>
   <label>Total Dynamic Head of Pump [m]</label>
   <br><input type="range" min="0" max="500" value="50" class="slider-width" name="SWP Total Dynamic Head of Pumpt"><br>
@@ -735,10 +842,8 @@ close
 </td>
 </tr>
 <tr>
-
-<td>
+<td class="formsection2">
 <h3>Qualitative Indicators</h3>
-<div class="formsection2">
 <label>Affordability[Dmnls] </label>
 <br><input type="range" min="1" max="5"  class="slider-width" name="WP Affordability"><br>
 <label>Reliability [Dmls]</label>
@@ -751,11 +856,9 @@ close
 <br><input type="range" min="1" max="5"  class="slider-width" name="WP Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="WP Flexibility and Adaptability"><br>
-</div>
 </td>
-<td>
+<td class="formsection2">
 <h3>Qualitative Indicators</h3>
-<div class="formsection2">
 <label>Affordability[Dmnls] </label>
 <br><input type="range" min="1" max="5"  class="slider-width" name="WWP Affordability"><br>
 <label>Reliability [Dmls]</label>
@@ -768,11 +871,9 @@ close
 <br><input type="range" min="1" max="5"  class="slider-width" name="WWP Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="WWP Flexibility and Adaptability"><br>
-</div>
 </td>
-<td>
+<td class="formsection2">
 <h3>Qualitative Indicators</h3>
-<div class="formsection2">
 <label>Affordability[Dmnls] </label>
 <br><input type="range" min="1" max="5"  class="slider-width" name="SWP Affordability"><br>
 <label>Reliability [Dmls]</label>
@@ -785,19 +886,23 @@ close
 <br><input type="range" min="1" max="5"  class="slider-width" name="SWP Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="SWP Flexibility and Adaptability"><br>
-</div>
 </td>
 </tr>
 </table>
 </div>
-</div>
 <a class="popup-trigger" rel="nofollow">Neighborhood Hydrology</a>
 <br>
-<div class="popup"><h3 id="myModalLabel">Neighborhood Hyrdrology</h3>
-<div class="formcontainer">
-<table>
-<tr><td valign="top">
-<div class="formsection2">
+
+<div style="height:550" class="popup">
+<table  class="formcontainer">
+<tr><td>
+<h3 id="myModalLabel">Neighborhood Hydrology </h3>
+</td>
+<td colspan=4 align=right class="popup-btn-close">
+close
+</td>
+</tr>
+<td valign="top"  class="formsection2">
 <h3>Type 1</h3>
    <label>Land Use</label>
   <br><select width=200px>
@@ -815,11 +920,8 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse1" >
   <br><label>Curve Number Value [CN]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN1" >
-</div>
 </td>
-<td>
-
-<div class="formsection2">
+<td class="formsection2">
 <h3>Type 2</h3>
    <label>Land Use</label>
   <br><select width=200px>
@@ -837,13 +939,8 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse2" >
   <br><label>Curve Number Value [CN]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN2" >
-
-</div>
 </td>
-</tr>
-<tr>
-<td>
-<div class="formsection2">
+<td class="formsection2">
 <h3>Type 3</h3>
    <label>Land Use</label>
   <br><select width=200px>
@@ -863,10 +960,8 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN3" >
 </td>
 </td>
-<td>
-<div class="formsection2">
-
-<h3>Type 4</h3>
+<td  class="formsection2">
+<h3> Type 4</h3>
    <label>Land Use</label>
   <br><select width=200px>
         <option   value="Ductile Iron" name="NH Type 4 Land Use" selected>Industrial</option>
@@ -883,14 +978,11 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse4" >
   <br><label>Curve Number Value [CN]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
-</div>
 </td>
 </tr>
 <tr>
-<td valign="top">
-<div class="formsection2">
+<td valign="top" class="formsection2">
 <input type="checkbox" value="Permeable Pavement"><h3>Permeable Pavement</h3></input>
-  
  <label>Curve Number Value[CN]</label>
   <br><input type="range" min="0" max="100" value="50" class="slider-width" name="PP CN Value"><br>
   <br><label>Permeable Pavement Footprint [m2]</label>
@@ -901,10 +993,8 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Annual Maintenance Cots" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Construction GHG" >
-</div>
 </td>
-<td>
-<div class="formsection2">
+<td class="formsection2">
 <input type="checkbox" value="Green Roofs"><h3>Green Roofs</h3></input>
   <label>Curve Number Value[CN]</label>
   <br><input type="range" min="0" max="100" value="50" class="slider-width" name="Green Roof CN Values"><br>
@@ -918,10 +1008,8 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Green Roof Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Green Roof Construction GHG" >
-</div>
 </td>
-<td>
-<div class="formsection2">
+<td class="formsection2">
 <input type="checkbox" value="Rain Barrels and Cisterns"><h3>Rain Barrels and Cisterns</h3></input>
   <label>Curve Number Value[CN]</label>
   <br><input type="range" min="0" max="100" value="85" class="slider-width" name="RB and Cistern CN Value"><br>
@@ -933,67 +1021,9 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RB and Cistern Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RH System Construction GHG" >
-</div>
-</td>
-</tr>
-<tr>
-<td valign="top">
-<h3>Qualitative Indicators</h3>
-<div class="formsection2">
-<label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="Porous Pavement Affordability"><br>
-<label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="Porous Pavement Reliability"><br>
-<label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Acceptability"><br>
-<label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Prous Pavement Risk to Human Health"><br>
-<label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Space Requirements"><br>
-<label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="5" class="slider-width" name="Porous Pavement Flexibility and Adaptability"><br>
-</div>
-</td>
-<td>
-<h3>Qualitative Indicators</h3>
-<div class="formsection2">
-<label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="Green Roof Affordability"><br>
-<label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Reliability"><br>
-<label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Acceptability"><br>
-<label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Risk to Human Health"><br>
-<label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="Green Roof Space Requirements"><br>
-<label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Flexibility and Adaptability"><br>
-</div>
-</td>
-<td>
-<!-- The variable names for this sectin not fout in input variables list -->
-<h3>Qualitative Indicators</h3>
-<div class="formsection2">
-<label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Affordability"><br>
-<label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Reliability"><br>
-<label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Acceptability"><br>
-<label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Risk to Human Health"><br>
-<label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="Rain Barrels and Cisterns Space Requirements"><br>
-<label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Flexibility and Adaptability"><br>
-</div>
 </td>
 
-</tr>
-<tr>
-<td valign="top">
-<div class="formsection2">
+<td valign="top"  class="formsection2">
 <input type="checkbox" value="Bioretention and Rain Gardens"><h3>Bioretention and Rain Gardens</h3></input>
 
 <label>Curve Number Value[CN]</label>
@@ -1008,8 +1038,7 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioretention Construction GHG" >
 </div>
 </td>
-<td>
-<div class="formsection2">
+<td class="formsection2">
 <input type="checkbox" value="Bioswales"><h3>Bioswales</h3></input>
   <label>Curve Number Value[CN]</label>
   <br><input type="range" min="1" max="100" value="50" class="slider-width" name="Bioswale CN Value"><br>
@@ -1021,13 +1050,58 @@ close
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioswale Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioswale Construction GHG" >
-</div>
 </td>
 </tr>
 <tr>
-<td valign="top">
+<td valign="top" class="formsection2">
 <h3>Qualitative Indicators</h3>
-<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Porous Pavement Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Porous Pavement Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Prous Pavement Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="100" value="5" class="slider-width" name="Porous Pavement Flexibility and Adaptability"><br>
+</div>
+</td>
+<td class="formsection2">
+<h3>Qualitative Indicators</h3>
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Green Roof Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Green Roof Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Flexibility and Adaptability"><br>
+</div>
+</td>
+<td  class="formsection2">
+<h3>Qualitative Indicators</h3>
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="Rain Barrels and Cisterns Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Flexibility and Adaptability"><br>
+</td>
+<td valign="top" class="formsection2">
+<h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="Biortetention Affordability"><br>
 <label>Reliability [Dmls]</label>
@@ -1040,11 +1114,9 @@ close
 <br><input type="range" min="1" max="5"  class="slider-width" name="Bioretention Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="Bioretention Flexibility and Adaptability"><br>
-</div>
 </td>
-<td>
+<td class="formsection2">
 <h3>Qualitative Indicators</h3>
-<div class="formsection2">
 <label>Affordability[Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Affordability"><br>
 <label>Reliability [Dmls]</label>
@@ -1057,23 +1129,24 @@ close
 <br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Flexibility and Reliability"><br>
-</div>
 </td>
 </tr>
 </table>
-
 </div>
-</div>
-<a class="popup-trigger" rel="nofollow">Reuse/Recylce Systems</a>
+<a class="popup-trigger" rel="nofollow">Reuse/Recycle Systems</a>
 <br>
-<div class="popup"><h3 id="myModalLabel">Neighborhood Hyrdrology</h3>
-<div class="formcontainer">
-<table>
+<div class="popup" style="height:550px;">
+<table class="formcontainer">
 <tr>
-<td>
-<div class="formsection2">
-<h3>Rainwater Harvesting (RH)</h3>
-<label>Runoff Coefficient for Imper. Areas [C]</label>
+<td><h3 id="myModalLabel">Reuse/Recycle Systems</h3>
+</td>
+<td colspan=3 align=right class="popup-btn-close">
+close
+</td>
+<tr>
+<td class="formsection2">
+<label><b>Rainwater Harvesting </b></label><input type="checkbox" name="Rainwater Harvesting" >
+<br><label>Runoff Coefficient for Imper. Areas [C]</label>
 <br><input type="range" min="1" max="100" class="slider-width" name="IA Runoff Coefficient"><br>
 <br><label>Car Parking Lots [m2]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Parking Footprint" >
@@ -1084,12 +1157,10 @@ close
 <br><label>Percentage of IA Harvested [m2]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Percentage of Area Collected" >
 <br><label>Total Storage Capacity [m3]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RB and Cistern Storage Volume" >
-</div>
+<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Storage Capacity" >
 </td>
-<trd>
-<div class="formsection2">
-<h3>Greywater Reuse (GWR)</h3>
+<td class="formsection2">
+<label><b>Greywater Reuse GWR) </b></label><input type="checkbox" name="Greywater Reuse" >
 <br><label>Average Tank Volume [m3]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Average SIze of Tank" >
 <br><label>Number of Tanks [m2]</label>
@@ -1104,81 +1175,9 @@ close
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Plumbing Costs per m2" >
 <br><label>New Plumbing Area [m2]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Plumbing Area" >
-</div>
 </td>
-</tr>
-<tr>
-<td>
-<div class="formsection2">
-<h3>Rainwater Harvesting Pumps</h3>
-<br><label>Number of Pumps [No]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Number of Pumps" >
-<br><label>Average Dynamic Head [m]]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Annual Dynamic Head" >
-<br><label>Hours of Operation [hrs]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Duration of Pump Operation" >
-<br><label>Capital Costs [$]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Construction and Installation" >
-<br><label>Annual Maintenance Costs [$]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Annual Maintenance" >
-</div>
-</td>
-<td>
-<div class="formsection2">
-<h3>Greywater Pumps</h3>
-<br><label>Number of Pumps [No]</label>
-<br><input type="number" min="0" max="20" step="1" value="0" size="30" name="GWP Number of Pumps" >
-<br><label>Average Dynamic Head [m]]</label>
-<br><input type="number" min="0" max="500" step="1" value="0" size="30" name="GWP Annual Dynamic Head" >
-<br><label>Hours of Operation [hrs]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWP Duration of Pump Operation" >
-<br><label>Capital Costs [$]</label>
-<br><input type="number" min="0" max="10000000" step="1" value="0" size="30" name="GWP Construction and Installation" >
-<br><label>Annual Maintenance Costs [$]</label>
-<br><input type="number" min="0" max="500000" step="1" value="0" size="30" name="GWP Annual Maintenance" >
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<h3>Qualitative Indicators</h3>
-<div class="formsection2">
-<label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="RWH Affordability"><br>
-<label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="RWH Reliability"><br>
-<label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="RWH Acceptability"><br>
-<label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="RWH Risk to Human Health"><br>
-<label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="RWH Space Requirements"><br>
-<label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="RWH Flexibility and Adaptability"><br>
-</div>
-</td>
-<td>
-<h3>Qualitative Indicators</h3>
-<div class="formsection2">
-<label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="GWS Affordability"><br>
-<label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="GWS Reliability"><br>
-<label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="GWS Acceptability"><br>
-<label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="GWS Risk to Human Health"><br>
-<label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="GWS Space Requirements"><br>
-<label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="GWS Flexibility and Adaptability"><br>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<div class="formsection2">
-<h3>Living Machines (LM)</h3>
+<td  class="formsection2">
+<label><b>Living Machines (LM) </b></label><input type="checkbox" name="Living Machines" >
 <label>Number of LM [#]</label>
 <br><input type="range" min="1" max="100" class="slider-width" name="LN Number of LM"><br>
 <br><label>Total Daily Treatment Capacity [m3/day]</label>
@@ -1197,11 +1196,9 @@ close
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Percentage of Schools" >
 <br><label>Office Building Demand with LM [%]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Percentage of OB" >
-</div>
 </td>
-<trd>
-<div class="formsection2">
-<h3>Membrane Bioreactor (MBR)</h3>
+<td class="formsection2">
+<label><b>Membrane Bioreactor (MBR) </b></label><input type="checkbox" name="Membrane Bioreactor" >
 <label>Number of LM [#]</label>
 <br><input type="range" min="1" max="100" class="slider-width" name="MBR Number of LM"><br>
 <br><label>Total Daily Treatment Capacity [m3/day]</label>
@@ -1220,37 +1217,88 @@ close
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Percentage for Schools" >
 <br><label>Office Building Demand with LM [%]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Percentage for OB" >
-</div>
 </td>
 </tr>
 <tr>
-<td>
-<div class="formsection2">
-<h3>Living Machines Pumps</h3>
+<td class="formsection2">
+<label><b>Rainwater Harvesting Pumps </b></label><input type="checkbox" name="Rainwater Harvesting Pumps" >
+
+<br><label>Number of Pumps [No]</label>
+<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Number of Pumps" >
+<br><label>Average Dynamic Head [m]]</label>
+<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Annual Dynamic Head" >
+<br><label>Hours of Operation [hrs]</label>
+<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Duration of Pump Operation" >
+<br><label>Capital Costs [$]</label>
+<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Construction and Installation" >
+<br><label>Annual Maintenance Costs [$]</label>
+<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Annual Maintenance" >
+</td>
+<td class="formsection2">
+<label><b>Greywater Pumps</b></label><input type="checkbox" name="Greywater Pumps" >
+<br><label>Number of Pumps [No]</label>
+<br><input type="number" min="0" max="20" step="1" value="0" size="30" name="GWP Number of Pumps" >
+<br><label>Average Dynamic Head [m]]</label>
+<br><input type="number" min="0" max="500" step="1" value="0" size="30" name="GWP Annual Dynamic Head" >
+<br><label>Hours of Operation [hrs]</label>
+<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWP Duration of Pump Operation" >
+<br><label>Capital Costs [$]</label>
+<br><input type="number" min="0" max="10000000" step="1" value="0" size="30" name="GWP Construction and Installation" >
+<br><label>Annual Maintenance Costs [$]</label>
+<br><input type="number" min="0" max="500000" step="1" value="0" size="30" name="GWP Annual Maintenance" >
+</td>
+<td class="formsection2">
+<label><b>Living Machines Pumps</b></label><input type="checkbox" name="Living Machines Pumps" >
 <br><label>Number of Pumps [No]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Number of Pumps" >
 <br><label>Average Dynamic Head [m]]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Average Dynamic Head" >
 <br><label>Hours of Operation [hrs]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Duration of Pump Operation" >
-
 </td>
-<td>
-<div class="formsection2">
-<h3>Membrane Bioreactor Pumps</h3>
+<td class="formsection2">
+<label><b>Membrane Bioreactor Pumps</b></label><input type="checkbox" name="Membrane Bioreactor Pumps" >
 <br><label>Number of Pumps [No]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Number of Pumps" >
 <br><label>Average Dynamic Head [m]]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Average Dynamic Head" >
 <br><label>Hours of Operation [hrs]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Average Dynamic Head" >
-</div>
 </td>
 </tr>
 <tr>
-<td>
+<td class="formsection2">>
 <h3>Qualitative Indicators</h3>
-<div class="formsection2">
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="RWH Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="RWH Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="RWH Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="RWH Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="RWH Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="RWH Flexibility and Adaptability"><br>
+</td>
+<td  class="formsection2">
+<h3>Qualitative Indicators</h3>
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="GWS Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="GWS Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="GWS Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="GWS Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="GWS Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="GWS Flexibility and Adaptability"><br>
+</td>
+<td class="formsection2">
+<h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
 <br><input type="range" min="1" max="5"  class="slider-width" name="LM Affordability"><br>
 <label>Reliability [Dmls]</label>
@@ -1263,11 +1311,9 @@ close
 <br><input type="range" min="1" max="5"  class="slider-width" name="LM Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="LM Flexibility and Adaptability"><br>
-</div>
 </td>
-<td>
+<td class="formsection2">>
 <h3>Qualitative Indicators</h3>
-<div class="formsection2">
 <label>Affordability[Dmnls] </label>
 <br><input type="range" min="1" max="5"  class="slider-width" name="MBR Affordability"><br>
 <label>Reliability [Dmls]</label>
@@ -1280,11 +1326,9 @@ close
 <br><input type="range" min="1" max="5"  class="slider-width" name="MBR Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="MBR Flexibility and Adaptability"><br>
-</div>
 </td>
 </tr>
 </table>
-</div>
 </div>
 <br>
 <p>

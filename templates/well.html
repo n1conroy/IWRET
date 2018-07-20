@@ -146,6 +146,7 @@
 </td>
 -->
 <td id="mainpic" colspan=2>
+<br>
 <div id="container">
 <img src="../static/images/iwret_9_background.png" width=70%  style="display:none;"></img>
 <div id="results1">
@@ -155,8 +156,15 @@
     <div id="linechart2_material"></div>
 </div>
 </div>
-<a href="../" class="goback" ><i class="left"></i><  Back</a>
 </td>
+<td>
+<button onclick="goBack() " id=goback> <img src="../static/images/back.png" width=60px>Go Back</button>
+</td>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 
 
 
