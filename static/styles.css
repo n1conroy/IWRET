@@ -69,12 +69,11 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-
 	font-family:helvetica; 
 	color: #003cb3; 
 	font-size:24px;
- 	position:absolute; 
 	line-height:10px; 
-	height:630px; 
+	height:600px; 
 	width:175px;
 	padding:5px; 
-	background-size:10%; 
+	background-size:80%; 
 	background-image:url("images/menu.jpg");
 }
 
@@ -94,8 +93,7 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-
 #mainpic {
 align:left;
  padding-left:10px; 
- 
- align-items:top; 
+  align-items:top; 
  }
 
 #welcome {  color: transparent; text-shadow: 0 0 1px #cccccc; padding-left:44px; font-family:helvetica; display:inline-block;font-size:65px;}
@@ -131,8 +129,7 @@ a.popup-trigger {
 	vertical-align:middle; 
 	background: white; 
 	border: 1px solid #003cb3;  
-        overflow:scroll;
-        color: #003cb3;}
+    color: #003cb3;}
 
 
 a.popup-none {
@@ -177,17 +174,16 @@ a.goback:hover {
  	overflow-y:scroll;  
 	position:fixed; 
 	left:20px;
-        top:40px;
+    top:40px;
 	color:black; 
-	height:600px;
-        text-align:left;
-        border: 8px 
+    text-align:left;
+    border: 8px 
 	solid #150E2D; 
 	background: #ddd;
 	z-index: 100;}
 
 .popup-btn-close {
-        color: #4EBD79; 
+   color: #4EBD79; 
 	font-size: 14px; 
 	text-align:right;
 	font-weight: bold; 
@@ -197,10 +193,10 @@ a.goback:hover {
 
 #select_logo={font-family:helvetica; text-color:007d9; font-size:14px;} 
 
-input[type="number"]::-webkit-inner-spin-button 
+input[type="number"] 
   {
   text-align:right; 
-  width:300px; 
+  width:200px; 
 }
 
 .slider-width {
@@ -208,15 +204,12 @@ input[type="number"]::-webkit-inner-spin-button
 }
 .slider{
     width:90%;
-    line-spacing:6px;
-    margin:10px;
     text-align:left;
     border:1px solid black;
-    font-size: 15px;
+    font-size: 12px;
     float:left;
-    line-height:15px;
-    padding-left:7px;
-    padding-top:4px;
+    padding-left:2px;
+    padding-top:2px;
 }
 h3 {
   font-family:helvetica;
