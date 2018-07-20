@@ -131,7 +131,8 @@ a.popup-trigger {
 	vertical-align:middle; 
 	background: white; 
 	border: 1px solid #003cb3;  
-	color: #003cb3;}
+        overflow:scroll;
+        color: #003cb3;}
 
 
 a.popup-none {
@@ -173,27 +174,22 @@ a.goback:hover {
 
 .popup { 
 	display:none; 
-	padding-left:20px;  
-	overflow:scroll;  
+ 	overflow-y:scroll;  
 	position:fixed; 
 	left:20px;
         top:40px;
-        width: 910px; 
-	padding: 5px; 
-	background: #fff; 
-	height:600px; 
 	color:black; 
-	text-align:left;
+	height:600px;
+        text-align:left;
         border: 8px 
 	solid #150E2D; 
+	background: #ddd;
 	z-index: 100;}
 
 .popup-btn-close {
-	position: relative; 
-	top:5px;
-        left:825px;
         color: #4EBD79; 
 	font-size: 14px; 
+	text-align:right;
 	font-weight: bold; 
 	text-transform: uppercase; 
 	cursor: pointer;
@@ -225,7 +221,7 @@ input[type="number"]::-webkit-inner-spin-button
 h3 {
   font-family:helvetica;
   font-size:14px;
-  line-height:14px;
+  line-height:10px;
 }
 
 #container {
@@ -257,9 +253,6 @@ h3 {
 }
 
 
-.formcontainer{
-    margin:-7px;
-}
 .formsection {
     margin:7px;
     line-height:20px;
@@ -277,22 +270,26 @@ h3 {
 
 .formsection2 {
     line-height:20px;
-    padding-left:7px;
-    padding-right:25px;
-    padding-top:6px;
-    padding-bottom: 6px;
-    right:30px;
+    padding-left:5px;
+    padding-right:5px;
+    background-color:#fff;
+    padding-top:5px;
+    padding-bottom: 5px;
     text-align:left;
     border:1px solid black;
-    width:90%;
     font-size: 10px;
-    float:left;
 }
 
 
 .input[type=number]{
     width: 120px;
     height: 16px;
+}
+table.formcontainer{
+  padding:5px;
+  border-spacing:5px;
+  border-collapse:separate;
+
 }
 .formoutput {
   border:1px; 

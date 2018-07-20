@@ -50,29 +50,30 @@
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
 <div class="popup">
-<span class="popup-btn-close">close</span>
-
-<h3 id="myModalLabel">Neighborhood Properties</h3>
-
-<div class =formcontainer>
-
-
-<table width=100%>
+<table class="formcontainer" >
 <tr>
-<td colspan=2 >
-<div class=formsection2>
-<label>Project Information</label>
-  <br><input type="text"  value="Name of Neighborhood" size="30" name="NP Project Information" >
-<br><label>Simulation Time [years]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="NP Simulation Time" >
-<br><label>Project Title</label>
-  <br><input type="text" value="Scenario" size="30" name="NP Project Title" >
-</div>
+<td>
+<h3 id="myModalLabel">Neighborhood Properties</h3>
+</td>
+<td class="popup-btn-close">
+close
 </td>
 </tr>
 <tr>
-<td>
-<div class=formsection2>
+<td colspan=2 >
+<table cellpadding=10>
+<tr class=formsection2><td>
+<label>Project Information</label>
+  <br><input type="text"  value="Name of Neighborhood" size="30" name="NP Project Information" >
+</td><td><label>Simulation Time [years]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="NP Simulation Time" >
+ </td><td> <label>Project Title</label>
+  <br><input type="text" value="Scenario" size="30" name="NP Project Title" >
+</td></tr></table>
+</td>
+</tr>
+<tr >
+<td rowspan=2 class=formsection2>
 <h3>Single Family Units</h3>
  <label>Initial Number of Units [%]</label>
   <br><input type="number" min="0" max="10000" step="100" value="0" size="30" name="SF Inital Sock of Units" >
@@ -86,10 +87,8 @@
   <br><input type="number" min="0" max="1" step=".1" value="0" size="30" name="SF Lawn Area" >
  <br><label>Average Occupancy [Persons]</label>
   <br><input type="number" min="0.5" max="5" step=".5" value="0.5" size="30" name="SF Average Occupancy per Unit" >
-</div>
 </td>
-<td valign=top>
-<div class="formsection2">
+<td class=formsection2 valign=top>
 <h3> Multi Family Units</h3>
 <label>Initial Number of Units [%]</label>
   <br><input type="number" min="0" max="10000" step="100" value="0" size="30" name="MF Inital Stock of Units" >
@@ -99,39 +98,43 @@
   <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="MF New Units Annually" >
  <br><label>Average Occupancy [Persons]</label>
   <br><input type="number" min="0.5" max="5" step=".5" value="0.5" size="30" name="MF Average Occupancy per Unit" >
-</div>
-<div class="formsection2">
-<label for="file_input_id">Import Climate Data from File ..</label><input type="file" id="NP Climate Data File">
-</div>
 </td>
 </tr>
 <tr>
-<td>
-<div class=formsection2>
+<td class=formsection2>
 <h3>Global Variables</h3>
-<br><label>Price of Electricity [Dollars/kWh]</label>
+<label>Price of Electricity [Dollars/kWh]</label>
   <br><input type="number" min="1" max="50" step="1" value="1" size="30" name="Electricity Fee" >
  <br><label>Electricty Generation Emission Factor per Year [kgCO2/kWh]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWP Price per kWh" >
-</div>
+</td>
+</tr>
+<tr>
+<td colspan=2 class=formsection2>
+<label for="file_input_id">Import Climate Data from File ..</label><input type="file" id="NP Climate Data File">
 </td>
 </tr>
 
-
 </table>
-</div>
 </div>
 
 
 
 <a class="popup-trigger" rel="nofollow">Water Distribution Network </a>
 <br>
-<div class="popup"><h3 id="myModalLabel">Water Distribution Network</h3>
-<div class="formcontainer">
-
-<div class="formsection">
-  <h3>Water Supply Conducts (WSC)</h3>
-  <label>Daily Capacity of Water Conduit [in3/day]</label>
+<div class="popup">
+<table class="formcontainer">
+<tr>
+<td>
+<h3 id="myModalLabel">Water Distribution Network</h3>
+</td>
+<td colspan=2 class="popup-btn-close">
+close
+</td>
+<tr>
+<td class=formsection2 valign=top>
+<h3>Water Supply Conducts (WSC)</h3>
+<label>Daily Capacity of Water Conduit [in3/day]</label>
   <br><input type="number" min="0" max="100" step="1" name="text" value="0" size="30" name="WSC Daily Capacity" >
   <br><label>Leakage Percentage [%]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="WSC Leakage" >
@@ -143,8 +146,8 @@
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WSC Construction" >
   <br><label>Maintenance[$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WSC Annual Maintenance" >
-</div>
-<div class="formsection">
+</td>
+<td valign=top class="formsection2">
  <h3>Water Trunk Mains (WTM)</h3>
   <label>Daily Capacity of Water Trunk Main [in3/day]</label>
   <br><input type="number" min="0" max="100" step="1" name="text" value="0" size="30" name="WTM Daily Capacity" >
@@ -158,22 +161,24 @@
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Construction" >
   <br><label>Maintenance[$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Annual Maintenace" >
-</div>
- <div>
-<br><br></div> 
-<br>
-<h3 id="myModalLabel">&nbspWater Distribution Mains (WDM)</h3>
- <div class="formsection">
-  <label><b>Material 1</b></label><br>
+</td> 
+<tr >
+<tr>
+<td colspan=3>
+<center><h3 id="myModalLabel">Water Distribution Mains (WDM)</h3>
+</center>
+</td>
+</tr>
+<td class=formsection2 valign=top >
+<label><b>Material 1</b></label><br>
 
-  <select width=200px>
-	<option   value="Ductile Iron" name="WDM Material 1" selected>Ductile Iron</option> 
+<select width=200px>
+<option   value="Ductile Iron" name="WDM Material 1" selected>Ductile Iron</option> 
         <option  value ="Value2" name="WDM Material 1">Value 2</option> 
         <option  value ="Value3" name="WDM Material 1">Value 3</option> 
-  </select>
-  
+</select>
 <br><label>Total Length [in]</label>
-  <br><br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M1" >
+  <br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M1" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" name="WDS Unit Construction Energy M1" >
  <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
@@ -182,8 +187,8 @@
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance Energy M1" >
   <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label>    
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance GHG M1" >
-</div>
- <div class="formsection">
+</td>
+<td valign=top class=formsection2 >
   <label><b>Material 2</b></label><br>
     <select width=200px>
         <option   value="Ductile Iron" name="WDM Material 2" selected>Ductile Iron</option>         
@@ -191,7 +196,7 @@
         <option  value ="Value3" name="WDM Material 2">Value 3</option>                  
   </select>
 <br><label>Total Length [in]</label>
-  <br><br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M2" >
+  <br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M2" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" name="WDS Unit Construction Energy M2" >
  <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
@@ -200,13 +205,10 @@
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance Energy M2" >
   <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label>
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance GHG M2" >
-
-
-</div>
-
-<div class="formsection">
+</td>
+<td class=formsection2>
   <label><b>Life Cycle Costs (LCL)</b></label><br>
-  <br><input type="number" min="0" max="100" step="1" name="50.0" value="0" size="30" name="WDN Lifecycle Costs" >
+  <input type="number" min="0" max="100" step="1" name="50.0" value="0" size="30" name="WDN Lifecycle Costs" >
   <br><label>Replacement Costs [$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WSC Replacement" >
   <br><label>Disposal Cost [$]</label>
@@ -215,54 +217,45 @@
   <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WSC Construction" >
   <br><label>Maintenance Cost [$/Year]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WSC Annual Maintenance" >
-</div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 
 
 <a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
 <br>
-<div class="popup"><h3 id="myModalLabel">Water Treatment Workds</h3>
-<div class="formcontainer">
-<table>
-<tr><td colspan=2>
-<div class="formsection2">
-<h3> Physical Properties</h3>
-  <label>Water Treatment Facilty</label>
-  <br><input type="text"  value="None" size="30" name="Water Treatment Facility" >
-  <br><label>Total Daily Treatment Capacity [m3/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="WTW Daily Treatment Capacity" >
-  <br><label>Capacity Available for New Development</label>
-  <br><input type="number" min="0" max="1" step="0.1" value="0" size="30" name="WTW Available Capacity" >
-</div>
-</tr>
-</td>
-
+<div class="popup">
+<table class="formcontainer" >
 <tr>
-<td valign=top>
-<div class="formsection2">
-<h3> Life Cycle Costs (LCC)</h3>
-<label>Construction and Installation Costs [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WTW Construction and Installation" >
-<br><label>Capital Investment [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WTW Capital Investment" >
-<br><label>Annual Maintenance Costs [$/year]</label>
-  <br><input type="number" min="0" max="1000000" step="1000" value="50000" size="30" name="WTW Annual Maintenance" >
-<br><label>Number of Staff [persons]</label>
-  <br><input type="number" min="0" max="100" step="1" value="5" size="30" name="WTW Number of Staff" >
-<br><label>Average Annual Salary [$/person]</label>
-  <br><input type="number" min="10000" max="100000" step="1000" value="10000" size="30" name="WTW Average Staff Salary" >
-<br><label>Administration Rate [%]</label>
-  <br><input type="number" min="0.01" max="2" step=".01" value="0.01" size="30" name="WTW Administration Rate>
-<br><label>Water Resource Fee [$]</label>
-  <br><input type="number" min="0.01" max="10" step=".01" value="0.01" size="30" name="WTW Water Resource Fee" >
-<br><label>Energy Required for Treatments [$/in3]</label>
-  <br><input type="number" min="0.1" max="100" step=".1" value="50.0" size="30" name="WTW Electricity for treamtment of m3" >
-</div>
+<td>
+<h3 id="myModalLabel">Water Treatment Works</h3>
 </td>
-<td >
+<td class="popup-btn-close">
+close
+</td>
+</tr>
+<tr>
+<td colspan=2 >
+<table cellpadding=10>
+<tr class=formsection2>
+<td>
+<h3>Physical Properties</h3>
+<label>Water Treatment Facility</label>
+  <br><input type="text"  value="Name" size="30" name="WT Name" >
+</td><td>
+<br><label>Total Daily Treatment Capacity [m3/day]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="15" name="WTW Daily Treatment Capacity" >
+ </td><td><br> <label>Capacity Available for New Development</label>
+  <br><input type="number" min="0" max="1" step="0.1" value="0" value="WTW Available Capacity" size="30" name="WTW Available Capacity" >
+</td></tr></table>
+</td>
+</tr>
+<tr>
+
+
+<td class="formsection2">
 <h3> Chemicals Required for Water Treatment</h3>
-<div class="formsection2">
 <label>Alum [kg/in3]</label>
   <br><input type="number" min="0.001" max="0.005" step="0.001" value="0.001" size="30" name="WTW Unit Alum" >
 <br><label>Alum Embodied GHG [kg CO2-EQ/kg]</label>
@@ -281,52 +274,83 @@
   <br><input type="number" min="0.01" max="0.02" step="0.01" value="0.01" size="30" name="WTW Unit Microsand GHG" >
 <br><label>Microsand Embodied Energy [kWh/kg]</label>
   <br><input type="number" min="0.01" max="0.2" step="0.1" value="0.01" size="30" name="WTW Unit Microsand EmEnergy" >
-</div>
 </td>
-<td>
-<div class="formsection2">
-<label>Calcium Hydroxyde [kg/m3]</label>
+<td class="formsection2">
+<br><label>Calcium Hydroxide [kg/m3]</label>
+  <br><input type="number" min="0.01" max="0.1" step="0.01" value="0.01" size="30" name="WTW Unit Calcium Hydroxide" >
+<br><label>Calcium Hydroxyde Embodied GHG  [kgCO2-EQ/kg]</label>
+  <br><input type="number" min="0.1" max="1" step="0.1" value="0.1" size="30" name="WTW Unit Alum GHG" >
+<br><label>Calcium Hydroxyde Embodied Energy  [kWh/kg]</label>
+  <br><input type="number" min="0.5" max="2" step="0.1" value="0.5" size="30" name="WTW Unit Alum EmEnergy" >
+<br><label>Carbon Dioxide [kg/m3]</label>
+  <br><input type="number" min="0.01" max="0.2" step="0.01" value="0.01" size="30" name="WTW Unit Carbon Dioxide" >
+<br><label>Carbon Dioxide Embodied GHG [kg CO2-EQ/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WTW Unit Carbon Dioxide GHG" >
+<br><label>Carbon Dioxide Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WTW Unit Carbon Dioxide
+EmEnergy" >
+<br><label>Polyaluminum Chloride [kg/m3]</label>
   <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<label>Calcium Hydroxyde Embodied GHG  [kgCO2-EQ/kg]</label>
+<br><label>Polyaluminum Chloride Embodied GHG [kg CO2-EQ/kg]</label>
   <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<label>Calcium Hydroxyde Embodied Energy  [kWh/kg]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<label>Calcium Dioxide [kg/m3]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<label>Calcium Dioxide Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<label>Calcium Dioxide Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<label>Polyaluminum Chloride [kg/m3]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<label>Polyaluminum Chloride Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<label>Polyaluminum Chloride Embodied Energy [kWh/kg]</label>
+<br><label>Polyaluminum Chloride Embodied Energy [kWh/kg]</label>
   <br><input type="number" min="0.01" max="0.5" step="0.001" value="0.01" size="30" name="XX" >
-
-</div>
 </td>
-<!-- ADD QUALITATIVE FEATURES AND THE VALUES ABOVE -->
+</tr>
+<tr>
+<td  class="formsection2">
+<h3> Life Cycle Costs (LCC)</h3>
+<label>Construction and Installation Costs [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WTW Construction and Installation" >
+<br><label>Capital Investment [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WTW Capital Investment" >
+<br><label>Annual Maintenance Costs [$/year]</label>
+  <br><input type="number" min="0" max="1000000" step="1000" value="50000" size="30" name="WTW Annual Maintenance" >
+<br><label>Number of Staff [persons]</label>
+  <br><input type="number" min="0" max="100" step="1" value="5" size="30" name="WTW Number of Staff" >
+<br><label>Average Annual Salary [$/person]</label>
+  <br><input type="number" min="10000" max="100000" step="1000" value="10000" size="30" name="WTW Average Staff Salary" >
+<br><label>Administration Rate [%]</label>
+  <br><input type="number" min="0.01" max="2" step=".01" value="0.01" size="30" name="WTW Administration Rate>
+<br><label>Water Resource Fee [$]</label>
+  <br><input type="number" min="0.01" max="10" step=".01" value="0.01" size="30" name="WTW Water Resource Fee" >
+<br><label>Energy Required for Treatments [$/in3]</label>
+  <br><input type="number" min="0.1" max="100" step=".1" value="50.0" size="30" name="WTW Electricity for treamtment of m3" >
+</td>
+<td class="formsection2">
+
+<h3>Qualitative Indicators</h3>
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="WTW Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WTW Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WTW Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WTW Risk to Human Health"><br>
+<label>Spatial Requriements [Dmnls] </label>
+<br><input type="range" min="1" max="5"  class="slider-width" name="WTW Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" class="slider-width" name="WTW Flexibility and Adaptability"><br>
+</td>
 </tr>
 </table>
 
-
 </div>
-</div>
-
-
 
 
 
 <a class="popup-trigger" rel="nofollow">Sewer Collection Network </a>
 <br>
 <div class="popup">
-<div class="formcontainer">
-<table >
+<table class="formcontainer">
 <tr>
-<td  valign=top>
+<td>
 <h3 id="myModalLabel">Wastewater Collection System (WSC)</h3>
-<div class="formsection2">
+</td>
+</tr>
+<tr>
+<td class=formsection2  valign=top>
 <label><b>Embodied Energy and GHG timespans</b></label>
 <br><label><b>Material 1</b></label>
 <br>
@@ -337,9 +361,9 @@
         <option  value ="Value3" name="WSC Material 1">Value 3</option>                  
   </select>
 <br><label>Total Length[m]</label>
-<br>  <br><input type="number" min="1" max="5" step="1" value="1" size="30" name="WWCS Total Length M1" >
+<br><input type="number" min="1" max="5" step="1" value="1" size="30" name="WWCS Total Length M1" >
 <br><label>Unit Weight</label>
-<br>  <br><input type="number" min="0" max="5" step="1" value="0" size="30" name="WWCS Unit Weight M1" >
+<br><input type="number" min="0" max="5" step="1" value="0" size="30" name="WWCS Unit Weight M1" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Unit Construction Energy M1" >
 <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
@@ -350,11 +374,9 @@
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Unit Maintenance Energy M1" >
 <br><label>Embodied GHG Maintenance [Kg Co2-EQ/trip]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Unit Maintenance GHG M1" >
-</div>
 </td>
-<td>
-<div class = "formsection2">
-<br><br><label><b>Material 2</b></label>
+<td class="formsection2">
+<label><b>Material 2</b></label>
 <br>
   <select >
         <option   value="Ductile Iron" name="WSC Material 2" selected>Steel</option>         
@@ -362,9 +384,9 @@
         <option  value ="Value3" name="WSC Material 2">Value 3</option>                  
   </select>
 <br><label>Total Length[in]</label>
- <br> <br><input type="number" min="1" max="5" step="1" value="1" size="30" name="WWSC Total Length M2" >
+ <br><input type="number" min="1" max="5" step="1" value="1" size="30" name="WWSC Total Length M2" >
 <br><label>Unit Weight</label>
-<br> <br><input type="number" min="0" max="5" step="1" value="0" size="30" name="WWSC Total Weight M2" >
+<br><input type="number" min="0" max="5" step="1" value="0" size="30" name="WWSC Total Weight M2" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWSC Unit Construction Energy M2" >
 <br><label>Embodied GMG for Constructcion [kg CO2-EQ/kg]</label>
@@ -373,10 +395,9 @@
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWSC Unit Maintenance Energy M2" >
 <br><label>Embodied GMG Maintenance [Kg C02-EQ/trip]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWSC Unit Maintenance GHG M2" >
-</div>
 </td>
-<td >
-<div class= "formsection2">
+<td class= "formsection2">
+
 <label><b>Life-Cycle Costs (LCC)</b></label>
 <br><label>Replacement Cost [$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Replacement" >
@@ -386,14 +407,16 @@
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Construction" >
 <br><label>Maintenance Cost [$/year]<]/label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WWCS Annual Maintenance" >
-</div>
 </td>
 </tr>
 <tr valign=top>
 <td>
 <br>
 <h3 id="myModalLabel">Stormwater Collection System (SCS)</h3>
-<div class="formsection2">
+</td>
+</tr>
+<tr>
+<td class="formsection2">
 <label><b>Embodied Energy and GHG Emissions</b></label>
 <br><label><b>Material 1</b></label>
 <br>
@@ -405,7 +428,7 @@
 <br><label>Total Length[in]</label>
   <br><input type="number" min="1" max="5000" step="1" value="1" size="30" name="SWCS Total Length M1" >
 <br><label>Unit Weight</label>
- <br> <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="SWCS Unit Weight M1" >
+ <br> <input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="SWCS Unit Weight M1" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="SWCS Unit Construction Energy M1" >
 <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
@@ -416,10 +439,8 @@
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SWCS Unit Maintenance Energy M1" >
 <br><label>Embodied GHG Maintenance [Kg Co2-EQ/trip]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SWCS Unit Maintenance GHG M1" >
-</div>
 </td>
-<td>
-<div class="formsection2">
+<td class="formsection2">
 <label><b>Material 2</b></label>
 <br>
   <select width=200px>
@@ -428,9 +449,9 @@
         <option  value ="Value3" name="SWCS Material 2">Value 3</option>                  
   </select>
 <br><label>Total Length[in]</label>
-<br> <br><input type="number" min="1" max="5000" step="1" value="1" size="30" name="SWCS Total Length M2" >
+<br> <input type="number" min="1" max="5000" step="1" value="1" size="30" name="SWCS Total Length M2" >
 <br><label>Unit Weight</label>
- <br> <br><input type="number" min="0.1" max="5" step="1" value="0.1" size="30" name="SWCS Unit Weight M2" >
+ <br> <input type="number" min="0.1" max="5" step="1" value="0.1" size="30" name="SWCS Unit Weight M2" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
   <br><input type="number" min="0.1" max="5" step="0.1" value="0.1" size="30" name="SWCS Unit Construction Energy M2" >
 <br><label>Embodied GHG for Constructcion [kg CO2-EQ/kg]</label>
@@ -439,10 +460,8 @@
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="SWCS Unit Maintenance Energy M2" >
 <br><label>Embodied GMG Maintenance [Kg C02-EQ/trip]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SWCS Unit Maintenance Energy M2" >
-</div>
 </td>
-<td>
-<div class= "formsection2">
+<td  class= "formsection2">
 <label><b>Life-Cycle Costs (LCC)</b></label>
 <br><label>Replacement Cost [$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="SWCS Replacement" >
@@ -452,11 +471,9 @@
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="SWCS Construction" >
 <br><label>Maintenance Cost [$/year]<]/label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="SWCS Annual Maintenance" >
-</div>
 </td>
 </tr>
 </table>
-</div>
 </div>
 
 <a class="popup-trigger" rel="nofollow">Water Demand</a>
@@ -1295,7 +1312,7 @@ $(window).bind('scroll', function() {
         });
 
         $('.popup-btn-close').click(function(e){
-          $(this).parent().hide();
+          $(this).parent().parent().parent().parent().hide();
         });
 
         $('.popup').click(function(e){
