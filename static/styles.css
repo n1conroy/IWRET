@@ -86,8 +86,9 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-
 }
 
 .menuitemword {
+   color:#003cb3;
 	display:inline-block;
-
+   
 }
 
 .menuitemword:hover {
@@ -176,8 +177,8 @@ button#goback:hover {
 	display:none; 
  	overflow-y:scroll;  
 	position:fixed; 
-	left:20px;
-    top:40px;
+	left:200px;
+    top:50px;
 	color:black; 
     text-align:left;
     border: 8px 
@@ -186,7 +187,7 @@ button#goback:hover {
 	z-index: 100;}
 
 td.popup-btn-close {
-   color: #4EBD79; 
+   color: #2f2f7e;
 	font-size: 14px; 
 	text-align:right;
 	font-weight: bold; 
@@ -218,6 +219,12 @@ h3 {
   font-family:helvetica;
   font-size:14px;
   line-height:10px;
+ color: #141459; 
+}
+
+b {
+	  font-size:14px;
+	  color: #141459; 
 }
 
 #container {
