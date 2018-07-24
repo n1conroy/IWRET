@@ -44,7 +44,10 @@ table {
 
 
 h4 {font-family:helvetica; color:white; font-size:30px; font-weight:100; text-shadow: 2px 2px 6px #000000; }
+
 h5 {font-family:helvetica; color:#d9d9d9; font-size:19px; font-weight:100; }
+
+a#titlebar {font-family:helvetica; color:white; font-size:30px; font-weight:100; text-shadow: 2px 2px 6px #000000; }
 
 a {font-family:helvetica; text-decoration:none; line-spacing:18px; color:#003cb3;}
 
@@ -158,10 +161,11 @@ a:hover{
 button#goback{
       font-family:helvetica;
       font-size:16px;
-      border:none;
-	  width120px;
-	  background-color:white;
-	  width:20%;  
+      background-color:white;
+}
+
+button:visited{
+      background-color:white;
 }
 
 button#goback:hover {
@@ -227,10 +231,9 @@ b {
 	  color: #141459; 
 }
 
-#container {
-	align:center;
+div#container {
 	padding-left:20px; 
-     align-items:top; 
+        align-items:top; 
 	background:#FFFFFF;
 	margin:auto;
 	position:static;
@@ -238,7 +241,7 @@ b {
 	top:20px;
 }
 #results1 {
-    width:630px;
+    width:600px;
     float:left;
     height:520px;
     overflow:scroll; 
@@ -247,7 +250,7 @@ b {
 }
 
 #results2 {
-    width:630px;
+    width:600px;
     float:left;
     height:520px;
     overflow:scroll;
