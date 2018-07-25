@@ -23,7 +23,7 @@ def water_system():
 @app.route('/result', methods=['POST'])
 
 def result():
-    model = pysd.read_vensim ('teacup.mdl') 
+    #model = pysd.read_vensim ('teacup.mdl') 
     result = request.form
     params= {
 	'final_time':11.23,
@@ -38,8 +38,10 @@ def result():
 	'room_temperature',
 	'teacup_temperature'
 	]   
-   
+
+    '''
     data = model.run(params=params,return_columns=return_columns)
+    data= []
     table = Table()
     table.add_column('characteristic_time', int, 'CT')
     table.add_column('room_temperature', int, 'RT')
@@ -50,7 +52,9 @@ def result():
    
     for key,value in table:
 	print (key,value)
+'''
     time.sleep (3)
+    data=[]
     return render_template('well.html', data=data)
     
 '''
