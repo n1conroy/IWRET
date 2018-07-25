@@ -42,7 +42,7 @@
 <font size=2>SYSTEM COMPONENTS</font>
 <Br><br><br>
 </center>
-<form action="http://localhost:5000/result" method="POST">
+<form id="simform" action="http://localhost:5000/result" method="POST">
 
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
@@ -54,8 +54,14 @@
 </td>
 <td align=right class="popup-btn-close">
 close
+<br>
+<input type="button" onclick="Update_List()" name="Update" value="Update"/>
+<br>
+<span class="update_note"></span>
 </td>
 </tr>
+
+
 <tr>
 <td colspan=2 >
 <table cellpadding=10>
@@ -124,7 +130,12 @@ close
 </td>
 <td align=right colspan=2 class="popup-btn-close">
 close
+<br>
+<input type="button" onclick="Update_List()" name="Update" value="Update"/>
+<br>
+<span class="update_note"></span>
 </td>
+</tr>
 <tr>
 <td class=formsection2 valign=top>
 <h3>Water Supply Conducts (WSC)</h3>
@@ -1391,15 +1402,34 @@ $(window).bind('scroll', function() {
           e.stopPropagation();
         });
 
-function onSubmit(form){
-   var data = JSON.stringify( $(form).serializeArray() );
-   console.log(DataList);
-   /*document.getElementById("demo" ).innerHTML= DataList+ " <BR> <BR>Data has been submitted.";
-   */
-   DataList.push(data);
-   return false;
+function validateAllFields() {
+    var inputs = document.getElementsByClassName('no-space');
+    for (var i = 0; i < inputs.length; i+=1) {
+        if(!isValid(inputs[i])) {
+            alert('no!');
+        }
+        else {
+            alert('yes!');
+            console.log(inputs[i]);
+        }
+    }
 }
 
+
+function Update_List()
+{
+    var span = document.getElementByClass('update_note');
+    var myForm = document.getElementById('simform');
+    for (var i=0; i < myForm.elements.length; i++){
+       DataList.push(myForm.elements[i].value);
+    }
+    while( span.firstChild ) {
+       span.removeChild( span.firstChild );
+     }
+    span.appendChild( document.createTextNode("model parameters have been updated") );
+    console.log(DataList);
+    return false;
+}
 
 var FormData = [
 {

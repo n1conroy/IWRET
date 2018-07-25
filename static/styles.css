@@ -181,11 +181,11 @@ button#goback:hover {
 	display:none; 
  	overflow-y:scroll;  
 	position:fixed; 
-	left:200px;
-    top:50px;
+	left:20px;
+	top:40px;
 	color:black; 
-    text-align:left;
-    border: 8px 
+	text-align:left;
+	border: 8px 
 	solid #150E2D; 
 	background: #ddd;
 	z-index: 100;}
@@ -323,4 +323,10 @@ table.formcontainer{
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
+}
+
+.update_note{
+   color:red;
+   font-size:10px;
+   text-decoration:italic;
 }
