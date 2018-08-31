@@ -2,17 +2,21 @@
 <head>
 <link rel="stylesheet" href="../static/styles.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
-<style>
-</style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+{{ charts_init }}
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script type="text/javascript">
       google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawChart);
+      //var my_data = [{{'', ''.join(modeldata) }}];
+      var mydata=[{{modeldata}}];
+      
+      console.log('This is my data '+mydata);
 
       function drawChart() {
       var data = new google.visualization.DataTable()
@@ -44,7 +48,7 @@
           subtitle: '(results can be exported as a CSV file)'
         },
         legend: {position: 'none'},
-        width: 580,
+        width: 460,
         height: 430,
 	vAxis: {
           title: 'Capacity (millions)',
@@ -94,7 +98,7 @@
         },
         
 	legend: { position: 'none' },
-	width: 580,
+	width: 460,
         height: 430,
         vAxis: {
           title: 'Capacity (millions)',

@@ -241,7 +241,7 @@ div#container {
 	top:20px;
 }
 #results1 {
-    width:600px;
+    width:480px;
     float:left;
     height:520px;
     overflow:scroll; 
@@ -250,7 +250,7 @@ div#container {
 }
 
 #results2 {
-    width:600px;
+    width:480px;
     float:left;
     height:520px;
     overflow:scroll;

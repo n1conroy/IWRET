@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from flask import Flask, flash, redirect, render_template, request, session, abort
+from flask_googlecharts import BarChart
 import os
 import sys
 import time
@@ -23,7 +24,8 @@ def water_system():
 @app.route('/result', methods=['POST'])
 
 def result():
-    #model = pysd.read_vensim ('teacup.mdl') 
+    model = pysd.read_vensim ('teacup.mdl') 
+    
     result = request.form
     params= {
 	'final_time':11.23,
@@ -32,16 +34,19 @@ def result():
 	'time_step':104.2,
 	'initial_time': 12.34, 
  	'final_time':7.8	
-      }  
+     }  
     return_columns = [
 	'characteristic_time', 
 	'room_temperature',
 	'teacup_temperature'
 	]   
+    modeldata = model.run()
+    #modeldata = model.run(params=params,return_columns=return_columns)
+    
+    my_chart = BarChart ("my_chart",options={'title': 'My Chart'})
 
-    '''
-    data = model.run(params=params,return_columns=return_columns)
-    data= []
+    return render_template('well.html', **locals())  
+'''
     table = Table()
     table.add_column('characteristic_time', int, 'CT')
     table.add_column('room_temperature', int, 'RT')
@@ -52,19 +57,12 @@ def result():
    
     for key,value in table:
 	print (key,value)
-'''
-    time.sleep (3)
-    data=[]
-    return render_template('well.html', data=data)
-    
-'''
     description= {("characteristic_time"):[('value')]}
     data_table= gviz_api.DataTable(description)
     data_table.LoadData(table) 
     json= data_table.ToJSon()
+    return render_template('well.html', data=data)
 '''
- #   return render_template('well.html', data=data)
-
 if __name__ == '__main__':
     app.run(debug=True)
 
