@@ -1,68 +1,73 @@
 #!/usr/bin/python
 
-from flask import Flask, flash, redirect, render_template, request, session, abort
-from flask_googlecharts import BarChart
-import os
-import sys
-import time
+from flask import Flask, render_template, json, request
 import numpy as np
-import pandas as pd
-import json
 import pysd
-import urllib2
-import gviz_api
-from gviz_data_table import Table
+import os
+import matplotlib
+import json
+import random
+
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+plt.ioff()
+
+from threading import Lock
+lock = Lock()
+import datetime
+import mpld3
+from mpld3 import plugins
+
+
+
+s = json.load(open("./static/bmh_EXmatplotlibrc.json"))
+
+x = range(100)
+y = [a * 2 + random.randint(-20, 20) for a in x]
+
+model = pysd.read_vensim ('teacup.mdl')
+#result = request.form
+modeldata = model.run()
+
+def draw_fig(fig_type):
+    with lock:
+        fig, ax = plt.subplots()
+        if fig_type == "line":
+            ax.plot(x, y)
+        elif fig_type == "bar":
+            ax.bar(x, y)
+        elif fig_type == "pie":
+            ax.pie(pie_fracs, labels=pie_labels)
+        elif fig_type == "scatter":
+            ax.scatter(x, y)
+        elif fig_type == "hist":
+            ax.hist(y, 10, normed=1)
+        elif fig_type == "area":
+            ax.plot(x, y)
+            ax.fill_between(x, 0, y, alpha=0.2)
+
+
+    return mpld3.fig_to_html(fig)
 
 
 templateDir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates');
 app = Flask (__name__, template_folder=templateDir);
 
 @app.route('/')
-def water_system():
-    return render_template("water_system.html")
+def home():
+    #return render_template("water_system.html")
+    return render_template("index.html")
 
-@app.route('/result', methods=['POST'])
 
-def result():
-    model = pysd.read_vensim ('teacup.mdl') 
-    
-    result = request.form
-    params= {
-	'final_time':11.23,
-	'heat_loss_to_room':67.98,
-	'saveper':23.2,
-	'time_step':104.2,
-	'initial_time': 12.34, 
- 	'final_time':7.8	
-     }  
-    return_columns = [
-	'characteristic_time', 
-	'room_temperature',
-	'teacup_temperature'
-	]   
-    modeldata = model.run()
-    #modeldata = model.run(params=params,return_columns=return_columns)
-    
-    my_chart = BarChart ("my_chart",options={'title': 'My Chart'})
+@app.route('/query', methods=['POST'])
+def query():
+    data = json.loads(request.data)
+    return draw_fig(data["plot_type"])
 
-    return render_template('well.html', **locals())  
-'''
-    table = Table()
-    table.add_column('characteristic_time', int, 'CT')
-    table.add_column('room_temperature', int, 'RT')
-    table.add_column('teacup_temperature', int, 'TT')
-    for row in data.iterrows():
-        print row[1].tolist()
-    	table.append(row[1].tolist())
-   
-    for key,value in table:
-	print (key,value)
-    description= {("characteristic_time"):[('value')]}
-    data_table= gviz_api.DataTable(description)
-    data_table.LoadData(table) 
-    json= data_table.ToJSon()
-    return render_template('well.html', data=data)
-'''
+#def result():
+#    return render_template('well.html')  
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
