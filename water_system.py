@@ -20,14 +20,11 @@ from mpld3 import plugins
 
 
 
-s = json.load(open("./static/bmh_EXmatplotlibrc.json"))
-
-x = range(100)
-y = [a * 2 + random.randint(-20, 20) for a in x]
-
 model = pysd.read_vensim ('teacup.mdl')
-#result = request.form
 modeldata = model.run()
+x = range(241)
+y = modeldata['Heat Loss to Room']
+
 
 def draw_fig(fig_type):
     with lock:
@@ -55,7 +52,7 @@ app = Flask (__name__, template_folder=templateDir);
 
 @app.route('/')
 def home():
-    #return render_template("water_system.html")
+    print( request.form)
     return render_template("index.html")
 
 
@@ -63,9 +60,6 @@ def home():
 def query():
     data = json.loads(request.data)
     return draw_fig(data["plot_type"])
-
-#def result():
-#    return render_template('well.html')  
 
 
 if __name__ == '__main__':

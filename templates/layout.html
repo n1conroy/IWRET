@@ -39,21 +39,36 @@
 
 <tr>
 <td id="mainpic" colspan="2"  >
+<form id="simform"  method="POST">
 
+<!--
 <img src="../static/images/iwret_9_background.png" width=40%></img>
-
+-->
 <div class="container">
-      <h1 class="logo" style="font-family: 'Sofia'">mpld3-flask
-      </h1>
       <strong><nav>
         <ul class="menu">
           <li><a href="{{ url_for('home') }}">Home</a></li>
         </ul>
-      </nav></strong>
-   {% block content %}
-   {% endblock %}
+	<div id="sidebar">
+  <span>Select plot type</span>
+  <br/>
+  <input type="radio" name="plot_type" value="line" checked>Line</input>
+  <br/>
+  <input type="radio" name="plot_type" value="bar" >Bar</input>
+  <br/>
+  <input type="radio" name="plot_type" value="hist" >Histogram</input>
+  <br/>
+  <button type="button" id="query">Run Simulation</button>
 </div>
 
+
+{% block content %}
+{% endblock %}
+
+      </nav></strong>
+    <h1 class="logo" style="font-family: 'Sofia'">IWRET system
+      </h1>
+</div>
 </td>
 <td rowspan=2 valign=top id="mainmenu">
 <br>
@@ -63,7 +78,6 @@
 <font size=2>SYSTEM COMPONENTS</font>
 <Br><br><br>
 </center>
-<form id="simform" action="http://localhost:5000/result" method="POST">
 
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
@@ -1369,10 +1383,11 @@ close
 </div>
 <br>
 <p>
-<br><input type="submit" name="my-form" class="create" value="Run Simulation">
+<!--<br><input type="submit" name="my-form" class="create" value="Run Simulation">
+-->
 <br>
 </p>
-</form>
+ </form> 
 </td>
 </tr>
 <tr>
