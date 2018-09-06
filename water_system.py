@@ -18,8 +18,6 @@ import datetime
 import mpld3
 from mpld3 import plugins
 
-
-
 model = pysd.read_vensim ('teacup.mdl')
 modeldata = model.run()
 x = range(241)
@@ -33,17 +31,8 @@ def draw_fig(fig_type):
             ax.plot(x, y)
         elif fig_type == "bar":
             ax.bar(x, y)
-        elif fig_type == "pie":
-            ax.pie(pie_fracs, labels=pie_labels)
-        elif fig_type == "scatter":
-            ax.scatter(x, y)
         elif fig_type == "hist":
             ax.hist(y, 10, normed=1)
-        elif fig_type == "area":
-            ax.plot(x, y)
-            ax.fill_between(x, 0, y, alpha=0.2)
-
-
     return mpld3.fig_to_html(fig)
 
 
@@ -53,12 +42,13 @@ app = Flask (__name__, template_folder=templateDir);
 @app.route('/')
 def home():
     print( request.form)
-    return render_template("index.html")
+    return render_template("layout.html")
 
 
 @app.route('/query', methods=['POST'])
 def query():
     data = json.loads(request.data)
+    #return (data)
     return draw_fig(data["plot_type"])
 
 
