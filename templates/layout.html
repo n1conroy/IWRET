@@ -4,7 +4,7 @@
  <link rel="stylesheet" href="static/css/jquery-ui.css" />
   <script src="static/js/jquery-1.9.1.js"></script>
   <script src="static/js/jquery-ui.js"></script>
-  <link href='static/css/sofia.css' rel='stylesheet' type='text/css'>
+ 
   <strong>
    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
    <link rel="stylesheet" href="{{ url_for('static', filename='css/lean-slider.css') }}">
@@ -85,7 +85,7 @@ div #sidebar
 
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
-<div class="popup" style="height:500px;">
+<div class="popup" style="height:650px;">
 <table class="formcontainer" >
 <tr>
 <td>
@@ -93,10 +93,11 @@ div #sidebar
 </td>
 <td align=right class="popup-btn-close">
 close
-<br>
+<!--<br>
 <input type="button" onclick="Update_List()" name="Update" value="Update"/>
 <br>
 <span class="update_note"></span>
+-->
 </td>
 </tr>
 
@@ -118,17 +119,17 @@ close
 <td rowspan=2 class=formsection2>
 <h3>Single Family Units</h3>
  <label>Initial Number of Units [%]</label>
-  <br><input type="number" min="0" max="10000" step="100" value="0" size="30" name="SF Inital Sock of Units" >
+  <br><input type="number" min="0" max="10000" step="100" value="3000" size="30" name="SF Inital Sock of Units" >
  <br><label>Number of Units Decomissioned per Year [#]</label>
   <br><input type="number" min="0" max="1000" step="100" value="0" size="30" name="SF Decommissioned Units Annually" >
  <br><label>Number of Units Built per Year [#]</label>
   <br><input type="number" min="0" max="1000" step="10" value="0" size="30" name="SF New Units Annually" >
 <br><label>Average Size of a Lot [m2]</label>
-  <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="SF Average Lot Size" >
+  <br><input type="number" min="0" max="1000" step="10" value="400" size="30" name="SF Average Lot Size" >
  <br><label>Lawn area [%]</label>
-  <br><input type="number" min="0" max="1" step=".1" value="0" size="30" name="SF Lawn Area" >
+  <br><input type="number" min="0" max="1" step=".1" value="1" size="30" name="SF Lawn Area" >
  <br><label>Average Occupancy [Persons]</label>
-  <br><input type="number" min="0.5" max="5" step=".5" value="0.5" size="30" name="SF Average Occupancy per Unit" >
+  <br><input type="number" min="0.5" max="5" step=".1" value="2.2" size="30" name="SF Average Occupancy per Unit" >
 </td>
 <td class=formsection2 valign=top>
 <h3> Multi Family Units</h3>
@@ -137,18 +138,25 @@ close
  <br><label>Number of Units Decomissioned per Year [#]</label>
   <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="MF Units Decommissioned Annually" >
  <br><label>Number of Units Built per Year [#]</label>
-  <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="MF New Units Annually" >
+  <br><input type="number" min="0" max="1000" step="1" value="150" size="30" name="MF New Units Annually" >
  <br><label>Average Occupancy [Persons]</label>
-  <br><input type="number" min="0.5" max="5" step=".5" value="0.5" size="30" name="MF Average Occupancy per Unit" >
+  <br><input type="number" min="0.5" max="5" step="0.1" value="1.9" size="30" name="MF Average Occupancy per Unit" >
 </td>
 </tr>
 <tr>
 <td class=formsection2>
 <h3>Global Variables</h3>
 <label>Price of Electricity [Dollars/kWh]</label>
-  <br><input type="number" min="1" max="50" step="1" value="1" size="30" name="Electricity Fee" >
+  <br><input type="number" min="1" max="50" step="1" value="0.11" size="30" name="Electricity Fee" >
  <br><label>Electricty Generation Emission Factor per Year [kgCO2/kWh]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWP Price per kWh" >
+  <br><input type="number" min="0" max="100" step="1" value="0.348" size="30" name="GWP Price per kWh" >
+ <br><label>Construction and installation costs for 1m2 of asphalt</label>
+  <br><input type="number" min="0" max="10000" step="1" value="1000" size="30" name="Aspalt CC Unit Cost" >
+   <br><label>Construction and installation GHG emission for 1m2 of asphalt</label>
+  <br><input type="number" min="0" max="5" step="0.1" value="1.1" size="30" name="Asphalt Unit GHG Emissions" >
+   <br><label>Construction and installation embodied energy for 1m2 of asphalt</label>
+  <br><input type="number" min="0" max="5" step="0.1" value="0.8" size="30" name="Asphalt Unit Energy" >
+
 </td>
 </tr>
 <tr>
@@ -537,105 +545,107 @@ close
 <td class="formsection2">
  <label><b>Single Family Units  </b></label><input type="checkbox" name="WD Single Family Units">
   <br><label>Faucet Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" name="text" value="0" size="30" name="SF Faucet Demand" >
+  <br><input type="number" min="0" max="100" step="1" name="text" value="29" size="30" name="SF Faucet Demand" >
   <br><label>Shower Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50" size="30" name="SF Shower Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="36" size="30" name="SF Shower Demand" >
   <br><label>Bathtub Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SF Bathtub Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="25" size="30" name="SF Bathtub Demand" >
   <br><label>Dishwasher Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" width="230" name="SF Dishwasher Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="4" width="230" name="SF Dishwasher Demand" >
   <br><label>Clothes Washerr Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="10" name="SF Clothes Washer Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="22" size="10" name="SF Clothes Washer Demand" >
   <br><label>Leaks[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="10" name="SF Leaks" >
+  <br><input type="number" min="0" max="100" step="1" value="20" size="10" name="SF Leaks" >
   <br> <label>Toilet Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="10" name="SF Toilet Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="53" size="10" name="SF Toilet Demand" >
   <br><label">Other Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="10" name="SF Other" >
+  <br><input type="number" min="0" max="100" step="1" value="25" size="10" name="SF Other" >
 </td>
 <td class="formsection2">
  <label><b>Multi Family Unit</b></label><input type="checkbox" name="WD Multi Family Units">
   <br><label>Faucet Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50" size="30" name="MF Faucet Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="29" size="30" name="MF Faucet Demand" >
   <br><label>Shower Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MF Shower Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="36" size="30" name="MF Shower Demand" >
   <br><label>Bathtub Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MF Bathtub Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="25" size="30" name="MF Bathtub Demand" >
   <br><label>Dishwasher Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" width="230" name="MF Dishwasher Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="4" width="230" name="MF Dishwasher Demand" >
   <br><label>Clothes Washerr Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="10" name="MF Clothes Washer Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="22" size="10" name="MF Clothes Washer Demand" >
   <br><label>Leaks[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="10" name="MF Leaks" >
+  <br><input type="number" min="0" max="100" step="1" value="20" size="10" name="MF Leaks" >
   <br> <label>Toilet Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="10" name="MF Toilet Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="53" size="10" name="MF Toilet Demand" >
   <br><label">Other Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="10" name="MF Other" >
+  <br><input type="number" min="0" max="100" step="1" value="25" size="10" name="MF Other" >
 </td>
 <td class="formsection2">
   <label><b>Water Efficiency Reduction Coeff</b></label><input type="checkbox" name="WD Water Efficiency Reduction Coeff"> 
   <br><label>Faucet [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0" size="30" name="SF WEC Faucet" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8" size="30" name="SF WEC Faucet" >
   <br><label>Shower [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="SF WEC Shower" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="SF WEC Shower" >
   <br><label>Dishwasher [%] </label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="SF WEC Dishwasher" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="SF WEC Dishwasher" >
   <br><label>Bathtub [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="SF WEC Bathtub" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="SF WEC Bathtub" >
   <br><label>Clothes Washer [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="SF WEC Clothes Washer" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="SF WEC Clothes Washer" >
   <br><label>Toilet [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="SF WEC Toilet" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="SF WEC Toilet" >
 </td>
 <td class="formsection2">
   <label><b>Water Efficiency Reduction Coeff </b></label><input type="checkbox" name="WD Water Efficiency Reduction Coeff2">
   <br><label>Faucet [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0" name="MF WEC Faucet" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8" name="MF WEC Faucet" >
   <br><label>Shower [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="MF WEC Shower" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="MF WEC Shower" >
   <br><label>Dishwasher [%] </label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="MF WEC Dishwasher" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="MF WEC Dishwasher" >
   <br><label>Bathtub [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="MF WEC Bathtub" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="MF WEC Bathtub" >
   <br><label>Clothes Washer [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="MF WEC Clothes Washer" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="MF WEC Clothes Washer" >
   <br><label>Toilet [%]</label>
-  <br><input type="number" min="0.0" max="1" step=".1" value="0.0"  name="MF WEC Toilet" >
+  <br><input type="number" min="0.0" max="1" step=".1" value="0.8"  name="MF WEC Toilet" >
 </td>
 </tr>
 <tr>
 <td class= "formsection2">
    <label><b> Water Conservation adoption rate<b></label><input type="checkbox" name="WD Water Conservation Adoption Rate">
   <br><label>Single-family Units [%] </label>
-  <br><input type="range" min="0.0" step=".1" max="1" class="slider-width" name="SF Rate of Adoption">
+  <br><input type="range" min="0.0" step=".1" max="1" value ="0.5" class="slider-width" name="SF Rate of Adoption">
   <br><label>Multi-family Units[%]</label>
-  <br><input type="range" min="0.0" step=".1" max="1"  class="slider-width" name="MF Rate of Adoption">
+  <br><input type="range" min="0.0" step=".1" max="1"  value ="0.5" class="slider-width" name="MF Rate of Adoption">
 
 
 </td>
 <td class="formsection2">
   <label><b>Irrigation Demand  </b></label><input type="checkbox" name="WD Irrigation Demand">
   <br><label>Public Spaces for Irrigation [m2]</label>
-  <br><input type="number" min="0" max="500000" step="1" value="0" size="30" name="Public spaces for Irrigation" >
+  <br><input type="number" min="0" max="500000" step="100" value="25000" size="30" name="Public spaces for Irrigation" >
   <br><label>Unit Demand for Public Spaces [l/m2/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit Irrigation Demand" >
+  <br><input type="number" min="0" max="200" step="1" value="70" size="30" name="Unit Irrigation Demand" >
    <br><label>Unit Demand for Lawn Irrigation [l/m2/day]/label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit Lawn Irrigation Demand" >
+  <br><input type="number" min="0" max="200" step="1" value="70" size="30" name="Unit Lawn Irrigation Demand" >
 </td>
 <td class="formsection2">
   <label><b>Hospitals  </b></label><input type="checkbox" name="WD Hospitals">
   <br><label>Number of Beds [#]</label>
-  <br><input type="number" min="0" max="5000" step="1" value="50" size="30" name="Number of Beds" >
+  <br><input type="number" min="0" max="5000" step="1" value="280" size="30" name="Number of Beds" >
   <br><label>Demand per Bed [l/bed/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit demand per bed" >
+  <br><input type="number" min="0" max="2000" step="1" value="1310" size="30" name="Unit demand per bed" >
 </td>
 
 <td class="formsection2">
   <label><b>Industrial Deamnd  </b></label><input type="checkbox" name="WD Industrial Demand">
   <br><label>Industrial Area [m2]</label>
-  <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="Industrial Floor Area" >
+  <br><input type="number" min="0" max="500000" step="100" value="10000" size="30" name="Industrial Floor Area" >
   <br><label>Unit Demand [l/m2/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit Industrial Demand" >
+  <br><input type="number" min="0" max="200" step="1" value="180" size="30" name="Unit Industrial Demand Per Floor Area" >
+ 
+
 </td>
 </tr>
 
@@ -643,56 +653,93 @@ close
 <td class="formsection2">
  <label><b>Community Centers  </b></label> <input type="checkbox" name="WD Community Centers">
   <br><label>Total Area [m2]</label>
-  <br><input type="number" min="0" max="50000" step="1000"  value="0" size="30" name="CC Area" >
+  <br><input type="number" min="0" max="50000" step="1000"  value="3250" size="30" name="CC Area" >
   <br><label>Unit Demand [l/m2/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" name="CC Unit Demand" >
+  <br><input type="number" min="0" max="200" step="1" value="30" name="CC Unit Demand" >
+  <br><label>Variation Coefficient Upper [Dmnls]</label>
+  <br><input type="number" min="0" max="2" step=".01" value="0.89" name="CC Upper VC" >
+  <br><label>Variation Coefficient [Dmnls]</label>
+  <br><input type="number" min="0" max="2" step=".01" value="1.21" name="CC Lower VC" >
 </td>
 <td class="formsection2">
   <lablel><b>Office Buidlings </b></lable><input type="checkbox" name="WD Office Buildings">
   <br><label>Office Building Area[m2]</label>
-  <br><input type="number" min="0" max="50000" step="1000" value="0" size="30" name="Footprint Office Buildings" >
+  <br><input type="number" min="0" max="50000" step="1000" value="50000" size="30" name="Footprint Office Buildings" >
   <br><label>Unit Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="OB Unit Demand per m2" >
+  <br><input type="number" min="0" max="200" step=".1" value="4.2" size="30" name="OB Unit Demand per m2" >
+  <br><label>Variation Coefficient Upper [Dmnls]</label>
+  <br><input type="number" min="0" max="2" step=".01" value="0.8" size="30" name="OB Upper VC" >
+    <br><label>Variation Coefficient Lower [Dmnls]</label>
+  <br><input type="number" min="0" max="2" step=".01" value="1.25" size="30" name="OB Lower VC" >
+
 </td>
 <td class="formsection2">
  <label><b>Schools   </b></label> <input type="checkbox" name="WD Schools">
   <br><label>Number of Children [#]</label>
-  <br><input type="number" min="0" max="5000" step="100"  value="0" size="30" name="Number of Students" >
+  <br><input type="number" min="0" max="5000" step="100"  value="2500" size="30" name="Number of Students" >
   <br><label>Demand per Child [l/child/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" name="Unit Demand Per Student" >
+  <br><input type="number" min="0" max="200" step=".1" value="25.1" name="Unit Demand Per Student" >
 </td>
 <td class="formsection2">
   <label><b>Restaurants  </b></label><input type="checkbox" name="WD Restaurants">
   <br><label>Number of Seats [#]</label>
-  <br><input type="number" min="0" max="5000" step="1"  value="50" size="30" name="Restaurant Seats" >
+  <br><input type="number" min="0" max="5000" step="1"  value="1500" size="30" name="Restaurant Seats" >
   <br><label>Demand per Seat [l/seat/dat]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit Demand Seat" >
+  <br><input type="number" min="0" max="200" step="0.1" value="91.6" size="30" name="Unit Demand Seat" >
+  <br><label>Coefficient Upper [Dmnls]</label>
+  <br><input type="number" min="0" max="2" step="0.01" value="1.08" size="30" name="Restaurants Upper VC" >
+ <br><label>Coefficient Lower [Dmnls]</label>
+  <br><input type="number" min="0" max="2" step="0.01" value="0.85" size="30" name="Restaurants Lower VC" >
 </td>
 </tr>
 <tr>
 <td class="formsection2">
  <label><b>Daycares </b></label><input type="checkbox" name="WD Daycares"> 
   <br>label>Number of Children [#]</label>
-  <br><input type="number" min="0" max="50000" step="1" value="0" size="30" name="Number of Children" >
+  <br><input type="number" min="0" max="50000" step="10" value="550" size="30" name="Number of Children" >
   <br><label>Demand per Child [l/child/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit Demand per Child" >
+  <br><input type="number" min="0" max="200" step="1" value="25" size="30" name="Unit Demand per Child" >
+  <br><label>Variation Coefficient Upper</label>
+  <br><input type="number" min="0" max="2" step="0.01" value="0.78" size="30" name="Daycares Upper VC" >
+    <br><label>Variation Coefficient Lower</label>
+  <br><input type="number" min="0" max="2" step="0.01" value="1.25" size="30" name="Daycares Lower VC" >
+
 </td>
 <td class="formsection2">
   <label><b>Hotels </b></label><input type="checkbox" name="WD Hotels">
   <br><label>Hotel Area [m/2]</label>
-  <br><input type="number" min="0" max="50000" step="1"  value="0" size="30" name="Footprint Hotels" >
+  <br><input type="number" min="0" max="50000" step="100"  value="10000" size="30" name="Footprint Hotels" >
   <br><label>Unit Demand[l/m2/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit Demand per m2" >
+  <br><input type="number" min="0" max="200" step="0.1" value="10.5" size="30" name="Unit Demand per m2" >
 </td>
 <td class="formsection2">
 <label><b>Retail </b></label> <input type="checkbox" name="WD Retail"> 
   <br><label>Retail area</label>
-  <br><input type="number" min="0" max="50000" step="1" value="0" size="30" name="Retail space in m2" >
-  <br><label>Retail unit demand/label>
-  <br><input type="number" min="0" max="200" step="1" value="0" size="30" name="Unit Demand of Retail Space" >
+  <br><input type="number" min="0" max="50000" step="1" value="20000" size="30" name="Retail space in m2" >
+  <br><label>Retail unit demand</label>
+  <br><input type="number" min="0" max="200" step=".1" value="4.3" size="30" name="Unit Demand of Retail Space" >
+  <br><label>Retail Upper VC</label>
+  <br><input type="number" min="0" max="2" step="0.01" value="1.18" size="30" name="Unit Demand of Retail Space" >
+    <br><label>Retail Lower VC</label>
+  <br><input type="number" min="0" max="2" step="0.01" value="0.92" size="30" name="Unit Demand of Retail Space" >
+</td>
+<td class="formsection2"> 
+<label><b>HVAC </b></label> <input type="checkbox" name="HVAC"> 
+  <br><label>Demand in litres per hour [Litres/hour]</label>
+  <br><input type="number" min="0" max="5000" step="10" value="250" size="30" name="Full Load Water Use" >
+  <br><label>Hours of operation per day [Hours]</label>
+  <br><input type="number" min="1" max="24" step="1" value="18" size="30" name="HVAC Hours of Operation" >
 </td>
 </tr>
 </table>
+<script>
+ $('WD Community Centers').change( function() {
+    if  ($('WD Community Centers').is(':unchecked')) {
+     $('input.CC Area').val('0')
+   });
+   
+</script>
+
 </div>
 <a class="popup-trigger" rel="nofollow">Wastewater Treatment Works</a>
 <br>
