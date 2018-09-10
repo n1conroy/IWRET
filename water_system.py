@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from flask import Flask, render_template, json, request
 import numpy as np
 import pysd
@@ -20,30 +18,10 @@ from mpld3 import plugins
 
 
 
-model = pysd.read_vensim ('teacup.mdl')
-modeldata = model.run()
-x = range(241)
-y = modeldata['Heat Loss to Room']
-
-
-def draw_fig(fig_type):
+def draw_fig(plot_type):
     with lock:
         fig, ax = plt.subplots()
-        if fig_type == "line":
-            ax.plot(x, y)
-        elif fig_type == "bar":
-            ax.bar(x, y)
-        elif fig_type == "pie":
-            ax.pie(pie_fracs, labels=pie_labels)
-        elif fig_type == "scatter":
-            ax.scatter(x, y)
-        elif fig_type == "hist":
-            ax.hist(y, 10, normed=1)
-        elif fig_type == "area":
-            ax.plot(x, y)
-            ax.fill_between(x, 0, y, alpha=0.2)
-
-
+        ax.plot(x, y)
     return mpld3.fig_to_html(fig)
 
 
@@ -52,16 +30,18 @@ app = Flask (__name__, template_folder=templateDir);
 
 @app.route('/')
 def home():
-    print( request.form)
     return render_template("index.html")
 
 
 @app.route('/query', methods=['POST'])
 def query():
-    data = json.loads(request.data)
-    return draw_fig(data["plot_type"])
+   data = json.loads(request.data)
+   model = pysd.read_vensim ('IWRET_6.mdl')
+   modeldata = model.run(params=data)
+   x = range(731)
+   y = modeldata
+   return draw_fig(data)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
