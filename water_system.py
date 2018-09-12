@@ -16,11 +16,13 @@ import datetime
 import mpld3
 from mpld3 import plugins
 
-
-
-def draw_fig(plot_type):
+def draw_fig(data):
     with lock:
         fig, ax = plt.subplots()
+	model = pysd.read_vensim ('IWRET_6.mdl')
+	modeldata = model.run()
+	x = range(731)
+	y = modeldata
         ax.plot(x, y)
     return mpld3.fig_to_html(fig)
 
@@ -36,10 +38,6 @@ def home():
 @app.route('/query', methods=['POST'])
 def query():
    data = json.loads(request.data)
-   model = pysd.read_vensim ('IWRET_6.mdl')
-   modeldata = model.run(params=data)
-   x = range(731)
-   y = modeldata
    return draw_fig(data)
 
 

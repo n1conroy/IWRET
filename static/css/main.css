@@ -1,6 +1,7 @@
 .menu {
   float: right;
   margin-top: 8px;
+  display: none;
 }
  
 .menu li {
@@ -81,6 +82,8 @@ h2 {
 #container {
     float: right;
     width: 75%;
+    z-index: 10;
+    display: none;
 }   
 
 .params{
