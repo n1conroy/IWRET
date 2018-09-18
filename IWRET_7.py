@@ -1,5 +1,5 @@
 """
-Python model "IWRET_6.py"
+Python model "IWRET_7.py"
 Translated using PySD version 0.9.0
 """
 from __future__ import division
@@ -13,18 +13,18 @@ from pysd.py_backend import functions
 _subscript_dict = {}
 
 _namespace = {
-    u'Footprint Office Buildings':
-    u'footprint_office_buildings',
-    u'System Installation and Construction Cost':
-    u'system_installation_and_construction_cost',
-    u'Generated Wastewater':
-    u'generated_wastewater',
+    u'Result System Acceptability':
+    u'result_system_acceptability',
+    u'Retail Upper VC':
+    u'retail_upper_vc',
     u'SWP Variable Speed Drive Efficiency':
     u'swp_variable_speed_drive_efficiency',
-    u'GWS Tank Inflow':
-    u'gws_tank_inflow',
+    'Time':
+    'time',
     u'WWTW Operation GHG':
     u'wwtw_operation_ghg',
+    u'Footprint Office Buildings':
+    u'footprint_office_buildings',
     u'SWCS Construction Energy M2':
     u'swcs_construction_energy_m2',
     u'RHP Unit Conversion Factor':
@@ -37,8 +37,8 @@ _namespace = {
     u'landuse2_emc_nitrogen',
     u'SWCS Replacement':
     u'swcs_replacement',
-    u'Retail Upper VC':
-    u'retail_upper_vc',
+    u'Water Conduit Available Capacity':
+    u'water_conduit_available_capacity',
     u'MF Dishwasher Demand':
     u'mf_dishwasher_demand',
     u'RH System Construction GHG':
@@ -131,8 +131,6 @@ _namespace = {
     u'bioretention_risk_to_human_health',
     u'Restaurants Lower VC':
     u'restaurants_lower_vc',
-    u'Water in WTW':
-    u'water_in_wtw',
     u'SF Leaks':
     u'sf_leaks',
     u'Bioretention Construction GHG':
@@ -193,8 +191,8 @@ _namespace = {
     u'lm_total_energy',
     u'GWP Construction and Installation':
     u'gwp_construction_and_installation',
-    u'WTW Unit Sodium Hypochlorite':
-    u'wtw_unit_sodium_hypochlorite',
+    u'Result System Reliability':
+    u'result_system_reliability',
     u'MBR Total Energy':
     u'mbr_total_energy',
     u'Retail space in m2':
@@ -213,8 +211,6 @@ _namespace = {
     u'full_load_water_use',
     u'WWTW Unit Methanol GHG':
     u'wwtw_unit_methanol_ghg',
-    u'Raw Water':
-    u'raw_water',
     u'SWTW Affordability':
     u'swtw_affordability',
     u'LM Total Treated':
@@ -223,6 +219,8 @@ _namespace = {
     u'wwp_co2_per_kwh',
     u'WDM Construction':
     u'wdm_construction',
+    u'Wastewater Generated':
+    u'wastewater_generated',
     u'RH System Total Construction GHG':
     u'rh_system_total_construction_ghg',
     u'WDM Unit Weight M1':
@@ -251,8 +249,8 @@ _namespace = {
     u'result_network_embodied_ghg_emissions',
     u'SWCS Total Costs':
     u'swcs_total_costs',
-    'Time':
-    'time',
+    u'GWS Tank Inflow':
+    u'gws_tank_inflow',
     u'RR Unit Urea':
     u'rr_unit_urea',
     u'Bioswale Design and Capital Costs':
@@ -267,8 +265,8 @@ _namespace = {
     u'lm_flexibility_and_adaptability',
     u'GWP Variable Speed Drive Efficiency':
     u'gwp_variable_speed_drive_efficiency',
-    u'RH Tank Inflow':
-    u'rh_tank_inflow',
+    u'WWTW Acceptability':
+    u'wwtw_acceptability',
     u'Landuse1 Percentage':
     u'landuse1_percentage',
     u'WDM Construction GHG M1':
@@ -301,8 +299,10 @@ _namespace = {
     u'mf_wd_per_capita_water_sensitive',
     u'GWS Daily Maintenance':
     u'gws_daily_maintenance',
-    u'WWTW Acceptability':
-    u'wwtw_acceptability',
+    u'WWTW Available Capacity':
+    u'wwtw_available_capacity',
+    u'RH Tank Inflow':
+    u'rh_tank_inflow',
     u'WWTW Flexibility and Adaptability':
     u'wwtw_flexibility_and_adaptability',
     u'PP Daily Costs':
@@ -313,8 +313,6 @@ _namespace = {
     u'sw_daily_rate',
     u'WWP Space Requirements':
     u'wwp_space_requirements',
-    u'Water In Distribution System':
-    u'water_in_distribution_system',
     u'WWCS Disposal':
     u'wwcs_disposal',
     u'Rainfall':
@@ -361,6 +359,8 @@ _namespace = {
     u'swp_unit_conversion_factor',
     u'SWT Unit Ferric Chloride GHG':
     u'swt_unit_ferric_chloride_ghg',
+    u'Result Reached System Capacity':
+    u'result_reached_system_capacity',
     u'WWTW Construction and Installation':
     u'wwtw_construction_and_installation',
     u'WWTW Total Ferric Chloride EmEnergy':
@@ -373,8 +373,8 @@ _namespace = {
     u'wsc_construction',
     u'WTW Total Calcium Hydroxide GHG':
     u'wtw_total_calcium_hydroxide_ghg',
-    u'MF WEC Toilet':
-    u'mf_wec_toilet',
+    u'WWP Daily Costs':
+    u'wwp_daily_costs',
     u'SF Stock of Units':
     u'sf_stock_of_units',
     u'Water Supply Leakage Rate':
@@ -541,8 +541,6 @@ _namespace = {
     u'result_pumping_lcc',
     u'MBR GHG per m3':
     u'mbr_ghg_per_m3',
-    u'WTW Total Carbon Dioxide':
-    u'wtw_total_carbon_dioxide',
     u'WTW Administration Costs':
     u'wtw_administration_costs',
     u'Daily Water Demand':
@@ -589,6 +587,8 @@ _namespace = {
     u'wp_reliability',
     u'WWTW Unit Methanol EmEnergy':
     u'wwtw_unit_methanol_emenergy',
+    u'Distributed Treated Water':
+    u'distributed_treated_water',
     u'RWH Space Requirements':
     u'rwh_space_requirements',
     u'WWTW Average Salary':
@@ -649,6 +649,8 @@ _namespace = {
     u'porous_pavement_risk_to_human_health',
     u'WTW Flexibility and Adaptability':
     u'wtw_flexibility_and_adaptability',
+    u'Result System Risk to Human Health':
+    u'result_system_risk_to_human_health',
     u'Bioswale Contruction GHG':
     u'bioswale_contruction_ghg',
     u'WWTW Reliability':
@@ -661,8 +663,8 @@ _namespace = {
     u'bioretention_percentage',
     u'Retail Lower VC':
     u'retail_lower_vc',
-    u'MF WEC Leaks':
-    u'mf_wec_leaks',
+    u'Days With Higher Demand':
+    u'days_with_higher_demand',
     u'MBR Risk to Human Health':
     u'mbr_risk_to_human_health',
     u'GWS Risk to Human Health':
@@ -673,8 +675,6 @@ _namespace = {
     u'wwtw_total_calcium_hydroxide_ghg',
     u'SWCS Construction':
     u'swcs_construction',
-    u'Daily Capacity of Water Conduit':
-    u'daily_capacity_of_water_conduit',
     u'WTW Total Alum':
     u'wtw_total_alum',
     u'WWTW Operation Electricity':
@@ -753,8 +753,8 @@ _namespace = {
     u'wtw_unit_alum_ghg',
     u'RWH Reliability':
     u'rwh_reliability',
-    u'WWP Daily Costs':
-    u'wwp_daily_costs',
+    u'MF WEC Toilet':
+    u'mf_wec_toilet',
     u'GWS Average Size of Tank':
     u'gws_average_size_of_tank',
     u'GWP Daily Maintenance':
@@ -839,8 +839,6 @@ _namespace = {
     u'swtw_flexibility_and_adaptability',
     u'RR Total GHG Ammonium Nitrate':
     u'rr_total_ghg_ammonium_nitrate',
-    u'Wastewater in WWTP':
-    u'wastewater_in_wwtp',
     u'MF Units Decomissioned':
     u'mf_units_decomissioned',
     u'WDM Unit Construction Energy M2':
@@ -869,6 +867,8 @@ _namespace = {
     u'porous_pavement_space_requirements',
     u'WWCS Maintenance GHG':
     u'wwcs_maintenance_ghg',
+    u'WTM Replacement':
+    u'wtm_replacement',
     u'WDM Unit Maintenance GHG M2':
     u'wdm_unit_maintenance_ghg_m2',
     u'WDM Unit Maintenance GHG M1':
@@ -925,6 +925,8 @@ _namespace = {
     u'unit_demand_per_student',
     u'Unit Industrial Demand Per Floor Area':
     u'unit_industrial_demand_per_floor_area',
+    u'Water Conduit Reserved Capacity':
+    u'water_conduit_reserved_capacity',
     u'WWCS Unit Maintenance Energy M2':
     u'wwcs_unit_maintenance_energy_m2',
     u'WWCS Unit Maintenance Energy M1':
@@ -955,8 +957,8 @@ _namespace = {
     u'biretention_lcc',
     u'WP Daily Energy':
     u'wp_daily_energy',
-    u'Total Water Loss':
-    u'total_water_loss',
+    u'MF WEC Leaks':
+    u'mf_wec_leaks',
     u'Dem Retail':
     u'dem_retail',
     u'SF Stock of No Measure Units':
@@ -983,10 +985,14 @@ _namespace = {
     u'sf_wec_shower',
     u'RR Total Ammonium Nitrate Generated':
     u'rr_total_ammonium_nitrate_generated',
+    u'Water Scarcity Counter':
+    u'water_scarcity_counter',
     u'SF Shower Demand':
     u'sf_shower_demand',
     u'MF Stock of Units':
     u'mf_stock_of_units',
+    u'Wastewater System Capacity':
+    u'wastewater_system_capacity',
     u'WTM Disposal':
     u'wtm_disposal',
     u'SWP Daily Costs':
@@ -1039,12 +1045,14 @@ _namespace = {
     u'saveper',
     u'WWCS Unit Weight M2':
     u'wwcs_unit_weight_m2',
+    u'WTW Unit Sodium Hypochlorite':
+    u'wtw_unit_sodium_hypochlorite',
     u'SWP Total GHG Emission':
     u'swp_total_ghg_emission',
-    u'SF Units Total Area Occupied':
-    u'sf_units_total_area_occupied',
     u'WWTW Unit Nitric Acid EmEnergy':
     u'wwtw_unit_nitric_acid_emenergy',
+    u'Wastewater Treated':
+    u'wastewater_treated',
     u'Number of Children':
     u'number_of_children',
     u'Asphalt Capital Costs':
@@ -1065,12 +1073,12 @@ _namespace = {
     u'bioswale_affordability',
     u'SWCS Total Length M2':
     u'swcs_total_length_m2',
+    u'Result System Space Requirements':
+    u'result_system_space_requirements',
     u'Industrial Demand Variation Coefficient':
     u'industrial_demand_variation_coefficient',
     u'WWCS Annual Maintenance':
     u'wwcs_annual_maintenance',
-    u'CN4':
-    u'cn4',
     u'INITIAL TIME':
     u'initial_time',
     u'WTW Unit Polyaluminium Chloride EmEnergy':
@@ -1089,8 +1097,6 @@ _namespace = {
     u'lm_ghg_per_m3',
     u'RR Daily Ammonium Nitrate':
     u'rr_daily_ammonium_nitrate',
-    u'Treated Water to Effluent':
-    u'treated_water_to_effluent',
     u'GWP Annual Maintenance':
     u'gwp_annual_maintenance',
     u'RR Total EmEnergy Urea':
@@ -1103,8 +1109,6 @@ _namespace = {
     u'wwcs_total_length_m1',
     u'WWCS Total Length M2':
     u'wwcs_total_length_m2',
-    u'Treated Wastewater':
-    u'treated_wastewater',
     u'Landuse1 Nitrogen':
     u'landuse1_nitrogen',
     u'RHP Number of Pumps':
@@ -1133,8 +1137,6 @@ _namespace = {
     u'swp_duration_of_pump_operation',
     u'Landuse3 EMC Nitrogen':
     u'landuse3_emc_nitrogen',
-    u'DW Demand Minus RW Intake Capacity':
-    u'dw_demand_minus_rw_intake_capacity',
     u'WWTW Unit Ferric Sulphate EmEnergy':
     u'wwtw_unit_ferric_sulphate_emenergy',
     u'Landuse3 Nitrogen':
@@ -1191,14 +1193,14 @@ _namespace = {
     u'result_treatment_embodied_energy',
     u'Coefficient of Seasonal Variation in Irrigation Demand':
     u'coefficient_of_seasonal_variation_in_irrigation_demand',
-    u'WTW Unit Alum EmEnergy':
-    u'wtw_unit_alum_emenergy',
+    u'SWCS Unit Weight M1':
+    u'swcs_unit_weight_m1',
     u'WP Acceptability':
     u'wp_acceptability',
     u'WTW Total Polyaluminium Chloride GHG':
     u'wtw_total_polyaluminium_chloride_ghg',
-    u'Leakage':
-    u'leakage',
+    u'WTW Total Carbon Dioxide':
+    u'wtw_total_carbon_dioxide',
     u'Bioswale Total Construction GHG':
     u'bioswale_total_construction_ghg',
     u'SWP Total LCC':
@@ -1269,16 +1271,12 @@ _namespace = {
     u'mbr_acceptability',
     u'WP CO2 per kWh':
     u'wp_co2_per_kwh',
-    u'Percentage of Loss Water':
-    u'percentage_of_loss_water',
     u'RHP Pump Efficiency':
     u'rhp_pump_efficiency',
     u'RHP Construction and Installation':
     u'rhp_construction_and_installation',
     u'WWTW Total Costs':
     u'wwtw_total_costs',
-    u'System Capital Investment Cost':
-    u'system_capital_investment_cost',
     u'RHP Variable Speed Drive Efficiency':
     u'rhp_variable_speed_drive_efficiency',
     u'WWTW Total Ethanol EmEnergy':
@@ -1293,10 +1291,10 @@ _namespace = {
     u'wwp_variable_speed_drive_efficiency',
     u'WTW Unit Sodium Hypochlorite GHG':
     u'wtw_unit_sodium_hypochlorite_ghg',
+    u'Water Conduit Daily Capacity':
+    u'water_conduit_daily_capacity',
     u'RB and Cistern CN Value':
     u'rb_and_cistern_cn_value',
-    u'Daily Lack of Capacity':
-    u'daily_lack_of_capacity',
     u'Bioretention Annual Maintenance Costs':
     u'bioretention_annual_maintenance_costs',
     u'LM Risk to Human Health':
@@ -1329,18 +1327,20 @@ _namespace = {
     u'result_treatment_ghg_emissions',
     u'LN Number of LM':
     u'ln_number_of_lm',
-    u'Green Roof CN Value':
-    u'green_roof_cn_value',
+    u'Asphalt Unit Energy':
+    u'asphalt_unit_energy',
     u'WDM LC Embodied Energy':
     u'wdm_lc_embodied_energy',
+    u'WTW Unit Alum EmEnergy':
+    u'wtw_unit_alum_emenergy',
     u'WTW Unit Microsand GHG':
     u'wtw_unit_microsand_ghg',
     u'WTW Total Microsand EmEnergy':
     u'wtw_total_microsand_emenergy',
     u'GHG Emission Generation Electricity Factor':
     u'ghg_emission_generation_electricity_factor',
-    u'System Maintenance Cost':
-    u'system_maintenance_cost',
+    u'SF Units Total Area Occupied':
+    u'sf_units_total_area_occupied',
     u'WTW Space Requirements':
     u'wtw_space_requirements',
     u'RWH Risk to Human Health':
@@ -1359,6 +1359,8 @@ _namespace = {
     u'gwp_duration_of_pump_operation',
     u'RR Total EmEnergy Ammonium Nitrate':
     u'rr_total_emenergy_ammonium_nitrate',
+    u'Green Roof CN Value':
+    u'green_roof_cn_value',
     u'Porous Pavement Acceptability':
     u'porous_pavement_acceptability',
     u'Dem Hospitals':
@@ -1371,8 +1373,8 @@ _namespace = {
     u'wdm_unit_maintenance_energy_m2',
     u'MF Stock of Water Sensitive Units':
     u'mf_stock_of_water_sensitive_units',
-    u'WTM Replacement':
-    u'wtm_replacement',
+    u'Result System Affordability':
+    u'result_system_affordability',
     u'Bioretention Footprint':
     u'bioretention_footprint',
     u'WWP Construction and Installation':
@@ -1389,6 +1391,8 @@ _namespace = {
     u'green_roof_acceptability',
     u'SWP Flexibility and Adaptability':
     u'swp_flexibility_and_adaptability',
+    u'WTW Reserved Treatment Capacity':
+    u'wtw_reserved_treatment_capacity',
     u'SWTW Acceptability':
     u'swtw_acceptability',
     u'MBR Capacity':
@@ -1405,12 +1409,10 @@ _namespace = {
     u'swtw_electricity_for_treatment',
     u'WWTW Electricity for treatment of m3':
     u'wwtw_electricity_for_treatment_of_m3',
-    u'System Operational Cost':
-    u'system_operational_cost',
     u'Industrial Floor Area':
     u'industrial_floor_area',
-    u'Drinking Water Distributed':
-    u'drinking_water_distributed',
+    u'CN4':
+    u'cn4',
     u'CN2':
     u'cn2',
     u'CN3':
@@ -1453,14 +1455,16 @@ _namespace = {
     u'wwtw_unit_ferric_chloride_ghg',
     u'WP Daily Costs':
     u'wp_daily_costs',
-    u'Asphalt Unit Energy':
-    u'asphalt_unit_energy',
-    u'SWCS Unit Weight M1':
-    u'swcs_unit_weight_m1',
+    u'Treated Wastewater':
+    u'treated_wastewater',
+    u'System Water Capacity':
+    u'system_water_capacity',
     u'WWTW Total Ferric Sulphate GHG':
     u'wwtw_total_ferric_sulphate_ghg',
     u'WP Annual Maintenance':
     u'wp_annual_maintenance',
+    u'Result System Flexibility and Adaptability':
+    u'result_system_flexibility_and_adaptability',
     u'WTW Total Microsand':
     u'wtw_total_microsand',
     u'IA Roads and Sidewalks Footprint':
@@ -1676,6 +1680,21 @@ def rhp_annual_maintenance():
     return 0
 
 
+@cache('step')
+def wastewater_treated():
+    """
+    Real Name: Wastewater Treated
+    Original Eqn: IF THEN ELSE( Wastewater Generated>=Wastewater System Capacity , Wastewater System Capacity\\ , Wastewater Generated )
+    Units: m3/Day
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return functions.if_then_else(wastewater_generated() >= wastewater_system_capacity(),
+                                  wastewater_system_capacity(), wastewater_generated())
+
+
 @cache('run')
 def landuse4_emc_nitrogen():
     """
@@ -1688,6 +1707,20 @@ def landuse4_emc_nitrogen():
     LTHIA-LID EMC Concetration Value Matrix for Commercila, Industrial, \n    \t\tResidential, Grass pasture, Agriculture, Forest
     """
     return 1.3
+
+
+@cache('run')
+def water_conduit_daily_capacity():
+    """
+    Real Name: Water Conduit Daily Capacity
+    Original Eqn: 15000
+    Units: m3/Day
+    Limits: (None, None)
+    Type: constant
+
+    Maximum Daily Capacity of Water Intake in cubic meters / day
+    """
+    return 15000
 
 
 integ_swtw_total_costs = functions.Integ(
@@ -1715,7 +1748,7 @@ def wwtw_risk_to_human_health():
     Real Name: WWTW Risk to Human Health
     Original Eqn: 4
     Units: Dmnl
-    Limits: (1.0, 5.0)
+    Limits: (None, None)
     Type: constant
 
 
@@ -1751,9 +1784,6 @@ def wwtw_administration_rate():
     return 0.5
 
 
-integ_total_water_loss = functions.Integ(lambda: leakage(), lambda: 0)
-
-
 @cache('run')
 def sf_wec_dishwasher():
     """
@@ -1782,18 +1812,18 @@ def swp_reliability():
     return 4
 
 
-@cache('run')
-def rr_unit_emenergy_ammonium_nitrate():
+@cache('step')
+def result_reached_system_capacity():
     """
-    Real Name: RR Unit EmEnergy Ammonium Nitrate
-    Original Eqn: 2.72
-    Units: KWh/kg
+    Real Name: Result Reached System Capacity
+    Original Eqn: INTEG ( Days With Higher Demand, 0)
+    Units: Day
     Limits: (None, None)
-    Type: constant
+    Type: component
 
-
+    Incapacity of Raw Water Intake to Transfer Water
     """
-    return 2.72
+    return integ_result_reached_system_capacity()
 
 
 @cache('run')
@@ -1898,20 +1928,6 @@ def wwtw_unit_ferric_sulphate_ghg():
     return 0.37
 
 
-@cache('step')
-def rr_daily_biogas():
-    """
-    Real Name: RR Daily Biogas
-    Original Eqn: RR Unit Biogas*Treated Water to Effluent
-    Units: m3
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return rr_unit_biogas() * treated_water_to_effluent()
-
-
 @cache('run')
 def mf_dishwasher_demand():
     """
@@ -1924,6 +1940,24 @@ def mf_dishwasher_demand():
     According to the Toronto\u2019s Design Criteria for Sewers and Watermains and \n    \t\tCity of Toronto Water User Breakdown Information, Keating Channel Precinct \n    \t\tEnv. Study Report
     """
     return 4
+
+
+@cache('step')
+def result_system_acceptability():
+    """
+    Real Name: Result System Acceptability
+    Original Eqn: Bioretention Acceptability + Bioswale Acceptability +Green Roof Acceptability+GWS Acceptability\\ +LM Acceptability+MBR Acceptability+Porous Pavement Acceptability+RWH Acceptability\\ +SWP Acceptability+SWTW Acceptability+WP Acceptability+WTW Acceptability+WWP Acceptability\\ +WWTW Acceptability
+    Units: Dmnl
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return bioretention_acceptability() + bioswale_acceptability(
+    ) + green_roof_acceptability() + gws_acceptability() + lm_acceptability() + mbr_acceptability(
+    ) + porous_pavement_acceptability() + rwh_acceptability() + swp_acceptability(
+    ) + swtw_acceptability() + wp_acceptability() + wtw_acceptability() + wwp_acceptability(
+    ) + wwtw_acceptability()
 
 
 @cache('step')
@@ -2079,6 +2113,24 @@ integ_wwcs_lc_embodied_ghg = functions.Integ(
     lambda: wwcs_construction_ghg_m1() + wwcs_construction_ghg_m2())
 
 
+@cache('step')
+def result_system_space_requirements():
+    """
+    Real Name: Result System Space Requirements
+    Original Eqn: Bioretention Space Requirements+Bioswale Space Requirements+Green Roof Space Requirements\\ +GWS Space Requirements+LM Space Requirements+MBR Space Requirements+RWH Space Requirements\\ +Porous Pavement Space Requirements+SWP Space Requirements+SWTW Space Requirements+\\ WP Space Requirements+WTW Space Requirements+WWP Space Requirements+WWTW Space Requirements
+    Units: Dmnl
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return bioretention_space_requirements() + bioswale_space_requirements(
+    ) + green_roof_space_requirements() + gws_space_requirements() + lm_space_requirements(
+    ) + mbr_space_requirements() + rwh_space_requirements() + porous_pavement_space_requirements(
+    ) + swp_space_requirements() + swtw_space_requirements() + wp_space_requirements(
+    ) + wtw_space_requirements() + wwp_space_requirements() + wwtw_space_requirements()
+
+
 @cache('run')
 def mf_decommissioned_units_annually():
     """
@@ -2175,21 +2227,6 @@ def lm_inflow_schools():
 
     """
     return dem_schools() * dem_schools_restrooms() * lm_percentage_of_schools()
-
-
-@cache('step')
-def daily_lack_of_capacity():
-    """
-    Real Name: Daily Lack of Capacity
-    Original Eqn: IF THEN ELSE( Drinking Water Distributed > Raw Water , Drinking Water Distributed - \\ Raw Water , 0 )
-    Units: m3/Day
-    Limits: (None, None)
-    Type: component
-
-    Difference Between Water Demand and Raw Water Intake Capacity
-    """
-    return functions.if_then_else(drinking_water_distributed() > raw_water(),
-                                  drinking_water_distributed() - raw_water(), 0)
 
 
 @cache('step')
@@ -2294,7 +2331,7 @@ def wdm_total_costs():
 def wwp_daily_energy():
     """
     Real Name: WWP Daily Energy
-    Original Eqn: (Treated Water to Effluent * 0.0115741 * WWP Duration of Pump Operation * WWP Total Dynamic Head\\ * WWP Unit Conversion Factor)/(WWP Motor Efficiency * WWP Pump Efficiency * WWP Variable Speed Drive Efficiency\\ )
+    Original Eqn: (Wastewater Treated * 0.0115741 * WWP Duration of Pump Operation * WWP Total Dynamic Head\\ * WWP Unit Conversion Factor )/(WWP Motor Efficiency * WWP Pump Efficiency * WWP Variable Speed Drive Efficiency)
     Units: KWh/Day
     Limits: (None, None)
     Type: component
@@ -2302,9 +2339,28 @@ def wwp_daily_energy():
     Daily Energy Consumption required for Drinking Water Pumping\t\t* 0.0115741 Conversion factor m3/day in liters/second
     """
     return (
-        treated_water_to_effluent() * 0.0115741 * wwp_duration_of_pump_operation() *
+        wastewater_treated() * 0.0115741 * wwp_duration_of_pump_operation() *
         wwp_total_dynamic_head() * wwp_unit_conversion_factor()) / (
             wwp_motor_efficiency() * wwp_pump_efficiency() * wwp_variable_speed_drive_efficiency())
+
+
+@cache('step')
+def result_system_risk_to_human_health():
+    """
+    Real Name: Result System Risk to Human Health
+    Original Eqn: Bioretention Risk to Human Health+Bioswale Risk to Human Health+Green Roof Risk to Human Health\\ +GWS Risk to Human Health+LM Risk to Human Health+MBR Risk to Human Health+Porous Pavement Risk to Human Health\\ +RWH Risk to Human Health+SWP Risk to Human Health+SWTW Risk to Human Health+WP Risk to Human Health\\ +WTW Risk to Human Health+WWP Risk to Human Health+WWTW Risk to Human Health
+    Units: Dmnl
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return bioretention_risk_to_human_health() + bioswale_risk_to_human_health(
+    ) + green_roof_risk_to_human_health() + gws_risk_to_human_health() + lm_risk_to_human_health(
+    ) + mbr_risk_to_human_health() + porous_pavement_risk_to_human_health(
+    ) + rwh_risk_to_human_health() + swp_risk_to_human_health() + swtw_risk_to_human_health(
+    ) + wp_risk_to_human_health() + wtw_risk_to_human_health() + wwp_risk_to_human_health(
+    ) + wwtw_risk_to_human_health()
 
 
 @cache('run')
@@ -2378,31 +2434,21 @@ def time_step():
 
 
 @cache('step')
-def total_water_loss():
+def wp_daily_costs():
     """
-    Real Name: Total Water Loss
-    Original Eqn: INTEG ( Leakage, 0)
-    Units: m3
+    Real Name: WP Daily Costs
+    Original Eqn: (WP Unit Conversion Factor * WP Total Dynamic Head of Pump * WP Duration of Pump Operation\\ * WP Price per kWh * (Distributed Treated Water * 0.0115741)) / (WP Motor Efficiency* WP Pump Efficiency*WP Variable Speed Drive Efficiency) + WP Daily Maintenance
+    Units: $/Day
     Limits: (None, None)
     Type: component
 
-
+    Calculating Energy Costs, Chapter 10.8, page 439 Advanced Water Distribution Modeling\t\t0.0115741 is m3/day into l/s
     """
-    return integ_total_water_loss()
-
-
-@cache('step')
-def leakage():
-    """
-    Real Name: Leakage
-    Original Eqn: Percentage of Loss Water*Water In Distribution System
-    Units: m3/Day
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return percentage_of_loss_water() * water_in_distribution_system()
+    return (wp_unit_conversion_factor() * wp_total_dynamic_head_of_pump() *
+            wp_duration_of_pump_operation() * wp_price_per_kwh() *
+            (distributed_treated_water() * 0.0115741)) / (
+                wp_motor_efficiency() * wp_pump_efficiency() *
+                wp_variable_speed_drive_efficiency()) + wp_daily_maintenance()
 
 
 @cache('step')
@@ -2433,18 +2479,18 @@ def wtw_unit_alum_ghg():
     return 0.49
 
 
-@cache('run')
-def rhp_variable_speed_drive_efficiency():
+@cache('step')
+def treated_wastewater():
     """
-    Real Name: RHP Variable Speed Drive Efficiency
-    Original Eqn: 88
-    Units: Dmnl
+    Real Name: Treated Wastewater
+    Original Eqn: Wastewater Treated
+    Units: m3/Day
     Limits: (None, None)
-    Type: constant
+    Type: component
 
-    Variable Speed Drive Efficiency [%]
+
     """
-    return 88
+    return wastewater_treated()
 
 
 @cache('step')
@@ -2780,6 +2826,20 @@ def dem_restaurants():
 
 
 @cache('run')
+def rr_unit_ghg_ammonium_nitrate():
+    """
+    Real Name: RR Unit GHG Ammonium Nitrate
+    Original Eqn: 2.97
+    Units: kgCO2eq/kg
+    Limits: (None, None)
+    Type: constant
+
+
+    """
+    return 2.97
+
+
+@cache('run')
 def green_roof_risk_to_human_health():
     """
     Real Name: Green Roof Risk to Human Health
@@ -2944,14 +3004,14 @@ def rhp_total_lcc():
 def wwtw_daily_treatment_capacity():
     """
     Real Name: WWTW Daily Treatment Capacity
-    Original Eqn: 900000
+    Original Eqn: 10000
     Units: m3/Day
     Limits: (None, None)
     Type: constant
 
     Capacity of Wastewater treatment plant in Cubic Meters per day
     """
-    return 900000
+    return 10000
 
 
 @cache('run')
@@ -3009,6 +3069,20 @@ def wwcs_unit_construction_ghg_m1():
     GHG Emissions per kg of Pipe Materials, Appendix A
     """
     return 2.36
+
+
+@cache('run')
+def rr_unit_emenergy_ammonium_nitrate():
+    """
+    Real Name: RR Unit EmEnergy Ammonium Nitrate
+    Original Eqn: 2.72
+    Units: KWh/kg
+    Limits: (None, None)
+    Type: constant
+
+
+    """
+    return 2.72
 
 
 @cache('run')
@@ -3259,17 +3333,17 @@ def landuse1():
 
 
 @cache('run')
-def wwtw_space_requirements():
+def swp_annual_maintenance():
     """
-    Real Name: WWTW Space Requirements
-    Original Eqn: 2
-    Units: Dmnl
-    Limits: (1.0, 5.0)
+    Real Name: SWP Annual Maintenance
+    Original Eqn: 10000
+    Units: $
+    Limits: (None, None)
     Type: constant
 
-
+    Percentage of Initial Costs
     """
-    return 2
+    return 10000
 
 
 @cache('run')
@@ -3389,20 +3463,6 @@ def bioretention_percentage():
 
     """
     return (100 * bioretention_footprint()) / lu_sum()
-
-
-@cache('step')
-def dw_demand_minus_rw_intake_capacity():
-    """
-    Real Name: DW Demand Minus RW Intake Capacity
-    Original Eqn: INTEG ( Daily Lack of Capacity, 0)
-    Units: 
-    Limits: (None, None)
-    Type: component
-
-    Incapacity of Raw Water Intake to Transfer Water
-    """
-    return integ_dw_demand_minus_rw_intake_capacity()
 
 
 @cache('run')
@@ -3593,20 +3653,6 @@ integ_wwcs_total_costs = functions.Integ(
 
 
 @cache('step')
-def water_in_wtw():
-    """
-    Real Name: Water in WTW
-    Original Eqn: INTEG ( Raw Water-Drinking Water Distributed, 100000)
-    Units: m3
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return integ_water_in_wtw()
-
-
-@cache('step')
 def wwtw_total_ethanol_ghg():
     """
     Real Name: WWTW Total Ethanol GHG
@@ -3666,23 +3712,6 @@ def mbr_ghg_per_m3():
     return 18
 
 
-@cache('step')
-def drinking_water_distributed():
-    """
-    Real Name: Drinking Water Distributed
-    Original Eqn: IF THEN ELSE( Daily Water Demand > (WTW Available Capacity *WTW Available Capacity),\\ WTW Available Capacity*WTW Daily Treatment Capacity*Water Supply Leakage Rate , Daily Water Demand\\ *Water Supply Leakage Rate )
-    Units: m3/Day
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return functions.if_then_else(
-        daily_water_demand() > (wtw_available_capacity() * wtw_available_capacity()),
-        wtw_available_capacity() * wtw_daily_treatment_capacity() * water_supply_leakage_rate(),
-        daily_water_demand() * water_supply_leakage_rate())
-
-
 @cache('run')
 def gws_installation_costs():
     """
@@ -3701,14 +3730,14 @@ def gws_installation_costs():
 def wtw_operation_daily_energy():
     """
     Real Name: WTW Operation Daily Energy
-    Original Eqn: Drinking Water Distributed * WTW Electricity for treatment of m3
+    Original Eqn: Distributed Treated Water * WTW Electricity for treatment of m3
     Units: KWh/Day
     Limits: (None, None)
     Type: component
 
 
     """
-    return drinking_water_distributed() * wtw_electricity_for_treatment_of_m3()
+    return distributed_treated_water() * wtw_electricity_for_treatment_of_m3()
 
 
 @cache('run')
@@ -3902,18 +3931,18 @@ integ_wtw_total_sodium_hypochlorite = functions.Integ(
     lambda: treated_water() * wtw_unit_sodium_hypochlorite(), lambda: 0)
 
 
-@cache('step')
-def water_reuse_daily():
+@cache('run')
+def wwtw_available_capacity():
     """
-    Real Name: Water Reuse Daily
-    Original Eqn: GWS Tank Outflow + LM Inflow Total+ RH Tank Outflow
-    Units: m3/Day
+    Real Name: WWTW Available Capacity
+    Original Eqn: 0.95
+    Units: Percentage
     Limits: (None, None)
-    Type: component
+    Type: constant
 
 
     """
-    return gws_tank_outflow() + lm_inflow_total() + rh_tank_outflow()
+    return 0.95
 
 
 @cache('run')
@@ -4072,10 +4101,6 @@ def wp_duration_of_pump_operation():
     return 12
 
 
-integ_water_in_distribution_system = functions.Integ(
-    lambda: drinking_water_distributed() - generated_wastewater(), lambda: 0)
-
-
 @cache('step')
 def sf_wd_per_capita_water_sensitive():
     """
@@ -4216,18 +4241,18 @@ def rwh_space_requirements():
     return 2
 
 
-@cache('run')
-def lm_flexibility_and_adaptability():
+@cache('step')
+def wsc_running_costs():
     """
-    Real Name: LM Flexibility and Adaptability
-    Original Eqn: 2
-    Units: Dmnl
-    Limits: (1.0, 5.0)
-    Type: constant
+    Real Name: WSC Running Costs
+    Original Eqn: WSC Daily Maintenance
+    Units: $/Day
+    Limits: (None, None)
+    Type: component
 
 
     """
-    return 2
+    return wsc_daily_maintenance()
 
 
 @cache('run')
@@ -4322,7 +4347,7 @@ def wtw_unit_polyaluimium_chloride_ghg():
 def wtw_running_costs():
     """
     Real Name: WTW Running Costs
-    Original Eqn: WTW Daily Maintenance + WTW Staff Costs + (WTW Water Resource Fee*Drinking Water Distributed\\ )+(Electricity Fee *WTW Electricity for treatment of m3*Drinking Water Distributed)+WTW Administration Costs
+    Original Eqn: WTW Daily Maintenance + WTW Staff Costs + (WTW Water Resource Fee*Distributed Treated Water\\ )+(Electricity Fee *WTW Electricity for treatment of m3*Distributed Treated Water)+WTW Administration Costs
     Units: $
     Limits: (None, None)
     Type: component
@@ -4330,9 +4355,9 @@ def wtw_running_costs():
 
     """
     return wtw_daily_maintenance() + wtw_staff_costs() + (
-        wtw_water_resource_fee() * drinking_water_distributed()) + (
+        wtw_water_resource_fee() * distributed_treated_water()) + (
             electricity_fee() * wtw_electricity_for_treatment_of_m3() *
-            drinking_water_distributed()) + wtw_administration_costs()
+            distributed_treated_water()) + wtw_administration_costs()
 
 
 @cache('run')
@@ -4436,32 +4461,32 @@ def result_pumping_ghg_emissions():
     return swp_total_ghg_emission() + wp_total_ghg_emission() + wwp_total_ghg_emission()
 
 
-@cache('run')
-def sf_wec_bathtub():
-    """
-    Real Name: SF WEC Bathtub
-    Original Eqn: 0.66
-    Units: Percentage
-    Limits: (None, None)
-    Type: constant
-
-
-    """
-    return 0.66
-
-
 @cache('step')
-def wtw_embodied_ghg_for_chemicals():
+def wtw_reserved_treatment_capacity():
     """
-    Real Name: WTW Embodied GHG for Chemicals
-    Original Eqn: INTEG ( WTW Total Polyaluminium Chloride GHG+WTW Total Alum GHG+WTW Total Calcium Hydroxide GHG\\ +WTW Total Carbon Dioxide GHG+WTW Total Microsand GHG+WTW Total Sodium Hypochlorite GHG\\ , 0)
-    Units: kgCO2eq
+    Real Name: WTW Reserved Treatment Capacity
+    Original Eqn: WTW Daily Treatment Capacity * WTW Available Capacity
+    Units: m3/Day
     Limits: (None, None)
     Type: component
 
 
     """
-    return integ_wtw_embodied_ghg_for_chemicals()
+    return wtw_daily_treatment_capacity() * wtw_available_capacity()
+
+
+@cache('run')
+def sf_toilet_demand():
+    """
+    Real Name: SF Toilet Demand
+    Original Eqn: 53
+    Units: L/(Day*cap)
+    Limits: (None, None)
+    Type: constant
+
+    According to the Toronto\u2019s Design Criteria for Sewers and Watermains and \n    \t\tCity of Toronto Water User Breakdown Information, Keating Channel Precinct \n    \t\tEnv. Study Report
+    """
+    return 53
 
 
 @cache('run')
@@ -4649,20 +4674,6 @@ def mf_leaks():
     return 20
 
 
-@cache('step')
-def generated_wastewater():
-    """
-    Real Name: Generated Wastewater
-    Original Eqn: Wastewater Generation as a percentage of water use * Drinking Water Distributed
-    Units: m3/Day
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return wastewater_generation_as_a_percentage_of_water_use() * drinking_water_distributed()
-
-
 @cache('run')
 def mf_toilet_demand():
     """
@@ -4818,18 +4829,17 @@ def landuse_total_nitrogen():
 
 
 @cache('step')
-def result_network_lcc():
+def swtw_daily_maintenance():
     """
-    Real Name: Result Network LCC
-    Original Eqn: SWCS Total Costs+WDM Total Costs+WSC Total Costs+WTM Total Costs+WWCS Total Costs
-    Units: $
+    Real Name: SWTW Daily Maintenance
+    Original Eqn: (SWTW Annual Maintenance/Days in a Year)*1e+006
+    Units: $/Day
     Limits: (None, None)
     Type: component
 
-
+    Maintenance and Replacement Costs on Daily Basis
     """
-    return swcs_total_costs() + wdm_total_costs() + wsc_total_costs() + wtm_total_costs(
-    ) + wwcs_total_costs()
+    return (swtw_annual_maintenance() / days_in_a_year()) * 1e+006
 
 
 @cache('run')
@@ -4850,14 +4860,14 @@ def green_roof_space_requirements():
 def treated_water():
     """
     Real Name: Treated Water
-    Original Eqn: Drinking Water Distributed
+    Original Eqn: Distributed Treated Water
     Units: m3/Day
     Limits: (None, None)
     Type: component
 
 
     """
-    return drinking_water_distributed()
+    return distributed_treated_water()
 
 
 @cache('run')
@@ -4941,34 +4951,32 @@ integ_wwcs_lc_embodied_energy = functions.Integ(
     lambda: wwcs_construction_energy_m1() + wwcs_construction_energy_m2())
 
 
-@cache('step')
-def lm_daily_ghg_emission():
+@cache('run')
+def water_conduit_available_capacity():
     """
-    Real Name: LM Daily GHG Emission
-    Original Eqn: LM GHG per m3*LM Inflow Total
-    Units: kgCO2eq
+    Real Name: Water Conduit Available Capacity
+    Original Eqn: 0.95
+    Units: Percentage
+    Limits: (None, None)
+    Type: constant
+
+
+    """
+    return 0.95
+
+
+@cache('step')
+def wtw_daily_maintenance():
+    """
+    Real Name: WTW Daily Maintenance
+    Original Eqn: (WTW Annual Maintenance/Days in a Year)*1e+006
+    Units: $/Day
     Limits: (None, None)
     Type: component
 
-
+    Assumption: Maintenance and Replacements costs are 10% of Construction \n    \t\tCosts Per Year, this is why we divide it by 365 to get amount on a daily \n    \t\tscale
     """
-    return lm_ghg_per_m3() * lm_inflow_total()
-
-
-@cache('step')
-def raw_water():
-    """
-    Real Name: Raw Water
-    Original Eqn: IF THEN ELSE( Drinking Water Distributed >= Daily Capacity of Water Conduit,Daily Capacity of Water Conduit\\ , Drinking Water Distributed)
-    Units: m3
-    Limits: (None, None)
-    Type: component
-
-    Water supply conduits transmit raw water from water resources to WTWs on a \n    \t\tdaily basis. Two main characteristics of water flow for each conduit are \n    \t\tdaily capacity and leakage percentage. Both values are defined by the user \n    \t\tas constant values. The daily capacity controls the maximum water flow \n    \t\ttransferred by the conduits. The leakage is based on a percentage of \n    \t\ttransferring water.
-    """
-    return functions.if_then_else(
-        drinking_water_distributed() >= daily_capacity_of_water_conduit(),
-        daily_capacity_of_water_conduit(), drinking_water_distributed())
+    return (wtw_annual_maintenance() / days_in_a_year()) * 1e+006
 
 
 @cache('run')
@@ -4983,6 +4991,20 @@ def restaurant_seats():
     Number of Seats in Restaurants\t\tSource: Water Resources Engineering, Larry W Mays, 2001 (Table 11.1.4. \n    \t\tPage 346)
     """
     return 1500
+
+
+@cache('step')
+def water_scarcity_counter():
+    """
+    Real Name: Water Scarcity Counter
+    Original Eqn: IF THEN ELSE( Daily Water Demand >= System Water Capacity , 1 , 0 )
+    Units: Binary
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return functions.if_then_else(daily_water_demand() >= system_water_capacity(), 1, 0)
 
 
 @cache('step')
@@ -5200,6 +5222,21 @@ def wwp_affordability():
 
 
 @cache('step')
+def rh_tank_outflow():
+    """
+    Real Name: RH Tank Outflow
+    Original Eqn: IF THEN ELSE( RH Tank Current Storage Volume > 0 , RH Tank Current Storage Volume , \\ 0 )
+    Units: m3
+    Limits: (None, None)
+    Type: component
+
+    Ovde dodati Toilet, Irrigation, Deo za Industriju, i slicno!\t\t5 je random vrednost!
+    """
+    return functions.if_then_else(rh_tank_current_storage_volume() > 0,
+                                  rh_tank_current_storage_volume(), 0)
+
+
+@cache('step')
 def swcs_lc_energy_embodied():
     """
     Real Name: SWCS LC Energy Embodied
@@ -5257,21 +5294,17 @@ def wwcs_maintenance_ghg():
 
 
 @cache('step')
-def wp_daily_costs():
+def wastewater_system_capacity():
     """
-    Real Name: WP Daily Costs
-    Original Eqn: (WP Unit Conversion Factor * WP Total Dynamic Head of Pump * WP Duration of Pump Operation\\ * WP Price per kWh * (Drinking Water Distributed * 0.0115741)) / (WP Motor Efficiency* WP Pump Efficiency*WP Variable Speed Drive Efficiency) + WP Daily Maintenance
-    Units: $/Day
+    Real Name: Wastewater System Capacity
+    Original Eqn: WWTW Available Capacity*WWTW Daily Treatment Capacity
+    Units: m3/Day
     Limits: (None, None)
     Type: component
 
-    Calculating Energy Costs, Chapter 10.8, page 439 Advanced Water Distribution Modeling\t\t0.0115741 is m3/day into l/s
+
     """
-    return (wp_unit_conversion_factor() * wp_total_dynamic_head_of_pump() *
-            wp_duration_of_pump_operation() * wp_price_per_kwh() *
-            (drinking_water_distributed() * 0.0115741)) / (
-                wp_motor_efficiency() * wp_pump_efficiency() *
-                wp_variable_speed_drive_efficiency()) + wp_daily_maintenance()
+    return wwtw_available_capacity() * wwtw_daily_treatment_capacity()
 
 
 @cache('step')
@@ -5463,6 +5496,20 @@ def daycares_upper_vc():
 
 
 integ_swp_total_ghg_emission = functions.Integ(lambda: swp_daily_ghg_emissions(), lambda: 0)
+
+
+@cache('step')
+def water_reuse_daily():
+    """
+    Real Name: Water Reuse Daily
+    Original Eqn: GWS Tank Outflow + LM Inflow Total+ RH Tank Outflow
+    Units: m3/Day
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return gws_tank_outflow() + lm_inflow_total() + rh_tank_outflow()
 
 
 @cache('run')
@@ -5797,6 +5844,22 @@ def bioretention_annual_maintenance_costs():
 
     """
     return 5000
+
+
+@cache('step')
+def system_water_capacity():
+    """
+    Real Name: System Water Capacity
+    Original Eqn: IF THEN ELSE( Water Conduit Reserved Capacity >= WTW Reserved Treatment Capacity , WTW Reserved Treatment Capacity\\ , Water Conduit Reserved Capacity )
+    Units: m3/Day
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return functions.if_then_else(
+        water_conduit_reserved_capacity() >= wtw_reserved_treatment_capacity(),
+        wtw_reserved_treatment_capacity(), water_conduit_reserved_capacity())
 
 
 @cache('run')
@@ -6267,17 +6330,17 @@ def wtm_replacement():
 
 
 @cache('run')
-def sf_wec_shower():
+def rhp_average_dynamic_head():
     """
-    Real Name: SF WEC Shower
-    Original Eqn: 0.7
-    Units: Percentage
+    Real Name: RHP Average Dynamic Head
+    Original Eqn: 100
+    Units: m
     Limits: (None, None)
     Type: constant
 
-
+    Total Dynamic Head of Pump(m)
     """
-    return 0.7
+    return 100
 
 
 @cache('step')
@@ -6478,6 +6541,20 @@ def wwp_total_dynamic_head():
     Total Dynamic Head of Pump(m)
     """
     return 50
+
+
+@cache('run')
+def wwtw_annual_maintenance():
+    """
+    Real Name: WWTW Annual Maintenance
+    Original Eqn: 1.5
+    Units: Percentage
+    Limits: (None, None)
+    Type: constant
+
+    WWTW Maintenance and Replacement Costs on Annual Basis (in Millions of $)
+    """
+    return 1.5
 
 
 @cache('step')
@@ -6742,7 +6819,7 @@ def mbr_reliability():
     Real Name: MBR Reliability
     Original Eqn: 4
     Units: Dmnl
-    Limits: (1.0, 5.0)
+    Limits: (None, None)
     Type: constant
 
 
@@ -6764,18 +6841,18 @@ def rhp_total_ghg_emission():
     return integ_rhp_total_ghg_emission()
 
 
-@cache('run')
-def rhp_average_dynamic_head():
+@cache('step')
+def wtw_embodied_ghg_for_chemicals():
     """
-    Real Name: RHP Average Dynamic Head
-    Original Eqn: 100
-    Units: m
+    Real Name: WTW Embodied GHG for Chemicals
+    Original Eqn: INTEG ( WTW Total Polyaluminium Chloride GHG+WTW Total Alum GHG+WTW Total Calcium Hydroxide GHG\\ +WTW Total Carbon Dioxide GHG+WTW Total Microsand GHG+WTW Total Sodium Hypochlorite GHG\\ , 0)
+    Units: kgCO2eq
     Limits: (None, None)
-    Type: constant
+    Type: component
 
-    Total Dynamic Head of Pump(m)
+
     """
-    return 100
+    return integ_wtw_embodied_ghg_for_chemicals()
 
 
 @cache('step')
@@ -6820,18 +6897,18 @@ def pp_footprint():
     return 150000
 
 
-@cache('step')
-def lm_daily_energy_consumption():
+@cache('run')
+def porous_pavement_acceptability():
     """
-    Real Name: LM Daily Energy Consumption
-    Original Eqn: LM Inflow Total*LM kWh per m3
-    Units: KWh/Day
+    Real Name: Porous Pavement Acceptability
+    Original Eqn: 3
+    Units: Dmnl
     Limits: (None, None)
-    Type: component
+    Type: constant
 
 
     """
-    return lm_inflow_total() * lm_kwh_per_m3()
+    return 3
 
 
 @cache('run')
@@ -6976,20 +7053,6 @@ def wtw_total_calcium_hydroxide_emenergy():
 
     """
     return wtw_total_calcium_hydroxide() * wtw_unit_calcium_hydroxide_emenergy()
-
-
-@cache('run')
-def system_maintenance_cost():
-    """
-    Real Name: System Maintenance Cost
-    Original Eqn: 5
-    Units: $
-    Limits: (None, None)
-    Type: constant
-
-
-    """
-    return 5
 
 
 integ_wtw_total_microsand = functions.Integ(lambda: treated_water() * wtw_unit_microsand(),
@@ -7139,7 +7202,7 @@ def result_rr_energy():
 def wwp_daily_costs():
     """
     Real Name: WWP Daily Costs
-    Original Eqn: (WWP Unit Conversion Factor * WWP Total Dynamic Head * WWP Duration of Pump Operation\\ * WWP Price per kWh * (Treated Water to Effluent * 0.0115741)) / (WWP Motor Efficiency\\ * WWP Pump Efficiency*WWP Variable Speed Drive Efficiency) + WWP Daily Maintenance
+    Original Eqn: (WWP Unit Conversion Factor * WWP Total Dynamic Head * WWP Duration of Pump Operation\\ * WWP Price per kWh * (Wastewater Treated * 0.0115741)) / (WWP Motor Efficiency*WWP Pump Efficiency*WWP Variable Speed Drive Efficiency\\ ) + WWP Daily Maintenance
     Units: $/Day
     Limits: (None, None)
     Type: component
@@ -7148,9 +7211,8 @@ def wwp_daily_costs():
     """
     return (wwp_unit_conversion_factor() * wwp_total_dynamic_head() *
             wwp_duration_of_pump_operation() * wwp_price_per_kwh() *
-            (treated_water_to_effluent() * 0.0115741)) / (
-                wwp_motor_efficiency() * wwp_pump_efficiency() *
-                wwp_variable_speed_drive_efficiency()) + wwp_daily_maintenance()
+            (wastewater_treated() * 0.0115741)) / (wwp_motor_efficiency() * wwp_pump_efficiency(
+            ) * wwp_variable_speed_drive_efficiency()) + wwp_daily_maintenance()
 
 
 @cache('step')
@@ -7524,18 +7586,18 @@ def swtw_annual_maintenance():
     return 1.2
 
 
-@cache('step')
-def treated_wastewater():
+@cache('run')
+def rhp_variable_speed_drive_efficiency():
     """
-    Real Name: Treated Wastewater
-    Original Eqn: Treated Water to Effluent
-    Units: m3/Day
+    Real Name: RHP Variable Speed Drive Efficiency
+    Original Eqn: 88
+    Units: Dmnl
     Limits: (None, None)
-    Type: component
+    Type: constant
 
-
+    Variable Speed Drive Efficiency [%]
     """
-    return treated_water_to_effluent()
+    return 88
 
 
 @cache('step')
@@ -7602,20 +7664,6 @@ integ_mbr_total_energy = functions.Integ(lambda: -mbr_daily_energy_consumption()
 
 
 @cache('run')
-def daily_capacity_of_water_conduit():
-    """
-    Real Name: Daily Capacity of Water Conduit
-    Original Eqn: 3e+006
-    Units: m3/Day
-    Limits: (None, None)
-    Type: constant
-
-    Maximum Daily Capacity of Water Intake in cubic meters / day
-    """
-    return 3e+006
-
-
-@cache('run')
 def rhp_construction_and_installation():
     """
     Real Name: RHP Construction and Installation
@@ -7657,8 +7705,18 @@ def swtw_electricity_for_treatment():
     return 0.5
 
 
-integ_wtw_total_polyaluminium_chloride_ghg = functions.Integ(
-    lambda: wtw_total_polyaluminium_chloride() * wtw_unit_polyaluimium_chloride_ghg(), lambda: 0)
+@cache('step')
+def water_conduit_reserved_capacity():
+    """
+    Real Name: Water Conduit Reserved Capacity
+    Original Eqn: Water Conduit Available Capacity*Water Conduit Daily Capacity
+    Units: m3/Day
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return water_conduit_available_capacity() * water_conduit_daily_capacity()
 
 
 @cache('step')
@@ -7679,7 +7737,7 @@ def qv():
 def wp_daily_energy():
     """
     Real Name: WP Daily Energy
-    Original Eqn: (Drinking Water Distributed* 0.0115741 * WP Duration of Pump Operation * WP Total Dynamic Head of Pump\\ * WP Unit Conversion Factor)/(WP Motor Efficiency * WP Pump Efficiency * WP Variable Speed Drive Efficiency\\ )
+    Original Eqn: (Distributed Treated Water* 0.0115741 * WP Duration of Pump Operation * WP Total Dynamic Head of Pump\\ * WP Unit Conversion Factor )/(WP Motor Efficiency * WP Pump Efficiency * WP Variable Speed Drive Efficiency)
     Units: KWh/Day
     Limits: (None, None)
     Type: component
@@ -7687,7 +7745,7 @@ def wp_daily_energy():
     Daily Energy Consumption required for Drinking Water Pumping\t\t* 0.0115741 Conversion factor m3/day in liters/second
     """
     return (
-        drinking_water_distributed() * 0.0115741 * wp_duration_of_pump_operation() *
+        distributed_treated_water() * 0.0115741 * wp_duration_of_pump_operation() *
         wp_total_dynamic_head_of_pump() * wp_unit_conversion_factor()) / (
             wp_motor_efficiency() * wp_pump_efficiency() * wp_variable_speed_drive_efficiency())
 
@@ -7921,14 +7979,14 @@ def swtw_acceptability():
 def rr_daily_ammonium_nitrate():
     """
     Real Name: RR Daily Ammonium Nitrate
-    Original Eqn: RR Unit Ammonium Nitrate*Treated Water to Effluent
+    Original Eqn: RR Unit Ammonium Nitrate*Wastewater Treated
     Units: kg
     Limits: (None, None)
     Type: component
 
 
     """
-    return rr_unit_ammonium_nitrate() * treated_water_to_effluent()
+    return rr_unit_ammonium_nitrate() * wastewater_treated()
 
 
 @cache('run')
@@ -7985,6 +8043,20 @@ def wwtw_total_ferric_chloride_ghg():
 
     """
     return wwtw_total_ferric_chloride() * wwtw_unit_ferric_chloride_ghg()
+
+
+@cache('step')
+def days_with_higher_demand():
+    """
+    Real Name: Days With Higher Demand
+    Original Eqn: Water Scarcity Counter
+    Units: m3/Day
+    Limits: (None, None)
+    Type: component
+
+    Difference Between Water Demand and Raw Water Intake Capacity
+    """
+    return water_scarcity_counter()
 
 
 @cache('run')
@@ -8151,6 +8223,20 @@ def wtw_total_carbon_dioxide():
     return integ_wtw_total_carbon_dioxide()
 
 
+@cache('run')
+def sf_wec_shower():
+    """
+    Real Name: SF WEC Shower
+    Original Eqn: 0.7
+    Units: Percentage
+    Limits: (None, None)
+    Type: constant
+
+
+    """
+    return 0.7
+
+
 @cache('step')
 def rhp_daily_costs():
     """
@@ -8183,20 +8269,6 @@ def result_treatment_embodied_energy():
     return wtw_embodied_energy_for_chemicals() + wwtw_embodied_energy_for_chemicals(
     ) + wtw_operation_energy() + wwtw_operation_electricity() + swt_total_ferric_chloride_emenergy(
     )
-
-
-@cache('run')
-def sf_toilet_demand():
-    """
-    Real Name: SF Toilet Demand
-    Original Eqn: 53
-    Units: L/(Day*cap)
-    Limits: (None, None)
-    Type: constant
-
-    According to the Toronto\u2019s Design Criteria for Sewers and Watermains and \n    \t\tCity of Toronto Water User Breakdown Information, Keating Channel Precinct \n    \t\tEnv. Study Report
-    """
-    return 53
 
 
 @cache('run')
@@ -8287,17 +8359,17 @@ def sf_other():
 
 
 @cache('run')
-def wwtw_annual_maintenance():
+def sf_wec_bathtub():
     """
-    Real Name: WWTW Annual Maintenance
-    Original Eqn: 1.5
+    Real Name: SF WEC Bathtub
+    Original Eqn: 0.66
     Units: Percentage
     Limits: (None, None)
     Type: constant
 
-    WWTW Maintenance and Replacement Costs on Annual Basis (in Millions of $)
+
     """
-    return 1.5
+    return 0.66
 
 
 @cache('step')
@@ -8315,18 +8387,21 @@ def industrial_demand():
     ) * industrial_demand_variation_coefficient() * 0.001
 
 
-@cache('run')
-def wwtw_unit_ethanol_emenergy():
+@cache('step')
+def result_system_reliability():
     """
-    Real Name: WWTW Unit Ethanol EmEnergy
-    Original Eqn: 0.83
-    Units: KWh/kg
+    Real Name: Result System Reliability
+    Original Eqn: Bioretention Reliability+Bioswale Reliability+Green Roof Reliability+GWS Reliability\\ +LM Reliability+MBR Reliability+Porous Pavement Reliability+RWH Reliability+SWP Reliability\\ +SWTW Reliability+WP Reliability+WTW Reliability+WWP Reliability+WWTW Reliability
+    Units: Dmnl
     Limits: (None, None)
-    Type: constant
+    Type: component
 
 
     """
-    return 0.83
+    return bioretention_reliability() + bioswale_reliability() + green_roof_reliability(
+    ) + gws_reliability() + lm_reliability() + mbr_reliability() + porous_pavement_reliability(
+    ) + rwh_reliability() + swp_reliability() + swtw_reliability() + wp_reliability(
+    ) + wtw_reliability() + wwp_reliability() + wwtw_reliability()
 
 
 @cache('step')
@@ -8465,20 +8540,6 @@ integ_wtw_embodied_energy_for_chemicals = functions.Integ(lambda: wtw_total_alum
 
 
 @cache('step')
-def water_in_distribution_system():
-    """
-    Real Name: Water In Distribution System
-    Original Eqn: INTEG ( Drinking Water Distributed-Generated Wastewater, 0)
-    Units: 
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return integ_water_in_distribution_system()
-
-
-@cache('step')
 def wwp_daily_ghg_emissions():
     """
     Real Name: WWP Daily GHG Emissions
@@ -8546,6 +8607,10 @@ def mbr_space_requirements():
 
     """
     return 2
+
+
+integ_wtw_total_polyaluminium_chloride_ghg = functions.Integ(
+    lambda: wtw_total_polyaluminium_chloride() * wtw_unit_polyaluimium_chloride_ghg(), lambda: 0)
 
 
 @cache('run')
@@ -8674,14 +8739,14 @@ def pp_construction_ghg():
 def rr_daily_urea():
     """
     Real Name: RR Daily Urea
-    Original Eqn: RR Unit Urea*Treated Water to Effluent
+    Original Eqn: RR Unit Urea*Wastewater Treated
     Units: kg
     Limits: (None, None)
     Type: component
 
 
     """
-    return rr_unit_urea() * treated_water_to_effluent()
+    return rr_unit_urea() * wastewater_treated()
 
 
 integ_wwtw_operation_electricity = functions.Integ(
@@ -8833,6 +8898,20 @@ def swp_total_dynamic_head_of_pump():
 
 
 @cache('step')
+def wwtw_administration_costs():
+    """
+    Real Name: WWTW Administration Costs
+    Original Eqn: WWTW Administration Rate*WWTW Staff Costs
+    Units: $
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return wwtw_administration_rate() * wwtw_staff_costs()
+
+
+@cache('step')
 def gws_daily_maintenance():
     """
     Real Name: GWS Daily Maintenance
@@ -8846,18 +8925,24 @@ def gws_daily_maintenance():
     return gws_annual_maintenance_costs() / days_in_a_year()
 
 
-@cache('run')
-def rr_unit_ghg_ammonium_nitrate():
+@cache('step')
+def result_system_flexibility_and_adaptability():
     """
-    Real Name: RR Unit GHG Ammonium Nitrate
-    Original Eqn: 2.97
-    Units: kgCO2eq/kg
+    Real Name: Result System Flexibility and Adaptability
+    Original Eqn: Bioretention Flexibility and Adaptability+Bioswale Flexibility and Adaptability+Green Roof Flexibility and Adaptability\\ +GWS Flexibility and Adaptability+LM Flexibility and Adaptability+MBR Flexibility and Adaptability\\ +Porous Pavement Flexibility and Adaptability+RWH Flexibility and Adaptability+SWP Flexibility and Adaptability\\ +SWTW Flexibility and Adaptability+WP Flexibility and Adaptability+WTW Flexibility and Adaptability\\ +WWP Flexibility and Adaptability+WWTW Flexibility and Adaptability
+    Units: Dmnl
     Limits: (None, None)
-    Type: constant
+    Type: component
 
 
     """
-    return 2.97
+    return bioretention_flexibility_and_adaptability() + bioswale_flexibility_and_adaptability(
+    ) + green_roof_flexibility_and_adaptability() + gws_flexibility_and_adaptability(
+    ) + lm_flexibility_and_adaptability() + mbr_flexibility_and_adaptability(
+    ) + porous_pavement_flexibility_and_adaptability() + rwh_flexibility_and_adaptability(
+    ) + swp_flexibility_and_adaptability() + swtw_flexibility_and_adaptability(
+    ) + wp_flexibility_and_adaptability() + wtw_flexibility_and_adaptability(
+    ) + wwp_flexibility_and_adaptability() + wwtw_flexibility_and_adaptability()
 
 
 @cache('run')
@@ -8902,18 +8987,18 @@ def lm_inflow_office_buildings():
     return dem_office_buildings() * lm_percentage_of_ob() * dem_ob_restroom()
 
 
-@cache('step')
-def system_operational_cost():
+@cache('run')
+def wwtw_unit_ethanol_emenergy():
     """
-    Real Name: System Operational Cost
-    Original Eqn: RANDOM UNIFORM( 1e+008 , 2e+008 , 1 )
-    Units: $
+    Real Name: WWTW Unit Ethanol EmEnergy
+    Original Eqn: 0.83
+    Units: KWh/kg
     Limits: (None, None)
-    Type: component
+    Type: constant
 
 
     """
-    return functions.random_uniform(1e+008, 2e+008, 1)
+    return 0.83
 
 
 @cache('run')
@@ -9093,18 +9178,18 @@ def wtw_total_microsand_ghg():
     return wtw_total_microsand() * wtw_unit_microsand_ghg()
 
 
-@cache('step')
-def wsc_running_costs():
+@cache('run')
+def lm_flexibility_and_adaptability():
     """
-    Real Name: WSC Running Costs
-    Original Eqn: WSC Daily Maintenance
-    Units: $/Day
-    Limits: (None, None)
-    Type: component
+    Real Name: LM Flexibility and Adaptability
+    Original Eqn: 2
+    Units: Dmnl
+    Limits: (1.0, 5.0)
+    Type: constant
 
 
     """
-    return wsc_daily_maintenance()
+    return 2
 
 
 @cache('run')
@@ -9967,6 +10052,10 @@ def wtw_unit_carbon_dioxide_emenergy():
     return 1.4
 
 
+integ_result_reached_system_capacity = functions.Integ(lambda: days_with_higher_demand(),
+                                                       lambda: 0)
+
+
 @cache('run')
 def mf_wec_toilet():
     """
@@ -10151,9 +10240,6 @@ def wtw_unit_polyaluminium_chloride():
 
 integ_landuse3_nitrogen = functions.Integ(lambda: landuse3_daily_nitrogen(), lambda: 0)
 
-integ_wastewater_in_wwtp = functions.Integ(
-    lambda: generated_wastewater() - treated_water_to_effluent(), lambda: 0)
-
 
 @cache('run')
 def wtw_reliability():
@@ -10242,20 +10328,6 @@ def wtw_electricity_for_treatment_of_m3():
     Energy required for treatment of 1m3 of drinking water
     """
     return 1.2
-
-
-@cache('run')
-def system_installation_and_construction_cost():
-    """
-    Real Name: System Installation and Construction Cost
-    Original Eqn: 5.23525e+008
-    Units: $
-    Limits: (None, None)
-    Type: constant
-
-
-    """
-    return 5.23525e+008
 
 
 @cache('step')
@@ -10388,20 +10460,6 @@ def porous_pavement_affordability():
 
 
 @cache('step')
-def system_capital_investment_cost():
-    """
-    Real Name: System Capital Investment Cost
-    Original Eqn: RANDOM UNIFORM( 1e+008 , 3e+008 , 1 )
-    Units: $
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return functions.random_uniform(1e+008, 3e+008, 1)
-
-
-@cache('step')
 def lm_inflow_total():
     """
     Real Name: LM Inflow Total
@@ -10472,6 +10530,20 @@ integ_wwtw_total_costs = functions.Integ(
     lambda: (wwtw_construction_and_installation() + wwtw_capital_investment()) * 1e+006)
 
 
+@cache('step')
+def lm_daily_energy_consumption():
+    """
+    Real Name: LM Daily Energy Consumption
+    Original Eqn: LM Inflow Total*LM kWh per m3
+    Units: KWh/Day
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return lm_inflow_total() * lm_kwh_per_m3()
+
+
 @cache('run')
 def swp_space_requirements():
     """
@@ -10500,18 +10572,18 @@ def wwtw_treated_wastewater():
     return treated_wastewater()
 
 
-@cache('run')
-def porous_pavement_acceptability():
+@cache('step')
+def rr_daily_biogas():
     """
-    Real Name: Porous Pavement Acceptability
-    Original Eqn: 3
-    Units: Dmnl
+    Real Name: RR Daily Biogas
+    Original Eqn: RR Unit Biogas*Wastewater Treated
+    Units: m3
     Limits: (None, None)
-    Type: constant
+    Type: component
 
 
     """
-    return 3
+    return rr_unit_biogas() * wastewater_treated()
 
 
 @cache('run')
@@ -10842,7 +10914,7 @@ def result_pumping_lcc():
     """
     Real Name: Result Pumping LCC
     Original Eqn: SWP Total LCC+WP Total LCC+WWP Total LCC
-    Units: kgCO2eq
+    Units: $
     Limits: (None, None)
     Type: component
 
@@ -10922,17 +10994,18 @@ def rwh_risk_to_human_health():
 
 
 @cache('step')
-def swtw_daily_maintenance():
+def result_network_lcc():
     """
-    Real Name: SWTW Daily Maintenance
-    Original Eqn: (SWTW Annual Maintenance/Days in a Year)*1e+006
-    Units: $/Day
+    Real Name: Result Network LCC
+    Original Eqn: SWCS Total Costs+WDM Total Costs+WSC Total Costs+WTM Total Costs+WWCS Total Costs
+    Units: $
     Limits: (None, None)
     Type: component
 
-    Maintenance and Replacement Costs on Daily Basis
+
     """
-    return (swtw_annual_maintenance() / days_in_a_year()) * 1e+006
+    return swcs_total_costs() + wdm_total_costs() + wsc_total_costs() + wtm_total_costs(
+    ) + wwcs_total_costs()
 
 
 @cache('step')
@@ -11048,18 +11121,17 @@ def wwcs_number_of_maintenance_trips():
 
 
 @cache('step')
-def rh_tank_outflow():
+def lm_daily_ghg_emission():
     """
-    Real Name: RH Tank Outflow
-    Original Eqn: IF THEN ELSE( RH Tank Current Storage Volume > 0 , RH Tank Current Storage Volume , \\ 0 )
-    Units: m3
+    Real Name: LM Daily GHG Emission
+    Original Eqn: LM GHG per m3*LM Inflow Total
+    Units: kgCO2eq
     Limits: (None, None)
     Type: component
 
-    Ovde dodati Toilet, Irrigation, Deo za Industriju, i slicno!\t\t5 je random vrednost!
+
     """
-    return functions.if_then_else(rh_tank_current_storage_volume() > 0,
-                                  rh_tank_current_storage_volume(), 0)
+    return lm_ghg_per_m3() * lm_inflow_total()
 
 
 @cache('step')
@@ -11106,20 +11178,6 @@ def landuse3_percentage():
 
     """
     return (100 * landuse3()) / lu_sum()
-
-
-@cache('step')
-def wtw_daily_maintenance():
-    """
-    Real Name: WTW Daily Maintenance
-    Original Eqn: (WTW Annual Maintenance/Days in a Year)*1e+006
-    Units: $/Day
-    Limits: (None, None)
-    Type: component
-
-    Assumption: Maintenance and Replacements costs are 10% of Construction \n    \t\tCosts Per Year, this is why we divide it by 365 to get amount on a daily \n    \t\tscale
-    """
-    return (wtw_annual_maintenance() / days_in_a_year()) * 1e+006
 
 
 @cache('run')
@@ -11258,7 +11316,7 @@ integ_gwp_total_energy = functions.Integ(lambda: gwp_daily_energy(), lambda: 0)
 def daily_water_demand():
     """
     Real Name: Daily Water Demand
-    Original Eqn: (Commercial and Institutional Demand+Domestic Demand+Industrial Demand+Irrigation Demand\\ )
+    Original Eqn: (Commercial and Institutional Demand+Domestic Demand+Industrial Demand+Irrigation Demand\\ )*(1+Water Supply Leakage Rate)
     Units: m3/Day
     Limits: (None, None)
     Type: component
@@ -11266,7 +11324,25 @@ def daily_water_demand():
 
     """
     return (commercial_and_institutional_demand() + domestic_demand() + industrial_demand() +
-            irrigation_demand())
+            irrigation_demand()) * (1 + water_supply_leakage_rate())
+
+
+@cache('step')
+def result_system_affordability():
+    """
+    Real Name: Result System Affordability
+    Original Eqn: Bioretention Affordability+Bioswale Affordability+Green Roof Affordability+GWS Affordability\\ +LM Affordability+MBR Affordability+Porous Pavement Affordability+RWH Affordability\\ +SWP Affordability+SWTW Affordability+WP Affordability+WTW Affordability+WWP Affordability\\ +WWTW Affordability
+    Units: Dmnl
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return bioretention_affordability() + bioswale_affordability(
+    ) + green_roof_affordability() + gws_affordability() + lm_affordability() + mbr_affordability(
+    ) + porous_pavement_affordability() + rwh_affordability() + swp_affordability(
+    ) + swtw_affordability() + wp_affordability() + wtw_affordability() + wwp_affordability(
+    ) + wwtw_affordability()
 
 
 @cache('run')
@@ -11295,10 +11371,6 @@ def wtm_construction():
 
     """
     return 15
-
-
-integ_dw_demand_minus_rw_intake_capacity = functions.Integ(lambda: daily_lack_of_capacity(),
-                                                           lambda: 0)
 
 
 @cache('run')
@@ -11398,6 +11470,21 @@ def swcs_unit_maintenance_ghg_m2():
 
     """
     return 0.5
+
+
+@cache('step')
+def wastewater_generated():
+    """
+    Real Name: Wastewater Generated
+    Original Eqn: (Distributed Treated Water - Irrigation Demand) * Wastewater Generation as a percentage of water use
+    Units: m3/Day
+    Limits: (None, None)
+    Type: component
+
+
+    """
+    return (distributed_treated_water() -
+            irrigation_demand()) * wastewater_generation_as_a_percentage_of_water_use()
 
 
 @cache('step')
@@ -11515,20 +11602,6 @@ def wwtw_flexibility_and_adaptability():
     return 2
 
 
-@cache('step')
-def wastewater_in_wwtp():
-    """
-    Real Name: Wastewater in WWTP
-    Original Eqn: INTEG ( Generated Wastewater-Treated Water to Effluent, 0)
-    Units: m3
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return integ_wastewater_in_wwtp()
-
-
 @cache('run')
 def wp_space_requirements():
     """
@@ -11585,10 +11658,6 @@ def wp_pump_efficiency():
     return 93
 
 
-integ_water_in_wtw = functions.Integ(lambda: raw_water() - drinking_water_distributed(),
-                                     lambda: 100000)
-
-
 @cache('run')
 def swcs_replacement():
     """
@@ -11619,17 +11688,18 @@ def coefficient_of_seasonal_variation_in_irrigation_demand():
 
 
 @cache('step')
-def wwtw_administration_costs():
+def distributed_treated_water():
     """
-    Real Name: WWTW Administration Costs
-    Original Eqn: WWTW Administration Rate*WWTW Staff Costs
-    Units: $
+    Real Name: Distributed Treated Water
+    Original Eqn: IF THEN ELSE( Daily Water Demand >= System Water Capacity , System Water Capacity , \\ Daily Water Demand )
+    Units: m3/Day
     Limits: (None, None)
     Type: component
 
 
     """
-    return wwtw_administration_rate() * wwtw_staff_costs()
+    return functions.if_then_else(daily_water_demand() >= system_water_capacity(),
+                                  system_water_capacity(), daily_water_demand())
 
 
 @cache('run')
@@ -11688,21 +11758,6 @@ def wwp_reliability():
 
     """
     return 4
-
-
-@cache('step')
-def treated_water_to_effluent():
-    """
-    Real Name: Treated Water to Effluent
-    Original Eqn: IF THEN ELSE( Generated Wastewater >= WWTW Daily Treatment Capacity , WWTW Daily Treatment Capacity\\ , Generated Wastewater )
-    Units: m3/Day
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return functions.if_then_else(generated_wastewater() >= wwtw_daily_treatment_capacity(),
-                                  wwtw_daily_treatment_capacity(), generated_wastewater())
 
 
 @cache('step')
@@ -11828,20 +11883,6 @@ def porous_pavement_space_requirements():
 
 
 @cache('run')
-def percentage_of_loss_water():
-    """
-    Real Name: Percentage of Loss Water
-    Original Eqn: 0.1
-    Units: Percentage
-    Limits: (None, None)
-    Type: constant
-
-
-    """
-    return 0.1
-
-
-@cache('run')
 def gws_risk_to_human_health():
     """
     Real Name: GWS Risk to Human Health
@@ -11884,17 +11925,17 @@ def wwtw_operation_ghg():
 
 
 @cache('run')
-def swp_annual_maintenance():
+def wwtw_space_requirements():
     """
-    Real Name: SWP Annual Maintenance
-    Original Eqn: 10000
-    Units: $
-    Limits: (None, None)
+    Real Name: WWTW Space Requirements
+    Original Eqn: 2
+    Units: Dmnl
+    Limits: (1.0, 5.0)
     Type: constant
 
-    Percentage of Initial Costs
+
     """
-    return 10000
+    return 2
 
 
 @cache('step')

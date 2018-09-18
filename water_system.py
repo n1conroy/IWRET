@@ -5,11 +5,10 @@ import os
 import matplotlib
 import json
 import random
-
+import csv
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 plt.ioff()
-
 from threading import Lock
 lock = Lock()
 import datetime
@@ -19,12 +18,24 @@ from mpld3 import plugins
 def draw_fig(data):
     with lock:
         fig, ax = plt.subplots()
-	model = pysd.read_vensim ('IWRET_6.mdl')
-	modeldata = model.run()
-	x = range(731)
+        with open('water_demand.csv', 'wb') as f:  
+            w = csv.DictWriter(f, data.keys())
+            w.writeheader()
+            w.writerow(data)
+	model = pysd.read_vensim ('IWRET_7.mdl')
+        # remove all checkbox elements
+	for k,v in data.items():
+            if v == 'on' or k=='undefined':
+               del data[k]
+        print data
+        #####    conflict for vlad  ####
+        del data['Unit Industrial Demand']
+
+	modeldata = model.run(params=data, return_columns=['SF Stock of Units'])
+        x = range(731)
 	y = modeldata
         ax.plot(x, y)
-    return mpld3.fig_to_html(fig)
+    return mpld3.fig_to_html(ax)
 
 
 templateDir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates');

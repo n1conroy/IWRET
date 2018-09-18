@@ -1,16 +1,15 @@
 <html>
 <head>
 
- <link rel="stylesheet" href="static/css/jquery-ui.css" />
-  <script src="static/js/jquery-1.9.1.js"></script>
-  <script src="static/js/jquery-ui.js"></script>
- 
-  <strong>
+<link rel="stylesheet" href="static/css/jquery-ui.css" />
+<script src="static/js/jquery-1.9.1.js"></script>
+<script src="static/js/jquery-ui.js"></script>
+<strong>
    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
    <link rel="stylesheet" href="{{ url_for('static', filename='css/lean-slider.css') }}">
    <link rel="stylesheet" href="{{ url_for('static', filename='css/sample-styles.css') }}">
    <link rel="stylesheet" href="../static/css/styles.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </strong>
 
 </head>
@@ -39,8 +38,8 @@
 
 <tr>
 <td style={height:700px;} colspan="2"  >
-<form id="simform"  method="POST">
-
+<!--<form id="simform"  method="POST">
+-->
 <div class="container">
 
 <img class="mainpic" src="../static/images/iwret_9_background.png" width=80%></img>
@@ -67,6 +66,12 @@
 <Br><br><br>
 </center>
 
+
+<!-- ******************************************************    -->
+<!-- *****     BEGINNING OF NEIGHBOURHOOD PROPERTIES  *****    -->
+<!-- ******************************************************    -->
+
+
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
 <div class="popup" style="height:600px;">
@@ -84,8 +89,6 @@ close
 -->
 </td>
 </tr>
-
-
 <tr>
 <td colspan=2 >
 <table cellpadding=10>
@@ -150,10 +153,16 @@ close
 </tr>
 </table>
 </div>
+<!-- *** END OF NEIGHBOURHOOD PROPERTIES ****		       -->
+
+<!-- ******************************************************    -->
+<!-- *****     BEGINNING OF WATER DISTRIBUTION NETWORK*****    -->
+<!-- ******************************************************    -->
+
 
 <a class="popup-trigger" rel="nofollow">Water Distribution Network </a>
 <br>
-<div class="popup" style="height:700px">
+<div class="popup" style="height:550px">
 <table class="formcontainer">
 <tr>
 <td>
@@ -162,7 +171,6 @@ close
 <td align=right colspan=2 class="popup-btn-close">
 close
 <br>
-<
 <span class="update_note"></span>
 </td>
 </tr>
@@ -206,12 +214,14 @@ close
 </tr>
 <td class=formsection2 valign=top >
 <label><b>Material 1</b></label><br>
-
-<select width=200px>
-<option   value="Ductile Iron" name="WDM Material 1" selected>Ductile Iron</option> 
-        <option  value ="Value2" name="WDM Material 1">Value 2</option> 
-        <option  value ="Value3" name="WDM Material 1">Value 3</option> 
-</select>
+    <select width=200px>
+        <option   value="Ductile Iron" name="WDM Material 1" selected>Ductile Iron</option>         
+        <option  value ="Grey Cast Iron" name="WDM Material 1">Grey Cast Iron</option>                 
+        <option  value ="Concrete" name="WDM Material 1">Concrete</option>                  
+	<option  value ="Mild Steel" name="WDM Material 1">Mild Steel</option>                  
+        <option  value ="PE" name="WDM Material 1">PE</option>                  
+        <option  value ="PVC" name="WDM Material 1">PVC</option>                  
+  </select>
 <br><label>Total Length [in]</label>
   <br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M1" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
@@ -227,9 +237,13 @@ close
   <label><b>Material 2</b></label><br>
     <select width=200px>
         <option   value="Ductile Iron" name="WDM Material 2" selected>Ductile Iron</option>         
-        <option  value ="Value2" name="WDM Material 2">Value 2</option>                 
-        <option  value ="Value3" name="WDM Material 2">Value 3</option>                  
+        <option  value ="Grey Cast Iron" name="WDM Material 2">Grey Cast Iron</option>                 
+        <option  value ="Concrete" name="WDM Material 2">Concrete</option>                  
+	<option  value ="Mild Steel" name="WDM Material 2">Mild Steel</option>                  
+        <option  value ="PE" name="WDM Material 2">PE</option>                  
+        <option  value ="PVC" name="WDM Material 2">PVC</option>                  
   </select>
+
 <br><label>Total Length [in]</label>
   <br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M2" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
@@ -257,7 +271,11 @@ close
 </table>
 </div>
 
+<!-- *** END OF WATER DISTRIBUTION NETWORK PROPERTIES ***       -->
 
+<!-- ******************************************************    -->
+<!-- *****     BEGINNING OF WATER TREATMENT WORKS   *****      -->
+<!-- ******************************************************    -->
 <a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
 <br>
 <div class="popup" style="height:550px" >
@@ -351,7 +369,6 @@ close
   <br><input type="number" min="0.1" max="100" step=".1" value="50.0" size="30" name="WTW Electricity for treamtment of m3" >
 </td>
 <td class="formsection2">
-
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
 <br><input type="range" min="1" max="5"  class="slider-width" name="WTW Affordability"><br>
@@ -370,8 +387,11 @@ close
 </table>
 
 </div>
+<!-- *** END OF WATER TREATMENT WORKS  ****		       -->
 
-
+<!-- ******************************************************    -->
+<!-- *****     BEGINNING OF SEWER COLLECTION NETWORK  *****    -->
+<!-- ******************************************************    -->
 
 <a class="popup-trigger" rel="nofollow">Sewer Collection Network </a>
 <br>
@@ -513,10 +533,16 @@ close
 </tr>
 </table>
 </div>
+<!-- ******** END OF SEWER COLLECTION NETWORK  ********        -->
 
+
+<!-- ******************************************************    -->
+<!-- *****     BEGINNING OF WATER DEMAND              *****    -->
+<!-- ******************************************************    -->
 <a class="popup-trigger" rel="nofollow">Water Demand</a>
 <br>
-<div class="popup" style="height:600">
+<div class="popup" id="Water Demand Popup" style="height:500">
+<form id="WaterDemandForm" method="POST">
 <table  class="formcontainer">
 <tr><td>
 <h3 id="myModalLabel">Water Demand</h3>
@@ -584,7 +610,7 @@ close
 $(document).ready(function(){
  $("input[name='WD Water Efficiency Reduction Coeff']").change(function() {
      if(!this.checked) {
-     	alert("Overriding the defalut values for "+this['name']);
+     	alert("Overriding the default values for "+this['name']);
          $("input[name='SF WEC Faucet']").val('1');
      	 $("input[name='SF WEC Shower']").val('1');
 		 $("input[name='SF WEC Dishwasher']").val('1');
@@ -596,12 +622,7 @@ $(document).ready(function(){
      });
 });
 </script>
- 
 </td>
-
-
-
-
 <td class="formsection2">
   <label><b>Water Efficiency Reduction Coeff </b></label><input type="checkbox" checked name="WD Water Efficiency Reduction Coeff2">
   <br><label>Faucet [%]</label>
@@ -624,7 +645,7 @@ $(document).ready(function(){
 $(document).ready(function(){
  $("input[name='WD Water Efficiency Reduction Coeff2']").change(function() {
      if(!this.checked) {
-     	alert("Overriding the defalut values for "+this['name']);
+     	alert("Overriding the default values for "+this['name']);
          $("input[name='MF WEC Faucet']").val('1');
      	 $("input[name='MF WEC Shower']").val('1');
 		 $("input[name='MF WEC Dishwasher']").val('1');
@@ -649,73 +670,75 @@ $(document).ready(function(){
 $(document).ready(function(){
  $("input[name='WD Water Conservation Adoption Rate']").change(function() {
      if(!this.checked) {
-     	 alert("Overriding the defalut values for "+this['name']);
+     	 alert("Overriding the default values for "+this['name']);
          $("input[name='SF Rate of Adoption']").val('1');
      	 $("input[name='MF Rate of Adoption']").val('1');
 	    } 
      });
 });
 </script>
-
 </td>
 <td class="formsection2">
   <label><b>Irrigation Demand  </b></label><input type="checkbox"  checked name="WD Irrigation Demand">
   <br><label>Public Spaces for Irrigation [m2]</label>
   <br><input type="number" min="0" max="500000" step="100" value="25000" size="30" name="Public spaces for Irrigation" >
-  <br><label>Unit Demand for Public Spaces [l/m2/day]</label>
+  <br><label>Public spaces for irrigation in neighborhood[l/m2/day]</label>
   <br><input type="number" min="0" max="200" step="1" value="70" size="30" name="Unit Irrigation Demand" >
-   <br><label>Unit Demand for Lawn Irrigation [l/m2/day]/label>
+  <!--<br><label>Unit Demand for Lawn Irrigation [l/m2/day]/label>
   <br><input type="number" min="0" max="200" step="1" value="70" size="30" name="Unit Lawn Irrigation Demand" >
+  -->
 </td>
-
-
 <td class="formsection2">
   <label><b>Hospitals  </b></label><input type="checkbox" checked name="WD Hospitals">
   <br><label>Number of Beds [#]</label>
   <br><input type="number" min="0" max="5000" step="1" value="280" size="30" name="Number of Beds" >
   <br><label>Demand per Bed [l/bed/day]</label>
   <br><input type="number" min="0" max="2000" step="1" value="1310" size="30" name="Unit Demand Per Bed" >
-
 <!-- Custom Field Autofill script -->
 <script>
 $(document).ready(function(){
   $("input[name='WD Hospitals']").change(function() {
      if(!this.checked) {
-        alert("Overriding the defalut values for "+this['name']);
+        alert("Overriding the default values for "+this['name']);
          $("input[name='Number of Beds']").val('0');
          $("input[name='Unit Demand Per Bed']").val('0');
             }
      });
 });
+$(document).ready(function(){
+  $("input[name='WD Irrigation Demand']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+         $("input[name='Public spaces for Irrigation']").val('0');
+         $("input[name='Unit Irrigation Demand']").val('0');
+	 $("input[name='Unit Lawn Irrigation Demand']").val('0');
+
+            }
+     });
+});
+
 </script>
-
-
 </td>
-
 <td class="formsection2">
-  <label><b>Industrial Deamnd  </b></label><input type="checkbox" checked name="WD Industrial Demand">
+  <label><b>Industrial Demand  </b></label><input type="checkbox" checked name="WD Industrial Demand">
   <br><label>Industrial Area [m2]</label>
   <br><input type="number" min="0" max="500000" step="100" value="10000" size="30" name="Industrial Floor Area" >
-  <br><label>Unit Demand [l/m2/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="180" size="30" name="Unit Industrial Demand Per Floor Area" >
- 
+  <br><label>Industrial unit demand per m2 [l/m2/day]</label>
+  <br><input type="number" min="0" max="200" step="1" value="180" size="30" name="Unit Industrial Demand" >
 <!-- Custom Field Autofill script -->
 <script>
 $(document).ready(function(){
   $("input[name='WD Industrial Demand']").change(function() {
      if(!this.checked) {
-        alert("Overriding the defalut values for "+this['name']);
+        alert("Overriding the default values for "+this['name']);
          $("input[name='Industrial Floor Area']").val('0');
          $("input[name='Unit Industrial Demand Per Floor Area']").val('0');
             }
      });
 });
 </script>
-
-
 </td>
 </tr>
-
 <tr>
 <td class="formsection2">
  <label><b>Community Centers  </b></label> <input type="checkbox" checked name="WD Community Centers">
@@ -728,20 +751,18 @@ $(document).ready(function(){
   <br><label>Variation Coefficient [Dmnls]</label>
   <br><input type="number" min="0" max="2" step=".01" value="1.21" name="CC Lower VC" >
 </td>
-
 <!-- Custom Field Autofill script -->
 <script>
 $(document).ready(function(){
   $("input[name='WD Community Centers']").change(function() {
      if(!this.checked) {
-     	alert("Overriding the defalut values for "+this['name']);
+     	alert("Overriding the default values for "+this['name']);
          $("input[name='CC Area']").val('0');
      	 $("input[name='CC Unit Demand']").val('0');
 		     } 
      });
 });
 </script>
-
 <td class="formsection2">
   <lablel><b>Office Buidlings </b></lable><input type="checkbox" checked name="WD Office Buildings">
   <br><label>Office Building Area[m2]</label>
@@ -752,13 +773,12 @@ $(document).ready(function(){
   <br><input type="number" min="0" max="2" step=".01" value="0.8" size="30" name="OB Upper VC" >
     <br><label>Variation Coefficient Lower [Dmnls]</label>
   <br><input type="number" min="0" max="2" step=".01" value="1.25" size="30" name="OB Lower VC" >
-
 <!-- Custom Field Autofill script -->
 <script>
 $(document).ready(function(){
   $("input[name='WD Office Buildings']").change(function() {
      if(!this.checked) {
-        alert("Overriding the defalut values for "+this['name']);
+        alert("Overriding the default values for "+this['name']);
          $("input[name='OB Unit demand per m2']").val('0');
          $("input[name='Footprint Office Buildings']").val('0');
        
@@ -766,8 +786,6 @@ $(document).ready(function(){
      });
 });
 </script>
-
-
 </td>
 <td class="formsection2">
  <label><b>Schools   </b></label> <input type="checkbox" checked name="WD Schools">
@@ -781,16 +799,13 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("input[name='WD Schools']").change(function() {
      if(!this.checked) {
-        alert("Overriding the defalut values for "+this['name']);
+        alert("Overriding the default values for "+this['name']);
          $("input[name='Number of Students']").val('0');
          $("input[name='Unit Demand Per Student']").val('0');
             }
      });
 });
 </script>
-
-
-
 </td>
 <td class="formsection2">
   <label><b>Restaurants  </b></label><input type="checkbox" checked name="WD Restaurants">
@@ -808,7 +823,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("input[name='WD Restaurants']").change(function() {
      if(!this.checked) {
-        alert("Overriding the defalut values for "+this['name']);
+        alert("Overriding the default values for "+this['name']);
          $("input[name='Restaurant Seats']").val('0');
          $("input[name='Unit Demand per Seat']").val('0');
          
@@ -816,7 +831,6 @@ $(document).ready(function(){
      });
 });
 </script>
-
 </td>
 </tr>
 <tr>
@@ -836,7 +850,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("input[name='WD Daycares']").change(function() {
      if(!this.checked) {
-        alert("Overriding the defalut values for "+this['name']);
+        alert("Overriding the default values for "+this['name']);
          $("input[name='Number of Children']").val('0');
          $("input[name='Unit Demand per Child]").val('0');
        
@@ -844,8 +858,6 @@ $(document).ready(function(){
      });
 });
 </script>
-
-
 </td>
 <td class="formsection2">
   <label><b>Hotels </b></label><input checked type="checkbox" name="WD Hotels">
@@ -853,22 +865,18 @@ $(document).ready(function(){
   <br><input type="number" min="0" max="50000" step="100"  value="10000" size="30" name="Footprint Hotels" >
   <br><label>Unit Demand[l/m2/day]</label>
   <br><input type="number" min="0" max="200" step="0.1" value="10.5" size="30" name="Unit Demand per m2" >
-
-
 <!-- Custom Field Autofill script -->
 <script>
 $(document).ready(function(){
   $("input[name='WD Hotels']").change(function() {
      if(!this.checked) {
-        alert("Overriding the defalut values for "+this['name']);
+        alert("Overriding the default values for "+this['name']);
          $("input[name='Footprint Hotels']").val('0');
          $("input[name='Unit Demand per m2']").val('0');
       }
      });
 });
 </script>
-
-
 </td>
 <td class="formsection2">
 <label><b>Retail </b></label> <input type="checkbox" checked name="WD Retail"> 
@@ -876,17 +884,16 @@ $(document).ready(function(){
   <br><input type="number" min="0" max="50000" step="1" value="20000" size="30" name="Retail space in m2" >
   <br><label>Retail unit demand</label>
   <br><input type="number" min="0" max="200" step=".1" value="4.3" size="30" name="Unit Demand of Retail Space" >
-  <br><label>Retail Upper VC</label>
-  <br><input type="number" min="0" max="2" step="0.01" value="1.18" size="30" name="Unit Demand Upper VC" >
-    <br><label>Retail Lower VC</label>
-  <br><input type="number" min="0" max="2" step="0.01" value="0.92" size="30" name="Unit Demand Lower VC" >
-
+  <br><label>Variation Coefficient Upper</label>
+  <br><input type="number" min="0" max="2" step="0.01" value="1.18" size="30" name="Retail Upper VC" >
+    <br><label>Variation Coefficient Lower</label>
+  <br><input type="number" min="0" max="2" step="0.01" value="0.92" size="30" name="Retail Lower VC" >
 <!-- Custom Field Autofill script -->
 <script>
 $(document).ready(function(){
   $("input[name='WD Retail']").change(function() {
      if(!this.checked) {
-        alert("Overriding the defalut values for "+this['name']);
+        alert("Overriding the default values for "+this['name']);
          $("input[name='Retail space in m2']").val('0');
          $("input[name='Unit Demand of Retail Space']").val('0');
       
@@ -894,8 +901,6 @@ $(document).ready(function(){
      });
 });
 </script>
-
-
 </td>
 <td class="formsection2"> 
 <label><b>HVAC </b></label> <input type="checkbox"__name="HVAC"> 
@@ -905,8 +910,52 @@ $(document).ready(function(){
   <br><input type="number" min="1" max="24" step="1" value="18" size="30" name="HVAC Hours of Operation" >
 </td>
 </tr>
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="WaterDemandQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
 </div>
+</form>
+<script>
+  $("#WaterDemandQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $("#container").hide();
+  $(".mainpic").hide();
+  var qu ={};
+  
+  $("form#WaterDemandForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  console.log(JSON.stringify(qu))
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    success: function (data) {     
+      var graph = $("#container");
+      graph.html(data);   
+      $("#loading-div-background").hide();      
+      $("#container").show();
+      $(".menu").show();
+      $("#message").html(data);
+   },
+   dataType: "html"
+ });
+});
+
+</script>
+
+<!--- ******** END OF WATER DEMAND  ************ ------->
+
+
+<!-- ******************************************************    -->
+<!-- *****     BEGINNING OF WATER TREATMENT WORKS     *****    -->
+<!-- ******************************************************    -->
 <a class="popup-trigger" rel="nofollow">Wastewater Treatment Works</a>
 <br>
 <div class="popup" style="height:650px" >
@@ -1587,16 +1636,17 @@ close
 </tr>
 </table>
 </div>
- <div>
+<!-- <div>
   <button type="button" style="font-size: 14px; height:40px; width:160px;" id="query">Run Simulation</button>
 <br>
-</div>
+</div> -->
 <!--
 <br><input type="submit" name="my-form" class="create" value="Run Simulation">
 -->
 <br>
 </p>
- </form> 
+
+<!-- </form> -->
 </td>
 </tr>
 <tr>
@@ -1606,13 +1656,17 @@ close
 </tr>
 </table>
 <script>
+
 $("#loading-div-background").css({ opacity: 0.7 });
-function datetime_to_epoch(datetime)
-{
-  var aDate = datetime.split('/');
-  var epoch = new Date(aDate[2] + "," + aDate[0] + "," + aDate[1]).getTime() / 1000;
-  return epoch;
+
+function datetime_to_epoch(datetime) {
+    var aDate = datetime.split('/');
+    var epoch = new Date(aDate[2] + "," + aDate[0] + "," + aDate[1]).getTime() / 1000;
+    return epoch;
 }
+
+
+/*
   $("#query").click(function() {  
   $("#loading-div-background").show();
   $("#container").hide();
@@ -1637,8 +1691,9 @@ function datetime_to_epoch(datetime)
    },
    dataType: "html"
  });
- console.log(JSON.stringify(qu));
 });
+
+*/
 
 
 var scrollTop = '';
@@ -1664,66 +1719,71 @@ $(window).bind('scroll', function() {
          $('.popup').hide();
         });
         $('.popup-btn-close').click(function(e){
-          $(this).parent().parent().parent().parent().hide();
+          $(this).parent().parent().parent().parent().parent().hide();
         });
         $('.popup').click(function(e){
           e.stopPropagation();
         });
-var FormData = [
+	var FormData = [
+	{
+ 	   WTField1: "xx",
+ 	   WTField2: "xx",
+ 	   WTFiled3: "xx"
+	},
+	{
+ 	   WDField1: "xx",
+ 	   WDField2: "xx",
+ 	   WDField3: "xx"
+	},
+	{
+ 	   PSField1: "xx",
+	   PSField2: "xx",
+	   PSField3: "xx"
+	},
+	];
+
+
+function convertArrayOfObjectsToCSV(args) 
 {
-    WTField1: "xx",
-    WTField2: "xx",
-    WTFiled3: "xx"
-},
-{
-    WDField1: "xx",
-    WDField2: "xx",
-    WDField3: "xx"
-},
-{
-    PSField1: "xx",
-    PSField2: "xx",
-    PSField3: "xx"
-},
-];
-function convertArrayOfObjectsToCSV(args) {
-var result, ctr, keys, columnDelimiter, lineDelimiter, data;
-data = args.data || null;
-if (data == null || !data.length) {
-    return null;
-}
-columnDelimiter = args.columnDelimiter || ',';
-lineDelimiter = args.lineDelimiter || '\n';
-keys = Object.keys(data[0]);
-result = '';
-result += keys.join(columnDelimiter);
-result += lineDelimiter;
-data.forEach(function(item) {
-    ctr = 0;
-    keys.forEach(function(key) {
-        if (ctr > 0) result += columnDelimiter;
+	var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+	data = args.data || null;
+	if (data == null || !data.length) {
+  	  return null;
+	}
+	columnDelimiter = args.columnDelimiter || ',';
+	lineDelimiter = args.lineDelimiter || '\n';
+	keys = Object.keys(data[0]);
+	result = '';
+	result += keys.join(columnDelimiter);
+	result += lineDelimiter;
+	data.forEach(function(item) {
+        ctr = 0;
+        keys.forEach(function(key) {
+            if (ctr > 0) result += columnDelimiter;
         result += item[key];
         ctr++;
-    });
-    result += lineDelimiter;
-});
-return result;
+    	});
+    	result += lineDelimiter;
+      });
+    return result;
 }
+
 function downloadCSV(args) {
-  var data, filename, link;
-  var csv = convertArrayOfObjectsToCSV({
-     data: FormData
-  });
-  if (csv == null) return;
-  filename = args.filename || 'export.csv';
-  if (!csv.match(/^data:text\/csv/i)) {
-      csv = 'data:text/csv;charset=utf-8,' + csv;
- }
-  data = encodeURI(csv);
-  link = document.createElement('a');
-  link.setAttribute('href', data);
-  link.setAttribute('download', filename);
-  link.click();
+    var data, filename, link;
+    var csv = convertArrayOfObjectsToCSV({
+       data: FormData
+ 	   });
+    if (csv == null) return;
+    filename = args.filename || 'export.csv';
+    if (!csv.match(/^data:text\/csv/i)) {
+        csv = 'data:text/csv;charset=utf-8,' + csv;
+    }
+    data = encodeURI(csv);
+    link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    link.click();
 }
+
 </script>
 </html>
