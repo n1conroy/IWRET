@@ -1,5 +1,5 @@
 """
-Python model "IWRET_7.py"
+Python model "IWRET_8_ElFee.py"
 Translated using PySD version 0.9.0
 """
 from __future__ import division
@@ -609,8 +609,6 @@ _namespace = {
     u'wdm_total_length_m1',
     u'WDM Total Length M2':
     u'wdm_total_length_m2',
-    u'WWP Price per kWh':
-    u'wwp_price_per_kwh',
     u'LM Inflow Schools':
     u'lm_inflow_schools',
     u'WWP Risk to Human Health':
@@ -1319,8 +1317,6 @@ _namespace = {
     u'mf_wec_faucet',
     u'SWP Reliability':
     u'swp_reliability',
-    u'WP Price per kWh':
-    u'wp_price_per_kwh',
     u'MF Shower Demand':
     u'mf_shower_demand',
     u'Result Treatment GHG Emissions':
@@ -2437,7 +2433,7 @@ def time_step():
 def wp_daily_costs():
     """
     Real Name: WP Daily Costs
-    Original Eqn: (WP Unit Conversion Factor * WP Total Dynamic Head of Pump * WP Duration of Pump Operation\\ * WP Price per kWh * (Distributed Treated Water * 0.0115741)) / (WP Motor Efficiency* WP Pump Efficiency*WP Variable Speed Drive Efficiency) + WP Daily Maintenance
+    Original Eqn: (WP Unit Conversion Factor * WP Total Dynamic Head of Pump * WP Duration of Pump Operation\\ * Electricity Fee * (Distributed Treated Water * 0.0115741)) / (WP Motor Efficiency* WP Pump Efficiency*WP Variable Speed Drive Efficiency) + WP Daily Maintenance
     Units: $/Day
     Limits: (None, None)
     Type: component
@@ -2445,7 +2441,7 @@ def wp_daily_costs():
     Calculating Energy Costs, Chapter 10.8, page 439 Advanced Water Distribution Modeling\t\t0.0115741 is m3/day into l/s
     """
     return (wp_unit_conversion_factor() * wp_total_dynamic_head_of_pump() *
-            wp_duration_of_pump_operation() * wp_price_per_kwh() *
+            wp_duration_of_pump_operation() * electricity_fee() *
             (distributed_treated_water() * 0.0115741)) / (
                 wp_motor_efficiency() * wp_pump_efficiency() *
                 wp_variable_speed_drive_efficiency()) + wp_daily_maintenance()
@@ -3220,7 +3216,7 @@ def landuse1_nitrogen():
 def gwp_daily_costs():
     """
     Real Name: GWP Daily Costs
-    Original Eqn: (((GWP Unit Conversion Factor * GWP Average Dynamic Head * GWP Duration of Pump Operation\\ * WP Price per kWh * GWS Tank Outflow * 0.0115741) / (GWP Motor Efficiency*GWP Pump Efficiency*GWP Variable Speed Drive Efficiency\\ )) + GWP Daily Maintenance)*GWP Number of Pumps
+    Original Eqn: (((GWP Unit Conversion Factor * GWP Average Dynamic Head * GWP Duration of Pump Operation\\ * Electricity Fee * GWS Tank Outflow * 0.0115741) / (GWP Motor Efficiency*GWP Pump Efficiency*GWP Variable Speed Drive Efficiency\\ )) + GWP Daily Maintenance )*GWP Number of Pumps
     Units: $/Day
     Limits: (None, None)
     Type: component
@@ -3229,7 +3225,7 @@ def gwp_daily_costs():
     """
     return ((
         (gwp_unit_conversion_factor() * gwp_average_dynamic_head() *
-         gwp_duration_of_pump_operation() * wp_price_per_kwh() * gws_tank_outflow() * 0.0115741) /
+         gwp_duration_of_pump_operation() * electricity_fee() * gws_tank_outflow() * 0.0115741) /
         (gwp_motor_efficiency() * gwp_pump_efficiency() * gwp_variable_speed_drive_efficiency())) +
             gwp_daily_maintenance()) * gwp_number_of_pumps()
 
@@ -5735,20 +5731,6 @@ def wtw_embodied_energy_for_chemicals():
 
 
 @cache('run')
-def wp_price_per_kwh():
-    """
-    Real Name: WP Price per kWh
-    Original Eqn: 0.11
-    Units: $/KWh
-    Limits: (0.0, 1.0)
-    Type: constant
-
-    Price of Energy (Dollars/Kwh)
-    """
-    return 0.11
-
-
-@cache('run')
 def swtw_construction_and_installation():
     """
     Real Name: SWTW Construction and Installation
@@ -6390,7 +6372,7 @@ def asphalt_construction_ghg():
 def swp_daily_costs():
     """
     Real Name: SWP Daily Costs
-    Original Eqn: SWP Daily Maintenance + ((SWP Unit Conversion Factor * SWP Total Dynamic Head of Pump\\ * SWP Duration of Pump Operation * WP Price per kWh * (SW Daily Rate * 0.0115741)) / (SWP Motor Efficiency * SWP Pump Efficiency * SWP Variable Speed Drive Efficiency\\ ))
+    Original Eqn: SWP Daily Maintenance + ((SWP Unit Conversion Factor * SWP Total Dynamic Head of Pump\\ * SWP Duration of Pump Operation * Electricity Fee * (SW Daily Rate * 0.0115741)) / (SWP Motor Efficiency * SWP Pump Efficiency * SWP Variable Speed Drive Efficiency\\ ))
     Units: $/Day
     Limits: (None, None)
     Type: component
@@ -6399,7 +6381,7 @@ def swp_daily_costs():
     """
     return swp_daily_maintenance() + (
         (swp_unit_conversion_factor() * swp_total_dynamic_head_of_pump() *
-         swp_duration_of_pump_operation() * wp_price_per_kwh() * (sw_daily_rate() * 0.0115741)) /
+         swp_duration_of_pump_operation() * electricity_fee() * (sw_daily_rate() * 0.0115741)) /
         (swp_motor_efficiency() * swp_pump_efficiency() * swp_variable_speed_drive_efficiency()))
 
 
@@ -7202,7 +7184,7 @@ def result_rr_energy():
 def wwp_daily_costs():
     """
     Real Name: WWP Daily Costs
-    Original Eqn: (WWP Unit Conversion Factor * WWP Total Dynamic Head * WWP Duration of Pump Operation\\ * WWP Price per kWh * (Wastewater Treated * 0.0115741)) / (WWP Motor Efficiency*WWP Pump Efficiency*WWP Variable Speed Drive Efficiency\\ ) + WWP Daily Maintenance
+    Original Eqn: (WWP Unit Conversion Factor * WWP Total Dynamic Head * WWP Duration of Pump Operation\\ * Electricity Fee * (Wastewater Treated * 0.0115741)) / (WWP Motor Efficiency*WWP Pump Efficiency*WWP Variable Speed Drive Efficiency\\ ) + WWP Daily Maintenance
     Units: $/Day
     Limits: (None, None)
     Type: component
@@ -7210,7 +7192,7 @@ def wwp_daily_costs():
     * 0.0115741 Conversion factor m3/day in liters/second
     """
     return (wwp_unit_conversion_factor() * wwp_total_dynamic_head() *
-            wwp_duration_of_pump_operation() * wwp_price_per_kwh() *
+            wwp_duration_of_pump_operation() * electricity_fee() *
             (wastewater_treated() * 0.0115741)) / (wwp_motor_efficiency() * wwp_pump_efficiency(
             ) * wwp_variable_speed_drive_efficiency()) + wwp_daily_maintenance()
 
@@ -8241,7 +8223,7 @@ def sf_wec_shower():
 def rhp_daily_costs():
     """
     Real Name: RHP Daily Costs
-    Original Eqn: ((RHP Unit Conversion Factor * RHP Average Dynamic Head * RHP Duration of Pump Operation\\ * WP Price per kWh * (RH Tank Outflow * 0.0115741)) / (RHP Motor Efficiency*RHP Pump Efficiency*RHP Variable Speed Drive Efficiency\\ ) + RHP Daily Maintenance)*RHP Number of Pumps
+    Original Eqn: ((RHP Unit Conversion Factor * RHP Average Dynamic Head * RHP Duration of Pump Operation\\ * Electricity Fee * (RH Tank Outflow * 0.0115741)) / (RHP Motor Efficiency*RHP Pump Efficiency*RHP Variable Speed Drive Efficiency\\ ) + RHP Daily Maintenance )*RHP Number of Pumps
     Units: $/Day
     Limits: (None, None)
     Type: component
@@ -8250,7 +8232,7 @@ def rhp_daily_costs():
     """
     return (
         (rhp_unit_conversion_factor() * rhp_average_dynamic_head() *
-         rhp_duration_of_pump_operation() * wp_price_per_kwh() * (rh_tank_outflow() * 0.0115741)) /
+         rhp_duration_of_pump_operation() * electricity_fee() * (rh_tank_outflow() * 0.0115741)) /
         (rhp_motor_efficiency() * rhp_pump_efficiency() * rhp_variable_speed_drive_efficiency()) +
         rhp_daily_maintenance()) * rhp_number_of_pumps()
 
@@ -10412,20 +10394,6 @@ def rr_unit_ghg_urea():
 
     """
     return 1.52
-
-
-@cache('run')
-def wwp_price_per_kwh():
-    """
-    Real Name: WWP Price per kWh
-    Original Eqn: 0.11
-    Units: $/KWh
-    Limits: (0.0, 1.0)
-    Type: constant
-
-    Price of Energy (Dollars/Kwh)
-    """
-    return 0.11
 
 
 @cache('run')

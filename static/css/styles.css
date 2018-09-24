@@ -9,7 +9,7 @@ fieldset, form, label, legend,
 caption, tbody, tfoot, thead,  th, 
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
+ nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -99,13 +99,8 @@ table td.banner3 {vertical-align:middle; padding-left:20px; height:35px; border-
 }
 
 
-.__mainpic {
-	height:400px;
-	width:900px;
-	align:right;
-        background-repeat:no-repeat; 
-	background-size:900px 400px;
-	background-image:url("../images/iwret_9_background.png");
+.mainpic {
+
  }
 
 #welcome {  color: transparent; text-shadow: 0 0 1px #cccccc; padding-left:44px; font-family:helvetica; display:inline-block;font-size:65px;}
@@ -236,32 +231,11 @@ b {
 	  color: #141459; 
 }
 
-div#container {
-	padding-left:20px; 
-        align-items:top; 
-	background:#FFFFFF;
-	margin:auto;
-	position:static;
-	left:20px;
-	top:20px;
-}
-#results1 {
-    width:480px;
-    float:left;
-    height:520px;
-    overflow:scroll; 
-    border:0px solid black;
-    text-align:center;
-}
 
-#results2 {
-    width:480px;
-    float:left;
-    height:520px;
-    overflow:scroll;
-    border:0px solid black;
-    text-align:center;
-}
+
+
+
+
 
 
 .formsection {
@@ -334,4 +308,14 @@ table.formcontainer{
    color:red;
    font-size:10px;
    text-decoration:italic;
+}
+
+div.dashboard_container {
+ width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.graph_container {
+     width: 100px;
 }

@@ -3,6 +3,8 @@
 
 <link rel="stylesheet" href="static/css/jquery-ui.css" />
 <script src="static/js/jquery-1.9.1.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.1.js"></script>
 <script src="static/js/jquery-ui.js"></script>
 <strong>
    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
@@ -14,8 +16,6 @@
 
 </head>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-</script>
 
 <body>
 
@@ -37,26 +37,47 @@
 </tr>
 
 <tr>
-<td style={height:700px;} colspan="2"  >
-<!--<form id="simform"  method="POST">
--->
-<div class="container">
+<!-- ********************************************************************** 		 --->
+<!-- **********		BEGINNING OF OUTPUT SECTION	 ******************		 --->
+<!-- ********************************************************************** 		 --->
 
+
+<td style={height:700px;} colspan="2"  >
+<div>
 <img class="mainpic" src="../static/images/iwret_9_background.png" width=80%></img>
+
     <ul class="menu">
       <li><a href="{{ url_for('home') }}">Home</a></li>
     </ul>
-    <div id="loading-div-background">
-    <div id="loading-div" class="ui-corner-all" >
-    <img style="height:64px;margin:10px;" src="static/css/images/282.GIF" alt="Loading.."/>
-    <h3 style="color:gray;font-weight:normal;">Loading....</h3>
-    </div>
-    </div>
-    <div id="container" style="width:70%; height:400px;">
-     </div>
+<div id="loading-div-background">
+   <div id="loading-div" class="ui-corner-all" >
+   <img style="height:64px;margin:10px;" src="static/css/images/282.GIF" alt="Loading.."/>
+   <h3 style="color:gray;font-weight:normal;">Running Simulation...</h3>
+  </div>
 </div>
+<div class="dashboard_container">
+<div class="graph_container" id="graph_container1"></div>
+<div class="graph_container" id="graph_container2"></div>
+<div class="graph_container" id="graph_container3"></div>
 
+
+
+<!--{% for plot in dict_of_plots %}
+	<div class="graph_container" id="{{plot['id'] }}"></div>
+{% endfor %}
+<script type="text/javascript">
+    {% for plot in dict_of_plots %}
+        mpld3.draw_figure("{{ plot['id'] }}", {{ plot['json']|safe }});
+    {% endfor %}
+ </script>
+ -->  
+</div>
+</div>
 </td>
+<!-- **************END OF OUTPUT SECTION ****************************  --->
+
+
+
 <td rowspan=2 valign=top id="mainmenu">
 <br>
 <center>MAIN MENU
@@ -82,11 +103,7 @@
 </td>
 <td align=right class="popup-btn-close">
 close
-<!--<br>
-<input type="button" onclick="Update_List()" name="Update" value="Update"/>
-<br>
-<span class="update_note"></span>
--->
+
 </td>
 </tr>
 <tr>
@@ -135,8 +152,8 @@ close
 <h3>Global Variables</h3>
 <label>Price of Electricity [Dollars/kWh]</label>
   <br><input type="number" min="1" max="50" step="1" value="0.11" size="30" name="Electricity Fee" >
- <br><label>Electricty Generation Emission Factor per Year [kgCO2/kWh]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0.348" size="30" name="GWP Price per kWh" >
+ <!-- <br><label>Electricity Generation Emission Factor per Year [kgCO2/kWh]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0.348" size="30" name="GWP Price per kWh" >-->
  <br><label>Construction and installation costs for 1m2 of asphalt</label>
   <br><input type="number" min="0" max="10000" step="1" value="1000" size="30" name="Asphalt CC Unit Cost" >
    <br><label>Construction and installation GHG emission for 1m2 of asphalt</label>
@@ -163,6 +180,7 @@ close
 <a class="popup-trigger" rel="nofollow">Water Distribution Network </a>
 <br>
 <div class="popup" style="height:550px">
+<form id="WaterDistributionNetworkForm" method="POST">
 <table class="formcontainer">
 <tr>
 <td>
@@ -177,32 +195,28 @@ close
 <tr>
 <td class=formsection2 valign=top>
 <h3>Water Supply Conducts (WSC)</h3>
-<label>Daily Capacity of Water Conduit [in3/day]</label>
-  <br><input type="number" min="0" max="100" step="1"  value="0" size="30" name="WSC Daily Capacity" >
+<label>Total carrying capacity of water conduit[m3/day]</label>
+  <br><input type="number" min="0" max="50000" step="100"  value="15000" size="30" name="Water Conduit Daily Capacity" >
   <br><label>Leakage Percentage [%]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="WSC Leakage" >
+  <br><input type="number" min="0" max="100" step="1" value="90" size="30" name="Water Conduit Available Capacity" >
   <br><label>Replacement Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WSC Replacement" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="0" size="30" name="WSC Replacement" >
  <br><label>Disposal Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WSC Disposal" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="0" width="230" name="WSC Disposal" >
   <br><label>Construction Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WSC Construction" >
-  <br><label>Maintenance[$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WSC Annual Maintenance" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="0" size="10" name="WSC Construction" >
+  <br><label>Annual Maintenance[$]</label>
+  <br><input type="number" min="0" max="15000000" step="1000" value="1000000" size="10" name="WSC Annual Maintenance" >
 </td>
 <td valign=top class="formsection2">
  <h3>Water Trunk Mains (WTM)</h3>
-  <label>Daily Capacity of Water Trunk Main [in3/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="WTM Daily Capacity" >
-  <br><label>Leakage Percentage [%]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="WTM Leakage" >
-  <br><label>Replacement Cost [$]</label>
+  <br><label>Replacement cost [$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WTM Replacement" >
- <br><label>Disposal Cost [$]</label>
+ <br><label>Disposal cost [$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WTM Disposal" >
-  <br><label>Construction Cost [$]</label>
+  <br><label>Construction cost [$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Construction" >
-  <br><label>Maintenance[$]</label>
+  <br><label>Annual maintenance costs[$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Annual Maintenace" >
 </td> 
 <tr >
@@ -222,13 +236,15 @@ close
         <option  value ="PE" name="WDM Material 1">PE</option>                  
         <option  value ="PVC" name="WDM Material 1">PVC</option>                  
   </select>
-<br><label>Total Length [in]</label>
-  <br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M1" >
+  <br><label>Unit Weight of 1m of Material [kg/m]</label>
+  <br><input type="number" min="100" max="2000" step="10" value="1300" size="30" name="WDM Unit Weight M1" >
+  <br><label>Total Length [in]</label>
+  <br><input type="number" min="1" max="10000" step="10" value="4000" size="30" name="WDM Total Length M1" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" __name="WDS Unit Construction Energy M1" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.9" size="30" name="WDS Unit Construction Energy M1" >
  <br><label>Embodied GH/G for Construction [kg CO2-EQ/kg]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" width="230" name="WDS Unit Construction GHG M1" >
-  <br><label>Embodied Energy Mainenance [kWh/trip]</label>
+  <br><input type="number" min=".1" max="5" step="0.01" value="2.36" width="230" name="WDS Unit Construction GHG M1" >
+  <br><label>Embodied Energy Maintenance [kWh/trip]</label>
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance Energy M1" >
   <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label>    
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance GHG M1" >
@@ -243,35 +259,86 @@ close
         <option  value ="PE" name="WDM Material 2">PE</option>                  
         <option  value ="PVC" name="WDM Material 2">PVC</option>                  
   </select>
-
-<br><label>Total Length [in]</label>
-  <br><input type="number" min="1" max="5.000" step="1" value="1" size="30" name="WDM Total Length M2" >
+  <br><label>Unit Weight of 1m of Material [kg/m]</label>
+  <br><input type="number" min="0.1" max="5.0" step="0.1" value="0.1" size="30" name="WDM Unit Weight M2" >  
+  <br><label>Total Length [in]</label>
+  <br><input type="number" min="1" max="10000" step="1" value="1" size="30" name="WDM Total Length M2" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" __name="WDS Unit Construction Energy M2" >
- <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" width="230" name="WDs Unit Construction GHG M2" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" name="WDS Unit Construction Energy M2" >
+  <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" width="230" name="WDS Unit Construction GHG M2" >
   <br><label>Embodied Energy Mainenance [kWh/trip]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" __name="WDS Unit Maintenance Energy M2" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance Energy M2" >
   <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label>
   <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance GHG M2" >
 </td>
 <td class=formsection2>
   <label><b>Life Cycle Costs (LCL)</b></label><br>
-  <input type="number" min="0" max="100" step="1" name="50.0" value="0" size="30" name="WDN Lifecycle Costs" >
+  <label>Number of trips required for annual maintenance</label><br>
+  <input type="number" min="1" max="100" step="1" value="5" size="30" name="WDN Number of Maintenance Trips" >
   <br><label>Replacement Costs [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WSC Replacement" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="0" size="30" name="WDM Replacement" >
   <br><label>Disposal Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="WSC Disposal" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="15000000" size="30" name="WDM Disposal" >
  <br><label>Construction Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WSC Construction" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="32000000" width="230" name="WDM Construction" >
   <br><label>Maintenance Cost [$/Year]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" width="230" name="WSC Annual Maintenance" >
+  <br><input type="number" min="0" max="15000000" step="100" value="1000000" width="230" name="WDM Annual Maintenance" >
+</td>
+</tr>
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="WaterDistributionNetworkQuery">Run Simulation</button>
 </td>
 </tr>
 </table>
+</form>
 </div>
+<script>
+  $("#WaterDistributionNetworkQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $("#graph_container1").hide();
+  $("#graph_container2").hide();
+  $("#graph_container3").hide();
 
-<!-- *** END OF WATER DISTRIBUTION NETWORK PROPERTIES ***       -->
+  $(".mainpic").hide();
+  var qu ={};
+  
+  $("form#WaterDistributionNetworkForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    success: function (data) {     
+      var graph1 = $("#graph_container1");
+      var graph2 = $("#graph_container2");
+      var graph3 = $("#graph_container3");
+
+      graph1.html(data[0]);
+      graph2.html(data[1]);
+      graph3.html(data[2]);
+   
+      $("#loading-div-background").hide();      
+      $("#graph_container1").show();
+      $("#graph_container2").show();
+      $("#graph_container3").show();
+      $(".menu").show();
+      $("#message").html(data);
+   },
+   dataType: "html"
+ });
+});
+
+</script>
+
+
+
+<!-- *** END OF WATER DISTRIBUTION NETWORK           ***       -->
 
 <!-- ******************************************************    -->
 <!-- *****     BEGINNING OF WATER TREATMENT WORKS   *****      -->
@@ -279,6 +346,8 @@ close
 <a class="popup-trigger" rel="nofollow">Water Treatment Works</a>
 <br>
 <div class="popup" style="height:550px" >
+
+<form id="WaterTreatmentWorksForm" method="POST">
 <table class="formcontainer" >
 <tr>
 <td>
@@ -288,106 +357,163 @@ close
 close
 </td>
 </tr>
-<tr>
-<td colspan=2 >
-<table cellpadding=10>
-<tr class=formsection2>
-<td>
+
+<tr >
+<td class="formsection2" colspan=2>
 <h3>Physical Properties</h3>
-<label>Water Treatment Facility</label>
-  <br><input type="text"  value="Name" size="30" name="WT Name" >
-</td><td>
-<br><label>Total Daily Treatment Capacity [m3/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="15" name="WTW Daily Treatment Capacity" >
- </td><td><br> <label>Capacity Available for New Development</label>
-  <br><input type="number" min="0" max="1" step="0.1" value="0" value="WTW Available Capacity" size="30" name="WTW Available Capacity" >
-</td></tr></table>
+
+  <br><label>Rated Capacity for Water Treatment Works [m3/day]</label>
+  <br><input type="number" min="100000" max="1000000" step="1000" value="950000" size="15" name="WTW Daily Treatment Capacity" >
+  <br> <label>Capacity Available for New Neighbourhood</label>
+  <br><input type="number" min="0" max="1" step="0.01" value="0.05" size="30" name="WTW Available Capacity" >
+
 </td>
 </tr>
 <tr>
 
 <td class="formsection2">
 <h3> Chemicals Required for Water Treatment</h3>
-<label>Alum [kg/in3]</label>
-  <br><input type="number" min="0.001" max="0.005" step="0.001" value="0.001" size="30" name="WTW Unit Alum" >
-<br><label>Alum Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="1" step="0.1" value="0.1" size="30" name="WTW Unit Alum GHG" >
-<br><label>Alum Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.5" max="2" step="0.1" value="0.5" size="30" name="WTW Unit Alum EmEnergy" >
-<br><label>Sodium Hypochlorite [kg/m3]</label>
-  <br><input type="number" min="0.001" max="0.02" step="0.001" va.5lue="0.001" size="30" name="WTW Unit Sodium Hypochlorite" >
-<br><label>Polyaluminum Chloride Embodied GHG [Kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" __name="WTW Unit Polyaluminum Chloride GHG" >
-<br><label>Polyaluminum Chloride Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="5" step="0.1" value="0.1" size="30" name="WTW Unit Polyaluminum Chloride EmEnergy" >
-<br><label>Microsand</label>
+<label><b>Alum</b></label>
+<label><Required for treatment of 1m3 water[kg/m3]</label>
+  <br><input type="number" min="0.001" max="0.005" step="0.00001" value="0.00166" size="30" name="WTW Unit Alum" >
+<br><label>Greenhouse gas emissions for 1kg [kwh/kg]</label>
+  <br><input type="number" min="0.1" max="1" step="0.01" value="0.49" size="30" name="WTW Unit Alum GHG" >
+<br><label>Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="1" step="0.01" value="0.89" size="30" name="WTW Unit Alum EmEnergy" >
+
+<br><label><b>Sodium Hypochlorite </b></label><br>
+<label>Required for treatment of 1m3 water[kg/m3]</label>
+  <br><input type="number" min="0.001" max="0.02" step="0.001" value="0.001" size="30" name="WTW Unit Sodium Hypochlorite" >
+<br><label>Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.001" max="0.02" step="0.001" value="0.001" size="30" name="WTW Unit Sodium Hypochlorite EmEnergy" >
+<br><label>Greenhouse gas emissions for 1kg [kwh/kg]</label>
+  <br><input type="number" min="0.001" max="0.02" step="0.001" value="0.001" size="30" name="WTW Unit Sodium Hypochlorite GHG" >
+
+
+
+<br><label><b>Microsand</b></label><br>
+<label>Required for treatment of 1m3 water[kg/m3]</label>
   <br><input type="number" min="0.001" max="0.02" step="0.1" value="0.001" size="30" name="WTW Unit Microsand" >
-<br><label>Microsand Embodied GHG [Kg CO2-EQ/kg]</label>
+<br><label>Greenhouse gas emissions for 1kg [kwh/kg]</label>
   <br><input type="number" min="0.01" max="0.02" step="0.01" value="0.01" size="30" name="WTW Unit Microsand GHG" >
-<br><label>Microsand Embodied Energy [kWh/kg]</label>
+<br><label>Embodied Energy [kWh/kg]</label>
   <br><input type="number" min="0.01" max="0.2" step="0.1" value="0.01" size="30" name="WTW Unit Microsand EmEnergy" >
 </td>
 <td class="formsection2">
-<br><label>Calcium Hydroxide [kg/m3]</label>
-  <br><input type="number" min="0.01" max="0.1" step="0.01" value="0.01" size="30" name="WTW Unit Calcium Hydroxide" >
-<br><label>Calcium Hydroxyde Embodied GHG  [kgCO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="1" step="0.1" value="0.1" size="30" name="WTW Unit Alum GHG" >
-<br><label>Calcium Hydroxyde Embodied Energy  [kWh/kg]</label>
-  <br><input type="number" min="0.5" max="2" step="0.1" value="0.5" size="30" name="WTW Unit Alum EmEnergy" >
-<br><label>Carbon Dioxide [kg/m3]</label>
-  <br><input type="number" min="0.01" max="0.2" step="0.01" value="0.01" size="30" name="WTW Unit Carbon Dioxide" >
+<br><label><b>Calcium Hydroxide</b></label><br>
+<label>Required for treatment of 1m3 water[kg/m3]</label>
+  <br><input type="number" min="0.01" max="0.1" step="0.00001" value="0.03341" size="30" name="WTW Unit Calcium Hydroxide" >
+<br><label>Greenhouse gas emissions for 1kg [kwh/kg]</label>
+  <br><input type="number" min="0.1" max="1" step="0.001" value="0.794" size="30" name="WTW Unit Calcium Hydroxide GHG" >
+<br><label>Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.5" max="2" step="0.1" value="1.0" size="30" name="WTW Unit Alum EmEnergy" >
+<br><label><b>Carbon Dioxide </b></label><br>
+<label>Required for treatment of 1m3 water[kg/m3]</label>
+  <br><input type="number" min="0.01" max="0.2" step="0.00001" value="0.03393" size="30" name="WTW Unit Carbon Dioxide" >
 <br><label>Carbon Dioxide Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WTW Unit Carbon Dioxide GHG" >
+  <br><input type="number" min="0.1" max="2" step="0.001" value="0.794" size="30" name="WTW Unit Carbon Dioxide GHG" >
 <br><label>Carbon Dioxide Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WTW Unit Carbon Dioxide EmEnergy" >
-<br><label>Polyaluminum Chloride [kg/m3]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<br><label>Polyaluminum Chloride Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.01" value="0.01" size="30" name="XX" >
-<br><label>Polyaluminum Chloride Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.01" max="0.5" step="0.001" value="0.01" size="30" name="XX" >
+  <br><input type="number" min="0.1" max="2" step="0.1" value="1.4" size="30" name="WTW Unit Carbon Dioxide EmEnergy" >
+
+
+<br><label><b>Polyaluminum Chloride </b></label><br>
+<label>Required for treatment of 1m3 water[kg/m3]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.02886" size="30" name="WTW Unit Polyaluminum Chloride" >
+<br><label>Greenhouse gas emissions for 1kg [kwh/kg]</label>
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WTW Unit Polyaluminum Chloride GHG" >
+<br><label>Embodied Energy [kWh/kg]</label>
+  <br><input type="number" min="0.1" max="5" step="0.1" value="0.1" size="30" name="WTW Unit Polyaluminum Chloride EmEnergy" >
 </td>
 </tr>
 <tr>
 <td  class="formsection2">
 <h3> Life Cycle Costs (LCC)</h3>
 <label>Construction and Installation Costs [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WTW Construction and Installation" >
+  <br><input type="number" min="0" max="10000000" step="1000" value="0" size="30" name="WTW Construction and Installation" >
 <br><label>Capital Investment [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WTW Capital Investment" >
-<br><label>Annual Maintenance Costs [$/year]</label>
-  <br><input type="number" min="0" max="1000000" step="1000" value="50000" size="30" name="WTW Annual Maintenance" >
+  <br><input type="number" min="0" max="10000000" step="1000" value="0" size="30" name="WTW Capital Investment" >
+<br><label>Estimated annual maintenance costs [$/year]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="3000000" size="30" name="WTW Annual Maintenance" >
 <br><label>Number of Staff [persons]</label>
-  <br><input type="number" min="0" max="100" step="1" value="5" size="30" name="WTW Number of Staff" >
+  <br><input type="number" min="1" max="100" step="1" value="50" size="30" name="WTW Number of Staff" >
 <br><label>Average Annual Salary [$/person]</label>
-  <br><input type="number" min="10000" max="100000" step="1000" value="10000" size="30" name="WTW Average Staff Salary" >
+  <br><input type="number" min="10000" max="100000" step="1000" value="55000" size="30" name="WTW Average Staff Salary" >
 <br><label>Administration Rate [%]</label>
-  <br><input type="number" min="0.01" max="2" step=".01" value="0.01" size="30" name="WTW Administration Rate">
+  <br><input type="number" min="0.01" max="2" step=".01" value="0.1" size="30" name="WTW Administration Rate">
 <br><label>Water Resource Fee [$]</label>
-  <br><input type="number" min="0.01" max="10" step=".01" value="0.01" size="30" name="WTW Water Resource Fee" >
+  <br><input type="number" min="0.01" max="10" step=".01" value="0.05" size="30" name="WTW Water Resource Fee" >
 <br><label>Energy Required for Treatments [$/in3]</label>
-  <br><input type="number" min="0.1" max="100" step=".1" value="50.0" size="30" name="WTW Electricity for treamtment of m3" >
+  <br><input type="number" min="0.1" max="10" step=".01" value="0.28" size="30" name="WTW Electricity for treatment of m3" >
 </td>
 <td class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="WTW Affordability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="WTW Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WTW Reliability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WTW Acceptability"><br>
+<br><input type="range" min="1" max="5" value="3"nclass="slider-width" name="WTW Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WTW Risk to Human Health"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="WTW Space Requirements"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="WTW Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WTW Flexibility and Adaptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Flexibility and Adaptability"><br>
 </td>
+</tr>
+<tr>
+  <td>
+  <button type="button" style="font-size: 14px; height:40px; width:160px;" id="WaterTreatmentWorksQuery">Run Simulation</button>
+ </td>
 </tr>
 </table>
 
 </div>
-<!-- *** END OF WATER TREATMENT WORKS  ****		       -->
+
+<script>
+  $("#WaterTreatmentWorksQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $("#graph_container1").hide();
+  $("#graph_container2").hide();
+  $("#graph_container3").hide();
+
+  $(".mainpic").hide();
+  var qu ={};
+  
+  $("form#WaterTreatmentWorksForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    success: function (data) {     
+      var graph1 = $("#graph_container1");
+      var graph2 = $("#graph_container2");
+      var graph3 = $("#graph_container3");
+
+      graph1.html(data[0]);
+      graph2.html(data[1]);
+      graph3.html(data[2]);
+   
+      $("#loading-div-background").hide();      
+      $("#graph_container1").show();
+      $("#graph_container2").show();
+      $("#graph_container3").show();
+      $(".menu").show();
+      $("#message").html(data);
+   },
+   dataType: "html"
+ });
+});
+
+</script>
+
+
+<!-- *** END OF WATER TREATMENT WORKS         ****	       -->
 
 <!-- ******************************************************    -->
 <!-- *****     BEGINNING OF SEWER COLLECTION NETWORK  *****    -->
@@ -922,31 +1048,57 @@ $(document).ready(function(){
   $("#WaterDemandQuery").click(function() {  
   $(this).parent().parent().parent().parent().parent().parent().hide();
   $("#loading-div-background").show();
-  $("#container").hide();
+  $("#graph_container1").hide();
+  $("#graph_container2").hide();
+  $("#graph_container3").hide();
+
   $(".mainpic").hide();
   var qu ={};
   
   $("form#WaterDemandForm :input").each(function() {
         qu[$(this).attr("name")] = $(this).val();
   });
-  console.log(JSON.stringify(qu))
   $.ajax({
     type: "POST",
     async:true,
     contentType: "application/json; charset=utf-8",
     url: "/query",
     data: JSON.stringify(qu),
-    success: function (data) {     
-      var graph = $("#container");
-      graph.html(data);   
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+	/* 
+      var graph1 = $("#graph_container1");
+      var graph2 = $("#graph_container2");
+      var graph3 = $("#graph_container3");
+      
+      
+      graph1.html(mpld3.drawfigure(dict_of_plots[0]['id'],dict_of_plots[0]['json']));
+      graph2.html(mpld3.drawfigure(dict_of_plots[1]['id'],dict_of_plots[1]['json']));
+      graph3.html(mpld3.drawfigure(dict_of_plots[2]['id'],dict_of_plots[2]['json']));
+     
+
       $("#loading-div-background").hide();      
-      $("#container").show();
+      $("#graph_container1").show();
+      $("#graph_container2").show();
+      $("#graph_container3").show();
       $(".menu").show();
       $("#message").html(data);
-   },
-   dataType: "html"
- });
+      */
+      
+
+   });
 });
+
+/*
+   
+*/
+
+ 
 
 </script>
 
@@ -1636,22 +1788,14 @@ close
 </tr>
 </table>
 </div>
-<!-- <div>
-  <button type="button" style="font-size: 14px; height:40px; width:160px;" id="query">Run Simulation</button>
-<br>
-</div> -->
-<!--
-<br><input type="submit" name="my-form" class="create" value="Run Simulation">
--->
 <br>
 </p>
 
-<!-- </form> -->
 </td>
 </tr>
 <tr>
 <td colspan="1">
-<img class="mainpic" src="../static/images/iwret_logo.png" height=100px>
+<img  class="mainpic" src="../static/images/iwret_logo.png" height=100px>
 </td>
 </tr>
 </table>
@@ -1666,34 +1810,6 @@ function datetime_to_epoch(datetime) {
 }
 
 
-/*
-  $("#query").click(function() {  
-  $("#loading-div-background").show();
-  $("#container").hide();
-  $(".mainpic").hide();
-  var qu ={};
-  $("input").each(function() {
-        qu[$(this).attr("name")] = $(this).val();
-  });
-  $.ajax({
-    type: "POST",
-    async:true,
-    contentType: "application/json; charset=utf-8",
-    url: "/query",
-    data: JSON.stringify(qu),
-    success: function (data) {     
-     var graph = $("#container");
-     graph.html(data);   
-     $("#loading-div-background").hide();      
-     $("#container").show();
-     $(".menu").show();
-     $("#message").html(data);
-   },
-   dataType: "html"
- });
-});
-
-*/
 
 
 var scrollTop = '';
