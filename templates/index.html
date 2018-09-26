@@ -55,25 +55,15 @@
    <h3 style="color:gray;font-weight:normal;">Running Simulation...</h3>
   </div>
 </div>
-<div class="dashboard_container">
-<div class="graph_container" id="graph_container1"></div>
-<div class="graph_container" id="graph_container2"></div>
-<div class="graph_container" id="graph_container3"></div>
 
 
 
-<!--{% for plot in dict_of_plots %}
-	<div class="graph_container" id="{{plot['id'] }}"></div>
-{% endfor %}
-<script type="text/javascript">
-    {% for plot in dict_of_plots %}
-        mpld3.draw_figure("{{ plot['id'] }}", {{ plot['json']|safe }});
-    {% endfor %}
- </script>
- -->  
+ 
 </div>
 </div>
 </td>
+
+
 <!-- **************END OF OUTPUT SECTION ****************************  --->
 
 
@@ -537,47 +527,52 @@ close
 <br><label><b>Material 1</b></label>
 <br>
   <select >
-        <option   value="Ductile Iron" name="WSC Material 1" selected>Concrete</option>         
-        <option  value ="Value2" name="WSC Material 1">Value 2</option>                 
-
-        <option  value ="Value3" name="WSC Material 1">Value 3</option>                  
+        <option   value="Ductile Iron" name="WSC Material 1" selected>Ductile Iron</option>         
+        <option  value ="Grey Cast Iron" name="WSC Material 1">Grey Cast Iron</option>                 
+        <option  value ="Concrete" name="WSC Material 1">Concrete</option>  
+	<option  value ="Mild Steel" name="WSC Material 1">Mild Steel</option>  
+	<option  value ="PE" name="WSC Material 1">PE</option>  
+	<option  value ="PVC" name="WSC Material 1">PVC</option>                  
   </select>
 <br><label>Total Length[m]</label>
-<br><input type="number" min="1" max="5" step="1" value="1" size="30" name="WWCS Total Length M1" >
+<br><input type="number" min="1" max="5000" step="10" value="2300" size="30" name="WWCS Total Length M1" >
 <br><label>Unit Weight</label>
-<br><input type="number" min="0" max="5" step="1" value="0" size="30" name="WWCS Unit Weight M1" >
+<br><input type="number" min="100" max="2000" step="10" value="1300" size="30" name="WWCS Unit Weight M1" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Unit Construction Energy M1" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0.9" size="30" name="WWCS Unit Construction Energy M1" >
 <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Unit Construction GHG M1" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="2.36" size="30" name="WWCS Unit Construction GHG M1" >
 <br><label>Number of Trips for Maintenance [#]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Number of Maintenance Trips" >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Unit Maintenance Energy M1" >
+  <br><input type="number" min="0.1" max="5" step=".01" value="0.05" size="30" name="WWCS Unit Maintenance Energy M1" >
 <br><label>Embodied GHG Maintenance [Kg Co2-EQ/trip]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Unit Maintenance GHG M1" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0.5" size="30" name="WWCS Unit Maintenance GHG M1" >
 </td>
 <td class="formsection2">
 <br>
 <label><b>Material 2</b></label>
 <br>
   <select >
-        <option   value="Ductile Iron" name="WSC Material 2" selected>Steel</option>         
-        <option  value ="Value2" name="WSC Material 2">Value 2</option>                 
-        <option  value ="Value3" name="WSC Material 2">Value 3</option>                  
+        <option   value="Ductile Iron" name="WSC Material 2" selected>Ductile Iron</option>         
+        <option  value ="Grey Cast Iron" name="WSC Material 2">Grey Cast Iron</option>                 
+        <option  value ="Concrete" name="WSC Material 2">Concrete</option>  
+	<option  value ="Mild Steel" name="WSC Material 2">Mild Steel</option>  
+	<option  value ="PE" name="WSC Material 2">PE</option>  
+	<option  value ="PVC" name="WSC Material 2">PVC</option>                  
   </select>
 <br><label>Total Length[in]</label>
- <br><input type="number" min="1" max="5" step="1" value="1" size="30" __name="WWSC Total Length M2" >
+ <br><input type="number" min="0" max="5000" step="10" value="1" size="30" name="WWSC Total Length M2" >
 <br><label>Unit Weight</label>
-<br><input type="number" min="0" max="5" step="1" value="0" size="30" __name="WWSC Total Weight M2" >
+<br><input type="number" min="100" max="2000" step="10" value="0" size="30" name="WWSC Total Weight M2" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWSC Unit Construction Energy M2" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWSC Unit Construction Energy M2" >
 <br><label>Embodied GMG for Constructcion [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWSC Unit Construction GHG M2" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWSC Unit Construction GHG M2" >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWSC Unit Maintenance Energy M2" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWSC Unit Maintenance Energy M2" >
 <br><label>Embodied GMG Maintenance [Kg C02-EQ/trip]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWSC Unit Maintenance GHG M2" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWSC Unit Maintenance GHG M2" >
 </td>
 <td class= "formsection2">
 <br>
@@ -602,59 +597,69 @@ close
 <label><b>Embodied Energy and GHG Emissions</b></label>
 <br><label><b>Material 1</b></label>
 <br>
-  <select width=200px>
-        <option   value="Ductile Iron" name="SWCS Material 1" selected>Concrete</option>         
-        <option  value ="Value2" name="SWCS Material 1">Ductile Iron</option>                 
-        <option  value ="Value3" name="SWCS Material 1">Value 3</option>                  
+   <select >
+        <option   value="Ductile Iron" name="SWSC Material 1" selected>Ductile Iron</option>         
+        <option  value ="Grey Cast Iron" name="SWSC Material 1">Grey Cast Iron</option>                 
+        <option  value ="Concrete" name="SWSC Material 1">Concrete</option>  
+	<option  value ="Mild Steel" name="SWSC Material 1">Mild Steel</option>  
+	<option  value ="PE" name="SWSC Material 1">PE</option>  
+	<option  value ="PVC" name="SWSC Material 1">PVC</option>                  
   </select>
 <br><label>Total Length[in]</label>
-  <br><input type="number" min="1" max="5000" step="1" value="1" size="30" name="SWCS Total Length M1" >
+  <br><input type="number" min="0" max="5000" step="1" value="2000" size="30" name="SWCS Total Length M1" >
 <br><label>Unit Weight</label>
- <br> <input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="SWCS Unit Weight M1" >
+ <br> <input type="number" min="100" max="2000" step="10" value="750" size="30" name="SWCS Unit Weight M1" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="SWCS Unit Construction Energy M1" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0.9" size="30" name="SWCS Unit Construction Energy M1" >
 <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="SWCS Unit Construction GHG M1" >
+  <br><input type="number" min="0.1" max="5" step=".01" value="2.36" size="30" name="SWCS Unit Construction GHG M1" >
 <br><label>Number of Trips for Maintenance [#]</label>
   <br><input type="number" min="1" max="100" step="1" value="1" size="30" name="SWCS Number of Maintenance Trips " >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SWCS Unit Maintenance Energy M1" >
+  <br><input type="number" min="0.1" max="5" step="0.01" value="0.05" size="30" name="SWCS Unit Maintenance Energy M1" >
 <br><label>Embodied GHG Maintenance [Kg Co2-EQ/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SWCS Unit Maintenance GHG M1" >
+  <br><input type="number" min="0,1" max="5" step="0.1" value="0.5" size="30" name="SWCS Unit Maintenance GHG M1" >
 </td>
 <td class="formsection2">
 <br>
 <label><b>Material 2</b></label>
 <br>
-  <select width=200px>
-        <option   value="Ductile Iron" name="SWCS Material 2" selected>Concrete</option>         
-        <option  value ="Value2" name="SWCS Material 2">Ductile Iron</option>                 
-        <option  value ="Value3" name="SWCS Material 2">Value 3</option>                  
+  <select >
+        <option   value="Ductile Iron" name="SWSC Material 2" selected>Ductile Iron</option>         
+        <option  value ="Grey Cast Iron" name="SWSC Material 2">Grey Cast Iron</option>                 
+        <option  value ="Concrete" name="SWSC Material 2">Concrete</option>  
+	<option  value ="Mild Steel" name="SWSC Material 2">Mild Steel</option>  
+	<option  value ="PE" name="SWSC Material 2">PE</option>  
+	<option  value ="PVC" name="SWSC Material 2">PVC</option>                  
   </select>
 <br><label>Total Length[in]</label>
-<br> <input type="number" min="1" max="5000" step="1" value="1" size="30" name="SWCS Total Length M2" >
+<br> <input type="number" min="0" max="5000" step="10" value="0" size="30" name="SWCS Total Length M2" >
 <br><label>Unit Weight</label>
- <br> <input type="number" min="0.1" max="5" step="1" value="0.1" size="30" name="SWCS Unit Weight M2" >
+ <br> <input type="number" min="0.1" max="5" step="1" value="0" size="30" name="SWCS Unit Weight M2" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="5" step="0.1" value="0.1" size="30" name="SWCS Unit Construction Energy M2" >
+  <br><input type="number" min="0.1" max="5" step="0.1" value="0.9" size="30" name="SWCS Unit Construction Energy M2" >
 <br><label>Embodied GHG for Constructcion [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="5" step="0.1" value="0.1" size="30" name="SWCS Unit Construction GHG M2" >
+  <br><input type="number" min="0.1" max="5" step="0.1" value="0" size="30" name="SWCS Unit Construction GHG M2" >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="SWCS Unit Maintenance Energy M2" >
+  <br><input type="number" min="0.1" max="5" step="0" value="0.1" size="30" name="SWCS Unit Maintenance Energy M2" >
 <br><label>Embodied GMG Maintenance [Kg C02-EQ/trip]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SWCS Unit Maintenance Energy M2" >
+  <br><input type="number" min="0.1" max="5s" step="1" value="0" size="30" name="SWCS Unit Maintenance GHG M2" >
 </td>
 <td  class= "formsection2">
 <br>
 <label><b>Life-Cycle Costs (LCC)</b></label>
 <br><label>Replacement Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="SWCS Replacement" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="0" size="30" name="SWCS Replacement" >
 <br><label>Disposal Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="SWCS Disposal" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="0" size="30" name="SWCS Disposal" >
 <br><label>Construction Cost [$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="SWCS Construction" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="0" size="30" name="SWCS Construction" >
 <br><label>Maintenance Cost [$/year]<]/label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="30" name="SWCS Annual Maintenance" >
+  <br><input type="number" min="0" max="15000000" step="1000" value="1000000" size="30" name="SWCS Annual Maintenance" >
+<br><label>Number of trips required for annual maintenance<]/label>
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SWCS Number of Maintenance Trips" >
+
+
 </td>
 </tr>
 </table>

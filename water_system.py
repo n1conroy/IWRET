@@ -21,13 +21,8 @@ app = Flask (__name__, template_folder=templateDir);
 
 def draw_figs(data):
     with lock:
-        fig1, ax1 = plt.subplots()
-        fig2, ax2 = plt.subplots()
-        fig3, ax3 = plt.subplots()
-        fig4, ax4 = plt.subplots()
-        fig5, ax5 = plt.subplots()
-        fig6, ax6 = plt.subplots()
-        fig7, ax7 = plt.subplots()
+        fig, ax = plt.subplots()
+   
 
 
         output_fields = ['SF Stock of Units','MF Stock of Units',
@@ -39,50 +34,74 @@ def draw_figs(data):
             w = csv.DictWriter(f, data.keys())
             w.writeheader()
             w.writerow(data)
-	#model = pysd.read_vensim ('IWRET_8_ElFee.mdl')
+	model = pysd.read_vensim ('IWRET_8_ElFee.mdl')
         # remove all checkbox elements
 	for k,v in data.items():
             if v == 'on' or k=='undefined':
                del data[k]
 
-	#modeldata = model.run(params=data,return_columns=output_fields)
+	modeldata = model.run(params=data,return_columns=output_fields)
         dict_of_plots=list()
 
-        #x1 = range(731)
-	#y1 = modeldata[output_fields[2]]
-        x1 = np.random.random(10)
-        y1 = np.random.random(10)
+        x1 = range(731)
+	y1 = modeldata[output_fields[0]]
+        indata=pd.DataFrame(x1,y1)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="graph_container1"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
 
-        indata1=pd.DataFrame(x1,y1,)
-        indata1.plot(ax=ax1)
-        single_chart1=dict()
-        single_chart1['id']="graph_container1"
-        single_chart1['json']=json.dumps(mpld3.fig_to_dict(fig1))
-        dict_of_plots.append(single_chart1)
+      
+        x2 = range(731)
+	y2 = modeldata[output_fields[1]]
+        indata=pd.DataFrame(x2,y2)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="graph_container2"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
 
-        x2 = np.random.random(10)
-        y2 = np.random.random(10)
-        #x2 = range(731)
-	#y2 = modeldata[output_fields[1]]
-        indata2=pd.DataFrame(x2,y2,)
-        indata2.plot(ax=ax2)
-        single_chart2=dict()
-        single_chart2['id']="graph_container2"
-        single_chart2['json']=json.dumps(mpld3.fig_to_dict(fig2))
-        #dict_of_plots.append(single_chart1)
-
-        x3 = np.random.random(10)
-        y3 = np.random.random(10)
-        #x3 = range(731)
-	#y3 = modeldata[output_fields[1]]
-        indata3=pd.DataFrame(x3,y3,)
-        indata3.plot(ax=ax3)
-        single_chart3=dict()
-        single_chart3['id']="graph_container3"
-        single_chart3['json']=json.dumps(mpld3.fig_to_dict(fig3))
-        #dict_of_plots.append(single_chart1)       
+        x3 = range(731)
+	y3 = modeldata[output_fields[2]]
+        indata=pd.DataFrame(x3,y3,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="graph_container3"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)       
        
-        print dict_of_plots
+
+        x4 = range(731)
+	y4 = modeldata[output_fields[3]]
+        indata=pd.DataFrame(x4,y4,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="graph_container4"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+
+        x5 = range(731)
+	y5 = modeldata[output_fields[4]]
+        indata=pd.DataFrame(x5,y5,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="graph_container5"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+
+        x6 = range(731)
+	y6 = modeldata[output_fields[5]]
+        indata=pd.DataFrame(x6,y6,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="graph_container6"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        
+
+
+       
         return render_template("results.html", dict_of_plots=dict_of_plots)#snippet=plot_snippet)
 '''
         x4 = range(731)

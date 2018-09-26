@@ -1,16 +1,167 @@
- <html>
-    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-    <script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.1.js"></script>
-    <head>
-    </head>
-    <body>
-    {% for plot in dict_of_plots %}
+<html>
+<head>
+ 
+<link rel="stylesheet" href="static/css/jquery-ui.css" />
+<script src="static/js/jquery-1.9.1.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.1.js"></script>
+<script src="static/js/jquery-ui.js"></script>
+<strong>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/lean-slider.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/sample-styles.css') }}">
+   <link rel="stylesheet" href="../static/css/styles.css">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</strong>
+
+</head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<body>
+
+<table>
+
+<tr class="top" >
+<td class="banner1" ><a class=titlebar href="" >INTEGRATED WATER RESOURCES EVALUATION TOOL</a></td>
+<td  id="welcome">WELCOME</td>
+
+<td id="logobox" rowspan="3">
+<img height=60px src="../static/images/waterfront.png">
+<img height=60px src="../static/images/ryerson.png">
+</td>
+<tr>
+<td colspan="2" class="banner2"><h5>assessing metabolic performance of hybrid water systems</h5></td>
+</tr>
+<tr class="banner3" >
+<td colspan=2 class="banner3"><img class="menuitem" src="../static/images/folder.png"><label class="menuitemword" for="file_input_id">&nbspLoad Project</label><input type="file" id="file_input_id">&nbsp  &nbsp&nbsp&nbsp <a  href='#' onclick='downloadCSV({ filename: "form-data.csv" });'>&nbsp<img src="../static/images/save.png" class="menuitem">&nbsp<span class="menuitemword"> Save Project</span></a>&nbsp&nbsp&nbsp<a href='#'>&nbsp<img src="../static/images/information.png" class="menuitem"><span class="menuitmeword">&nbsp&nbspDocumentation</span></a> &nbsp&nbsp&nbsp <a href='#'><img src="../static/images/about.png" class="menuitem"><span="menuitemword">&nbspAbout </span></a> </td>
+</tr>
+
+<tr>
+<!-- ********************************************************************** 		 --->
+<!-- **********		BEGINNING OF OUTPUT SECTION	 ******************		 --->
+<!-- ********************************************************************** 		 --->
+
+
+<td style={height:700px;} colspan="2"  >
+<div>
+   {% for plot in dict_of_plots %}
         <div id="{{ plot['id'] }}"></div>
     {% endfor %}
+    
     <script type="text/javascript">
+	
     {% for plot in dict_of_plots %}
-           mpld3.draw_figure("{{ plot['id'] }}", {{ plot['json']|safe }});
+	 ident="{{plot['id']}}"
+	 cont={{plot['json']|safe}}
+	 try {
+		mpld3.draw_figure(ident, cont);
+	 }
+	 catch (err) {
+	 	console.log("hello");
+       	}  
     {% endfor %}
-    </script>
-    </body>
- </html>
+
+</script>
+
+</div>
+
+</td>
+
+
+<!-- **************END OF OUTPUT SECTION ****************************  --->
+
+</tr>
+</table>
+<script>
+
+var scrollTop = '';
+var newHeight = '20';
+$(window).bind('scroll', function() {
+   scrollTop = $( window ).scrollTop();
+           newHeight = scrollTop ;
+        });
+        $('.popup-trigger').click(function(e) {
+         e.stopPropagation();
+         if(jQuery(window).width() < 67) {
+           $(this).after( $(this).nextAll('.popup:first') );
+           $(this).nextAll('.popup:first').show().addClass('popup-mobile');
+           $('html, body').animate({
+                        scrollTop: $(this).nextAll('.popup:first')
+                }, 0);
+         } else {
+         $('.popup').hide();
+         $(this).nextAll('.popup:first').removeClass('popup-mobile').css('top', newHeight).toggle();
+         };
+        });
+        $('html').click(function() {
+         $('.popup').hide();
+        });
+        $('.popup-btn-close').click(function(e){
+          $(this).parent().parent().parent().parent().parent().hide();
+        });
+        $('.popup').click(function(e){
+          e.stopPropagation();
+        });
+	var FormData = [
+	{
+ 	   WTField1: "xx",
+ 	   WTField2: "xx",
+ 	   WTFiled3: "xx"
+	},
+	{
+ 	   WDField1: "xx",
+ 	   WDField2: "xx",
+ 	   WDField3: "xx"
+	},
+	{
+ 	   PSField1: "xx",
+	   PSField2: "xx",
+	   PSField3: "xx"
+	},
+	];
+
+
+function convertArrayOfObjectsToCSV(args) 
+{
+	var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+	data = args.data || null;
+	if (data == null || !data.length) {
+  	  return null;
+	}
+	columnDelimiter = args.columnDelimiter || ',';
+	lineDelimiter = args.lineDelimiter || '\n';
+	keys = Object.keys(data[0]);
+	result = '';
+	result += keys.join(columnDelimiter);
+	result += lineDelimiter;
+	data.forEach(function(item) {
+        ctr = 0;
+        keys.forEach(function(key) {
+            if (ctr > 0) result += columnDelimiter;
+        result += item[key];
+        ctr++;
+    	});
+    	result += lineDelimiter;
+      });
+    return result;
+}
+
+function downloadCSV(args) {
+    var data, filename, link;
+    var csv = convertArrayOfObjectsToCSV({
+       data: FormData
+ 	   });
+    if (csv == null) return;
+    filename = args.filename || 'export.csv';
+    if (!csv.match(/^data:text\/csv/i)) {
+        csv = 'data:text/csv;charset=utf-8,' + csv;
+    }
+    data = encodeURI(csv);
+    link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    link.click();
+}
+
+</script>
+</html>
