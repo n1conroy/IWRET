@@ -1,5 +1,5 @@
 """
-Python model "IWRET_8_ElFee.py"
+Python model "IWRET_10.py"
 Translated using PySD version 0.9.0
 """
 from __future__ import division
@@ -93,8 +93,8 @@ _namespace = {
     u'mf_clothes_washer_demand',
     u'GWP Daily GHG Emissions':
     u'gwp_daily_ghg_emissions',
-    u'MBR Total LCC':
-    u'mbr_total_lcc',
+    u'SWTW Running Costs':
+    u'swtw_running_costs',
     u'Green Roof Footprint':
     u'green_roof_footprint',
     u'Landuse4 EMC Nitrogen':
@@ -121,8 +121,8 @@ _namespace = {
     u'sf_wec_faucet',
     u'Neighborhood Population':
     u'neighborhood_population',
-    u'MBR Number of MBR':
-    u'mbr_number_of_mbr',
+    u'MF WEC Dishwasher':
+    u'mf_wec_dishwasher',
     u'WWTW Total Methanol':
     u'wwtw_total_methanol',
     u'Green Roof LCC':
@@ -193,8 +193,6 @@ _namespace = {
     u'gwp_construction_and_installation',
     u'Result System Reliability':
     u'result_system_reliability',
-    u'MBR Total Energy':
-    u'mbr_total_energy',
     u'Retail space in m2':
     u'retail_space_in_m2',
     u'WP Duration of Pump Operation':
@@ -399,8 +397,6 @@ _namespace = {
     u'mf_average_occupancy_per_unit',
     u'WTW Total Costs':
     u'wtw_total_costs',
-    u'MBR kWh per m3':
-    u'mbr_kwh_per_m3',
     u'Schools Demand Variation Coefficient':
     u'schools_demand_variation_coefficient',
     u'SWT Total Ferric Chloride EmEnergy':
@@ -421,8 +417,8 @@ _namespace = {
     u'landuse1',
     u'Landuse2':
     u'landuse2',
-    u'SF WEC Clothes Washer':
-    u'sf_wec_clothes_washer',
+    u'Landuse3':
+    u'landuse3',
     u'LM Maximum Daily Capacity':
     u'lm_maximum_daily_capacity',
     u'SWP Daily GHG Emissions':
@@ -465,8 +461,6 @@ _namespace = {
     u'gws_annual_maintenance_costs',
     u'Landuse4 Daily Nitrogen':
     u'landuse4_daily_nitrogen',
-    u'SWTW Running Costs':
-    u'swtw_running_costs',
     u'SWP Risk to Human Health':
     u'swp_risk_to_human_health',
     u'PP Construction GHG':
@@ -531,16 +525,12 @@ _namespace = {
     u'swt_total_ferric_chloride_ghg',
     u'LM Daily GHG Emission':
     u'lm_daily_ghg_emission',
-    u'MBR Daily GHG Emission':
-    u'mbr_daily_ghg_emission',
     u'WWP Total Energy':
     u'wwp_total_energy',
     u'WWTW Treated Wastewater':
     u'wwtw_treated_wastewater',
     u'Result Pumping LCC':
     u'result_pumping_lcc',
-    u'MBR GHG per m3':
-    u'mbr_ghg_per_m3',
     u'WTW Administration Costs':
     u'wtw_administration_costs',
     u'Daily Water Demand':
@@ -559,8 +549,6 @@ _namespace = {
     u'mf_wd_per_capita_no_measures',
     u'MF Rate of Adoption':
     u'mf_rate_of_adoption',
-    u'LU Sum':
-    u'lu_sum',
     u'Landuse3 Percentage':
     u'landuse3_percentage',
     u'Unit Irrigation Demand':
@@ -595,8 +583,8 @@ _namespace = {
     u'wwtw_average_salary',
     u'RH Tank Outflow':
     u'rh_tank_outflow',
-    u'MBR Daily Maintenance':
-    u'mbr_daily_maintenance',
+    u'LU Sum':
+    u'lu_sum',
     u'WDM Disposal':
     u'wdm_disposal',
     u'Result RR GHG Emissions':
@@ -633,8 +621,6 @@ _namespace = {
     u'pp_design_and_capital_costs',
     u'GWS Installation Costs':
     u'gws_installation_costs',
-    u'MBR Daily Energy Consumption':
-    u'mbr_daily_energy_consumption',
     u'RH Control':
     u'rh_control',
     u'SF WEC Toilet':
@@ -713,8 +699,6 @@ _namespace = {
     u'dem_community_centers',
     u'GWS Total Volume':
     u'gws_total_volume',
-    u'MF WEC Dishwasher':
-    u'mf_wec_dishwasher',
     u'Qh':
     u'qh',
     u'GWP Motor Efficiency':
@@ -783,8 +767,6 @@ _namespace = {
     u'mf_bathtub_demand',
     u'Daycares Lower VC':
     u'daycares_lower_vc',
-    u'MBR Installation and Construction Costs':
-    u'mbr_installation_and_construction_costs',
     u'WWTW Unit Ethanol':
     u'wwtw_unit_ethanol',
     u'GWS Number of Tanks':
@@ -815,8 +797,8 @@ _namespace = {
     u'wwcs_construction',
     u'WDM Annual Maintenance':
     u'wdm_annual_maintenance',
-    u'MBR Annual Maintenance':
-    u'mbr_annual_maintenance',
+    u'SF WEC Clothes Washer':
+    u'sf_wec_clothes_washer',
     u'SWCS Construction Energy M1':
     u'swcs_construction_energy_m1',
     u'WTW Reliability':
@@ -859,8 +841,6 @@ _namespace = {
     u'wwcs_construction_energy_m1',
     u'Utility Months':
     u'utility_months',
-    u'Landuse3':
-    u'landuse3',
     u'Porous Pavement Space Requirements':
     u'porous_pavement_space_requirements',
     u'WWCS Maintenance GHG':
@@ -1347,8 +1327,6 @@ _namespace = {
     u'wwp_reliability',
     u'Green Roof C Coefficient':
     u'green_roof_c_coefficient',
-    u'MBR Total GHG Emission':
-    u'mbr_total_ghg_emission',
     u'Unit Demand per Seat':
     u'unit_demand_per_seat',
     u'GWP Duration of Pump Operation':
@@ -1391,8 +1369,6 @@ _namespace = {
     u'wtw_reserved_treatment_capacity',
     u'SWTW Acceptability':
     u'swtw_acceptability',
-    u'MBR Capacity':
-    u'mbr_capacity',
     u'Dem Daycares':
     u'dem_daycares',
     u'MF WEC Bathtub':
@@ -1922,20 +1898,6 @@ def wwtw_unit_ferric_sulphate_ghg():
 
     """
     return 0.37
-
-
-@cache('run')
-def mf_dishwasher_demand():
-    """
-    Real Name: MF Dishwasher Demand
-    Original Eqn: 4
-    Units: L/(Day*cap)
-    Limits: (None, None)
-    Type: constant
-
-    According to the Toronto\u2019s Design Criteria for Sewers and Watermains and \n    \t\tCity of Toronto Water User Breakdown Information, Keating Channel Precinct \n    \t\tEnv. Study Report
-    """
-    return 4
 
 
 @cache('step')
@@ -2589,20 +2551,6 @@ def gws_tank_inflow():
 
 
 @cache('run')
-def swtw_unit_ferric_chloride_emenergy():
-    """
-    Real Name: SWTW Unit Ferric Chloride EmEnergy
-    Original Eqn: 1.39
-    Units: KWh/kg
-    Limits: (None, None)
-    Type: constant
-
-
-    """
-    return 1.39
-
-
-@cache('run')
 def gws_number_of_tanks():
     """
     Real Name: GWS Number of Tanks
@@ -3137,11 +3085,6 @@ def wtw_total_costs():
     return integ_wtw_total_costs()
 
 
-integ_mbr_total_lcc = functions.Integ(
-    lambda: mbr_daily_maintenance(),
-    lambda: mbr_installation_and_construction_costs() * mbr_number_of_mbr())
-
-
 @cache('step')
 def wtw_total_alum_emenergy():
     """
@@ -3262,14 +3205,14 @@ def wdm_replacement():
 def bioswale_footprint():
     """
     Real Name: Bioswale Footprint
-    Original Eqn: 0
+    Original Eqn: 1000
     Units: m2
     Limits: (None, None)
     Type: constant
 
 
     """
-    return 0
+    return 1000
 
 
 @cache('step')
@@ -3475,18 +3418,18 @@ def dem_ob_restroom():
     return 0.32
 
 
-@cache('step')
-def mbr_daily_ghg_emission():
+@cache('run')
+def mf_dishwasher_demand():
     """
-    Real Name: MBR Daily GHG Emission
-    Original Eqn: MBR GHG per m3
-    Units: kgCO2eq
+    Real Name: MF Dishwasher Demand
+    Original Eqn: 4
+    Units: L/(Day*cap)
     Limits: (None, None)
-    Type: component
+    Type: constant
 
-
+    According to the Toronto\u2019s Design Criteria for Sewers and Watermains and \n    \t\tCity of Toronto Water User Breakdown Information, Keating Channel Precinct \n    \t\tEnv. Study Report
     """
-    return mbr_ghg_per_m3()
+    return 4
 
 
 @cache('run')
@@ -3692,20 +3635,6 @@ def gws_affordability():
 
     """
     return 1
-
-
-@cache('run')
-def mbr_ghg_per_m3():
-    """
-    Real Name: MBR GHG per m3
-    Original Eqn: 18
-    Units: kgCO2eq/m3
-    Limits: (None, None)
-    Type: constant
-
-    Figure 3. LCA results for the decentralized LM treatment and water reuse \n    \t\tsystem. (a) Annualized results for the analysis period (25 years) for the \n    \t\tentire system per ML of influent that is treated and recycled.
-    """
-    return 18
 
 
 @cache('run')
@@ -3969,18 +3898,18 @@ def bioretention_reliability():
     return 4
 
 
-@cache('step')
-def mbr_total_ghg_emission():
+@cache('run')
+def swtw_unit_ferric_chloride_emenergy():
     """
-    Real Name: MBR Total GHG Emission
-    Original Eqn: INTEG ( MBR Daily GHG Emission, 0)
-    Units: kgCO2eq
+    Real Name: SWTW Unit Ferric Chloride EmEnergy
+    Original Eqn: 1.39
+    Units: KWh/kg
     Limits: (None, None)
-    Type: component
+    Type: constant
 
 
     """
-    return integ_mbr_total_ghg_emission()
+    return 1.39
 
 
 @cache('step')
@@ -4014,17 +3943,17 @@ def rhp_daily_maintenance():
 
 
 @cache('step')
-def mbr_total_energy():
+def swcs_construction_ghg_m2():
     """
-    Real Name: MBR Total Energy
-    Original Eqn: INTEG ( -MBR Daily Energy Consumption, 0)
-    Units: KWh
+    Real Name: SWCS Construction GHG M2
+    Original Eqn: SWCS Total Weight M2*SWCS Unit Construction GHG M2
+    Units: kgCO2eq
     Limits: (None, None)
     Type: component
 
 
     """
-    return integ_mbr_total_energy()
+    return swcs_total_weight_m2() * swcs_unit_construction_ghg_m2()
 
 
 @cache('step')
@@ -4237,18 +4166,18 @@ def rwh_space_requirements():
     return 2
 
 
-@cache('step')
-def wsc_running_costs():
+@cache('run')
+def lm_flexibility_and_adaptability():
     """
-    Real Name: WSC Running Costs
-    Original Eqn: WSC Daily Maintenance
-    Units: $/Day
-    Limits: (None, None)
-    Type: component
+    Real Name: LM Flexibility and Adaptability
+    Original Eqn: 2
+    Units: Dmnl
+    Limits: (1.0, 5.0)
+    Type: constant
 
 
     """
-    return wsc_daily_maintenance()
+    return 2
 
 
 @cache('run')
@@ -4401,18 +4330,18 @@ def wwcs_construction_energy_m2():
 integ_wwp_total_ghg_emission = functions.Integ(lambda: wwp_daily_ghg_emissions(), lambda: 0)
 
 
-@cache('run')
-def mbr_annual_maintenance():
+@cache('step')
+def wwcs_construction_energy_m1():
     """
-    Real Name: MBR Annual Maintenance
-    Original Eqn: 15000
-    Units: $
+    Real Name: WWCS Construction Energy M1
+    Original Eqn: WWCS Total Weight M1*WWCS Unit Construction Energy M1
+    Units: KWh
     Limits: (None, None)
-    Type: constant
+    Type: component
 
 
     """
-    return 15000
+    return wwcs_total_weight_m1() * wwcs_unit_construction_energy_m1()
 
 
 @cache('run')
@@ -4629,20 +4558,6 @@ def sws_total_length_m1():
 
 
 @cache('step')
-def mbr_daily_maintenance():
-    """
-    Real Name: MBR Daily Maintenance
-    Original Eqn: MBR Annual Maintenance / Days in a Year
-    Units: $/Day
-    Limits: (None, None)
-    Type: component
-
-    Daily Costs of LM Maintenance
-    """
-    return mbr_annual_maintenance() / days_in_a_year()
-
-
-@cache('step')
 def wdm_construction_ghg_m1():
     """
     Real Name: WDM Construction GHG M1
@@ -4782,20 +4697,6 @@ def wtm_daily_maintenance():
     return wtm_annual_maintenance() / 365.25
 
 
-@cache('step')
-def mbr_daily_energy_consumption():
-    """
-    Real Name: MBR Daily Energy Consumption
-    Original Eqn: MBR kWh per m3
-    Units: KWh/Day
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return mbr_kwh_per_m3()
-
-
 @cache('run')
 def wwtw_unit_ferric_chloride():
     """
@@ -4825,17 +4726,18 @@ def landuse_total_nitrogen():
 
 
 @cache('step')
-def swtw_daily_maintenance():
+def result_network_lcc():
     """
-    Real Name: SWTW Daily Maintenance
-    Original Eqn: (SWTW Annual Maintenance/Days in a Year)*1e+006
-    Units: $/Day
+    Real Name: Result Network LCC
+    Original Eqn: SWCS Total Costs+WDM Total Costs+WSC Total Costs+WTM Total Costs+WWCS Total Costs
+    Units: $
     Limits: (None, None)
     Type: component
 
-    Maintenance and Replacement Costs on Daily Basis
+
     """
-    return (swtw_annual_maintenance() / days_in_a_year()) * 1e+006
+    return swcs_total_costs() + wdm_total_costs() + wsc_total_costs() + wtm_total_costs(
+    ) + wwcs_total_costs()
 
 
 @cache('run')
@@ -4920,9 +4822,6 @@ def retail_demand_variation_coefficient():
 
     """
     return functions.random_uniform(retail_lower_vc(), retail_upper_vc(), 1)
-
-
-integ_mbr_total_ghg_emission = functions.Integ(lambda: mbr_daily_ghg_emission(), lambda: 0)
 
 
 @cache('run')
@@ -5970,18 +5869,18 @@ def number_of_students():
     return 2500
 
 
-@cache('step')
-def swcs_construction_ghg_m2():
+@cache('run')
+def ob_unit_demand_per_m2():
     """
-    Real Name: SWCS Construction GHG M2
-    Original Eqn: SWCS Total Weight M2*SWCS Unit Construction GHG M2
-    Units: kgCO2eq
+    Real Name: OB Unit Demand per m2
+    Original Eqn: 4.2
+    Units: L/(Day*m2)
     Limits: (None, None)
-    Type: component
+    Type: constant
 
-
+    Source: Water Resources Engineering, Larry W Mays, 2001 (Table 11.1.4. Page 346)\t\tWater Distribution System Design PPT
     """
-    return swcs_total_weight_m2() * swcs_unit_construction_ghg_m2()
+    return 4.2
 
 
 @cache('run')
@@ -6389,14 +6288,14 @@ def swp_daily_costs():
 def bioretention_daily_costs():
     """
     Real Name: Bioretention Daily Costs
-    Original Eqn: Bioretention Annual Maintenance Costs * Bioretention Footprint
+    Original Eqn: (Bioretention Annual Maintenance Costs / 365.25) * Bioretention Footprint
     Units: $/Day
     Limits: (None, None)
     Type: component
 
 
     """
-    return bioretention_annual_maintenance_costs() * bioretention_footprint()
+    return (bioretention_annual_maintenance_costs() / 365.25) * bioretention_footprint()
 
 
 @cache('run')
@@ -6869,14 +6768,14 @@ def wwtw_total_ferric_sulphate_emenergy():
 def pp_footprint():
     """
     Real Name: PP Footprint
-    Original Eqn: 150000
+    Original Eqn: 5000
     Units: m2
     Limits: (None, None)
     Type: constant
 
 
     """
-    return 150000
+    return 5000
 
 
 @cache('run')
@@ -6976,20 +6875,6 @@ def wwtw_affordability():
 
     """
     return 1
-
-
-@cache('run')
-def mbr_capacity():
-    """
-    Real Name: MBR Capacity
-    Original Eqn: 150
-    Units: m3/Day
-    Limits: (None, None)
-    Type: constant
-
-    Prices for 151 m3/day, 302 m3/day, 3785 m3/day
-    """
-    return 150
 
 
 @cache('step')
@@ -7642,9 +7527,6 @@ def dem_hotels():
     return unit_demand_per_m2() * footprint_hotels()
 
 
-integ_mbr_total_energy = functions.Integ(lambda: -mbr_daily_energy_consumption(), lambda: 0)
-
-
 @cache('run')
 def rhp_construction_and_installation():
     """
@@ -8109,20 +7991,6 @@ def wwtw_unit_calcium_hydroxide_ghg():
 
     """
     return 0.763
-
-
-@cache('step')
-def wwcs_construction_energy_m1():
-    """
-    Real Name: WWCS Construction Energy M1
-    Original Eqn: WWCS Total Weight M1*WWCS Unit Construction Energy M1
-    Units: KWh
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return wwcs_total_weight_m1() * wwcs_unit_construction_energy_m1()
 
 
 integ_wwtw_total_methanol = functions.Integ(lambda: treated_wastewater() * wwtw_unit_methanol(),
@@ -9025,20 +8893,6 @@ def wp_total_ghg_emission():
     return integ_wp_total_ghg_emission()
 
 
-@cache('step')
-def mbr_total_lcc():
-    """
-    Real Name: MBR Total LCC
-    Original Eqn: INTEG ( MBR Daily Maintenance, MBR Installation and Construction Costs * MBR Number of MBR)
-    Units: $
-    Limits: (None, None)
-    Type: component
-
-
-    """
-    return integ_mbr_total_lcc()
-
-
 @cache('run')
 def landuse3_emc_nitrogen():
     """
@@ -9132,20 +8986,6 @@ def gwp_daily_energy():
     ) * gwp_number_of_pumps()
 
 
-@cache('run')
-def mbr_number_of_mbr():
-    """
-    Real Name: MBR Number of MBR
-    Original Eqn: 5
-    Units: Number
-    Limits: (None, None)
-    Type: constant
-
-
-    """
-    return 5
-
-
 @cache('step')
 def wtw_total_microsand_ghg():
     """
@@ -9160,18 +9000,18 @@ def wtw_total_microsand_ghg():
     return wtw_total_microsand() * wtw_unit_microsand_ghg()
 
 
-@cache('run')
-def lm_flexibility_and_adaptability():
+@cache('step')
+def wsc_running_costs():
     """
-    Real Name: LM Flexibility and Adaptability
-    Original Eqn: 2
-    Units: Dmnl
-    Limits: (1.0, 5.0)
-    Type: constant
+    Real Name: WSC Running Costs
+    Original Eqn: WSC Daily Maintenance
+    Units: $/Day
+    Limits: (None, None)
+    Type: component
 
 
     """
-    return 2
+    return wsc_daily_maintenance()
 
 
 @cache('run')
@@ -9532,14 +9372,14 @@ integ_wwp_total_energy = functions.Integ(lambda: wwp_daily_energy(), lambda: 0)
 def bioswale_daily_costs():
     """
     Real Name: Bioswale Daily Costs
-    Original Eqn: Bioswale Annual Maintenance Costs*Bioswale Footprint
+    Original Eqn: (Bioswale Annual Maintenance Costs*Bioswale Footprint)/365.25
     Units: m3/Day
     Limits: (None, None)
     Type: component
 
 
     """
-    return bioswale_annual_maintenance_costs() * bioswale_footprint()
+    return (bioswale_annual_maintenance_costs() * bioswale_footprint()) / 365.25
 
 
 @cache('run')
@@ -9560,14 +9400,14 @@ def wdm_total_length_m1():
 def green_roof_footprint():
     """
     Real Name: Green Roof Footprint
-    Original Eqn: 10000
+    Original Eqn: 4000
     Units: m2
     Limits: (None, None)
     Type: constant
 
 
     """
-    return 10000
+    return 4000
 
 
 @cache('run')
@@ -10600,20 +10440,6 @@ def wwcs_lc_embodied_energy():
 
 
 @cache('run')
-def ob_unit_demand_per_m2():
-    """
-    Real Name: OB Unit Demand per m2
-    Original Eqn: 4.2
-    Units: L/(Day*m2)
-    Limits: (None, None)
-    Type: constant
-
-    Source: Water Resources Engineering, Larry W Mays, 2001 (Table 11.1.4. Page 346)\t\tWater Distribution System Design PPT
-    """
-    return 4.2
-
-
-@cache('run')
 def sf_wec_faucet():
     """
     Real Name: SF WEC Faucet
@@ -10934,20 +10760,6 @@ def swp_affordability():
 
 
 @cache('run')
-def mbr_kwh_per_m3():
-    """
-    Real Name: MBR kWh per m3
-    Original Eqn: 4.5
-    Units: KWh/m3
-    Limits: (None, None)
-    Type: constant
-
-    Figure 3. LCA results for the decentralized LM treatment and water reuse \n    \t\tsystem. (a) Annualized results for the analysis period (25 years) for the \n    \t\tentire system per ML of influent that is treated and recycled. - System \n    \t\tMaterials, Settling Tank Emissions, Pumping, Treatment
-    """
-    return 4.5
-
-
-@cache('run')
 def rwh_risk_to_human_health():
     """
     Real Name: RWH Risk to Human Health
@@ -10962,18 +10774,17 @@ def rwh_risk_to_human_health():
 
 
 @cache('step')
-def result_network_lcc():
+def swtw_daily_maintenance():
     """
-    Real Name: Result Network LCC
-    Original Eqn: SWCS Total Costs+WDM Total Costs+WSC Total Costs+WTM Total Costs+WWCS Total Costs
-    Units: $
+    Real Name: SWTW Daily Maintenance
+    Original Eqn: (SWTW Annual Maintenance/Days in a Year)*1e+006
+    Units: $/Day
     Limits: (None, None)
     Type: component
 
-
+    Maintenance and Replacement Costs on Daily Basis
     """
-    return swcs_total_costs() + wdm_total_costs() + wsc_total_costs() + wtm_total_costs(
-    ) + wwcs_total_costs()
+    return (swtw_annual_maintenance() / days_in_a_year()) * 1e+006
 
 
 @cache('step')
@@ -11806,20 +11617,6 @@ def swtw_total_costs():
 
     """
     return integ_swtw_total_costs()
-
-
-@cache('run')
-def mbr_installation_and_construction_costs():
-    """
-    Real Name: MBR Installation and Construction Costs
-    Original Eqn: 1.4e+006
-    Units: $
-    Limits: (None, None)
-    Type: constant
-
-    For 151 m3/day\t302 m3/day\t3785 m3/day
-    """
-    return 1.4e+006
 
 
 @cache('run')

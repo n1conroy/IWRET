@@ -351,16 +351,14 @@ close
 <tr >
 <td class="formsection2" colspan=2>
 <h3>Physical Properties</h3>
-
+  
   <br><label>Rated Capacity for Water Treatment Works [m3/day]</label>
   <br><input type="number" min="100000" max="1000000" step="1000" value="950000" size="15" name="WTW Daily Treatment Capacity" >
   <br> <label>Capacity Available for New Neighbourhood</label>
   <br><input type="number" min="0" max="1" step="0.01" value="0.05" size="30" name="WTW Available Capacity" >
-
 </td>
 </tr>
 <tr>
-
 <td class="formsection2">
 <h3> Chemicals Required for Water Treatment</h3>
 <label><b>Alum</b></label>
@@ -370,7 +368,6 @@ close
   <br><input type="number" min="0.1" max="1" step="0.01" value="0.49" size="30" name="WTW Unit Alum GHG" >
 <br><label>Embodied Energy [kWh/kg]</label>
   <br><input type="number" min="0.1" max="1" step="0.01" value="0.89" size="30" name="WTW Unit Alum EmEnergy" >
-
 <br><label><b>Sodium Hypochlorite </b></label><br>
 <label>Required for treatment of 1m3 water[kg/m3]</label>
   <br><input type="number" min="0.001" max="0.02" step="0.001" value="0.001" size="30" name="WTW Unit Sodium Hypochlorite" >
@@ -378,9 +375,6 @@ close
   <br><input type="number" min="0.001" max="0.02" step="0.001" value="0.001" size="30" name="WTW Unit Sodium Hypochlorite EmEnergy" >
 <br><label>Greenhouse gas emissions for 1kg [kwh/kg]</label>
   <br><input type="number" min="0.001" max="0.02" step="0.001" value="0.001" size="30" name="WTW Unit Sodium Hypochlorite GHG" >
-
-
-
 <br><label><b>Microsand</b></label><br>
 <label>Required for treatment of 1m3 water[kg/m3]</label>
   <br><input type="number" min="0.001" max="0.02" step="0.1" value="0.001" size="30" name="WTW Unit Microsand" >
@@ -543,7 +537,7 @@ close
 <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="2.36" size="30" name="WWCS Unit Construction GHG M1" >
 <br><label>Number of Trips for Maintenance [#]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0.1" size="30" name="WWCS Number of Maintenance Trips" >
+  <br><input type="number" min="0.0" max="5" step=".1" value="0" size="30" name="WWCS Number of Maintenance Trips" >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
   <br><input type="number" min="0.1" max="5" step=".01" value="0.05" size="30" name="WWCS Unit Maintenance Energy M1" >
 <br><label>Embodied GHG Maintenance [Kg Co2-EQ/trip]</label>
@@ -1053,9 +1047,7 @@ $(document).ready(function(){
   $("#WaterDemandQuery").click(function() {  
   $(this).parent().parent().parent().parent().parent().parent().hide();
   $("#loading-div-background").show();
-  $("#graph_container1").hide();
-  $("#graph_container2").hide();
-  $("#graph_container3").hide();
+
 
   $(".mainpic").hide();
   var qu ={};
@@ -1076,32 +1068,8 @@ $(document).ready(function(){
 	 $(".menu").show();
          document.write(response);
      }
-	/* 
-      var graph1 = $("#graph_container1");
-      var graph2 = $("#graph_container2");
-      var graph3 = $("#graph_container3");
-      
-      
-      graph1.html(mpld3.drawfigure(dict_of_plots[0]['id'],dict_of_plots[0]['json']));
-      graph2.html(mpld3.drawfigure(dict_of_plots[1]['id'],dict_of_plots[1]['json']));
-      graph3.html(mpld3.drawfigure(dict_of_plots[2]['id'],dict_of_plots[2]['json']));
-     
-
-      $("#loading-div-background").hide();      
-      $("#graph_container1").show();
-      $("#graph_container2").show();
-      $("#graph_container3").show();
-      $(".menu").show();
-      $("#message").html(data);
-      */
-      
-
    });
 });
-
-/*
-   
-*/
 
  
 
@@ -1111,7 +1079,7 @@ $(document).ready(function(){
 
 
 <!-- ******************************************************    -->
-<!-- *****     BEGINNING OF WATER TREATMENT WORKS     *****    -->
+<!-- *****     BEGINNING OF WASTEWATER TREATMENT WORKS     *****    -->
 <!-- ******************************************************    -->
 <a class="popup-trigger" rel="nofollow">Wastewater Treatment Works</a>
 <br>
@@ -1126,112 +1094,110 @@ close
 </td>
 </tr>
 <tr>
-<td colspan=2 >
-<table cellpadding=10>
-<tr class=formsection2>
-<td>
-<h3>Physical Properties</h3>
-<label>Water Treatment Facility</label>
-  <br><input type="text"  value="Name" size="30" name="WWT Name" >
-</td>
-<td>
-<br><label>Total Daily Treatment Capacity [m3/day]</label>
- <br><input type="number" min="0" max="100" step="1" value="0" size="15" name="WWTW Daily Treatment Capacity" >
- </td>
- <td>
- <br> <label>Capacity Available for New Development</label>
- <br><input type="number" min="0" max="1" step="0.1" value="0" value="WWTW Available Capacity" size="30" name="WTW Available Capacity" >
-</td>
+<td class="formsection2">
+  <h3>Physical Properties</h3>
+  <br><label>Wastewater Generation Factor</label>
+  <br><input type="number" min="0" max="1" step="0.01" value="0.85" size="15" name="Wastewater Generation as a percentage of water use" >
+  <br><label>Total Daily Treatment Capacity [m3/day]</label>
+  <br><input type="number" min="0" max="1000000" step="100" value="600000" size="15" name="WWTW Daily Treatment Capacity" >
+  <br> <label>Capacity Available for New Development</label>
+  <br><input type="number" min="0" max="1" step="0.1" value="0.2" value="WWTW Available Capacity" size="30" name="WTW Available Capacity" >
+  </td>
 </tr>
-</table>
-</td>
-</tr>
+
 <tr>
 <td class="formsection2">
 <h3> Chemicals Flux</h3>
 <label>Ferric Choloride [kg/m3]]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Ferric Chloride" >
+  <br><input type="number" min="0.0" max="2.0" step="0.0001" value="0.0299" size="30" name="WWTW Unit Ferric Chloride" >
 <br><label>Ferric Chloride Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Ferric Chloride GHG" >
+  <br><input type="number" min="0.0" max="2.0" step="0.01" value="1.39" size="30" name="WWTW Unit Ferric Chloride GHG" >
 <br><label>Ferric Chloride Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Ferric EmEnergy" >
+  <br><input type="number" min="0.0" max="2.0" step="0.01" value="0.26" size="30" name="WWTW Unit Ferric EmEnergy" >
 <br><label>Ferric Sulphate [kg/m3]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Ferric Sulphate" >
+  <br><input type="number" min="0.0" max="2.0" step="0.0001" value="0.0215" size="30" name="WWTW Unit Ferric Sulphate" >
 <br><label>Ferric Sulphate Embodied GHG [Kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Ferric Sulphate GHG" >
+  <br><input type="number" min="0.0" max="2.0" step="0.1" value="0.37" size="30" name="WWTW Unit Ferric Sulphate GHG" >
 <br><label>Ferric Sulphate Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WTW Unit Ferric Sulphate EmEnergy" >
+  <br><input type="number" min="0.0" max="2.0" step="0.1" value="2" size="30" name="WTW Unit Ferric Sulphate EmEnergy" >
 <br><label>Nictric Acid [kg/m3]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Nitric Acid" >
+  <br><input type="number" min="0.0" max="2.0" step="0.001" value="0.0245" size="30" name="WWTW Unit Nitric Acid" >
 <br><label>Nitric Acid Embodied GHG [Kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Nitric Acid GHG" >
+  <br><input type="number" min="0.0" max="2.0" step="0.1" value="6.3" size="30" name="WWTW Unit Nitric Acid GHG" >
 <br><label>Nictric Acid Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" __name="WWTW Unite Nitric Acid EmEnergy" >
+  <br><input type="number" min="0" max="2.0" step="0.01" value="3.31" size="30" name="WWTW Unite Nitric Acid EmEnergy" >
 </td>
 <td class="formsection2">
 <br><label>Calcium Hydroxide [kg/m3]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Calcium Hydroxide" >
+  <br><input type="number" min="0.0" max="2.0" step="0.01" value="0.03" size="30" name="WWTW Unit Calcium Hydroxide" >
 <br><label>Calcium Hydroxyde Embodied GHG  [kgCO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Calcium Hydroxide GHG" >
+  <br><input type="number" min="0.0" max="2.0" step="0.001" value="0.763" size="30" name="WWTW Unit Calcium Hydroxide GHG" >
 <br><label>Calcium Hydroxyde Embodied Energy  [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.5" size="30" name="WWTW Unit Calcium Hydroxide EmEnergy" >
+  <br><input type="number" min="0.0" max="2.0" step="0.1" value="1" size="30" name="WWTW Unit Calcium Hydroxide EmEnergy" >
 <br><label>Ethanol [kg/m3]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Ethanol" >
+  <br><input type="number" min="0.0" max="2.0" step="0.0001" value="0.0003" size="30" name="WWTW Unit Ethanol" >
 <br><label>Ethanol Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Ethanol GHG" >
+  <br><input type="number" min="0.0" max="2.0" step="0.01" value="1.23" size="30" name="WWTW Unit Ethanol GHG" >
 <br><label>Ethanol Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="WWTW Unit Ethanol EmEnergy" >
+  <br><input type="number" min="0.0" max="2.0" step="0.1" value="0.83" size="30" name="WWTW Unit Ethanol EmEnergy" >
 <br><label>Methanol [kg/m3]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" __name="Unit Methanol" >
+  <br><input type="number" min="0.0" max="2.0" step="0.0001" value="0.0329" size="30" name="Unit Methanol" >
 <br><label>Methanol Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" __name="Unit Methanol GHG" >
+  <br><input type="number" min="0.0" max="2.0" step="0.001" value="0.736" size="30" name="Unit Methanol GHG" >
 <br><label>Methanol Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="2.0" step="0.1" value="0.1" size="30" name="Unit Methanol EmEnergy" >
+  <br><input type="number" min="0.0" max="2.0" step="0.01" value="4.56" size="30" name="Unit Methanol EmEnergy" >
 </td>
 </tr>
 <tr>
 <td  class="formsection2">
 <h3> Life Cycle Costs (LCC)</h3>
 <label>Construction and Installation Costs [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WWTW Construction and Installation" >
+  <br><input type="number" min="0" max="10000000" step="1000" value="0" size="30" name="WWTW Construction and Installation" >
 <br><label>Capital Investment [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1000" value="50000" size="30" name="WWTW Capital Investment" >
+  <br><input type="number" min="0" max="10000000" step="1000" value="0" size="30" name="WWTW Capital Investment" >
 <br><label>Annual Maintenance Costs [$/year]</label>
-  <br><input type="number" min="0" max="1000000" step="1000" value="50000" size="30" name="WWTW Annual Maintenance" >
+  <br><input type="number" min="0" max="1000000" step="1000" value="12000000" size="30" name="WWTW Annual Maintenance" >
 <br><label>Number of Staff [persons]</label>
-  <br><input type="number" min="0" max="100" step="1" value="5" size="30" name="WWTW Number of Staff" >
+  <br><input type="number" min="0" max="50" step="1" value="35" size="30" name="WWTW Number of Staff" >
 <br><label>Average Annual Salary [$/person]</label>
-  <br><input type="number" min="10000" max="100000" step="1000" value="10000" size="30" name="WWTW Average Staff Salary" >
+  <br><input type="number" min="10000" max="100000" step="1000" value="55000" size="30" name="WWTW Average Staff Salary" >
 <br><label>Administration Rate [%]</label>
-  <br><input type="number" min="0.01" max="2" step=".01" value="0.01" size="30" name="WWTW Administration Rate">
+  <br><input type="number" min="0.01" max=".5" step=".01" value="0.1" size="30" name="WWTW Administration Rate">
 <br><label>Energy Required for Treatments [$/in3]</label>
-  <br><input type="number" min="0.1" max="10" step=".1" value="0.1" size="30" __name="WWTW Electricity for treamtment of m3" >
+  <br><input type="number" min="0.1" max="10" step=".01" value="0.45" size="30" name="WWTW Electricity for treatment of m3" >
 <br><label>Slidge Generated [kg/m3]</label>
-  <br><input type="number" min="0.01" max="10" step=".01" value="0.01" size="30" name="WWTW Sludge Generated" >
+  <br><input type="number" min="0" max="10" step="1" value="1" size="30" name="WWTW Sludge Generated" >
 <br><label>Slidge Removal and Transport [%/kg]</label>
-  <br><input type="number" min="0.01" max="10" step=".01" value="0.01" size="30" name="WWTW Sludge Transport and Disposal" >
+  <br><input type="number" min="1" max="1000" step=".01" value="1.12" size="30" name="WWTW Sludge Transport and Disposal" >
 </td>
 <td class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="WTW Affordability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="WTW Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WTW Reliability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WTW Acceptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WTW Risk to Human Health"><br>
-<label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="WTW Space Requirements"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Risk to Human Health"><br>
+<label>Spatial Requirements [Dmnls] </label>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WTW Flexibility and Adaptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Flexibility and Adaptability"><br>
 </td>
 </tr>
 </table>
 </div>
+<!--- ******** END OF WASTEWATER TREATMENT WORKS ********* ------->
+
+
+<!-- ******************************************************    -->
+<!-- *****     BEGINNING OF PUMPING STATIONS          *****    -->
+<!-- ******************************************************    -->
+
 <a class="popup-trigger" rel="nofollow">Pumping Stations</a>
 <br>
-<div style="height:650" class="popup">
+<div style="height:550" class="popup">
 <table  class="formcontainer">
 <tr>
 <td>
@@ -1243,69 +1209,70 @@ close
 </tr>
 <tr>
 <td valign="top"  class="formsection2">
-<label ><b>Drinking Water (WP</b></label><input type="checkbox"  __name="PS Drinking Water ">
+<label ><b>Drinking Water (WP)</b></label><input type="checkbox" checked name="PS Drinking Water">
 <h3>Pumping Station Costs</h3>
-   <br><label>Construction and Installation Costs [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1000" value="0" size="30" name="WP Construction and Installation" >
+   <label>Construction and Installation Costs [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="1000000" size="30" name="WP Construction and Installation" >
   <br><label>Annual Maintenance Fee [$]</label>
   <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="WP Annual Maintenance" >
 </td>
 <td class="formsection2">
-<label><b>Wastewater (WWP)</b></label><input type="checkbox" value="Wastewater (WWP)" __name="Wastewater (WWP)">
+<label><b>Wastewater (WWP)</b></label><input type="checkbox" checked name="Wastewater (WWP)">
 <h3>Pumping Station Costs</h3>
-   <br><label>Construction and Installation Costs [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1000" value="0" size="30" name="WWP Construction and Installation" >
+  <label>Construction and Installation Costs [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1000" value="1000000" size="30" name="WWP Construction and Installation" >
   <br><label>Annual Maintenance Fee [$]</label>
-  <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="WWP Annual Maintenance" >
+  <br><input type="number" min="0" max="500000" step="1" value="100000" size="30" name="WWP Annual Maintenance" >
 </td>
 <td class="formsection2">
-<label><b>Stormwater  (SWP) </b></label><input type="checkbox" value="Stormwater (SWP)" __name="Stormwater (SWP)">
+<label><b>Stormwater  (SWP) </b></label><input type="checkbox" checked name="Stormwater (SWP)">
 <h3>Pumping Station Costs</h3>
-  <br><label>Construction and Installation Costs [$]</label>
-  <br><input type="number" min="0" max="10000000" step="1" value="50" size="30" name="SWP Construction and Installation" >
+  <label>Construction and Installation Costs [$]</label>
+  <br><input type="number" min="0" max="10000000" step="1" value="500000" size="30" name="SWP Construction and Installation" >
   <br><label>Annual Maintenance Fee [$]</label>
-  <br><input type="number" min="0" max="500000" step="1" value="50" size="30" name="SWP Annual Maintenance" >
+  <br><input type="number" min="0" max="500000" step="1" value="10000" size="30" name="SWP Annual Maintenance" >
 </td>
 </tr>
 <tr>
 <td valign="top" class="formsection2">
 <h3>Regime of Pump Operation</h3></input>
   <label>Total Dynamic Head of Pump [m]</label>
-  <br><input type="range" min="0" max="500" value="50" class="slider-width" name="WP Total Dynamic Head of Pumpt"><br>
+  <br><input type="range" min="0" max="500" value="150" class="slider-width" name="WP Total Dynamic Head of Pump"><br>
   <br><label>Duration of Pup Operatoin [hours/day]</label>
-  <br><input type="number" min="1" max="24" step="1" value="1" size="30" name="WP Duration of Pump Operation" >
+  <br><input type="number" min="1" max="24" step="1" value="24" size="30" name="WP Duration of Pump Operation" >
   <br><label>Motor Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WP Motor Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="80" size="30" name="WP Motor Efficiency" >
   <br><label>Variable Speed Drive Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WP Variable Speed Drive Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="88" size="30" name="WP Variable Speed Drive Efficiency" >
   <br><label>Pump Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WP Pump Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="93" size="30" name="WP Pump Efficiency" >
 </td>
+
 <td valign="top"  class="formsection2">
 <h3>Regime of Pump Operation</h3></input>
   <label>Total Dynamic Head of Pump [m]</label>
-  <br><input type="range" min="0" max="500" value="50" class="slider-width" name="WWP Total Dynamic Head of Pumpt"><br>
+  <br><input type="range" min="0" max="500" value="25" class="slider-width" name="WWP Total Dynamic Head of Pump"><br>
   <br><label>Duration of Pup Operatoin [hours/day]</label>
-  <br><input type="number" min="1" max="24" step="1" value="1" size="30" name="WWP Duration of Pump Operation" >
+  <br><input type="number" min="1" max="24" step="1" value="24" size="30" name="WWP Duration of Pump Operation" >
   <br><label>Motor Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WWP Motor Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="85" size="30" name="WWP Motor Efficiency" >
   <br><label>Variable Speed Drive Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WWP Variable Speed Drive Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="88" size="30" name="WWP Variable Speed Drive Efficiency" >
   <br><label>Pump Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="WWP Pump Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="93" size="30" name="WWP Pump Efficiency" >
 </td>
 <td valign="top" class="formsection2">
 <h3>Regime of Pump Operation</h3></input>
   <label>Total Dynamic Head of Pump [m]</label>
-  <br><input type="range" min="0" max="500" value="50" class="slider-width" name="SWP Total Dynamic Head of Pumpt"><br>
+  <br><input type="range" min="0" max="500" value="10" class="slider-width" name="SWP Total Dynamic Head of Pump"><br>
   <br><label>Duration of Pup Operatoin [hours/day]</label>
-  <br><input type="number" min="1" max="24" step="1" value="1" size="30" name="SWP Duration of Pump Operation" >
+  <br><input type="number" min="1" max="24" step="1" value="24" size="30" name="SWP Duration of Pump Operation" >
   <br><label>Motor Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="SWP Motor Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="85" size="30" name="SWP Motor Efficiency" >
   <br><label>Variable Speed Drive Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="SWP Variable Speed Drive Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="88" size="30" name="SWP Variable Speed Drive Efficiency" >
   <br><label>Pump Efficiency [%]</label>
-  <br><input type="number" min="50" max="100" step="1" value="50" size="30" name="SWP Pump Efficiency" >
+  <br><input type="number" min="50" max="100" step="1" value="90" size="30" name="SWP Pump Efficiency" >
 </div>
 </td>
 </tr>
@@ -1313,208 +1280,340 @@ close
 <td class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="WP Affordability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WP Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WP Reliability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WP Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WP Acceptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WP Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WP Risk to Human Health"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WP Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="WP Space Requirements"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="WP Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WP Flexibility and Adaptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WP Flexibility and Adaptability"><br>
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='PS Drinking Water']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+         $("input[name='WP Construction and Installation']").val('0');
+         $("input[name='WP Annual Maintenance']").val('0');
+         $("input[name='WP Total Dynamic Head of Pump']").val('0');
+        $("input[name='WP Affordability']").val('0');
+	$("input[name='WP Reliability']").val('0');
+	$("input[name='WP Acceptability']").val('0');
+	$("input[name='WP Risk to Human Health']").val('0');
+	$("input[name='WP Space Requirements']").val('0');
+	$("input[name='WP Flexibility and Adaptability']").val('0');	
+	}
+     });
+});
+</script>
+
+
 <td class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="WWP Affordability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="WWP Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WWP Reliability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWP Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WWP Acceptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWP Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WWP Risk to Human Health"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="WWP Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="WWP Space Requirements"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWP Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="WWP Flexibility and Adaptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWP Flexibility and Adaptability"><br>
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Wastewater (WWP)']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+         $("input[name='WWP Construction and Installation']").val('0');
+         $("input[name='WWP Annual Maintenance']").val('0');
+          $("input[name='WWP Total Dynamic Head of Pump']").val('0');
+	$("input[name='WWP Affordability']").val('0');
+	$("input[name='WWP Reliability']").val('0');
+	$("input[name='WWP Acceptability']").val('0');
+	$("input[name='WWP Risk to Human Health']").val('0');
+	$("input[name='WWP Space Requirements']").val('0');
+	$("input[name='WWP Flexibility and Adaptability']").val('0');	
+        }
+     });
+});
+</script>
+
 <td class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="SWP Affordability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="SWP Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="SWP Reliability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="SWP Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="SWP Acceptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="SWP Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="SWP Risk to Human Health"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="SWP Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="SWP Space Requirements"><br>
+<br><input type="range" min="1" max="5" value="3"  class="slider-width" name="SWP Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="SWP Flexibility and Adaptability"><br>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="SWP Flexibility and Adaptability"><br>
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Stormwater (SWP)']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+         $("input[name='SWP Construction and Installation']").val('0');
+         $("input[name='SWP Annual Maintenance']").val('0');
+         $("input[name='SWP Total Dynamic Head of Pump']").val('0');
+	$("input[name='SWP Affordability']").val('0');
+	$("input[name='SWP Reliability']").val('0');
+	$("input[name='SWP Acceptability']").val('0');
+	$("input[name='SWP Risk to Human Health']").val('0');
+	$("input[name='SWP Space Requirements']").val('0');
+	$("input[name='SWP Flexibility and Adaptability']").val('0');	
+        }
+     });
+});
+</script>
 </tr>
 </table>
 </div>
-<a class="popup-trigger" rel="nofollow">Neighborhood Hydrology</a>
+<!---- ******* END OF WATER TREATMENT WORKS    ******       --------!>
+
+
+<!-- *************************************************************    -->
+<!-- *****     BEGINNING OF NEIGHBOURHOOD HYDROLOGY WORKS    *****    -->
+<!-- *************************************************************    -->
+
+<a class="popup-trigger" rel="nofollow">Neighbourhood Hydrology</a>
 <br>
 <div style="height:550" class="popup">
+<form id="NeighborhoodHydrologyForm" method="POST">
 <table  class="formcontainer">
 <tr><td>
 <h3 id="myModalLabel">Neighborhood Hydrology </h3>
+<label>Daily precipitation (*.csv)</label><br>
+<input type="file" size=30 name="Rainfall" accept=".csv" />
 </td>
 <td colspan=4 align=right class="popup-btn-close">
 close
 </td>
 </tr>
 <td valign="top"  class="formsection2">
+
+
 <h3>Type 1</h3>
-   <label>Land Use</label>
-  <br><select width=200px>
-        <option   value="Industrial" name="NH Type 1 Land Use" selected>Industrial</option>
-        <option  value ="Value2" name="NH Type 1 Land Use">B</option>
-        <option  value ="Value3" name="NH Type 1 Land Use">C</option>
-  </select>
+   <label>Total Area</label>
+  <br><input type="number" min="1" max="500000" step="1" value="12000" size="30" name="Landuse1" >
      <br><label>Hyrdologic Soil Group</label>
   <br><select width=200px>
         <option   value="A" name="NH Type 1 Soil Group" selected>A</option>
         <option  value ="B" name="NH Type 1 Soil Group">B</option>
-        <option  value ="C" name="NH Type 1 Soil GRoup">C</option>
+        <option  value ="C" name="NH Type 1 Soil Group">C</option>
+	<option  value ="D" name="NH Type 1 Soil Group">D</option>
+
   </select>
-   <br><label>Lot Size [hectres]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse1" >
-  <br><label>Curve Number Value [CN]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN1" >
+     <br><label>Curve Number Value [CN]</label>
+  <br><input type="number" min="0" max="100" step="1" value="92" size="30" name="CN1" >
 </td>
 <td class="formsection2">
 <h3>Type 2</h3>
-   <label>Land Use</label>
-  <br><select width=200px>
-        <option   value="Ductile Iron" name="NH Type 2 Land Use" selected>Industrial</option>
-        <option  value ="Value2" name="NH Type 2 Land Use">B</option>
-        <option  value ="Value3" name="NH Type 2 Land Use">C</option>
-  </select>
+   <label>Total area</label>
+  <br><input type="number" min="1" max="500000" step="1" value="40000" size="30" name="Landuse2" >
      <br><label>Hyrdologic Soil Group</label>
   <br><select width=200px>
         <option   value="A" name="NH Type 2 Soil Group" selected>A</option>
         <option  value ="B" name="NH Type 2 Soil Group">B</option>
-        <option  value ="C" name="NH Type 2 Soil GRoup">C</option>
-  </select>
-   <br><label>Lot Size [hectres]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse2" >
-  <br><label>Curve Number Value [CN]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN2" >
+        <option  value ="C" name="NH Type 2 Soil Group">C</option>
+	<option  value ="D" name="NH Type 2 Soil Group">D</option> 
+ </select>
+    <br><label>Curve Number Value [CN]</label>
+  <br><input type="number" min="0" max="100" step="1" value="95" size="30" name="CN2" >
 </td>
 <td class="formsection2">
 <h3>Type 3</h3>
-   <label>Land Use</label>
-  <br><select width=200px>
-        <option   value="Ductile Iron" name="NH Type 3 Land Use" selected>Industrial</option>
-        <option  value ="Value2" name="NH Type 3 Land Use">B</option>
-        <option  value ="Value3" name="NH Type 3 Land Use">C</option>
-  </select>
+   <label>Total Area</label>
+   <br><input type="number" min="1" max="500000" step="1" value="40000" size="30" name="Landuse3" >
+
      <br><label>Hyrdologic Soil Group</label>
   <br><select width=200px>
         <option   value="A" name="NH Type 3 Soil Group" selected>A</option>
         <option  value ="B" name="NH Type 3 Soil Group">B</option>
-        <option  value ="C" name="NH Type 3 Soil GRoup">C</option>
+        <option  value ="C" name="NH Type 3 Soil Group">C</option>
+	<option  value ="D" name="NH Type 3 Soil Group">D</option> 
   </select>
-   <br><label>Lot Size [hectres]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse3" >
-  <br><label>Curve Number Value [CN]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN3" >
+     <br><label>Curve Number Value [CN]</label>
+  <br><input type="number" min="0" max="100" step="1" value="95" size="30" name="CN3" >
 </td>
 </td>
 <td  class="formsection2">
 <h3> Type 4</h3>
-   <label>Land Use</label>
-  <br><select width=200px>
-        <option   value="Ductile Iron" name="NH Type 4 Land Use" selected>Industrial</option>
-        <option  value ="Value2" name="NH Type 4 Land Use">B</option>
-        <option  value ="Value3" name="NH Type 4 Land Use">C</option>
-  </select>
+    <label>Total Area</label>
+   <br><input type="number" min="1" max="500000" step="1" value="0" size="30" name="Landuse4" >
      <br><label>Hyrdologic Soil Group</label>
   <br><select width=200px>
         <option   value="A" name="NH Type 4 Soil Group" selected>A</option>
         <option  value ="B" name="NH Type 4 Soil Group">B</option>
-        <option  value ="C" name="NH Type 4 Soil GRoup">C</option>
+        <option  value ="C" name="NH Type 4 Soil Group">C</option>
+	 <option  value ="D" name="NH Type 4 Soil Group">D</option>
   </select>
-   <br><label>Lot Size [hectres]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Landuse4" >
   <br><label>Curve Number Value [CN]</label>
   <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="CN4" >
 </td>
 </tr>
 <tr>
 <td valign="top" class="formsection2">
-<label><b>Permeable Pavement</b></label><input type="checkbox" value="Permeable Pavement" __name="Permeable Pavement">
+<label><b>Permeable Pavement</b></label><input type="checkbox" checked" name="Permeable Pavement">
  <br><label>Curve Number Value[CN]</label>
-  <br><input type="range" min="0" max="100" value="50" class="slider-width" name="PP CN Value">
+  <br><input type="range" min="0" max="100" value="98" class="slider-width" name="PP CN Value">
   <br><label>Permeable Pavement Footprint [m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Footproint" >
+  <br><input type="number" min="0" max="100000" step="1" value="3000" size="30" name="PP Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Design and Capital Costs" >
+  <br><input type="number" min="0" max="5000" step="1" value="1200" size="30" name="PP Design and Capital Costs" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="PP Annual Maintenance Cots" >
+  <br><input type="number" min="0" max="100" step="1" value="150" size="30" name="PP Annual Maintenance Cots" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="PP Construction GHG" >
+  <br><input type="number" min="0" max="50" step="0.1" value="29.2" size="30" name="PP Construction GHG" >
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Permeable Pavement']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='PP Footprint']").val('0');
+     	$("input[name='PP Construction GHG']").val('0');
+	$("input[name='PP Design and Capital Costs']").val('0');
+	$("input[name='PP Annual Maintenance Costs']").val('0');
+        }
+     });
+});
+</script>
+
+
 <td class="formsection2">
-<label><b>Green Roofs</b></label><input type="checkbox" value="Green Roofs" __name="Green Roofs">
+<label><b>Green Roofs</b></label><input type="checkbox" checked name="Green Roofs">
   <br><label>Curve Number Value[CN]</label>
-  <br><input type="range" min="0" max="100" value="50" class="slider-width" name="Green Roof CN Values">
+  <br><input type="range" min="0" max="100" value="78" class="slider-width" name="Green Roof CN Values">
   <br><label>Green Roof Footprint [m2]</label>
-  <br><input type="number" min="0" max="100000" step="1" value="0" size="30" name="Green Roof Footprint" >
+  <br><input type="number" min="0" max="100000" step="1" value="80000" size="30" name="Green Roof Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Greeen Roof Design and Capital Costs" >
+  <br><input type="number" min="0" max="10000" step="100" value="4000" size="30" name="Green Roof Design and Capital Costs" >
   <br><label>Runoff Coefficient for Green Roofs [Dmnls]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Greeen Roof C Coefficient" >
+  <br><input type="number" min="0" max="100" step="1" value="75" size="30" name="Green Roof C Coefficient" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Green Roof Annual Maintenance Costs" >
+  <br><input type="number" min="0" max="10000" step="10" value="500" size="30" name="Green Roof Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Green Roof Construction GHG" >
+  <br><input type="number" min="0" max="50" step="0.1" value="28.1" size="30" name="Green Roof Construction GHG" >
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Green Roofs']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='Green Roof Footprint']").val('0');
+     	$("input[name='Green Roof Construction GHG']").val('0');
+	$("input[name='Green Roof C Coefficient']").val('0');
+
+	$("input[name='Green Roof Design and Capital Costs']").val('0');
+	$("input[name='Green Roof Annual Maintenance Costs']").val('0');
+        }
+     });
+});
+</script>
+
+
 <td class="formsection2">
-<label><b>Rain Barrels and Cisterns</b></label><input type="checkbox" value="Rain Barrels and Cisterns" __name="Rain Barrels and Cisterns">
+<label><b>Rain Barrels and Cisterns</b></label><input type="checkbox" checked name="Rain Barrels and Cisterns">
   <br><label>Curve Number Value[CN]</label>
   <br><input type="range" min="0" max="100" value="85" class="slider-width" name="RB and Cistern CN Value">
   <br><label>Rain Barrels and Cisterns Footprint [m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RB and Cistern Footprint" >
+  <br><input type="number" min="0" max="500000" step="1" value="1000" size="30" name="RB and Cistern Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RB Design and Capital Costs" >
+  <br><input type="number" min="0" max="5000" step="1" value="700" size="30" name="RB Design and Capital Costs" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RB and Cistern Annual Maintenance Costs" >
+  <br><input type="number" min="0" max="5000" step="1" value="1250" size="30" name="RB and Cistern Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RH System Construction GHG" >
+  <br><input type="number" min="0" max="10000" step="0.01" value="20.15" size="30" name="RH System Construction GHG" >
+<br><label>RB and Cistern Storage Volume</label>
+  <br><input type="number" min="0" max="10000" step="0.01" value="2000" size="30" name="RB and Cistern Storage Volume" >
+
+
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Rain Barrels and Cisterns']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+	$("input[name='RB and Cistern Footprint']").val('0');
+     	$("input[name='RH System Construction GHG']").val('0');
+	$("input[name='RB Design and Capital Costs']").val('0');
+	$("input[name='RB and Cistern Annual Maintenance Costs']").val('0');
+	$("input[name='RB and Cistern Storage Volume']").val('0');
+
+        }
+     });
+});
+</script>
+
+
+
 <td valign="top"  class="formsection2">
-<label><b>Bioretention and Rain Gardens</b></label><input type="checkbox" value="Bioretention and Rain Gardens" __name="Bioretention and Rain Gardens">
+<label><b>Bioretention and Rain Gardens</b></label><input type="checkbox" checked name="Bioretention and Rain Gardens">
 <br><label>Curve Number Value[CN]</label>
-  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="Bioretention CN Value">
+  <br><input type="range" min="0" max="100" value="45" class="slider-width" name="Bioretention CN Value">
   <br><label>Bioretention and RG Footprint [m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Biortention Footprint" >
+  <br><input type="number" min="0" max="50000" step="1" value="3000" size="30" name="Biortention Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioretenion Design and Capital Costs" >
+  <br><input type="number" min="0" max="5000" step="1" value="1000" size="30" name="Bioretenion Design and Capital Costs" >
   <br><label>Annual Maintenance COst [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Biortention Annual Maintenance Costs" >
+  <br><input type="number" min="0" max="50000" step="1" value="5000" size="30" name="Biortention Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioretention Construction GHG" >
+  <br><input type="number" min="0.1" max="5" step="0.0001" value=".2115" size="30" name="Bioretention Construction GHG" >
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Bioretention and Rain Gardens']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='Bioretention Footprint']").val('0');
+	$("input[name='Bioretention Design and Capital Costs']").val('0');
+	$("input[name='Bioretention Roof Annual Maintenance Costs']").val('0');
+        }
+     });
+});
+</script>
+
 <td class="formsection2">
-<label><b>Bioswales</b></label><input type="checkbox" name ="Bioswales" value="Bioswales" __name="Bioswales">
+<label><b>Bioswales</b></label><input type="checkbox" name ="Bioswale" checked ">
 <br>  <label>Curve Number Value[CN]</label>
-  <br><input type="range" min="1" max="100" value="50" class="slider-width" name="Bioswale CN Value">
+  <br><input type="range" min="0" max="100" value="42" class="slider-width" name="Bioswale CN Value">
   <br><label>Bioswale Footprint [m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioswale Footprint" >
+  <br><input type="number" min="0" max="15000" step="1" value="3000" size="30" name="Bioswale Footprint" >
   <br><label>Design and Construction Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioswale Design and Capital Costs" >
+  <br><input type="number" min="0" max="5000" step="1" value="1000" size="30" name="Bioswale Design and Capital Costs" >
   <br><label>Annual Maintenance Cost [$/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="Bioswale Annual Maintenance Costs" >
+  <br><input type="number" min="0" max="500" step="1" value="100" size="30" name="Bioswale Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="Bioswale Construction GHG" >
+  <br><input type="number" min="0.1" max="5" step="0.001" value="0.2115" size="30" name="Bioswale Construction GHG" >
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Bioswale']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='Bioswale Footprint']").val('0');
+	$("input[name='Bioswale Design and Capital Costs']").val('0');
+	$("input[name='Bioswale Roof Annual Maintenance Costs']").val('0');
+       	$("input[name='Bioswale Construction GHG']").val('0');
+
+	 }
+     });
+});
+</script
 </tr>
 <tr>
 <td valign="top" class="formsection2">
@@ -1595,8 +1694,53 @@ close
 <br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Flexibility and Reliability"><br>
 </td>
 </tr>
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="NeighborhoodHydrologyQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
+</form>
+<script>
+  $("#NeighborhoodHydrologyQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  
+  $("form#NeighborhooldHydrologyForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
+
+ 
+
+</script>
+
+
 </div>
+
+<!-- ****** END OF NEIGHBORHOOD HYDROLOGY   ***************    -->
+
+
+<!-- ******************************************************    -->
+<!-- *****     BEGINNING OF REUSE RECYCLE SYSTEMS     *****    -->
+<!-- ******************************************************    -->
+
 <a class="popup-trigger" rel="nofollow">Reuse/Recycle Systems</a>
 <br>
 <div class="popup" style="height:550px;">
@@ -1840,7 +1984,7 @@ $(window).bind('scroll', function() {
          $('.popup').hide();
         });
         $('.popup-btn-close').click(function(e){
-          $(this).parent().parent().parent().parent().parent().hide();
+          $(this).parent().parent().parent().parent().hide();
         });
         $('.popup').click(function(e){
           e.stopPropagation();

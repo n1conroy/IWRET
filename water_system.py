@@ -22,7 +22,7 @@ app = Flask (__name__, template_folder=templateDir);
 def draw_figs(data):
     with lock:
         fig, ax = plt.subplots()
-   
+        fig=plt.figure(figsize=(2,2))
 
 
         output_fields = ['SF Stock of Units','MF Stock of Units',
@@ -34,7 +34,7 @@ def draw_figs(data):
             w = csv.DictWriter(f, data.keys())
             w.writeheader()
             w.writerow(data)
-	model = pysd.read_vensim ('IWRET_8_ElFee.mdl')
+	model = pysd.read_vensim ('IWRET_10.mdl')
         # remove all checkbox elements
 	for k,v in data.items():
             if v == 'on' or k=='undefined':
