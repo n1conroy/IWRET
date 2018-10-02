@@ -115,7 +115,7 @@ close
 <br><label>Average Size of a Lot [m2]</label>
   <br><input type="number" min="0" max="1000" step="10" value="400" size="30" name="SF Average Lot Size" >
  <br><label>Lawn area [%]</label>
-  <br><input type="number" min="0" max="1" step=".1" value="1" size="30" name="SF Lawn Area" >
+  <br><input type="number" min="0" max="1" step="1" value="1" size="30" name="SF Lawn Area" >
  <br><label>Average Occupancy [Persons]</label>
   <br><input type="number" min="0.5" max="5" step=".1" value="2.2" size="30" name="SF Average Occupancy per Unit" >
 </td>
@@ -727,6 +727,7 @@ close
   <br><input type="number" min="0" max="100" step="1" value="53" size="10" name="SF Toilet Demand" >
   <br><label">Other Demand[l/capita/day]</label>
   <br><input type="number" min="0" max="100" step="1" value="25" size="10" name="SF Other" >
+
 </td>
 <td class="formsection2">
  <label><b>Multi Family Unit</b></label>
@@ -743,12 +744,11 @@ close
   <br><label>Leaks[l/capita/day]</label>
   <br><input type="number" min="0" max="100" step="1" value="20" size="10" name="MF Leaks" >
   <br> <label>Toilet Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="53" size="10" __name="MF Toilet Demand" >
-  <br><label">Other Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="25" size="10" __name="MF Other" >
+  <br><input type="number" min="0" max="100" step="1" value="53" size="10" name="MF Toilet Demand" >
 </td>
 <td class="formsection2">
-  <label><b>Water Efficiency Reduction Coeff</b></label><input type="checkbox" checked name="WD Water Efficiency Reduction Coeff"> 
+  <label><b>Water Efficiency Reduction Coeff</b></label>
+  <input type="checkbox" checked name="WD Water Efficiency Reduction Coeff"> 
   <br><label>Faucet [%]</label>
   <br><input type="number" min="0.0" max="1" step=".1" value="0.8" size="30" name="SF WEC Faucet" >
   <br><label>Shower [%]</label>
@@ -823,7 +823,7 @@ $(document).ready(function(){
   <br><input type="range" min="0.0" step="0.1" max="1" value ="0.5" class="slider-width" name="SF Rate of Adoption">
   <br><label>Multi-family Units[%]</label>
   <br><input type="range" min="0.0" step="0.1" max="1"  value="0.5" class="slider-width" name="MF Rate of Adoption">
-<!-- Custom Field Autofill script -
+<!-- Custom Field Autofill script -->
 <script>
 $(document).ready(function(){
  $("input[name='WD Water Conservation Adoption Rate']").change(function() {
@@ -842,9 +842,6 @@ $(document).ready(function(){
   <br><input type="number" min="0" max="500000" step="100" value="25000" size="30" name="Public spaces for Irrigation" >
   <br><label>Public spaces for irrigation in neighborhood[l/m2/day]</label>
   <br><input type="number" min="0" max="200" step="1" value="70" size="30" name="Unit Irrigation Demand" >
-  <!--<br><label>Unit Demand for Lawn Irrigation [l/m2/day]/label>
-  <br><input type="number" min="0" max="200" step="1" value="70" size="30" name="Unit Lawn Irrigation Demand" >
-  -->
 </td>
 <td class="formsection2">
   <label><b>Hospitals  </b></label><input type="checkbox" checked name="WD Hospitals">
@@ -882,7 +879,7 @@ $(document).ready(function(){
   <br><label>Industrial Area [m2]</label>
   <br><input type="number" min="0" max="500000" step="100" value="10000" size="30" name="Industrial Floor Area" >
   <br><label>Industrial unit demand per m2 [l/m2/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="180" size="30" __name="Unit Industrial Demand" >
+  <br><input type="number" min="0" max="200" step="1" value="180" size="30" name="Unit Industrial Demand Per Floor Area" >
 <script>
 $(document).ready(function(){
   $("input[name='WD Industrial Demand']").change(function() {
@@ -927,9 +924,9 @@ $(document).ready(function(){
   <br><label>Unit Demand[l/capita/day]</label>
   <br><input type="number" min="0" max="200" step=".1" value="4.2" size="30" name="OB Unit Demand per m2" >
   <br><label>Variation Coefficient Upper [Dmnls]</label>
-  <br><input type="number" min="0" max="2" step=".01" value="0.8" size="30" name="OB Upper VC" >
+  <br><input type="number" min="0" max="2" step=".01" value="1.25" size="30" name="OB Upper VC" >
     <br><label>Variation Coefficient Lower [Dmnls]</label>
-  <br><input type="number" min="0" max="2" step=".01" value="1.25" size="30" name="OB Lower VC" >
+  <br><input type="number" min="0" max="2" step=".01" value="0.85" size="30" name="OB Lower VC" >
 <!-- Custom Field Autofill script -->
 <script>
 $(document).ready(function(){
@@ -993,7 +990,7 @@ $(document).ready(function(){
 <td class="formsection2">
  <label><b>Daycares </b></label><input type="checkbox" checked name="WD Daycares"> 
   <br>label>Number of Children [#]</label>
-  <br><input type="number" min="0" max="50000" step="10" value="550" size="30" name="Number of Children" >
+  <br><input type="number" min="0" max="2000" step="10" value="550" size="30" name="Number of Children" >
   <br><label>Demand per Child [l/child/day]</label>
   <br><input type="number" min="0" max="200" step="1" value="25" size="30" name="Unit Demand per Child" >
   <br><label>Variation Coefficient Upper</label>
@@ -1059,7 +1056,7 @@ $(document).ready(function(){
 </script>
 </td>
 <td class="formsection2"> 
-<label><b>HVAC </b></label> <input type="checkbox"__name="HVAC"> 
+<label><b>HVAC </b></label> 
   <br><label>Demand in litres per hour [Litres/hour]</label>
   <br><input type="number" min="0" max="5000" step="10" value="250" size="30" name="Full Load Water Use" >
   <br><label>Hours of operation per day [Hours]</label>
@@ -1098,17 +1095,12 @@ $(document).ready(function(){
      }
    });
 });
-
- 
-
 </script>
+<!--- ******** END OF WATER DEMAND  ************                    ------->
 
-<!--- ******** END OF WATER DEMAND  ************ ------->
-
-
-<!-- ******************************************************    -->
+<!-- ********************************************************    -->
 <!-- *****     BEGINNING OF WASTEWATER TREATMENT WORKS     *****    -->
-<!-- ******************************************************    -->
+<!-- ********************************************************    -->
 <a class="popup-trigger" rel="nofollow">Wastewater Treatment Works</a>
 <br>
 <div class="popup" style="height:650px" >
@@ -1226,6 +1218,8 @@ close
 <a class="popup-trigger" rel="nofollow">Pumping Stations</a>
 <br>
 <div style="height:550" class="popup">
+<form id="PumpingStationsForm" method="POST">
+<input type="hidden" name="formId" value="PumpingStations">
 <table  class="formcontainer">
 <tr>
 <td>
@@ -1408,9 +1402,40 @@ $(document).ready(function(){
 });
 </script>
 </tr>
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="PumpingStationsQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
 </div>
-<!---- ******* END OF WATER TREATMENT WORKS    ******       --------!>
+
+<script>
+  $("#PumpingStationsQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  $("form#PumpingStationsForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
+</script>
+<!---- ******* END OF PUMPING STATIONS    ******       --------!>
 
 
 <!-- *************************************************************    -->

@@ -22,106 +22,193 @@ app = Flask (__name__, template_folder=templateDir);
 def Pumpingdraw_figs(data):
     with lock:
         fig, ax = plt.subplots()
-        Pumpingoutput_fields = ['Years','SF Stock of Units','MF Stock of Units',
-                         'SF Units Total Area Occupied', 'SF Total Area for Irrigation',
-                         'SF Rate of Adoption', 'MF Rate of Adoption', 'SF Average Occupancy per Unit',
-                         'MF Average Occupancy per Unit','Domestic Demand','Irrigation Demand',
-                         'Commercial and Institutional Demand','Daily Water Demand','Result Reached System Capacity']
-        with open('water_demand.csv', 'wb') as f:  
+        with open('pumping.csv', 'wb') as f:  
             w = csv.DictWriter(f, data.keys())
             w.writeheader()
             w.writerow(data)
 	model = pysd.read_vensim ('IWRET_13.mdl')
-        # remove all checkbox elements
-	for k,v in data.items():
+        for k,v in data.items():
             if v == 'on' or k=='undefined' or k=='formId':
                del data[k]
-	modeldata = model.run(params=data,return_columns=WDoutput_fields)
-        dict_of_plots=list()
-        x1 = range(1)
-	y1 = modeldata[WDoutput_fields[0]]
-        indata=pd.DataFrame(x1,y1)
-        indata.plot(ax=ax)
-        single_chart=dict()
-        single_chart['id']="WD0"
-        #single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
-        single_chart['json']=y1
-        dict_of_plots.append(single_chart)      
-        return(dict_of_plots)
-    
-def WDdraw_figs(data):
-    with lock:
-        fig, ax = plt.subplots()
-        WDoutput_fields = ['SF Stock of Units','MF Stock of Units',
-                         'SF Units Total Area Occupied', 'SF Total Area for Irrigation',
-                         'SF Rate of Adoption', 'MF Rate of Adoption', 'SF Average Occupancy per Unit',
-                         'MF Average Occupancy per Unit','Domestic Demand','Irrigation Demand',
-                         'Commercial and Institutional Demand','Daily Water Demand','Result Reached System Capacity']
-        with open('water_demand.csv', 'wb') as f:  
-            w = csv.DictWriter(f, data.keys())
-            w.writeheader()
-            w.writerow(data)
-	model = pysd.read_vensim ('IWRET_13.mdl')
-        # remove all checkbox elements
-	for k,v in data.items():
-            if v == 'on' or k=='undefined' or k=='formId':
-               del data[k]
-	#modeldata = model.run(params=data,return_columns=WDoutput_fields)
-        modeldata=model.run(return_columns=WDoutput_fields)
+        modeldata=model.run(params=data, return_columns=['Result pumping LCC'])
         dict_of_plots=list()
         x1 = range(7301)
-	y1 = modeldata[WDoutput_fields[0]]
+	y1 = modeldata['Result pumping LCC']
         indata=pd.DataFrame(x1,y1)
         indata.plot(ax=ax)
         single_chart=dict()
-        single_chart['id']="WD0"
+        single_chart['id']="Pumping1"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)      
 
-        x2 = range(731)
-	y2 = modeldata[WDoutput_fields[1]]
+        '''
+        x2 = range(7301)
+	y2 = modeldata['Result Reached System Capacity']
         indata=pd.DataFrame(x2,y2)
-        indata.plot(ax=ax)
-        single_chart=dict()
-        single_chart['id']="WD1"
-        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
-        dict_of_plots.append(single_chart)
-
-        x3 = range(731)
-	y3 = modeldata[WDoutput_fields[2]]
-        indata=pd.DataFrame(x3,y3,)
         indata.plot(ax=ax)
         single_chart=dict()
         single_chart['id']="WD2"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        
+        x3 = range(7301)
+	y3 = modeldata['MF Stock of Units']
+        indata=pd.DataFrame(x3,y3,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD3"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+
+        '''
+        return render_template("results.html", dict_of_plots=dict_of_plots)#snippet=plot_snippet)
+    
+def WDdraw_figs(data):
+    with lock:
+        fig, ax = plt.subplots()
+        with open('water_demand.csv', 'wb') as f:  
+            w = csv.DictWriter(f, data.keys())
+            w.writeheader()
+            w.writerow(data)
+	model = pysd.read_vensim ('IWRET_13.mdl')
+        # remove all checkbox elements
+	for k,v in data.items():
+            if v == 'on' or k=='undefined' or k=='formId':
+               del data[k]
+        modeldata=model.run(params=data, return_columns=[ 'MF Rate of Adoption', 'Result Reached System Capacity','MF Stock of Units','SF Stock of Units','SF Rate of Adoption','SF Average Occupancy per Unit',
+                                                          'MF Average Occupancy per Unit','Years'])
+        #modeldata=model.run(params=data, return_columns=[ 'MF Rate of Adoption', 'Result Reached System Capacity', 'MF Stock of Units','SF Stock of Units','**SF Units Total Area Occupied',
+        #                    '**SF Total Area for Irrigation', 'SF Rate of Adoption',  'SF Average Occupancy per Unit','MF Average Occupancy per Unit','***Domestic Demand','**Irrigation Demand',
+        #                    '***Commercial and Institutional Demand','***Daily Water Demand','Years'])
+        dict_of_plots=list()
+        x1 = range(7301)
+	y1 = modeldata['MF Rate of Adoption']
+        indata=pd.DataFrame(x1,y1)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD1"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)      
+        
+        x2 = range(7301)
+	y2 = modeldata['Result Reached System Capacity']
+        indata=pd.DataFrame(x2,y2)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD2"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        
+        x3 = range(7301)
+	y3 = modeldata['MF Stock of Units']
+        indata=pd.DataFrame(x3,y3,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD3"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)       
-       
-        x4 = range(731)
-	y4 = modeldata[WDoutput_fields[3]]
+        
+        x4 = range(7301)
+	y4 = modeldata['SF Stock of Units']
         indata=pd.DataFrame(x4,y4,)
         indata.plot(ax=ax)
         single_chart=dict()
-        single_chart['id']="graph_container4"
+        single_chart['id']="WD4"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)
-
-        x5 = range(731)
-	y5 = modeldata[WDoutput_fields[4]]
+        '''
+        x5 = range(7301)
+	y5 = modeldata['SF Units Total Area Occupied']
         indata=pd.DataFrame(x5,y5,)
         indata.plot(ax=ax)
         single_chart=dict()
-        single_chart['id']="graph_container5"
+        single_chart['id']="WD5"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)
-
-        x6 = range(731)
-	y6 = modeldata[WDoutput_fields[5]]
+        
+        x6 = range(7301)
+	y6 = modeldata['SF Total Area for Irrigation']
         indata=pd.DataFrame(x6,y6,)
         indata.plot(ax=ax)
         single_chart=dict()
-        single_chart['id']="graph_container6"
+        single_chart['id']="WD6"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)
+        '''
+        x7 = range(7301)
+	y7 = modeldata['SF Rate of Adoption']
+        indata=pd.DataFrame(x7,y7,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD7"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        
+        x8 = range(7301)
+	y8 = modeldata['SF Average Occupancy per Unit']
+        indata=pd.DataFrame(x8,y8,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD8"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+
+        x9 = range(7301)
+	y9 = modeldata['MF Average Occupancy per Unit']
+        indata=pd.DataFrame(x9,y9,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD9"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        '''
+        x10 = range(7301)
+	y10 = modeldata['Domestic Demand']
+        indata=pd.DataFrame(x10,y10,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD10"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        
+
+        x11 = range(7301)
+	y11 = modeldata['Irrigation Demand']
+        indata=pd.DataFrame(x11,y11,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD11"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        
+        x12 = range(7301)
+	y12 = modeldata['Commercial and Institutional Demand']
+        indata=pd.DataFrame(x12,y12,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD12"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        
+
+        x13 = range(7301)
+	y13 = modeldata['Daily Water Demand']
+        indata=pd.DataFrame(x13,y13,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD13"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        '''
+        x14 = range(7301)
+	y14 = modeldata['Years']
+        indata=pd.DataFrame(x14,y14,)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="WD14"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)
+        
         return render_template("results.html", dict_of_plots=dict_of_plots)#snippet=plot_snippet)
 
 
@@ -134,7 +221,6 @@ def home():
 @app.route('/query', methods=['POST'])
 def query():
    d = json.loads(request.data)
-   
    data= ast.literal_eval(json.dumps(d))
    
    if data['formId']=='WaterDemand':
@@ -150,7 +236,7 @@ def query():
    elif data['formId']=='WastewaterTreatmentWorks':
         return WDdraw_figs(data)
    elif data['formId']=='PumpingStations':
-        return WDdraw_figs(data)
+        return Pumpingdraw_figs(data)
    elif data['formId']=='NeighborhoodHydrology':
         return WDdraw_figs(data)
    elif data['formId']=='ReuseRecycleSystems':
