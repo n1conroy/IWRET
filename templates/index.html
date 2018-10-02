@@ -37,10 +37,6 @@
 </tr>
 
 <tr>
-<!-- ********************************************************************** 		 --->
-<!-- **********		BEGINNING OF OUTPUT SECTION	 ******************		 --->
-<!-- ********************************************************************** 		 --->
-
 
 <td style={height:700px;} colspan="2"  >
 <div>
@@ -63,11 +59,6 @@
 </div>
 </td>
 
-
-<!-- **************END OF OUTPUT SECTION ****************************  --->
-
-
-
 <td rowspan=2 valign=top id="mainmenu">
 <br>
 <center>MAIN MENU
@@ -86,6 +77,9 @@
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
 <div class="popup" style="height:600px;">
+<form id="NeighborhoodPropertiesForm" method="POST">
+<input type="hidden" name="formId" value="NeighborhoodProperties">
+
 <table class="formcontainer" >
 <tr>
 <td>
@@ -103,7 +97,7 @@ close
 <label>Project Information</label>
   <br><input type="text"  value="Name of Neighborhood" size="30" name="NP Project Information" >
 </td><td><label>Simulation Time [years]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="NP Simulation Time" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="NP Simulation Time" >
  </td><td> <label>Project Title</label>
   <br><input type="text" value="Scenario" size="30" name="NP Project Title" >
 </td></tr></table>
@@ -113,7 +107,7 @@ close
 <td rowspan=2 class=formsection2>
 <h3>Single Family Units</h3>
  <label>Initial Number of Units [%]</label>
-  <br><input type="number" min="0" max="10000" step="100" value="3000" size="30" name="SF Initial Sock of Units" >
+  <br><input type="number" min="0" max="10000" step="100" value="3000" size="30" name="SF Initial Stock of Units" >
  <br><label>Number of Units Decomissioned per Year [#]</label>
   <br><input type="number" min="0" max="1000" step="100" value="0" size="30" name="SF Decommissioned Units Annually" >
  <br><label>Number of Units Built per Year [#]</label>
@@ -128,9 +122,9 @@ close
 <td class=formsection2 valign=top>
 <h3> Multi Family Units</h3>
 <label>Initial Number of Units [%]</label>
-  <br><input type="number" min="0" max="10000" step="100" value="0" size="30" name="MF Inital Stock of Units" >
+  <br><input type="number" min="0" max="10000" step="100" value="0" size="30" name="MF Initial Stock of Units" >
  <br><label>Number of Units Decomissioned per Year [#]</label>
-  <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="MF Units Decommissioned Annually" >
+  <br><input type="number" min="0" max="1000" step="1" value="0" size="30" name="MF Decommissioned Units Annually" >
  <br><label>Number of Units Built per Year [#]</label>
   <br><input type="number" min="0" max="1000" step="1" value="150" size="30" name="MF New Units Annually" >
  <br><label>Average Occupancy [Persons]</label>
@@ -158,8 +152,44 @@ close
 <label for="file_input_id">Import Climate Data from File ..</label><input type="file" name="NP Climate Data File">
 </td>
 </tr>
+</tr>
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="NeighborhoodPropertiesQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
 </div>
+</form>
+<script>
+  $("#NeighborhoodPropertiesQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  $("form#NeighborhoodPropertiesForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
+
+ 
+
+</script>
+
 <!-- *** END OF NEIGHBOURHOOD PROPERTIES ****		       -->
 
 <!-- ******************************************************    -->
@@ -453,7 +483,7 @@ close
 </table>
 
 </div>
-
+</form>
 <script>
   $("#WaterTreatmentWorksQuery").click(function() {  
   $(this).parent().parent().parent().parent().parent().parent().hide();
@@ -657,6 +687,7 @@ close
 </td>
 </tr>
 </table>
+</form>
 </div>
 <!-- ******** END OF SEWER COLLECTION NETWORK  ********        -->
 
@@ -668,6 +699,7 @@ close
 <br>
 <div class="popup" id="Water Demand Popup" style="height:500">
 <form id="WaterDemandForm" method="POST">
+<input type="hidden" name="formId" value="WaterDemand">
 <table  class="formcontainer">
 <tr><td>
 <h3 id="myModalLabel">Water Demand</h3>
@@ -677,7 +709,8 @@ close
 </td>
 </tr>
 <td class="formsection2">
- <label><b>Single Family Units  </b></label><input type="checkbox" __name="WD Single Family Units">
+ <label><b>Single Family Units  </b></label>
+  <!--<input type="checkbox" checked name="WD Single Family Units">-->
   <br><label>Faucet Demand[l/capita/day]</label>
   <br><input type="number" min="0" max="100" step="1"  value="29" size="30" name="SF Faucet Demand" >
   <br><label>Shower Demand[l/capita/day]</label>
@@ -696,7 +729,7 @@ close
   <br><input type="number" min="0" max="100" step="1" value="25" size="10" name="SF Other" >
 </td>
 <td class="formsection2">
- <label><b>Multi Family Unit</b></label><input type="checkbox" __name="WD Multi Family Units">
+ <label><b>Multi Family Unit</b></label>
   <br><label>Faucet Demand[l/capita/day]</label>
   <br><input type="number" min="0" max="100" step="1" value="29" size="30" name="MF Faucet Demand" >
   <br><label>Shower Demand[l/capita/day]</label>
@@ -710,7 +743,7 @@ close
   <br><label>Leaks[l/capita/day]</label>
   <br><input type="number" min="0" max="100" step="1" value="20" size="10" name="MF Leaks" >
   <br> <label>Toilet Demand[l/capita/day]</label>
-  <br><input type="number" min="0" max="100" step="1" value="53" size="10" name="MF Toilet Demand" >
+  <br><input type="number" min="0" max="100" step="1" value="53" size="10" __name="MF Toilet Demand" >
   <br><label">Other Demand[l/capita/day]</label>
   <br><input type="number" min="0" max="100" step="1" value="25" size="10" __name="MF Other" >
 </td>
@@ -773,11 +806,11 @@ $(document).ready(function(){
      	alert("Overriding the default values for "+this['name']);
          $("input[name='MF WEC Faucet']").val('1');
      	 $("input[name='MF WEC Shower']").val('1');
-		 $("input[name='MF WEC Dishwasher']").val('1');
-		 $("input[name='MF WEC Bathtub']").val('1');
-		 $("input[name='MF WEC Clothes Washer']").val('1');
-		 $("input[name='MF WEC Toilet']").val('1');
-		 $("input[name='MF WEC Leaks']").val('1');
+	 $("input[name='MF WEC Dishwasher']").val('1');
+	 $("input[name='MF WEC Bathtub']").val('1');
+	 $("input[name='MF WEC Clothes Washer']").val('1');
+	 $("input[name='MF WEC Toilet']").val('1');
+	 $("input[name='MF WEC Leaks']").val('1');
     } 
      });
 });
@@ -787,10 +820,10 @@ $(document).ready(function(){
 <td class= "formsection2">
    <label><b> Water Conservation adoption rate<b></label><input type="checkbox" checked name="WD Water Conservation Adoption Rate">
   <br><label>Single-family Units [%] </label>
-  <br><input type="range" min="0.0" step=".1" max="1" value ="0.5" class="slider-width" name="SF Rate of Adoption">
+  <br><input type="range" min="0.0" step="0.1" max="1" value ="0.5" class="slider-width" name="SF Rate of Adoption">
   <br><label>Multi-family Units[%]</label>
-  <br><input type="range" min="0.0" step=".1" max="1"  value ="0.5" class="slider-width" name="MF Rate of Adoption">
-<!-- Custom Field Autofill script -->
+  <br><input type="range" min="0.0" step="0.1" max="1"  value="0.5" class="slider-width" name="MF Rate of Adoption">
+<!-- Custom Field Autofill script -
 <script>
 $(document).ready(function(){
  $("input[name='WD Water Conservation Adoption Rate']").change(function() {
@@ -849,15 +882,14 @@ $(document).ready(function(){
   <br><label>Industrial Area [m2]</label>
   <br><input type="number" min="0" max="500000" step="100" value="10000" size="30" name="Industrial Floor Area" >
   <br><label>Industrial unit demand per m2 [l/m2/day]</label>
-  <br><input type="number" min="0" max="200" step="1" value="180" size="30" name="Unit Industrial Demand" >
-<!-- Custom Field Autofill script -->
+  <br><input type="number" min="0" max="200" step="1" value="180" size="30" __name="Unit Industrial Demand" >
 <script>
 $(document).ready(function(){
   $("input[name='WD Industrial Demand']").change(function() {
      if(!this.checked) {
         alert("Overriding the default values for "+this['name']);
          $("input[name='Industrial Floor Area']").val('0');
-         $("input[name='Unit Industrial Demand Per Floor Area']").val('0');
+         $("input[name='Unit Industrial Demand']").val('0');
             }
      });
 });
@@ -951,7 +983,6 @@ $(document).ready(function(){
         alert("Overriding the default values for "+this['name']);
          $("input[name='Restaurant Seats']").val('0');
          $("input[name='Unit Demand per Seat']").val('0');
-         
             }
      });
 });
@@ -1047,11 +1078,8 @@ $(document).ready(function(){
   $("#WaterDemandQuery").click(function() {  
   $(this).parent().parent().parent().parent().parent().parent().hide();
   $("#loading-div-background").show();
-
-
   $(".mainpic").hide();
   var qu ={};
-  
   $("form#WaterDemandForm :input").each(function() {
         qu[$(this).attr("name")] = $(this).val();
   });
@@ -1404,8 +1432,6 @@ close
 </td>
 </tr>
 <td valign="top"  class="formsection2">
-
-
 <h3>Type 1</h3>
    <label>Total Area</label>
   <br><input type="number" min="1" max="500000" step="1" value="12000" size="30" name="Landuse1" >
@@ -1415,7 +1441,6 @@ close
         <option  value ="B" name="NH Type 1 Soil Group">B</option>
         <option  value ="C" name="NH Type 1 Soil Group">C</option>
 	<option  value ="D" name="NH Type 1 Soil Group">D</option>
-
   </select>
      <br><label>Curve Number Value [CN]</label>
   <br><input type="number" min="0" max="100" step="1" value="92" size="30" name="CN1" >
@@ -1509,7 +1534,7 @@ $(document).ready(function(){
   <br><label>Construction GHG [kgCO2eg/m2]</label>
   <br><input type="number" min="0" max="50" step="0.1" value="28.1" size="30" name="Green Roof Construction GHG" >
 </td>
-<script>
+<script> 
 $(document).ready(function(){
   $("input[name='Green Roofs']").change(function() {
      if(!this.checked) {
@@ -1558,9 +1583,6 @@ $(document).ready(function(){
      });
 });
 </script>
-
-
-
 <td valign="top"  class="formsection2">
 <label><b>Bioretention and Rain Gardens</b></label><input type="checkbox" checked name="Bioretention and Rain Gardens">
 <br><label>Curve Number Value[CN]</label>
@@ -1586,7 +1608,6 @@ $(document).ready(function(){
      });
 });
 </script>
-
 <td class="formsection2">
 <label><b>Bioswales</b></label><input type="checkbox" name ="Bioswale" checked ">
 <br>  <label>Curve Number Value[CN]</label>
@@ -1613,7 +1634,7 @@ $(document).ready(function(){
 	 }
      });
 });
-</script
+</script>
 </tr>
 <tr>
 <td valign="top" class="formsection2">
@@ -1743,7 +1764,8 @@ $(document).ready(function(){
 
 <a class="popup-trigger" rel="nofollow">Reuse/Recycle Systems</a>
 <br>
-<div class="popup" style="height:550px;">
+<div class="popup" style="height:500px;">
+<form id="ReuseRecycleSystemsForm" method="POST">
 <table class="formcontainer">
 <tr>
 <td><h3 id="myModalLabel">Reuse/Recycle Systems</h3>
@@ -1753,157 +1775,228 @@ close
 </td>
 <tr>
 <td class="formsection2">
-<label><b>Rainwater Harvesting </b></label><input type="checkbox" __name="Rainwater Harvesting" >
+<label><b>Rainwater Harvesting Scheme </b></label><input type="checkbox" checked name="Rainwater Harvesting Scheme" >
 <br><label>Runoff Coefficient for Imper. Areas [C]</label>
-<br><input type="range" min="1" max="100" class="slider-width" name="IA Runoff Coefficient">
+<br><input type="range" min="0" max="1" step="0.01" value= "0.75" class="slider-width" name="IA Runoff Coefficient">
 <br><label>Car Parking Lots [m2]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Parking Footprint" >
+<br><input type="number" min="0" max="100000" step="1" value="2000" size="30" name="IA Parking Footprint" >
 <br><label>Standard Roofs [m2]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Stanford Roof Footprint" >
+<br><input type="number" min="0" max="100000" step="1" value="2000" size="30" name="IA Stanford Roof Footprint" >
 <br><label>Roads and Sidewalks [m2]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Roads and Sidewalks Footprint" >
+<br><input type="number" min="0" max="100000" step="1" value="2000" size="30" name="IA Roads and Sidewalks Footprint" >
 <br><label>Percentage of IA Harvested [m2]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Percentage of Area Collected" >
-<br><label>Total Storage Capacity [m3]</label>
+<br><input type="number" min="0" max="1" step=".01" value="0.75" size="30" name="IA Percentage of Area Collected" >
+<!--<br><label>Total Storage Capacity [m3]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Storage Capacity" >
-</td>
+--></td>
+<script>
+$(document).ready(function(){
+  $("input[name='Rainwater Harvesting Scheme']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='IA Percentage of Area Collected']").val('0');
+	 }
+     });
+});
+</script>
+
 <td class="formsection2">
-<label><b>Greywater Reuse GWR) </b></label><input type="checkbox" __name="Greywater Reuse" >
+<label><b>Greywater Reuse GWR) </b></label><input type="checkbox" checked name="Greywater Reuse" >
 <br><label>Average Tank Volume [m3]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Average SIze of Tank" >
+<br><input type="number" min="0" max="200" step="1" value="50" size="30" name="GWS Average Size of Tank" >
 <br><label>Number of Tanks [m2]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Number of Tanks" >
+<br><input type="number" min="0" max="10" step="1" value="2" size="30" name="GWS Number of Tanks" >
 <br><label>Capital Costs [$]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Installation Costs" >
+<br><input type="number" min="0" max="100000" step="1" value="50000" size="30" name="GWS Installation Costs" >
 <br><label>Annual Maintenance Costs [$]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Annual Maintenance Costs" >
-<br><label>Total Storage Capacity [m3]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Total Storage Capacity" >
+<br><input type="number" min="0" max="25000" step="1" value="10000" size="30" name="GWS Annual Maintenance Costs" >
 <br><label>Costs of Plumbing [$/m2]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Plumbing Costs per m2" >
+<br><input type="number" min="0" max="25000" step="1" value="1250" size="30" name="GWS Plumbing Costs per m2" >
 <br><label>New Plumbing Area [m2]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWS Plumbing Area" >
+<br><input type="number" min="0" max="200000" step="1" value="60000" size="30" name="GWS Plumbing Area" >
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Greywater Ruse']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='GWS Average Size of Tank']").val('0');
+        $("input[name='GWS Number of Tanks']").val('0');
+        $("input[name='GWS Installation Costs']").val('0');
+        $("input[name='GWS Annual Maintenance Costs']").val('0');
+        $("input[name='GWS Plumbing Costs per m2']").val('0');
+        $("input[name='GWS Plumbing Area']").val('0');
+	 }
+     });
+});
+</script>
 <td  class="formsection2">
-<label><b>Living Machines (LM) </b></label><input type="checkbox" __name="Living Machines" >
-<br><label>Number of LM [#]</label>
-<br><input type="number" min="1" max="100" class="slider-width" name="LN Number of LM">
-<br><label>Total Daily Treatment Capacity [m3/day]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Maximum Daily Capacity" >
-<br><label>Energy Required for Treatment [kWh/m3]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM kWh per m3" >
-<br><label>Annual Maintenance Costs [$/year]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Annual Maintenance" >
-<br><label>Installation and Construction Costs [$]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Installation and Construction">
-<br><label>GHG Footprint [kgCO2eq/m3]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM GHG per m3">
+<label><b>Quantity of Blackwater</b></label><input type="checkbox" checked name="Quantity of Blackwater" >
+<br><label>Percentage of total water consumption in office </label>
+<br><input type="number" min="0" max="1" step="0.01" value="0.32" size="30" name="Dem OB Restroom" >
+<br><label>Percentage of total water consumption in hospitals </label>
+<br><input type="number" min="0" max="1" step="0.01" value="0.45" size="30" name="Dem Hospitals Restroom" >
+<br><label>Percentage of total water consumption in schools </label>
+<br><input type="number" min="0" max="1" step="0.01" value="0.35" size="30" name="Dem Schools Restroom" >
 <br><label>Hospital Demand with LM</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Percentage for Hospitals" >
+<br><input type="number" min="0" max="100" step="1" value="0.5" size="30" name="LM Percentage for Hospitals" >
 <br><label>School Demand with LM [%]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Percentage of Schools" >
+<br><input type="number" min="0" max="1" step="0.01" value="0.88" size="30" name="LM Percentage of Schools" >
 <br><label>Office Building Demand with LM [%]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Percentage of OB" >
+<br><input type="number" min="0" max="1" step=".1" value="0.5" size="30" name="LM Percentage of OB" >
 </td>
-<td class="formsection2">
-<label><b>Membrane Bioreactor (MBR) </b></label><input type="checkbox"__name="Membrane Bioreactor" >
-<br><label>Number of LM [#]</label>
-<br><input type="number" min="1" max="100" class="slider-width" name="MBR Number of LM">
-<br><label>Total Daily Treatment Capacity [m3/day]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Maximum Daily Capacity" >
-<br><label>Energy Required for Treatment [kWh/m3]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR kWh per m3" >
-<br><label>Annual Maintenance Costs [$/year]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Annual Maintenance" >
-<br><label>Installation and Construction Costs [$]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="MBR Installation and Construction" >
-<br><label>GHG Footprint [kgCO2eq/m3]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR GHG per m3" >
-<br><label>Hospital Demand with LM</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Percentage for Hospitals" >
-<br><label>School Demand with LM [%]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Percentage for Schools" >
-<br><label>Office Building Demand with LM [%]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="MBR Percentage for OB" >
-</td>
+<script>
+$(document).ready(function(){
+  $("input[name='Quantity of Blackwater']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='Dem OB Restroom']").val('0');
+        $("input[name='LM Percentage for Hospitals']").val('0');
+        $("input[name='Dem Hospitals Restroom']").val('0');
+        $("input[name='LM Percentage for Hospitals']").val('0');
+        $("input[name='Dem Schools Restroom']").val('0');
+        $("input[name='LM Percentage of Schools']").val('0');
+	 }
+     });
+});
+</script>
 </tr>
 <tr>
 <td class="formsection2">
-<label><b>Rainwater Harvesting Pumps </b></label><input type="checkbox" __name="Rainwater Harvesting Pumps" >
+<label><b>Rainwater Harvesting Pumps </b></label><input type="checkbox" checked name="Rainwater Harvesting Pumps" >
 <br><label>Number of Pumps [No]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Number of Pumps" >
+<br><input type="number" min="0" max="20" step="1" value="2" size="30" name="RHP Number of Pumps" >
 <br><label>Average Dynamic Head [m]]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Annual Dynamic Head" >
+<br><input type="number" min="0" max="24" step="1" value="6" size="30" name="RHP Average Dynamic Head" >
 <br><label>Hours of Operation [hrs]</label>
 <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Duration of Pump Operation" >
 <br><label>Capital Costs [$]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Construction and Installation" >
+<br><input type="number" min="0" max="1000000" step="1" value="150000" size="30" name="RHP Construction and Installation" >
 <br><label>Annual Maintenance Costs [$]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="RHP Annual Maintenance" >
+<br><input type="number" min="0" max="100000" step="1" value="1500" size="30" name="RHP Annual Maintenance" >
+<br><label>Rainwater harvesting pump efficiency</label>
+<br><input type="number" min="0" max="100" step="1" value="93" size="30" name="RHP Pump Efficiency" >
+<br><label>Rainwater harvesting pump variable speed drive efficiency</label>
+<br><input type="number" min="0" max="100" step="1" value="88" size="30" name="RHP Variable Speed Drive Efficiency" >
+<br><label>Rainwater harvesting pump motor efficiency</label>
+<br><input type="number" min="0" max="100" step="1" value="88" size="30" name="RHP Motor Efficiency" >
+
 </td>
 <td class="formsection2">
-<label><b>Greywater Pumps</b></label><input type="checkbox" __name="Greywater Pumps" >
+<label><b>Greywater Pumps</b></label><input type="checkbox" checked name="Greywater System Pumps" >
 <br><label>Number of Pumps [No]</label>
-<br><input type="number" min="0" max="20" step="1" value="0" size="30" name="GWP Number of Pumps" >
-<br><label>Average Dynamic Head [m]]</label>
-<br><input type="number" min="0" max="500" step="1" value="0" size="30" name="GWP Annual Dynamic Head" >
-<br><label>Hours of Operation [hrs]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="GWP Duration of Pump Operation" >
-<br><label>Capital Costs [$]</label>
-<br><input type="number" min="0" max="10000000" step="1" value="0" size="30" name="GWP Construction and Installation" >
+<br><input type="number" min="0" max="20" step="1" value="33" size="30" name="GWP Number of Pumps" >
+<br><label>Construction and Installation Costs</label>
+<br><input type="number" min="0" max="10000000" step="1" value="28000" size="30" name="GWP Construction and Installation" >
 <br><label>Annual Maintenance Costs [$]</label>
-<br><input type="number" min="0" max="500000" step="1" value="0" size="30" name="GWP Annual Maintenance" >
+<br><input type="number" min="0" max="500000" step="1" value="3500" size="30" name="GWP Annual Maintenance" >
+<br><label>Pump efficiency coefficient</label>
+<br><input type="number" min="0" max="100" step="1" value="88" size="30" name="GWP Pump Efficiency">
+<br><label>Variable speed drive efficiency</label>
+<br><input type="number" min="0" max="500" step="1" value="85" size="30" name="GWP Variable Drive Speed Efficiency" >
+<br><label>Motor Efficiency</label>
+<br><input type="number" min="0" max="100" step="1" value="90" size="30" name="GWP Motor Efficiency">
+<br><label>Average Dynamic Head [m]]</label>
+<br><input type="number" min="0" max="500" step="1" value="35" size="30" name="GWP Average Dynamic Head" >
+<br><label>Daily duration of pump operation</label>
+<br><input type="number" min="0" max="24" step="1" value="24" size="30" name="GWP Duration of Pump Operation" >
 </td>
 <td class="formsection2">
-<label><b>Living Machines Pumps</b></label><input type="checkbox" __name="Living Machines Pumps" >
-<br><label>Number of Pumps [No]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Number of Pumps" >
-<br><label>Average Dynamic Head [m]]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="LM Average Dynamic Head" >
-<br><label>Hours of Operation [hrs]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="LM Duration of Pump Operation" >
-</td>
-<td class="formsection2">
-<label><b>Membrane Bioreactor Pumps</b></label><input type="checkbox" __name="Membrane Bioreactor Pumps" >
-<br><label>Number of Pumps [No]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Number of Pumps" >
-<br><label>Average Dynamic Head [m]]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Average Dynamic Head" >
-<br><label>Hours of Operation [hrs]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="MBR Average Dynamic Head" >
+<label><b>Blackwater Reuse</b></label><input type="checkbox" checked name="Blackwater Reuse" >
+<br><label>Installation and construction costs</label>
+<br><input type="number" min="0" max="50000" value="2500" name="LM Installation and Construction">
+<br><label>Number of LM [#]</label>
+<br><input type="number" min="1" max="20" value="10"  name="LN Number of LM">
+<br><label>Annual maintenance fees for LM</label>
+<br><input type="number" min="0" max="20000" step="1" value="8000" size="30" name="LM Annual Maintenance" >
+<br><label>GHG Footprint [kgCO2eq/m3]</label>
+<br><input type="number" min="0" max="20" step="1" value="18" size="30" name="LM GHG per m3">
+<br><label>Energy Required for Treatment [kWh/m3]</label>
+<br><input type="number" min="0" max="10" step="0.1" value="4.5" size="30" name="LM kWh per m3" >
+<br><label>Total Daily Treatment Capacity [m3/day]</label>
+<br><input type="number" min="0" max="10000" step="1" value="1000" size="30" name="LM Maximum Daily Capacity" >
 </td>
 </tr>
 <tr>
 <td class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="RWH Affordability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="RWH Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="RWH Reliability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="RWH Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="RWH Acceptability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="RWH Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="RWH Risk to Human Health"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="RWH Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="RWH Space Requirements"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="RWH Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="RWH Flexibility and Adaptability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="RWH Flexibility and Adaptability"><br>
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Rainwater Harvesting Pumps']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='RHP Annual Maintenance']").val('0');
+        $("input[name='RHP Construction and Installation']").val('0');
+        $("input[name='RHP Motor Efficiency']").val('0');
+        $("input[name='RHP Average Dynamic Head']").val('0');
+        $("input[name='RHP Duration of Pump Operation']").val('0');
+        $("input[name='RHP Number of Pumps']").val('0');
+        $("input[name='RHP Variable Speed Drive Efficiency']").val('0');
+        $("input[name='RHP Pump Efficiency']").val('0');
+	$("input[name='RWH Affordability']").val('0');
+	$("input[name='RWH Reliability']").val('0');
+	$("input[name='RWH Acceptability']").val('0');
+	$("input[name='RWH Risk to Human Health']").val('0');
+	$("input[name='RWH Space Requirements']").val('0');
+	$("input[name='RWH Flexibility and Adaptability']").val('0');
+}
+     });
+});
+</script>
+
 <td  class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="GWS Affordability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="GWS Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="GWS Reliability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="GWS Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="GWS Acceptability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="GWS Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="GWS Risk to Human Health"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="GWS Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="GWS Space Requirements"><br>
+<br><input type="range" min="1" max="5"   value="3" class="slider-width" name="GWS Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="GWS Flexibility and Adaptability"><br>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="GWS Flexibility and Adaptability"><br>
 </td>
+<script>
+$(document).ready(function(){
+  $("input[name='Greywater System Pumps']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='GWP Number of Pumps']").val('0');
+        $("input[name='GWP Construction and Installation']").val('0');
+        $("input[name='GWP Annual Maintenance']").val('0');
+        $("input[name='GWP Pump Efficiency']").val('0');
+        $("input[name='GWP Variable Drive Speed Efficiency']").val('0');
+        $("input[name='GWP Motor Efficiency']").val('0');
+        $("input[name='GWP Average Dynamic Head']").val('0');
+        $("input[name='GWP Duration of Pump Operation']").val('0');
+
+	$("input[name='GWS Affordability']").val('0');
+	$("input[name='GWS Reliability']").val('0');
+	$("input[name='GWS Acceptability']").val('0');
+	$("input[name='GWS Risk to Human Health']").val('0');
+	$("input[name='GWS Space Requirements']").val('0');
+	$("input[name='GWS Flexibility and Adaptability']").val('0');
+	 }
+     });
+});
+</script>
+
 <td class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
@@ -1919,20 +2012,34 @@ close
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="LM Flexibility and Adaptability"><br>
 </td>
-<td class="formsection2">
-<h3>Qualitative Indicators</h3>
-<label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="MBR Affordability"><br>
-<label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="MBR Reliability"><br>
-<label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="MBR Acceptability"><br>
-<label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="MBR Risk to Human Health"><br>
-<label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="MBR Space Requirements"><br>
-<label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="MBR Flexibility and Adaptability"><br>
+<script>
+$(document).ready(function(){
+  $("input[name='Blackwater Reuse']").change(function() {
+     if(!this.checked) {
+        alert("Overriding the default values for "+this['name']);
+        $("input[name='LM Installation and Construction']").val('0');
+        $("input[name='LN Number of LM']").val('0');
+        $("input[name='LM Annual Maintenance']").val('0');
+        $("input[name='LM GHG per m3']").val('0');
+        $("input[name='LM kWh per m3']").val('0');
+        $("input[name='LM Maximum Daily Capacity']").val('0');
+        $("input[name='LM Affordability']").val('0');
+        $("input[name='LM Reliability']").val('0');
+        $("input[name='LM Acceptability']").val('0');
+        $("input[name='LM Risk to Human Health']").val('0');
+        $("input[name='LM Space Requirement']").val('0');
+        $("input[name='LM Flexibility and Adaptabilit']").val('0');
+
+
+	 }
+     });
+});
+</script>
+
+</tr>
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="ReuseRecycleSystemsQuery">Run Simulation</button>
 </td>
 </tr>
 </table>
@@ -1949,18 +2056,38 @@ close
 </tr>
 </table>
 <script>
+  $("#ReuseRecycleSystemsQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  $("form#ReuseRecycleSystemsForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
+</script>
 
+<script>
 $("#loading-div-background").css({ opacity: 0.7 });
-
 function datetime_to_epoch(datetime) {
     var aDate = datetime.split('/');
     var epoch = new Date(aDate[2] + "," + aDate[0] + "," + aDate[1]).getTime() / 1000;
     return epoch;
 }
-
-
-
-
 var scrollTop = '';
 var newHeight = '20';
 $(window).bind('scroll', function() {
