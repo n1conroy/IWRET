@@ -19,6 +19,62 @@ templateDir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'template
 
 app = Flask (__name__, template_folder=templateDir);
 
+
+def ReuseRecycledrawfigs(data):
+        fig, ax = plt.subplots()
+        with open('neighhydro.csv', 'wb') as f:  
+            w = csv.DictWriter(f, data.keys())
+            w.writeheader()
+            w.writerow(data)
+        print data
+	model = pysd.read_vensim ('IWRET_13.mdl')
+        for k,v in data.items():
+            if v == 'on' or k=='undefined' or k=='formId':
+               del data[k]
+        modeldata=model.run(params=data, return_columns=['RH Total Water Harvested'])
+        glist = ['RH Total Water Harvested','IA Runoff Daily','IA Runoff Total',
+             'GWS Tank Inflow','Water Reuse Daily','Result RR LCC',
+             'Result RR GHG Emissions','Result RR Energy']
+        dict_of_plots=list()
+        x1 = range(7301)
+	y1 = modeldata['LU Sum']
+        indata=pd.DataFrame(x1,y1)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="NeighHyd1"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)    
+        return render_template("results.html", dict_of_plots=dict_of_plots)#snippet=plot_snippet)
+
+
+
+def NeighborhoodHyddraw_figs(data):
+    with lock:
+        fig, ax = plt.subplots()
+        with open('neighhydro.csv', 'wb') as f:  
+            w = csv.DictWriter(f, data.keys())
+            w.writeheader()
+            w.writerow(data)
+	model = pysd.read_vensim ('IWRET_13.mdl')
+        for k,v in data.items():
+            if v == 'on' or k=='undefined' or k=='formId':
+               del data[k]
+        modeldata=model.run(params=data, return_columns=['SW Daily Rate'])
+        glist =['LU Sum','CN Composite','Rainfall','SW Daily Rate']
+        dict_of_plots=list()
+        x1 = range(7301)
+	y1 = modeldata['CN Composite']
+        indata=pd.DataFrame(x1,y1)
+        indata.plot(ax=ax)
+        single_chart=dict()
+        single_chart['id']="NeighHyd1"
+        single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
+        dict_of_plots.append(single_chart)      
+
+        return render_template("results.html", dict_of_plots=dict_of_plots)#snippet=plot_snippet)
+    
+
+
 def Pumpingdraw_figs(data):
     with lock:
         fig, ax = plt.subplots()
@@ -30,10 +86,12 @@ def Pumpingdraw_figs(data):
         for k,v in data.items():
             if v == 'on' or k=='undefined' or k=='formId':
                del data[k]
-        modeldata=model.run(params=data, return_columns=['Result pumping LCC'])
+        modeldata=model.run(params=data, return_columns=['Result Pumping LCC'])
+        glist =['Result Pumping LCC', 'Result Pumping GHG Emissions', 'Result Pumping Energy']
+
         dict_of_plots=list()
         x1 = range(7301)
-	y1 = modeldata['Result pumping LCC']
+	y1 = modeldata['Result Pumping LCC']
         indata=pd.DataFrame(x1,y1)
         indata.plot(ax=ax)
         single_chart=dict()
@@ -43,7 +101,7 @@ def Pumpingdraw_figs(data):
 
         '''
         x2 = range(7301)
-	y2 = modeldata['Result Reached System Capacity']
+	y2 = modeldata['Result Pumping GHG Emissions']
         indata=pd.DataFrame(x2,y2)
         indata.plot(ax=ax)
         single_chart=dict()
@@ -52,7 +110,7 @@ def Pumpingdraw_figs(data):
         dict_of_plots.append(single_chart)
         
         x3 = range(7301)
-	y3 = modeldata['MF Stock of Units']
+	y3 = modeldata['Result Pumping Energy']
         indata=pd.DataFrame(x3,y3,)
         indata.plot(ax=ax)
         single_chart=dict()
@@ -65,7 +123,9 @@ def Pumpingdraw_figs(data):
     
 def WDdraw_figs(data):
     with lock:
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(2, 2, figsize=(3, 2),sharex='col', sharey='row')
+        fig.subplots_adjust(hspace=0.1, wspace=0.1)
+        
         with open('water_demand.csv', 'wb') as f:  
             w = csv.DictWriter(f, data.keys())
             w.writeheader()
@@ -75,11 +135,10 @@ def WDdraw_figs(data):
 	for k,v in data.items():
             if v == 'on' or k=='undefined' or k=='formId':
                del data[k]
-        modeldata=model.run(params=data, return_columns=[ 'MF Rate of Adoption', 'Result Reached System Capacity','MF Stock of Units','SF Stock of Units','SF Rate of Adoption','SF Average Occupancy per Unit',
-                                                          'MF Average Occupancy per Unit','Years'])
-        #modeldata=model.run(params=data, return_columns=[ 'MF Rate of Adoption', 'Result Reached System Capacity', 'MF Stock of Units','SF Stock of Units','**SF Units Total Area Occupied',
-        #                    '**SF Total Area for Irrigation', 'SF Rate of Adoption',  'SF Average Occupancy per Unit','MF Average Occupancy per Unit','***Domestic Demand','**Irrigation Demand',
-        #                    '***Commercial and Institutional Demand','***Daily Water Demand','Years'])
+
+        modeldata=model.run(params=data, return_columns=[ 'MF Rate of Adoption'])
+
+        #modeldata=model.run(params=data, return_columns=[ 'MF Rate of Adoption', 'Result Reached System Capacity','MF Stock of Units','SF Stock of Units','SF Rate of Adoption','SF Average Occupancy per Unit'])
         dict_of_plots=list()
         x1 = range(7301)
 	y1 = modeldata['MF Rate of Adoption']
@@ -89,7 +148,7 @@ def WDdraw_figs(data):
         single_chart['id']="WD1"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)      
-        
+        '''
         x2 = range(7301)
 	y2 = modeldata['Result Reached System Capacity']
         indata=pd.DataFrame(x2,y2)
@@ -116,7 +175,7 @@ def WDdraw_figs(data):
         single_chart['id']="WD4"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)
-        '''
+        
         x5 = range(7301)
 	y5 = modeldata['SF Units Total Area Occupied']
         indata=pd.DataFrame(x5,y5,)
@@ -134,7 +193,7 @@ def WDdraw_figs(data):
         single_chart['id']="WD6"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)
-        '''
+        
         x7 = range(7301)
 	y7 = modeldata['SF Rate of Adoption']
         indata=pd.DataFrame(x7,y7,)
@@ -161,7 +220,7 @@ def WDdraw_figs(data):
         single_chart['id']="WD9"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)
-        '''
+        
         x10 = range(7301)
 	y10 = modeldata['Domestic Demand']
         indata=pd.DataFrame(x10,y10,)
@@ -199,7 +258,7 @@ def WDdraw_figs(data):
         single_chart['id']="WD13"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)
-        '''
+        
         x14 = range(7301)
 	y14 = modeldata['Years']
         indata=pd.DataFrame(x14,y14,)
@@ -208,7 +267,7 @@ def WDdraw_figs(data):
         single_chart['id']="WD14"
         single_chart['json']=json.dumps(mpld3.fig_to_dict(fig))
         dict_of_plots.append(single_chart)
-        
+        '''
         return render_template("results.html", dict_of_plots=dict_of_plots)#snippet=plot_snippet)
 
 
@@ -222,7 +281,12 @@ def home():
 def query():
    d = json.loads(request.data)
    data= ast.literal_eval(json.dumps(d))
-   
+   '''for key in sorted(data):
+      print "%s: %s" % (key, data[key])
+   '''
+   return WDdraw_figs(data)   
+
+   '''
    if data['formId']=='WaterDemand':
         return WDdraw_figs(data)
    elif data['formId']=='NeighborhoodProperties':
@@ -238,8 +302,9 @@ def query():
    elif data['formId']=='PumpingStations':
         return Pumpingdraw_figs(data)
    elif data['formId']=='NeighborhoodHydrology':
-        return WDdraw_figs(data)
+        return NeighborhoodHyddraw_figs(data)
    elif data['formId']=='ReuseRecycleSystems':
         return WDdraw_figs(data)
+   '''
 if __name__ == '__main__':
     app.run(debug=True)

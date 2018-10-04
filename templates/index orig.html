@@ -15,11 +15,9 @@
 </strong>
 
 </head>
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <body>
-<form id="NeighborhoodPropertiesForm" method="POST">
 
 <table>
 
@@ -79,6 +77,7 @@
 <a class="popup-trigger" rel="nofollow">Neighborhood Properties</a>
 <br>
 <div class="popup" style="height:600px;">
+<form id="NeighborhoodPropertiesForm" method="POST">
 <input type="hidden" name="formId" value="NeighborhoodProperties">
 
 <table class="formcontainer" >
@@ -96,11 +95,11 @@ close
 <table cellpadding=10>
 <tr class=formsection2><td>
 <label>Project Information</label>
-  <br><input type="text"  value="Name of Neighborhood" size="30" __name="NP Project Information" >
+  <br><input type="text"  value="Name of Neighborhood" size="30" name="NP Project Information" >
 </td><td><label>Simulation Time [years]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="NP Simulation Time" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="NP Simulation Time" >
  </td><td> <label>Project Title</label>
-  <br><input type="text" value="Scenario" size="30" __name="NP Project Title" >
+  <br><input type="text" value="Scenario" size="30" name="NP Project Title" >
 </td></tr></table>
 </td>
 </tr>
@@ -150,16 +149,42 @@ close
 </tr>
 <tr>
 <td colspan=2 class=formsection2>
-<label for="file_input_id">Import Climate Data from File ..</label><input type="file" __name="NP Climate Data File">
+<label for="file_input_id">Import Climate Data from File ..</label><input type="file" name="NP Climate Data File">
 </td>
 </tr>
 </tr>
 <tr>
 <td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="NeighborhoodPropertiesQuery">Run Simulation</button>
 </td>
 </tr>
 </table>
 </div>
+</form>
+<script>
+  $("#NeighborhoodPropertiesQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  $("form#NeighborhoodPropertiesForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
 
  
 
@@ -175,6 +200,7 @@ close
 <a class="popup-trigger" rel="nofollow">Water Distribution Network </a>
 <br>
 <div class="popup" style="height:550px">
+<form id="WaterDistributionNetworkForm" method="POST">
 <table class="formcontainer">
 <tr>
 <td>
@@ -211,7 +237,7 @@ close
   <br><label>Construction cost [$]</label>
   <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Construction" >
   <br><label>Annual maintenance costs[$]</label>
-  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Annual Maintenance" >
+  <br><input type="number" min="0" max="100" step="1" value="50.0" size="10" name="WTM Annual Maintenace" >
 </td> 
 <tr >
 <tr>
@@ -235,13 +261,13 @@ close
   <br><label>Total Length [in]</label>
   <br><input type="number" min="1" max="10000" step="10" value="4000" size="30" name="WDM Total Length M1" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.9" size="30" name="WDM Unit Construction Energy M1" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.9" size="30" name="WDS Unit Construction Energy M1" >
  <br><label>Embodied GH/G for Construction [kg CO2-EQ/kg]</label>
-  <br><input type="number" min=".1" max="5" step="0.01" value="2.36" width="230" name="WDM Unit Construction GHG M1" >
+  <br><input type="number" min=".1" max="5" step="0.01" value="2.36" width="230" name="WDS Unit Construction GHG M1" >
   <br><label>Embodied Energy Maintenance [kWh/trip]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDM Unit Maintenance Energy M1" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance Energy M1" >
   <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label>    
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDM Unit Maintenance GHG M1" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance GHG M1" >
 </td>
 <td valign=top class=formsection2 >
   <label><b>Material 2</b></label><br>
@@ -258,18 +284,18 @@ close
   <br><label>Total Length [in]</label>
   <br><input type="number" min="1" max="10000" step="1" value="1" size="30" name="WDM Total Length M2" >
   <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" name="WDM Unit Construction Energy M2" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="30" name="WDS Unit Construction Energy M2" >
   <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" width="230" name="WDM Unit Construction GHG M2" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" width="230" name="WDS Unit Construction GHG M2" >
   <br><label>Embodied Energy Mainenance [kWh/trip]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDM Unit Maintenance Energy M2" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance Energy M2" >
   <br><label>Embodied GHG Maintenance [kg CO2-EQ/trip]</label>
-  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDM Unit Maintenance GHG M2" >
+  <br><input type="number" min=".1" max="5" step=".1" value="0.1" size="10" name="WDS Unit Maintenance GHG M2" >
 </td>
 <td class=formsection2>
   <label><b>Life Cycle Costs (LCL)</b></label><br>
   <label>Number of trips required for annual maintenance</label><br>
-  <input type="number" min="1" max="100" step="1" value="5" size="30" name="WDM Number of Maintenance Trips" >
+  <input type="number" min="1" max="100" step="1" value="5" size="30" name="WDN Number of Maintenance Trips" >
   <br><label>Replacement Costs [$]</label>
   <br><input type="number" min="0" max="15000000" step="1000" value="0" size="30" name="WDM Replacement" >
   <br><label>Disposal Cost [$]</label>
@@ -280,9 +306,56 @@ close
   <br><input type="number" min="0" max="15000000" step="100" value="1000000" width="230" name="WDM Annual Maintenance" >
 </td>
 </tr>
-
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="WaterDistributionNetworkQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
+</form>
 </div>
+<script>
+  $("#WaterDistributionNetworkQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $("#graph_container1").hide();
+  $("#graph_container2").hide();
+  $("#graph_container3").hide();
+
+  $(".mainpic").hide();
+  var qu ={};
+  
+  $("form#WaterDistributionNetworkForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    success: function (data) {     
+      var graph1 = $("#graph_container1");
+      var graph2 = $("#graph_container2");
+      var graph3 = $("#graph_container3");
+
+      graph1.html(data[0]);
+      graph2.html(data[1]);
+      graph3.html(data[2]);
+   
+      $("#loading-div-background").hide();      
+      $("#graph_container1").show();
+      $("#graph_container2").show();
+      $("#graph_container3").show();
+      $(".menu").show();
+      $("#message").html(data);
+   },
+   dataType: "html"
+ });
+});
+
+</script>
+
 
 
 <!-- *** END OF WATER DISTRIBUTION NETWORK           ***       -->
@@ -294,6 +367,7 @@ close
 <br>
 <div class="popup" style="height:550px" >
 
+<form id="WaterTreatmentWorksForm" method="POST">
 <table class="formcontainer" >
 <tr>
 <td>
@@ -358,11 +432,11 @@ close
 
 <br><label><b>Polyaluminum Chloride </b></label><br>
 <label>Required for treatment of 1m3 water[kg/m3]</label>
-  <br><input type="number" min="0.1" max="2" step="0.1" value="0.02886" size="30" name="WTW Unit Polyaluminium Chloride" >
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.02886" size="30" name="WTW Unit Polyaluminum Chloride" >
 <br><label>Greenhouse gas emissions for 1kg [kwh/kg]</label>
-  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WTW Unit Polyaluimium Chloride GHG" >
+  <br><input type="number" min="0.1" max="2" step="0.1" value="0.1" size="30" name="WTW Unit Polyaluminum Chloride GHG" >
 <br><label>Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="5" step="0.1" value="0.1" size="30" name="WTW Unit Polyaluminium Chloride EmEnergy" >
+  <br><input type="number" min="0.1" max="5" step="0.1" value="0.1" size="30" name="WTW Unit Polyaluminum Chloride EmEnergy" >
 </td>
 </tr>
 <tr>
@@ -401,11 +475,56 @@ close
 <br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Flexibility and Adaptability"><br>
 </td>
 </tr>
-
+<tr>
+  <td>
+  <button type="button" style="font-size: 14px; height:40px; width:160px;" id="WaterTreatmentWorksQuery">Run Simulation</button>
+ </td>
+</tr>
 </table>
 
 </div>
+</form>
+<script>
+  $("#WaterTreatmentWorksQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $("#graph_container1").hide();
+  $("#graph_container2").hide();
+  $("#graph_container3").hide();
 
+  $(".mainpic").hide();
+  var qu ={};
+  
+  $("form#WaterTreatmentWorksForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    success: function (data) {     
+      var graph1 = $("#graph_container1");
+      var graph2 = $("#graph_container2");
+      var graph3 = $("#graph_container3");
+
+      graph1.html(data[0]);
+      graph2.html(data[1]);
+      graph3.html(data[2]);
+   
+      $("#loading-div-background").hide();      
+      $("#graph_container1").show();
+      $("#graph_container2").show();
+      $("#graph_container3").show();
+      $(".menu").show();
+      $("#message").html(data);
+   },
+   dataType: "html"
+ });
+});
+
+</script>
 
 
 <!-- *** END OF WATER TREATMENT WORKS         ****	       -->
@@ -467,17 +586,17 @@ close
 	<option  value ="PVC" name="WSC Material 2">PVC</option>                  
   </select>
 <br><label>Total Length[in]</label>
- <br><input type="number" min="0" max="5000" step="10" value="1" size="30" name="WWCS Total Length M2" >
+ <br><input type="number" min="0" max="5000" step="10" value="1" size="30" name="WWSC Total Length M2" >
 <br><label>Unit Weight</label>
-<br><input type="number" min="100" max="2000" step="10" value="0" size="30" name="WWCS Total Weight M2" >
+<br><input type="number" min="100" max="2000" step="10" value="0" size="30" name="WWSC Total Weight M2" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWCS Unit Construction Energy M2" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWSC Unit Construction Energy M2" >
 <br><label>Embodied GMG for Constructcion [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWCS Unit Construction GHG M2" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWSC Unit Construction GHG M2" >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWCS Unit Maintenance Energy M2" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWSC Unit Maintenance Energy M2" >
 <br><label>Embodied GMG Maintenance [Kg C02-EQ/trip]</label>
-  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWCS Unit Maintenance GHG M2" >
+  <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWSC Unit Maintenance GHG M2" >
 </td>
 <td class= "formsection2">
 <br>
@@ -511,13 +630,15 @@ close
 	<option  value ="PVC" name="SWSC Material 1">PVC</option>                  
   </select>
 <br><label>Total Length[in]</label>
-  <br><input type="number" min="0" max="5000" step="1" value="2000" size="30" __name="SWCS Total Length M1" >
+  <br><input type="number" min="0" max="5000" step="1" value="2000" size="30" name="SWCS Total Length M1" >
 <br><label>Unit Weight</label>
  <br> <input type="number" min="100" max="2000" step="10" value="750" size="30" name="SWCS Unit Weight M1" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0.9" size="30" name="SWCS Unit Construction Energy M1" >
 <br><label>Embodied GHG for Construction [kg CO2-EQ/kg]</label>
   <br><input type="number" min="0.1" max="5" step=".01" value="2.36" size="30" name="SWCS Unit Construction GHG M1" >
+<br><label>Number of Trips for Maintenance [#]</label>
+  <br><input type="number" min="1" max="100" step="1" value="1" size="30" name="SWCS Number of Maintenance Trips " >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
   <br><input type="number" min="0.1" max="5" step="0.01" value="0.05" size="30" name="SWCS Unit Maintenance Energy M1" >
 <br><label>Embodied GHG Maintenance [Kg Co2-EQ/trip]</label>
@@ -566,6 +687,7 @@ close
 </td>
 </tr>
 </table>
+</form>
 </div>
 <!-- ******** END OF SEWER COLLECTION NETWORK  ********        -->
 
@@ -576,6 +698,7 @@ close
 <a class="popup-trigger" rel="nofollow">Water Demand</a>
 <br>
 <div class="popup" id="Water Demand Popup" style="height:500">
+<form id="WaterDemandForm" method="POST">
 <input type="hidden" name="formId" value="WaterDemand">
 <table  class="formcontainer">
 <tr><td>
@@ -940,10 +1063,39 @@ $(document).ready(function(){
   <br><input type="number" min="1" max="24" step="1" value="18" size="30" name="HVAC Hours of Operation" >
 </td>
 </tr>
-
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="WaterDemandQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
 </div>
-
+</form>
+<script>
+  $("#WaterDemandQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  $("form#WaterDemandForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
+</script>
 <!--- ******** END OF WATER DEMAND  ************                    ------->
 
 <!-- ********************************************************    -->
@@ -952,6 +1104,7 @@ $(document).ready(function(){
 <a class="popup-trigger" rel="nofollow">Wastewater Treatment Works</a>
 <br>
 <div class="popup" style="height:650px" >
+<form id="WastewaterTreatWorksForm" method="POST">
 <input type="hidden" name="formId" value="WastewaterTreatmentWorks">
 <table class="formcontainer" >
 <tr>
@@ -982,20 +1135,20 @@ close
 <br><label>Ferric Chloride Embodied GHG [kg CO2-EQ/kg]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.01" value="1.39" size="30" name="WWTW Unit Ferric Chloride GHG" >
 <br><label>Ferric Chloride Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.0" max="2.0" step="0.01" value="0.26" size="30" name="WWTW Unit Ferric Chloride EmEnergy" >
+  <br><input type="number" min="0.0" max="2.0" step="0.01" value="0.26" size="30" name="WWTW Unit Ferric EmEnergy" >
 <br><label>Ferric Sulphate [kg/m3]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.0001" value="0.0215" size="30" name="WWTW Unit Ferric Sulphate" >
 <br><label>Ferric Sulphate Embodied GHG [Kg CO2-EQ/kg]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.1" value="0.37" size="30" name="WWTW Unit Ferric Sulphate GHG" >
 <br><label>Ferric Sulphate Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.0" max="2.0" step="0.1" value="2" size="30" name="WWTW Unit Ferric Sulphate EmEnergy" >
+  <br><input type="number" min="0.0" max="2.0" step="0.1" value="2" size="30" name="WTW Unit Ferric Sulphate EmEnergy" >
 <br><label>Nictric Acid [kg/m3]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.001" value="0.0245" size="30" name="WWTW Unit Nitric Acid" >
 <br><label>Nitric Acid Embodied GHG [Kg CO2-EQ/kg]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.1" value="6.3" size="30" name="WWTW Unit Nitric Acid GHG" >
 <br><label>Nictric Acid Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0" max="2.0" step="0.01" value="3.31" size="30" name="WWTW Unit Nitric Acid EmEnergy" >
-</td
+  <br><input type="number" min="0" max="2.0" step="0.01" value="3.31" size="30" name="WWTW Unite Nitric Acid EmEnergy" >
+</td>
 <td class="formsection2">
 <br><label>Calcium Hydroxide [kg/m3]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.01" value="0.03" size="30" name="WWTW Unit Calcium Hydroxide" >
@@ -1010,11 +1163,11 @@ close
 <br><label>Ethanol Embodied Energy [kWh/kg]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.1" value="0.83" size="30" name="WWTW Unit Ethanol EmEnergy" >
 <br><label>Methanol [kg/m3]</label>
-  <br><input type="number" min="0.0" max="2.0" step="0.0001" value="0.0329" size="30" name="WWTW Unit Methanol" >
+  <br><input type="number" min="0.0" max="2.0" step="0.0001" value="0.0329" size="30" name="Unit Methanol" >
 <br><label>Methanol Embodied GHG [kg CO2-EQ/kg]</label>
-  <br><input type="number" min="0.0" max="2.0" step="0.001" value="0.736" size="30" name="WWTW Unit Methanol GHG" >
+  <br><input type="number" min="0.0" max="2.0" step="0.001" value="0.736" size="30" name="Unit Methanol GHG" >
 <br><label>Methanol Embodied Energy [kWh/kg]</label>
-  <br><input type="number" min="0.0" max="2.0" step="0.01" value="4.56" size="30" name="WWTW Unit Methanol EmEnergy" >
+  <br><input type="number" min="0.0" max="2.0" step="0.01" value="4.56" size="30" name="Unit Methanol EmEnergy" >
 </td>
 </tr>
 <tr>
@@ -1029,7 +1182,7 @@ close
 <br><label>Number of Staff [persons]</label>
   <br><input type="number" min="0" max="50" step="1" value="35" size="30" name="WWTW Number of Staff" >
 <br><label>Average Annual Salary [$/person]</label>
-  <br><input type="number" min="10000" max="100000" step="1000" value="55000" size="30" name="WWTW Average Salary" >
+  <br><input type="number" min="10000" max="100000" step="1000" value="55000" size="30" name="WWTW Average Staff Salary" >
 <br><label>Administration Rate [%]</label>
   <br><input type="number" min="0.01" max=".5" step=".01" value="0.1" size="30" name="WWTW Administration Rate">
 <br><label>Energy Required for Treatments [$/in3]</label>
@@ -1055,11 +1208,39 @@ close
 <br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Flexibility and Adaptability"><br>
 </td>
 </tr>
-
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="WastewaterTreatWorksQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
 </div>
-
-
+</form>
+<script>
+  $("#WastewaterTreatWorksQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  $("form#WastewaterTreatWorksForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
+</script>
 
 <!--- ******** END OF WASTEWATER TREATMENT WORKS ********* ------->
 
@@ -1071,6 +1252,7 @@ close
 <a class="popup-trigger" rel="nofollow">Pumping Stations</a>
 <br>
 <div style="height:550" class="popup">
+<form id="PumpingStationsForm" method="POST">
 <input type="hidden" name="formId" value="PumpingStations">
 <table  class="formcontainer">
 <tr>
@@ -1125,7 +1307,7 @@ close
 <td valign="top"  class="formsection2">
 <h3>Regime of Pump Operation</h3></input>
   <label>Total Dynamic Head of Pump [m]</label>
-  <br><input type="range" min="0" max="500" value="25" class="slider-width" name="WWP Total Dynamic Head"><br>
+  <br><input type="range" min="0" max="500" value="25" class="slider-width" __name="WWP Total Dynamic Head of Pump"><br>
   <br><label>Duration of Pup Operatoin [hours/day]</label>
   <br><input type="number" min="1" max="24" step="1" value="24" size="30" name="WWP Duration of Pump Operation" >
   <br><label>Motor Efficiency [%]</label>
@@ -1254,10 +1436,39 @@ $(document).ready(function(){
 });
 </script>
 </tr>
-
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="PumpingStationsQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
 </div>
-
+</form>
+<script>
+  $("#PumpingStationsQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  $("form#PumpingStationsForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
+</script>
 <!---- ******* END OF PUMPING STATIONS    ******       --------!>
 
 
@@ -1268,6 +1479,7 @@ $(document).ready(function(){
 <a class="popup-trigger" rel="nofollow">Neighborhood Hydrology</a>
 <br>
 <div style="height:550" class="popup">
+<form id="NeighborhoodHydrologyForm" method="POST">
 <input type="hidden" name="formId" value="NeighborhoodHydrology">
 <table  class="formcontainer">
 <tr><td>
@@ -1563,9 +1775,42 @@ $(document).ready(function(){
 <br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Flexibility and Reliability"><br>
 </td>
 </tr>-->
-
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="NeighborhoodHydrologyQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
+</form>
+<script>
+  $("#NeighborhoodHydrologyQuery").click(function() {  
+  $(this).parent().parent().parent().parent().parent().parent().hide();
+  $("#loading-div-background").show();
+  $(".mainpic").hide();
+  var qu ={};
+  
+  $("form#NeighborhoodHydrologyForm :input").each(function() {
+        qu[$(this).attr("name")] = $(this).val();
+  });
+  $.ajax({
+    type: "POST",
+    async:true,
+    contentType: "application/json; charset=utf-8",
+    url: "/query",
+    data: JSON.stringify(qu),
+    dataType: "html",
+    success: function(response)
+	 {     
+	 $("#loading-div-background").hide();   
+	 $(".menu").show();
+         document.write(response);
+     }
+   });
+});
 
+ 
+
+</script>
 
 
 </div>
@@ -1578,10 +1823,9 @@ $(document).ready(function(){
 <!-- ******************************************************    -->
 
 <a class="popup-trigger" rel="nofollow">Reuse/Recycle Systems</a>
-<br><button type="button" style="font-size: 14px; height:40px; width:160px;" id="ReuseRecycleSystemsQuery">Run Simulation</button>
-
 <br>
 <div class="popup" style="height:500px;">
+<form id="ReuseRecycleSystemsForm" method="POST">
 <table class="formcontainer">
 <tr>
 <td><h3 id="myModalLabel">Reuse/Recycle Systems</h3>
@@ -1597,13 +1841,13 @@ close
 <br><label>Car Parking Lots [m2]</label>
 <br><input type="number" min="0" max="100000" step="1" value="2000" size="30" name="IA Parking Footprint" >
 <br><label>Standard Roofs [m2]</label>
-<br><input type="number" min="0" max="100000" step="1" value="2000" size="30" name="IA Standard Roof Footprint" >
+<br><input type="number" min="0" max="100000" step="1" value="2000" size="30" name="IA Stanford Roof Footprint" >
 <br><label>Roads and Sidewalks [m2]</label>
 <br><input type="number" min="0" max="100000" step="1" value="2000" size="30" name="IA Roads and Sidewalks Footprint" >
 <br><label>Percentage of IA Harvested [m2]</label>
 <br><input type="number" min="0" max="1" step=".01" value="0.75" size="30" name="IA Percentage of Area Collected" >
 <!--<br><label>Total Storage Capacity [m3]</label>
-<br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="IA Storage Capacity" >
+<br><input type="number" min="0" max="100" step="1" value="0" size="30" name="IA Storage Capacity" >
 --></td>
 <script>
 $(document).ready(function(){
@@ -1653,9 +1897,9 @@ $(document).ready(function(){
 <br><label>Percentage of total water consumption in hospitals </label>
 <br><input type="number" min="0" max="1" step="0.01" value="0.45" size="30" name="Dem Hospitals Restroom" >
 <br><label>Percentage of total water consumption in schools </label>
-<br><input type="number" min="0" max="1" step="0.01" value="0.35" size="30" name="Dem Schools Restrooms" >
+<br><input type="number" min="0" max="1" step="0.01" value="0.35" size="30" name="Dem Schools Restroom" >
 <br><label>Hospital Demand with LM</label>
-<br><input type="number" min="0" max="100" step="1" value="0.5" size="30" name="LM Percentage of Hospitals" >
+<br><input type="number" min="0" max="100" step="1" value="0.5" size="30" name="LM Percentage for Hospitals" >
 <br><label>School Demand with LM [%]</label>
 <br><input type="number" min="0" max="1" step="0.01" value="0.88" size="30" name="LM Percentage of Schools" >
 <br><label>Office Building Demand with LM [%]</label>
@@ -1709,7 +1953,7 @@ $(document).ready(function(){
 <br><label>Pump efficiency coefficient</label>
 <br><input type="number" min="0" max="100" step="1" value="88" size="30" name="GWP Pump Efficiency">
 <br><label>Variable speed drive efficiency</label>
-<br><input type="number" min="0" max="500" step="1" value="85" size="30" name="GWP Variable Speed Drive Efficiency" >
+<br><input type="number" min="0" max="500" step="1" value="85" size="30" name="GWP Variable Drive Speed Efficiency" >
 <br><label>Motor Efficiency</label>
 <br><input type="number" min="0" max="100" step="1" value="90" size="30" name="GWP Motor Efficiency">
 <br><label>Average Dynamic Head [m]]</label>
@@ -1797,7 +2041,7 @@ $(document).ready(function(){
         $("input[name='GWP Construction and Installation']").val('0');
         $("input[name='GWP Annual Maintenance']").val('0');
         $("input[name='GWP Pump Efficiency']").val('0');
-        $("input[name='GWP Variable Speed Drive Efficiency']").val('0');
+        $("input[name='GWP Variable Drive Speed Efficiency']").val('0');
         $("input[name='GWP Motor Efficiency']").val('0');
         $("input[name='GWP Average Dynamic Head']").val('0');
         $("input[name='GWP Duration of Pump Operation']").val('0');
@@ -1852,25 +2096,32 @@ $(document).ready(function(){
 });
 </script>
 
-
+</tr>
+<tr>
+<td>
+ <button type="button" style="font-size: 14px; height:40px; width:160px;" id="ReuseRecycleSystemsQuery">Run Simulation</button>
+</td>
+</tr>
 </table>
 </div>
+<br>
+</p>
 
-</form>
-
-</tr>
 </td>
 </tr>
 <tr>
 <td colspan="1">
 <img  class="mainpic" src="../static/images/iwret_logo.png" height=100px>
+</td>
+</tr>
+</table>
 <script>
   $("#ReuseRecycleSystemsQuery").click(function() {  
-  $(this).parent().hide();
+  $(this).parent().parent().parent().parent().parent().parent().hide();
   $("#loading-div-background").show();
   $(".mainpic").hide();
   var qu ={};
-  $("form#NeighborhoodPropertiesForm :input").each(function() {
+  $("form#ReuseRecycleSystemsForm :input").each(function() {
         qu[$(this).attr("name")] = $(this).val();
   });
   $.ajax({
@@ -1888,7 +2139,9 @@ $(document).ready(function(){
      }
    });
 });
+</script>
 
+<script>
 $("#loading-div-background").css({ opacity: 0.7 });
 function datetime_to_epoch(datetime) {
     var aDate = datetime.split('/');
@@ -1983,12 +2236,6 @@ function downloadCSV(args) {
     link.setAttribute('download', filename);
     link.click();
 }
+
 </script>
-</td>
-</tr>
-
-
-</table>
-
-
 </html>
