@@ -137,8 +137,8 @@ close
 <h3>Global Variables</h3>
 <label>Price of Electricity [Dollars/kWh]</label>
   <br><input type="number" min="1" max="50" step="1" value="0.11" size="30" name="Electricity Fee" >
- <!-- <br><label>Electricity Generation Emission Factor per Year [kgCO2/kWh]</label>
-  <br><input type="number" min="0" max="100" step="1" value="0.348" size="30" name="GWP Price per kWh" >-->
+  <br><label>Electricity Generation Emission Factor per Year [kgCO2/kWh]</label>
+  <br><input type="number" min="0" max="100" step="1" value="0.348" size="30" name="WP CO2 per kWh" >
  <br><label>Construction and installation costs for 1m2 of asphalt</label>
   <br><input type="number" min="0" max="10000" step="1" value="1000" size="30" name="Asphalt CC Unit Cost" >
    <br><label>Construction and installation GHG emission for 1m2 of asphalt</label>
@@ -189,9 +189,9 @@ close
 <tr>
 <td class=formsection2 valign=top>
 <h3>Water Supply Conducts (WSC)</h3>
-<label>Total carrying capacity of water conduit[m3/day]</label>
-  <br><input type="number" min="0" max="50000" step="100"  value="15000" size="30" name="Water Conduit Daily Capacity" >
-  <br><label>Leakage Percentage [%]</label>
+<label>Water Conduit Daily Capacity</label>
+  <br><input type="number" min="0" max="50000" step="100" value="15" size="30" name="Water Conduit Daily Capacity" >
+  <br><label>Water Conduit Available Capacity</label>
   <br><input type="number" min="0" max="100" step="1" value="90" size="30" name="Water Conduit Available Capacity" >
   <br><label>Replacement Cost [$]</label>
   <br><input type="number" min="0" max="15000000" step="1000" value="0" size="30" name="WSC Replacement" >
@@ -469,10 +469,10 @@ close
 <br><label>Total Length[in]</label>
  <br><input type="number" min="0" max="5000" step="10" value="1" size="30" name="WWCS Total Length M2" >
 <br><label>Unit Weight</label>
-<br><input type="number" min="100" max="2000" step="10" value="0" size="30" name="WWCS Total Weight M2" >
+<br><input type="number" min="100" max="2000" step="10" value="0" size="30" name="WWCS Unit Weight M2" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWCS Unit Construction Energy M2" >
-<br><label>Embodied GMG for Constructcion [kg CO2-EQ/kg]</label>
+<br><label>Embodied GMG for Construction [kg CO2-EQ/kg]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWCS Unit Construction GHG M2" >
 <br><label>Embodied Energy Maintenance [kWh/trip]</label>
   <br><input type="number" min="0.1" max="5" step=".1" value="0" size="30" name="WWCS Unit Maintenance Energy M2" >
@@ -511,7 +511,7 @@ close
 	<option  value ="PVC" name="SWSC Material 1">PVC</option>                  
   </select>
 <br><label>Total Length[in]</label>
-  <br><input type="number" min="0" max="5000" step="1" value="2000" size="30" __name="SWCS Total Length M1" >
+  <br><input type="number" min="0" max="5000" step="1" value="2000" size="30" name="SWS Total Length M1" >
 <br><label>Unit Weight</label>
  <br> <input type="number" min="100" max="2000" step="10" value="750" size="30" name="SWCS Unit Weight M1" >
 <br><label>Embodied Energy for Construction [kWh/kg]</label>
@@ -560,7 +560,7 @@ close
 <br><label>Maintenance Cost [$/year]<]/label>
   <br><input type="number" min="0" max="15000000" step="1000" value="1000000" size="30" name="SWCS Annual Maintenance" >
 <br><label>Number of trips required for annual maintenance<]/label>
-  <br><input type="number" min="0" max="100" step="1" value="0" size="30" name="SWCS Number of Maintenance Trips" >
+  <br><input type="number" min="0" max="100" step="1" value="0" size="30" __name="SWCS Number of Maintenance Trips" >
 
 
 </td>
@@ -951,29 +951,28 @@ $(document).ready(function(){
 <!-- ********************************************************    -->
 <a class="popup-trigger" rel="nofollow">Wastewater Treatment Works</a>
 <br>
-<div class="popup" style="height:650px" >
+<div class="popup" style="height:550px" >
 <input type="hidden" name="formId" value="WastewaterTreatmentWorks">
 <table class="formcontainer" >
 <tr>
 <td>
 <h3 id="myModalLabel">Wastewater Treatment Works</h3>
 </td>
-<td align=right class="popup-btn-close">
+<td colspan=2 align=right class="popup-btn-close">
 close
 </td>
 </tr>
 <tr>
-<td class="formsection2">
+<td colspan =3 class="formsection2">
   <h3>Physical Properties</h3>
   <br><label>Wastewater Generation Factor</label>
   <br><input type="number" min="0" max="1" step="0.01" value="0.85" size="15" name="Wastewater Generation as a percentage of water use" >
   <br><label>Total Daily Treatment Capacity [m3/day]</label>
   <br><input type="number" min="0" max="1000000" step="100" value="600000" size="15" name="WWTW Daily Treatment Capacity" >
   <br> <label>Capacity Available for New Development</label>
-  <br><input type="number" min="0" max="1" step="0.1" value="0.2" value="WWTW Available Capacity" size="30" name="WTW Available Capacity" >
+  <br><input type="number" min="0" max="1" step="0.1" value="0.2" size="30" name="WWTW Available Capacity" >
   </td>
 </tr>
-
 <tr>
 <td class="formsection2">
 <h3> Chemicals Flux</h3>
@@ -995,7 +994,7 @@ close
   <br><input type="number" min="0.0" max="2.0" step="0.1" value="6.3" size="30" name="WWTW Unit Nitric Acid GHG" >
 <br><label>Nictric Acid Embodied Energy [kWh/kg]</label>
   <br><input type="number" min="0" max="2.0" step="0.01" value="3.31" size="30" name="WWTW Unit Nitric Acid EmEnergy" >
-</td
+</td>
 <td class="formsection2">
 <br><label>Calcium Hydroxide [kg/m3]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.01" value="0.03" size="30" name="WWTW Unit Calcium Hydroxide" >
@@ -1016,8 +1015,7 @@ close
 <br><label>Methanol Embodied Energy [kWh/kg]</label>
   <br><input type="number" min="0.0" max="2.0" step="0.01" value="4.56" size="30" name="WWTW Unit Methanol EmEnergy" >
 </td>
-</tr>
-<tr>
+
 <td  class="formsection2">
 <h3> Life Cycle Costs (LCC)</h3>
 <label>Construction and Installation Costs [$]</label>
@@ -1039,6 +1037,7 @@ close
 <br><label>Slidge Removal and Transport [%/kg]</label>
   <br><input type="number" min="1" max="1000" step=".01" value="1.12" size="30" name="WWTW Sludge Transport and Disposal" >
 </td>
+</tr>
 <td class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
@@ -1053,6 +1052,23 @@ close
 <br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
 <br><input type="range" min="1" max="5" value="3" class="slider-width" name="WTW Flexibility and Adaptability"><br>
+</td>
+<td class="formsection2">
+</td>
+<td class="formsection2">
+<h3>Qualitative Indicators</h3>
+<label>Affordability[Dmnls] </label>
+<br><input type="range" min="1" max="5"  value="3" class="slider-width" name="WWTW Affordability"><br>
+<label>Reliability [Dmls]</label>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWTW Reliability"><br>
+<label>Acceptability [Dmls] </label>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWTW Acceptability"><br>
+<label>Risk to Human Health [Dmnls] </label>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWTW Risk to Human Health"><br>
+<label>Spatial Requirements [Dmnls] </label>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWTW Space Requirements"><br>
+<label>Flexibility and Adaptability [Dmnls] </label>
+<br><input type="range" min="1" max="5" value="3" class="slider-width" name="WWTW Flexibility and Adaptability"><br>
 </td>
 </tr>
 
@@ -1260,6 +1276,57 @@ $(document).ready(function(){
 
 <!---- ******* END OF PUMPING STATIONS    ******       --------!>
 
+<!-- *************************************************************    -->
+<!-- *****     BEGINNING OF STORMWATER TREATMENT WORKS    *****    -->
+<!-- *************************************************************    -->
+
+<a class="popup-trigger" rel="nofollow">Stormwater Treatment Works</a>
+<br>
+<div style="height:450" class="popup">
+<input type="hidden" name="formId" value="StormwaterTreatmentWorks">
+<table  class="formcontainer">
+<tr><td>
+<h3 id="myModalLabel">Stormwater Treatment Works</h3>
+</td>
+<td colspan=4 align=right class="popup-btn-close">
+close
+</td>
+</tr>
+<tr>
+<td valign="top" class="formsection2">
+  <label>Annual maintenance costs</label>
+  <br><input type="number" min="0.1" max="2" step="0.01" value=".26" size="30" name="SWTW Annual Maintenance" >
+  <br><label>Average salary of personnel]</label>
+  <br><input type="number" min="0" max="100000" step="1" value="100000" size="30" name="SWTW Average Salary" >
+  <br><label>Capital investments required for capacity extension of existing SWTW</label>
+  <br><input type="number" min="0" max="50000000" step="1" value="0" size="30" name="SWTW Capital Investment" >
+  <br><label>Construction and installation costs for new water treatment works facility</label>
+  <br><input type="number" min="0" max="50000000" step="0.1" value="1.5" size="30" name="SWTW Construction and Installation" >
+  <br><label>Energy required for treatment of 1m3 of stormwater</label>
+  <br><input type="number" min="0" max="10" step="0.01" value="0.33" size="30" name="SWTW Electricity for treatment" >
+  <br><label>Number of persons required for daily service</label>
+  <br><input type="number" min="0" max="50" step="0.1" value="0" size="30" name="SWTW Number of Staff" >
+  <br><label>Chemicals required for treatment of 1m3 strormwater</label>
+  <br><input type="number" min="0.1" max="2" step="0.001" value="0.0299" size="30" name="SWTW Unit Ferric Chloride" >
+  <br><label>Embodied energy for 1kg chemical used for treatment</label>
+  <br><input type="number" min="0.1" max="2" step="0.01" value="1.39" size="30" name="SWTW Unit Ferric Chloride EmEnergy" >
+ <br><label>Greenhouse house emissions for 1kg of chemical used for treatment</label>
+  <br><input type="number" min="0" max="5000" value="2000"  name="SWT Unit Ferric Chloride GHG">
+ 
+</td>
+</tr>
+
+</table>
+
+
+
+</div>
+
+<!-- ****** END OF STORMWATER TREATMENT WORKS  ***************    -->
+
+
+
+
 
 <!-- *************************************************************    -->
 <!-- *****     BEGINNING OF NEIGHBOURHOOD HYDROLOGY WORKS    *****    -->
@@ -1273,7 +1340,7 @@ $(document).ready(function(){
 <tr><td>
 <h3 id="myModalLabel">Neighborhood Hydrology </h3>
 <label>Daily precipitation (*.csv)</label><br>
-<input type="file" size=30 name="Rainfall" accept=".csv" />
+<input type="file" size=30 __name="RainfallFile" accept=".csv" />
 </td>
 <td colspan=4 align=right class="popup-btn-close">
 close
@@ -1467,7 +1534,7 @@ $(document).ready(function(){
   <br><label>Annual Maintenance Cost [$/m2]</label>
   <br><input type="number" min="0" max="500" step="1" value="100" size="30" name="Bioswale Annual Maintenance Costs" >
   <br><label>Construction GHG [kgCO2eg/m2]</label>
-  <br><input type="number" min="0.1" max="5" step="0.001" value="0.2115" size="30" __name="Bioswale Construction GHG" >
+  <br><input type="number" min="0.1" max="5" step="0.001" value="0.2115" size="30" name="Bioswale Contruction GHG" >
 </td>
 <script>
 $(document).ready(function(){
@@ -1484,21 +1551,21 @@ $(document).ready(function(){
 });
 </script>
 </tr>
-<!--TOOK OUT QA FOR THIS<tr>
+<tr>
 <td valign="top" class="formsection2">
-<h3>Qualitative Indicators</h3>
-<label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="Porous Pavement Affordability"><br>
-<label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="Porous Pavement Reliability"><br>
-<label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Acceptability"><br>
-<label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Risk to Human Health"><br>
-<label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Porous Pavement Space Requirements"><br>
-<label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="100" value="5" class="slider-width" name="Porous Pavement Flexibility and Adaptability"><br>
+<h3>Stormwater Ponds</h3>
+<label>Annual maintenance costs for 1m3 </label>
+<br><input type="number" min="0" max="5000" value="1250" name="SW Pond Annual Maintenance Costs"><br>
+<label>Curve Number (CN) for Stormwater Ponds</label>
+<br><input type="range" min="1" max="100"  value="0" name="SW Pond CN Value"><br>
+<label>Embodied GHG Emissions for construction of 1m3 </label>
+<br><input type="number" min="0.1" max="5" value="0.2115" step="0.0001" name="SW Pond Construction GHG"><br>
+<label>Design and Capital Costs for 1m3</label>
+<br><input type="number" min="0" max="5000" value="1100"  name="SW Pond Design and Capital Costs"><br>
+<label>Total area occupied by stormwater ponds </label>
+<br><input type="number" min="1" max="500000" value="1000" name="SW Pond Footprint"><br>
+<label>Volume of storage</label>
+<br><input type="number" min="1" max="50000" value="2650"  name="SW Pond Storage Volume"><br>
 </div>
 </td>
 <td class="formsection2">
@@ -1517,20 +1584,21 @@ $(document).ready(function(){
 <br><input type="range" min="1" max="5" class="slider-width" name="Green Roof Flexibility and Adaptability"><br>
 </div>
 </td>
+<!--
 <td  class="formsection2">
 <h3>Qualitative Indicators</h3>
 <label>Affordability[Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Affordability"><br>
+<br><input type="range" min="1" max="5" class="slider-width" __name="Rain Barrels and Cisterns Affordability"><br>
 <label>Reliability [Dmls]</label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Reliability"><br>
+<br><input type="range" min="1" max="5" class="slider-width" __name="Rain Barrels and Cisterns Reliability"><br>
 <label>Acceptability [Dmls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Acceptability"><br>
+<br><input type="range" min="1" max="5" class="slider-width" __name="Rain Barrels and Cisterns Acceptability"><br>
 <label>Risk to Human Health [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Risk to Human Health"><br>
+<br><input type="range" min="1" max="5" class="slider-width" __name="Rain Barrels and Cisterns Risk to Human Health"><br>
 <label>Spatial Requriements [Dmnls] </label>
-<br><input type="range" min="1" max="5"  class="slider-width" name="Rain Barrels and Cisterns Space Requirements"><br>
+<br><input type="range" min="1" max="5"  class="slider-width" __name="Rain Barrels and Cisterns Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Rain Barrels and Cisterns Flexibility and Adaptability"><br>
+<br><input type="range" min="1" max="5" class="slider-width" __name="Rain Barrels and Cisterns Flexibility and Adaptability"><br>
 </td>
 <td valign="top" class="formsection2">
 <h3>Qualitative Indicators</h3>
@@ -1560,7 +1628,7 @@ $(document).ready(function(){
 <label>Spatial Requriements [Dmnls] </label>
 <br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Space Requirements"><br>
 <label>Flexibility and Adaptability [Dmnls] </label>
-<br><input type="range" min="1" max="5" class="slider-width" name="Bioswale Flexibility and Reliability"><br>
+<br><input type="range" min="1" max="5" class="slider-width" __name="Bioswale Flexibility and Reliability"><br>
 </td>
 </tr>-->
 

@@ -125,22 +125,23 @@ def WDdraw_figs(data):
     with lock:
         fig, ax = plt.subplots(2, 2, figsize=(3, 2),sharex='col', sharey='row')
         fig.subplots_adjust(hspace=0.1, wspace=0.1)
-        
+        for key in sorted(data):
+             print "%s: %s" % (key, data[key])
         with open('water_demand.csv', 'wb') as f:  
             w = csv.DictWriter(f, data.keys())
             w.writeheader()
             w.writerow(data)
-	model = pysd.read_vensim ('IWRET_13.mdl')
+	model = pysd.read_vensim ('IWRET_17_DWD.mdl')
         # remove all checkbox elements
 	for k,v in data.items():
             if v == 'on' or k=='undefined' or k=='formId':
                del data[k]
-
-        modeldata=model.run(params=data, return_columns=[ 'MF Rate of Adoption'])
+        modeldata=model.run(params=data,return_columns=['MF Rate of Adoption', 'Result Reached System Capacity'])
+        #modeldata=model.run(params=data)
 
         #modeldata=model.run(params=data, return_columns=[ 'MF Rate of Adoption', 'Result Reached System Capacity','MF Stock of Units','SF Stock of Units','SF Rate of Adoption','SF Average Occupancy per Unit'])
         dict_of_plots=list()
-        x1 = range(7301)
+        x1 = range(731)
 	y1 = modeldata['MF Rate of Adoption']
         indata=pd.DataFrame(x1,y1)
         indata.plot(ax=ax)
